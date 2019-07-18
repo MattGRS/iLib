@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace BibliotecaModelos
 {
-    class Exemplar
+    public class Exemplar
     {
+        public string Registro { get; private set; }
+        public int NumeroExemplar { get; private set; }
+        public Livro Livro { get; private set; }
     }
 }
