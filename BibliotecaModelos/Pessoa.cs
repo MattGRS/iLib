@@ -11,6 +11,6 @@ namespace BibliotecaModelos
         public int Id { get; set; }
         public string Nome { get; private set; }
         public string CPF { get; private set; }
-        public Endereco Endereco { get; privateset; }
+        public Endereco Endereco { get; private set; }
     }
 }
