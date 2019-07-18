@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace BibliotecaModelos
 {
-    class Estado
+    public class Estado
     {
+        public string NomeEstado { get; private set; }
+        public Pais Pais { get; private set; }
     }
 }
