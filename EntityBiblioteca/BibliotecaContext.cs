@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EntityBiblioteca
 {
-    internal class BibliotecaContext :DbContext
+    internal class BibliotecaContext : DbContext
     {
         public DbSet<Pessoa> Pessoas { get; internal set; }
         public BibliotecaContext(DbContextOptions<BibliotecaContext> options) : base(options)
