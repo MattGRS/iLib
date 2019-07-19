@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BibliotecaModelos;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,7 @@ namespace EntityBiblioteca
 {
     internal class BibliotecaContext :DbContext
     {
-        public BibliotecaContext()
-        {
-
-        }
+        public DbSet<Pessoa> Pessoas { get; internal set; }
         public BibliotecaContext(DbContextOptions<BibliotecaContext> options) : base(options)
         {
 
