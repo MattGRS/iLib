@@ -126,11 +126,6 @@
   <ItemGroup>
     <Compile Include="BibliotecaContext.cs" />
     <Compile Include="IEntityBase.cs" />
-    <Compile Include="Migrations\20190723011550_Teste.cs" />
-    <Compile Include="Migrations\20190723011550_Teste.designer.cs">
-      <DependentUpon>20190723011550_Teste.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\BibliotecaContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -143,7 +138,9 @@
       <Name>BibliotecaModelos</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
