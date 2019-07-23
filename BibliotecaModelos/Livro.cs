@@ -8,10 +8,12 @@ namespace BibliotecaModelos
 {
     public class Livro
     {
-        public string Titulo { get; private set; }
-        public Autor Autor { get; private set; }
-        public Editora Editora { get; private set; }
-        public Assunto Assunto { get; private set; }
-        public Classificacao Classificacao { get; private set; }
+        public int LivroId { get; set; }
+        public string Titulo { get; internal set; }
+        public Autor Autor { get; internal set; } //FK de autor
+        public Editora Editora { get; internal set; } //FK de Editora
+        public Assunto Assunto { get; internal set; } //FK de Assunto
+        public Classificacao Classificacao { get; internal set; } //FK de Classificacao
+        public IList<Exemplar> Exemplares { get; internal set; } //relação um para muitos (um livro - muitos exemplares)
     }
 }

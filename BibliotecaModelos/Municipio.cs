@@ -1,8 +1,12 @@
-﻿namespace BibliotecaModelos
+﻿using System.Collections.Generic;
+
+namespace BibliotecaModelos
 {
     public class Municipio
     {
-        public string NomeMunicipio { get;  private set; }
-        public Estado Estado { get; set; }
+        public int MunicipioId { get; set; }
+        public string NomeMunicipio { get;  internal set; }
+        public Estado Estado { get; internal set; } //FK de Estado
+        public IList<Endereco> Enderecos { get; internal set; } //relação um para muitos (um municipio - muitos enderecos)
     }
 }

@@ -8,9 +8,14 @@ namespace BibliotecaModelos
 {
     public class Pessoa
     {
-        public int Id { get; set; }
-        public string Nome { get; private set; }
-        public string CPF { get; private set; }
-        public Endereco Endereco { get; private set; }
+        public int PessoaId { get; set; }
+        public string Nome { get; internal set; }
+        public string CPF { get; internal set; }
+        public string RG { get; internal set; }
+        public DateTime DataDeNascimento { get; internal set; }
+        public int Idade { get; internal set; }
+        public Endereco Endereco { get; internal set; } //FK de Endereco
+        public string Profissao { get; internal set; }
+        public string Telefone { get; internal set; }
     }
 }

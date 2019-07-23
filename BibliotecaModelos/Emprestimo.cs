@@ -8,7 +8,9 @@ namespace BibliotecaModelos
 {
     public class Emprestimo
     {
-        public DateTime DataEmprestimo { get; private set; }
-        public DateTime DataDevolucao { get; private set; }
+        //Qual relação utilizar??
+        public DateTime DataEmprestimo { get; internal set; }
+        public DateTime DataDevolucao { get; internal set; }
+
     }
 }

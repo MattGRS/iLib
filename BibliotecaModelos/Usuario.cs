@@ -8,8 +8,9 @@ namespace BibliotecaModelos
 {
     public class Usuario
     {
+        //Pessoa recebe Usuário ou o inverso?
         //Fazer uma classe validação de Login e Senha (Credenciais de Acesso)
-        public string Login { get; private set; }
-        public string Senha { get; private set; }
+        public string Login { get; internal set; }
+        public string Senha { get; internal set; }
     }
 }
