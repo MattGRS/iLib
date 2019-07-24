@@ -381,6 +381,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AutorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -448,6 +449,8 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Autor\Form.cshtml" />
+    <Content Include="Views\Autor\Adiciona.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -466,6 +469,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BibliotecaModelos\BibliotecaModelos.csproj">
+      <Project>{FFE568A2-AD42-4E29-B900-BB5B3CADD57A}</Project>
+      <Name>BibliotecaModelos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EntityBiblioteca\EntityBiblioteca.csproj">
       <Project>{df9e3f2c-a0bc-44a9-8711-91d9298316ef}</Project>
       <Name>EntityBiblioteca</Name>

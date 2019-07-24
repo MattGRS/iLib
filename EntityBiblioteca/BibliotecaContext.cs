@@ -32,7 +32,8 @@ namespace EntityBiblioteca
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            modelBuilder.Entity<Usuario>().ToTable("Usuarios").Property<int>("PessoaId");
+            modelBuilder.Entity<Usuario>().HasKey("PessoaId");
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

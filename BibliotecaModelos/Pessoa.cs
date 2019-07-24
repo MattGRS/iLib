@@ -21,5 +21,6 @@ namespace BibliotecaModelos
         public string Profissao { get; internal set; }
         public string Telefone { get; internal set; }
         public string Email { get; internal set; }
+        public Usuario Usuario { get; internal set; }
     }
 }
