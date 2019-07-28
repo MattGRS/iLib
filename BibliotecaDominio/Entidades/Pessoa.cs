@@ -1,6 +1,6 @@
-﻿using System;
+﻿using BibliotecaDominio.Entidades;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +11,7 @@ namespace BibliotecaDominio
     {
         public int PessoaId { get; set; }
         public string Nome { get; internal set; }
-        public string CPF { get; internal set; } //verificar a validação de cpf
+        public CPF CPF { get; internal set; } //verificar a validação de cpf
         public string RG { get; internal set; }
         public DateTime DataDeNascimento { get; internal set; }
         public int Idade { get; internal set; }

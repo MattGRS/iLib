@@ -44,6 +44,7 @@
     <Compile Include="Entidades\Assunto.cs" />
     <Compile Include="Entidades\Autor.cs" />
     <Compile Include="Entidades\Classificacao.cs" />
+    <Compile Include="Entidades\CPF.cs" />
     <Compile Include="Entidades\Editora.cs" />
     <Compile Include="Entidades\Emprestimo.cs" />
     <Compile Include="Entidades\Endereco.cs" />
