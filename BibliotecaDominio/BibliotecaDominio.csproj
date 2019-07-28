@@ -4,16 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DF9E3F2C-A0BC-44A9-8711-91D9298316EF}</ProjectGuid>
+    <ProjectGuid>{FCFB8A82-E882-45E4-AE79-B219549916E4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EntityBiblioteca</RootNamespace>
-    <AssemblyName>EntityBiblioteca</AssemblyName>
+    <RootNamespace>BibliotecaDominio</RootNamespace>
+    <AssemblyName>BibliotecaDominio</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,12 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.SqlClient, Version=4.5.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SqlClient.4.6.1\lib\net461\System.Data.SqlClient.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,21 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutorDAO.cs" />
-    <Compile Include="BibliotecaContext.cs" />
-    <Compile Include="IEntityBase.cs" />
+    <Compile Include="Entidades\Assunto.cs" />
+    <Compile Include="Entidades\Autor.cs" />
+    <Compile Include="Entidades\Classificacao.cs" />
+    <Compile Include="Entidades\Editora.cs" />
+    <Compile Include="Entidades\Emprestimo.cs" />
+    <Compile Include="Entidades\Endereco.cs" />
+    <Compile Include="Entidades\Estado.cs" />
+    <Compile Include="Entidades\Exemplar.cs" />
+    <Compile Include="Entidades\Livro.cs" />
+    <Compile Include="Entidades\Municipio.cs" />
+    <Compile Include="Entidades\Pais.cs" />
+    <Compile Include="Entidades\Pessoa.cs" />
+    <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BibliotecaModelos\BibliotecaModelos.csproj">
-      <Project>{FFE568A2-AD42-4E29-B900-BB5B3CADD57A}</Project>
-      <Name>BibliotecaModelos</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
