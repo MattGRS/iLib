@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using BibliotecaDominio.ObjetosValor;
+using System.Collections.Generic;
 
-namespace BibliotecaDominio
+namespace BibliotecaDominio.Entidades
 {
     public class Endereco
     {

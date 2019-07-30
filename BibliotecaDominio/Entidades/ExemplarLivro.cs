@@ -1,9 +1,9 @@
 ﻿
-namespace BibliotecaDominio
+namespace BibliotecaDominio.Entidades
 {
-    public class Exemplar
+    public class ExemplarLivro
     {
-        public int ExemplarId { get; set; }
+        public int ExemplarLivroId { get; set; }
         public string Registro { get; internal set; }
         public int NumeroExemplar { get; internal set; }
         public Livro Livro { get; internal set; } //FK de Livro

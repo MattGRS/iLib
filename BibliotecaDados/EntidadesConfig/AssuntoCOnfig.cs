@@ -1,5 +1,5 @@
 ﻿using BibliotecaDominio;
-using BibliotecaDominio.Entidades;
+using BibliotecaDominio.ObjetosValor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -10,11 +10,13 @@ using System.Threading.Tasks;
 
 namespace BibliotecaDados.EntidadesConfig
 {
-    class PessoaConfig : IEntityTypeConfiguration<Pessoa>
+    public class AssuntoConfig : IEntityTypeConfiguration<Assunto>
     {
-        public void Configure(EntityTypeBuilder<Pessoa> builder)
+        public void Configure(EntityTypeBuilder<Assunto> builder)
         {
-            builder.Property(p => p.Nome).IsRequired().HasMaxLength(50);
+            builder
+                .Property(a => a.AssuntoObra)
+                .IsRequired();
         }
     }
 }

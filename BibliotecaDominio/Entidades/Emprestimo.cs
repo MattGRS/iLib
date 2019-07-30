@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace BibliotecaDominio
+namespace BibliotecaDominio.Entidades
 {
     public class Emprestimo
     {

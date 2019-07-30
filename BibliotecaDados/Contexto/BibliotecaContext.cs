@@ -1,10 +1,8 @@
-﻿using BibliotecaDominio;
+﻿using BibliotecaDados.EntidadesConfig;
+using BibliotecaDominio;
+using BibliotecaDominio.Entidades;
+using BibliotecaDominio.ObjetosValor;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BibliotecaDados.Contexto
 {
@@ -22,7 +20,7 @@ namespace BibliotecaDados.Contexto
 
         public DbSet<Estado> Estados { get; set; }
 
-        public DbSet<Exemplar> Exemplares { get; set; }
+        public DbSet<ExemplarLivro> Exemplares { get; set; }
 
         public DbSet<Livro> Livros { get; set; }
 
@@ -39,12 +37,13 @@ namespace BibliotecaDados.Contexto
 
         public BibliotecaContext(DbContextOptions<BibliotecaContext> options) : base(options)
         {
-
+            
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            modelBuilder.Entity<CPF>().HasKey("Cpf");
+            modelBuilder.ApplyConfiguration(new AssuntoConfig());
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

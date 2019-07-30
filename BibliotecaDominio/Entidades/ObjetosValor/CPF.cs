@@ -1,29 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BibliotecaDominio.Entidades
+namespace BibliotecaDominio.ObjetosValor
 {
     public class CPF
     {
-        public string ValidCpf { get; set; }
+        public string Cpf { get; set; }
 
-        public CPF (string cpf)
+        public CPF(string cpf)
         {
-            var Validacao = IsCPF(cpf);
-            if (Validacao == true)
+            if (IsCPF(cpf))
             {
-                ValidCpf = cpf;
+                this.Cpf = cpf;
             }
             else
             {
                 throw new ArgumentException("CPF Inválido");
             }
         }
-
-        public static bool IsCPF(string cpf)
+        public bool IsCPF(string cpf)
         {
             int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
             int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
@@ -61,7 +55,7 @@ namespace BibliotecaDominio.Entidades
 
             digito = resto.ToString();
 
-            tempCpf = tempCpf + digito;
+            tempCpf += digito;
 
             soma = 0;
 
@@ -78,12 +72,13 @@ namespace BibliotecaDominio.Entidades
             }
             else
             {
-                resto = 11 - resto; 
+                resto = 11 - resto;
             }
 
-            digito = digito + resto.ToString();
+            digito += resto.ToString();
 
             return cpf.EndsWith(digito);
         }
     }
 }
+

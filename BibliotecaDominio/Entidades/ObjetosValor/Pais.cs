@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BibliotecaDominio
+namespace BibliotecaDominio.ObjetosValor
 {
     public class Pais
     {

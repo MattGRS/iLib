@@ -1,14 +1,12 @@
-﻿using BibliotecaDominio.Entidades;
+﻿using BibliotecaDominio.ObjetosValor;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BibliotecaDominio
-{
+namespace BibliotecaDominio.Entidades
+{/// <summary>
+///  Define uma Pessoa que possui credenciais de acesso
+/// </summary>
     public class Pessoa
-    {
+    { 
         public int PessoaId { get; set; }
         public string Nome { get; internal set; }
         public CPF CPF { get; internal set; } //verificar a validação de cpf
@@ -19,6 +17,6 @@ namespace BibliotecaDominio
         public string Profissao { get; internal set; }
         public string Telefone { get; internal set; }
         public string Email { get; internal set; }
-        public Usuario Usuario { get; internal set; }
+        public DadosLogin Login { get; set; }
     }
 }

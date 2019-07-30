@@ -400,10 +400,6 @@
       <Project>{FFE568A2-AD42-4E29-B900-BB5B3CADD57A}</Project>
       <Name>BibliotecaModelos</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EntityBiblioteca\EntityBiblioteca.csproj">
-      <Project>{df9e3f2c-a0bc-44a9-8711-91d9298316ef}</Project>
-      <Name>EntityBiblioteca</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -41,21 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entidades\Assunto.cs" />
-    <Compile Include="Entidades\Autor.cs" />
-    <Compile Include="Entidades\Classificacao.cs" />
-    <Compile Include="Entidades\CPF.cs" />
-    <Compile Include="Entidades\Editora.cs" />
+    <Compile Include="Entidades\ObjetosValor\Assunto.cs" />
+    <Compile Include="Entidades\ObjetosValor\Autor.cs" />
+    <Compile Include="Entidades\ObjetosValor\Classificacao.cs" />
+    <Compile Include="Entidades\ObjetosValor\CPF.cs" />
+    <Compile Include="Entidades\ObjetosValor\DadosLogin.cs" />
+    <Compile Include="Entidades\ObjetosValor\Editora.cs" />
     <Compile Include="Entidades\Emprestimo.cs" />
     <Compile Include="Entidades\Endereco.cs" />
-    <Compile Include="Entidades\Estado.cs" />
-    <Compile Include="Entidades\Exemplar.cs" />
+    <Compile Include="Entidades\ObjetosValor\Estado.cs" />
+    <Compile Include="Entidades\ExemplarLivro.cs" />
     <Compile Include="Entidades\Livro.cs" />
-    <Compile Include="Entidades\Municipio.cs" />
-    <Compile Include="Entidades\Pais.cs" />
+    <Compile Include="Entidades\ObjetosValor\Municipio.cs" />
+    <Compile Include="Entidades\ObjetosValor\Pais.cs" />
     <Compile Include="Entidades\Pessoa.cs" />
-    <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

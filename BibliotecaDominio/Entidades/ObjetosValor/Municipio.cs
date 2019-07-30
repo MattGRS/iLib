@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using BibliotecaDominio.Entidades;
+using System.Collections.Generic;
 
 
-namespace BibliotecaDominio
+namespace BibliotecaDominio.ObjetosValor
 {
     public class Municipio
     {
