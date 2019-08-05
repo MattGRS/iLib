@@ -1,4 +1,4 @@
-﻿using BibliotecaDominio.ObjetosValor;
+﻿using BibliotecaDominio.Entidades;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace BibliotecaDados.EntidadesConfig
 {
-    class ClassificacaoConfig : IEntityTypeConfiguration<Classificacao>
+    class LocalizacaoConfig : IEntityTypeConfiguration<Localizacao>
     {
-        public void Configure(EntityTypeBuilder<Classificacao> builder)
+        public void Configure(EntityTypeBuilder<Localizacao> builder)
         {
             builder
-                .Property(c => c.ClassificacaoObra)
+                .Property(l => l.LocalizacaoObra)
                 .IsRequired()
                 .HasMaxLength(20);
         }
