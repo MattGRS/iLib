@@ -16,7 +16,7 @@ namespace BibliotecaDados.EntidadesConfig
             builder
                 .Property(p => p.NomePais)
                 .IsRequired()
-                .HasMaxLength(30);
+                .HasMaxLength(50);
         }
     }
 }

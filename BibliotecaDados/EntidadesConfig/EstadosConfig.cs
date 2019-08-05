@@ -1,5 +1,4 @@
-﻿using BibliotecaDominio;
-using BibliotecaDominio.ObjetosValor;
+﻿using BibliotecaDominio.ObjetosValor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -10,13 +9,12 @@ using System.Threading.Tasks;
 
 namespace BibliotecaDados.EntidadesConfig
 {
-    public class AssuntoConfig : IEntityTypeConfiguration<Assunto>
+    class EstadosConfig : IEntityTypeConfiguration<Estado>
     {
-        //Como impedir registros iguais??
-        public void Configure(EntityTypeBuilder<Assunto> builder)
+        public void Configure(EntityTypeBuilder<Estado> builder)
         {
             builder
-                .Property(a => a.AssuntoObra)
+                .Property(e => e.NomeEstado)
                 .IsRequired()
                 .HasMaxLength(50);
         }
