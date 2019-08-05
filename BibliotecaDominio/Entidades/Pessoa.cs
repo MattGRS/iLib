@@ -2,9 +2,7 @@
 using System;
 
 namespace BibliotecaDominio.Entidades
-{/// <summary>
-///  Define uma Pessoa que possui credenciais de acesso
-/// </summary>
+{
     public class Pessoa
     { 
         public int PessoaId { get; set; }

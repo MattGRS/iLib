@@ -17,6 +17,21 @@ namespace BibliotecaDados.EntidadesConfig
             builder
                 .Property(p => p.Nome)
                 .IsRequired().HasMaxLength(50);
+            builder
+                .Property(p => p.CPF)
+                .IsRequired();
+            builder
+                .Property(p => p.RG)
+                .IsRequired();
+            builder
+                .Property(p => p.Endereco)
+                .IsRequired();
+            builder
+                .Property(p => p.Email)
+                .IsRequired();
+            builder
+                .Property(p => p.Login)
+                .IsRequired();
         }
     }
 }
