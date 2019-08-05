@@ -42,7 +42,7 @@ namespace BibliotecaDados.Contexto
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CPF>().HasKey("Cpf");
+            //modelBuilder.Entity<CPF>().HasKey("Cpf");
             modelBuilder.ApplyConfiguration(new AssuntoConfig());
         }
 

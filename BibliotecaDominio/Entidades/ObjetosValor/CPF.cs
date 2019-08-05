@@ -10,7 +10,7 @@ namespace BibliotecaDominio.ObjetosValor
         {
             if (IsCPF(cpf))
             {
-                this.Cpf = cpf;
+                Cpf = cpf;
             }
             else
             {
@@ -33,11 +33,16 @@ namespace BibliotecaDominio.ObjetosValor
             {
                 return false;
             }
+            //Desenvolver uma lógica para retornar falso se os valores da string forem iguais
+            if (cpf == "00000000000")
+            {
+                return false;
+            }
 
             tempCpf = cpf.Substring(0, 9);
             soma = 0;
 
-            for (int i = 0; i < cpf.Length; i++)
+            for (int i = 0; i < 9; i++)
             {
                 soma += int.Parse(tempCpf[i].ToString()) * multiplicador1[i];
             }
@@ -59,7 +64,7 @@ namespace BibliotecaDominio.ObjetosValor
 
             soma = 0;
 
-            for (int i = 0; i < tempCpf.Length; i++)
+            for (int i = 0; i < 10; i++)
             {
                 soma += int.Parse(tempCpf[i].ToString()) * multiplicador2[i];
             }
