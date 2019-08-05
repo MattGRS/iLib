@@ -17,6 +17,9 @@ namespace BibliotecaDados.EntidadesConfig
                 .Property(m => m.NomeMunicipio)
                 .IsRequired()
                 .HasMaxLength(50);
+            builder
+                .Property(m => m.Estado)
+                .IsRequired();
         }
     }
 }
