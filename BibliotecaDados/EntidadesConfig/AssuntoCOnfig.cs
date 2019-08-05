@@ -18,6 +18,9 @@ namespace BibliotecaDados.EntidadesConfig
             builder
                 .Property(a => a.AssuntoObra)
                 .IsRequired();
+            builder
+                .Property(a => a.AssuntoObra)
+                .HasMaxLength(50);
         }
     }
 }

@@ -15,7 +15,8 @@ namespace BibliotecaDados.EntidadesConfig
         {
             builder
                 .Property(a => a.NomeAutor)
-                .IsRequired();
+                .IsRequired()
+                .HasMaxLength(50);
         }
     }
 }

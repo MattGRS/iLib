@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace BibliotecaDados.EntidadesConfig
 {
-    class ClassificacaoConfig : IEntityTypeConfiguration<Classificacao>
+    class PaisConfig : IEntityTypeConfiguration<Pais>
     {
-        public void Configure(EntityTypeBuilder<Classificacao> builder)
+        public void Configure(EntityTypeBuilder<Pais> builder)
         {
             builder
-                .Property(c => c.ClassificacaoObra)
+                .Property(p => p.NomePais)
                 .IsRequired()
-                .HasMaxLength(50);
+                .HasMaxLength(30);
         }
     }
 }
