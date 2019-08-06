@@ -30,6 +30,7 @@ namespace BibliotecaDados.Contexto
 
         public DbSet<Pessoa> Pessoas { get; set; }
         public DbSet<Localizacao> Localizacoes { get; set; }
+        public DbSet<Emprestimo> Emprestimos { get; set; }
 
         public BibliotecaContext()
         {

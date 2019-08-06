@@ -1,5 +1,6 @@
 ﻿using BibliotecaDominio.ObjetosValor;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace BibliotecaDominio.Entidades
@@ -24,5 +25,6 @@ namespace BibliotecaDominio.Entidades
         public string Email { get; internal set; }
         [Required]
         public virtual DadosLogin Login { get; set; }
+        public virtual IEnumerable<Emprestimo> Emprestimo { get; set; }
     }
 }

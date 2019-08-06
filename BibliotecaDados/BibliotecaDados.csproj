@@ -138,9 +138,9 @@
     <Compile Include="EntidadesConfig\MunicipioConfig.cs" />
     <Compile Include="EntidadesConfig\PaisConfig.cs" />
     <Compile Include="EntidadesConfig\PessoaConfig.cs" />
-    <Compile Include="Migrations\20190806010330_Teste.cs" />
-    <Compile Include="Migrations\20190806010330_Teste.designer.cs">
-      <DependentUpon>20190806010330_Teste.cs</DependentUpon>
+    <Compile Include="Migrations\20190806011530_CriandoBD.cs" />
+    <Compile Include="Migrations\20190806011530_CriandoBD.designer.cs">
+      <DependentUpon>20190806011530_CriandoBD.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\BibliotecaContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
