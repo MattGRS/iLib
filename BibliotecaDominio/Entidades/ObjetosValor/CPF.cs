@@ -1,9 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace BibliotecaDominio.ObjetosValor
 {
     public class CPF
     {
+        [Required, Key]
         public string Cpf { get; set; }
 
         public CPF(string cpf)
