@@ -1,7 +1,5 @@
-﻿using BibliotecaDados.EntidadesConfig;
-using BibliotecaDominio;
-using BibliotecaDominio.Entidades;
-using BibliotecaDominio.ObjetosValor;
+﻿using BibliotecaDominio.Entidades;
+using BibliotecaDominio.Entidades.ObjetosValor;
 using Microsoft.EntityFrameworkCore;
 
 namespace BibliotecaDados.Contexto
@@ -29,7 +27,9 @@ namespace BibliotecaDados.Contexto
         public DbSet<Pais> Paises { get; set; }
 
         public DbSet<Pessoa> Pessoas { get; set; }
+
         public DbSet<Localizacao> Localizacoes { get; set; }
+
         public DbSet<Emprestimo> Emprestimos { get; set; }
 
         public BibliotecaContext()

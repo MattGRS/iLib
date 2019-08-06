@@ -1,4 +1,4 @@
-﻿using BibliotecaDominio.ObjetosValor;
+﻿using BibliotecaDominio.Entidades.ObjetosValor;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

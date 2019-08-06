@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace BibliotecaDominio.ObjetosValor
+namespace BibliotecaDominio.Entidades.ObjetosValor
 {
     public class Assunto
     {

@@ -143,6 +143,148 @@ namespace BibliotecaDados.Migrations
                     b.ToTable("Localizacoes");
                 });
 
+            modelBuilder.Entity("BibliotecaDominio.Entidades.ObjetosValor.Assunto", b =>
+                {
+                    b.Property<int>("AssuntoId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AssuntoObra")
+                        .IsRequired()
+                        .HasMaxLength(50);
+
+                    b.HasKey("AssuntoId");
+
+                    b.ToTable("Assuntos");
+                });
+
+            modelBuilder.Entity("BibliotecaDominio.Entidades.ObjetosValor.Autor", b =>
+                {
+                    b.Property<int>("AutorId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("NomeAutor")
+                        .IsRequired()
+                        .HasMaxLength(50);
+
+                    b.HasKey("AutorId");
+
+                    b.ToTable("Autores");
+                });
+
+            modelBuilder.Entity("BibliotecaDominio.Entidades.ObjetosValor.CPF", b =>
+                {
+                    b.Property<string>("Cpf")
+                        .ValueGeneratedOnAdd();
+
+                    b.HasKey("Cpf");
+
+                    b.ToTable("CPF");
+                });
+
+            modelBuilder.Entity("BibliotecaDominio.Entidades.ObjetosValor.Classificacao", b =>
+                {
+                    b.Property<int>("ClassificacaoId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClassificacaoObra")
+                        .IsRequired()
+                        .HasMaxLength(20);
+
+                    b.HasKey("ClassificacaoId");
+
+                    b.ToTable("Classificacoes");
+                });
+
+            modelBuilder.Entity("BibliotecaDominio.Entidades.ObjetosValor.DadosLogin", b =>
+                {
+                    b.Property<int>("PessoaId");
+
+                    b.Property<string>("Login")
+                        .IsRequired();
+
+                    b.Property<string>("Senha")
+                        .IsRequired();
+
+                    b.HasKey("PessoaId");
+
+                    b.ToTable("DadosLogin");
+                });
+
+            modelBuilder.Entity("BibliotecaDominio.Entidades.ObjetosValor.Editora", b =>
+                {
+                    b.Property<int>("EditoraId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("EnderecoId");
+
+                    b.Property<string>("NomeEditora")
+                        .IsRequired()
+                        .HasMaxLength(50);
+
+                    b.HasKey("EditoraId");
+
+                    b.HasIndex("EnderecoId");
+
+                    b.ToTable("Editoras");
+                });
+
+            modelBuilder.Entity("BibliotecaDominio.Entidades.ObjetosValor.Estado", b =>
+                {
+                    b.Property<int>("EstadoId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("NomeEstado")
+                        .IsRequired()
+                        .HasMaxLength(50);
+
+                    b.Property<int>("PaisId");
+
+                    b.HasKey("EstadoId");
+
+                    b.HasIndex("PaisId");
+
+                    b.ToTable("Estados");
+                });
+
+            modelBuilder.Entity("BibliotecaDominio.Entidades.ObjetosValor.Municipio", b =>
+                {
+                    b.Property<int>("MunicipioId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("EstadoId");
+
+                    b.Property<string>("NomeMunicipio")
+                        .IsRequired()
+                        .HasMaxLength(50);
+
+                    b.HasKey("MunicipioId");
+
+                    b.HasIndex("EstadoId");
+
+                    b.ToTable("Municipios");
+                });
+
+            modelBuilder.Entity("BibliotecaDominio.Entidades.ObjetosValor.Pais", b =>
+                {
+                    b.Property<int>("PaisId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("NomePais")
+                        .IsRequired()
+                        .HasMaxLength(50);
+
+                    b.HasKey("PaisId");
+
+                    b.ToTable("Paises");
+                });
+
             modelBuilder.Entity("BibliotecaDominio.Entidades.Pessoa", b =>
                 {
                     b.Property<int>("PessoaId")
@@ -181,146 +323,6 @@ namespace BibliotecaDados.Migrations
                     b.ToTable("Pessoas");
                 });
 
-            modelBuilder.Entity("BibliotecaDominio.ObjetosValor.Assunto", b =>
-                {
-                    b.Property<int>("AssuntoId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AssuntoObra")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.HasKey("AssuntoId");
-
-                    b.ToTable("Assuntos");
-                });
-
-            modelBuilder.Entity("BibliotecaDominio.ObjetosValor.Autor", b =>
-                {
-                    b.Property<int>("AutorId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("NomeAutor")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.HasKey("AutorId");
-
-                    b.ToTable("Autores");
-                });
-
-            modelBuilder.Entity("BibliotecaDominio.ObjetosValor.CPF", b =>
-                {
-                    b.Property<string>("Cpf")
-                        .ValueGeneratedOnAdd();
-
-                    b.HasKey("Cpf");
-
-                    b.ToTable("CPF");
-                });
-
-            modelBuilder.Entity("BibliotecaDominio.ObjetosValor.Classificacao", b =>
-                {
-                    b.Property<int>("ClassificacaoId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ClassificacaoObra")
-                        .IsRequired()
-                        .HasMaxLength(20);
-
-                    b.HasKey("ClassificacaoId");
-
-                    b.ToTable("Classificacoes");
-                });
-
-            modelBuilder.Entity("BibliotecaDominio.ObjetosValor.DadosLogin", b =>
-                {
-                    b.Property<int>("PessoaId");
-
-                    b.Property<string>("Login");
-
-                    b.Property<string>("Senha");
-
-                    b.HasKey("PessoaId");
-
-                    b.ToTable("DadosLogin");
-                });
-
-            modelBuilder.Entity("BibliotecaDominio.ObjetosValor.Editora", b =>
-                {
-                    b.Property<int>("EditoraId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("EnderecoId");
-
-                    b.Property<string>("NomeEditora")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.HasKey("EditoraId");
-
-                    b.HasIndex("EnderecoId");
-
-                    b.ToTable("Editoras");
-                });
-
-            modelBuilder.Entity("BibliotecaDominio.ObjetosValor.Estado", b =>
-                {
-                    b.Property<int>("EstadoId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("NomeEstado")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<int>("PaisId");
-
-                    b.HasKey("EstadoId");
-
-                    b.HasIndex("PaisId");
-
-                    b.ToTable("Estados");
-                });
-
-            modelBuilder.Entity("BibliotecaDominio.ObjetosValor.Municipio", b =>
-                {
-                    b.Property<int>("MunicipioId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("EstadoId");
-
-                    b.Property<string>("NomeMunicipio")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.HasKey("MunicipioId");
-
-                    b.HasIndex("EstadoId");
-
-                    b.ToTable("Municipios");
-                });
-
-            modelBuilder.Entity("BibliotecaDominio.ObjetosValor.Pais", b =>
-                {
-                    b.Property<int>("PaisId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("NomePais")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.HasKey("PaisId");
-
-                    b.ToTable("Paises");
-                });
-
             modelBuilder.Entity("BibliotecaDominio.Entidades.Emprestimo", b =>
                 {
                     b.HasOne("BibliotecaDominio.Entidades.ExemplarLivro", "ExemplarLivro")
@@ -336,7 +338,7 @@ namespace BibliotecaDados.Migrations
 
             modelBuilder.Entity("BibliotecaDominio.Entidades.Endereco", b =>
                 {
-                    b.HasOne("BibliotecaDominio.ObjetosValor.Municipio", "Municipio")
+                    b.HasOne("BibliotecaDominio.Entidades.ObjetosValor.Municipio", "Municipio")
                         .WithMany("Enderecos")
                         .HasForeignKey("MunicipioId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -351,22 +353,22 @@ namespace BibliotecaDados.Migrations
 
             modelBuilder.Entity("BibliotecaDominio.Entidades.Livro", b =>
                 {
-                    b.HasOne("BibliotecaDominio.ObjetosValor.Assunto", "Assunto")
+                    b.HasOne("BibliotecaDominio.Entidades.ObjetosValor.Assunto", "Assunto")
                         .WithMany("Livros")
                         .HasForeignKey("AssuntoId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("BibliotecaDominio.ObjetosValor.Autor", "Autor")
+                    b.HasOne("BibliotecaDominio.Entidades.ObjetosValor.Autor", "Autor")
                         .WithMany("Livros")
                         .HasForeignKey("AutorId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("BibliotecaDominio.ObjetosValor.Classificacao", "Classificacao")
+                    b.HasOne("BibliotecaDominio.Entidades.ObjetosValor.Classificacao", "Classificacao")
                         .WithMany("Livros")
                         .HasForeignKey("ClassificacaoId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("BibliotecaDominio.ObjetosValor.Editora", "Editora")
+                    b.HasOne("BibliotecaDominio.Entidades.ObjetosValor.Editora", "Editora")
                         .WithMany("Livros")
                         .HasForeignKey("EditoraId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -377,28 +379,15 @@ namespace BibliotecaDados.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("BibliotecaDominio.Entidades.Pessoa", b =>
-                {
-                    b.HasOne("BibliotecaDominio.ObjetosValor.CPF", "CPF")
-                        .WithMany()
-                        .HasForeignKey("Cpf")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("BibliotecaDominio.Entidades.Endereco", "Endereco")
-                        .WithMany("Pessoas")
-                        .HasForeignKey("EnderecoId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("BibliotecaDominio.ObjetosValor.DadosLogin", b =>
+            modelBuilder.Entity("BibliotecaDominio.Entidades.ObjetosValor.DadosLogin", b =>
                 {
                     b.HasOne("BibliotecaDominio.Entidades.Pessoa")
                         .WithOne("Login")
-                        .HasForeignKey("BibliotecaDominio.ObjetosValor.DadosLogin", "PessoaId")
+                        .HasForeignKey("BibliotecaDominio.Entidades.ObjetosValor.DadosLogin", "PessoaId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("BibliotecaDominio.ObjetosValor.Editora", b =>
+            modelBuilder.Entity("BibliotecaDominio.Entidades.ObjetosValor.Editora", b =>
                 {
                     b.HasOne("BibliotecaDominio.Entidades.Endereco", "Endereco")
                         .WithMany("Editoras")
@@ -406,19 +395,32 @@ namespace BibliotecaDados.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("BibliotecaDominio.ObjetosValor.Estado", b =>
+            modelBuilder.Entity("BibliotecaDominio.Entidades.ObjetosValor.Estado", b =>
                 {
-                    b.HasOne("BibliotecaDominio.ObjetosValor.Pais", "Pais")
+                    b.HasOne("BibliotecaDominio.Entidades.ObjetosValor.Pais", "Pais")
                         .WithMany("Estados")
                         .HasForeignKey("PaisId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("BibliotecaDominio.ObjetosValor.Municipio", b =>
+            modelBuilder.Entity("BibliotecaDominio.Entidades.ObjetosValor.Municipio", b =>
                 {
-                    b.HasOne("BibliotecaDominio.ObjetosValor.Estado", "Estado")
+                    b.HasOne("BibliotecaDominio.Entidades.ObjetosValor.Estado", "Estado")
                         .WithMany("Municipios")
                         .HasForeignKey("EstadoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("BibliotecaDominio.Entidades.Pessoa", b =>
+                {
+                    b.HasOne("BibliotecaDominio.Entidades.ObjetosValor.CPF", "CPF")
+                        .WithMany()
+                        .HasForeignKey("Cpf")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("BibliotecaDominio.Entidades.Endereco", "Endereco")
+                        .WithMany("Pessoas")
+                        .HasForeignKey("EnderecoId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

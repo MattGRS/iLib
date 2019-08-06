@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BibliotecaDados.Migrations
 {
-    public partial class CriandoBD : Migration
+    public partial class CriandoDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -254,8 +254,8 @@ namespace BibliotecaDados.Migrations
                 columns: table => new
                 {
                     PessoaId = table.Column<int>(nullable: false),
-                    Login = table.Column<string>(nullable: true),
-                    Senha = table.Column<string>(nullable: true)
+                    Login = table.Column<string>(nullable: false),
+                    Senha = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
