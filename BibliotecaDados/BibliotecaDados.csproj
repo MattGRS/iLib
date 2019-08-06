@@ -126,12 +126,18 @@
   <ItemGroup>
     <Compile Include="Contexto\BibliotecaContext.cs" />
     <Compile Include="EntidadesConfig\AssuntoConfig.cs" />
+    <Compile Include="EntidadesConfig\AutorConfig.cs" />
+    <Compile Include="EntidadesConfig\ClassificacaoConfig.cs" />
+    <Compile Include="EntidadesConfig\CpfConfig.cs" />
+    <Compile Include="EntidadesConfig\EditoraConfig.cs" />
+    <Compile Include="EntidadesConfig\EnderecoConfig.cs" />
+    <Compile Include="EntidadesConfig\EstadosConfig.cs" />
+    <Compile Include="EntidadesConfig\ExemplarConfig.cs" />
+    <Compile Include="EntidadesConfig\LivroConfig.cs" />
+    <Compile Include="EntidadesConfig\LocalizacaoConfig.cs" />
+    <Compile Include="EntidadesConfig\MunicipioConfig.cs" />
+    <Compile Include="EntidadesConfig\PaisConfig.cs" />
     <Compile Include="EntidadesConfig\PessoaConfig.cs" />
-    <Compile Include="Migrations\20190730031141_Teste.cs" />
-    <Compile Include="Migrations\20190730031141_Teste.designer.cs">
-      <DependentUpon>20190730031141_Teste.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\BibliotecaContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

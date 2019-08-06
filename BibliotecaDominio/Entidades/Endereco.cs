@@ -11,7 +11,7 @@ namespace BibliotecaDominio.Entidades
         public string Bairro { get; internal set; }
         public int NumeroResidencial { get; internal set; }
         public string Complemento { get; internal set; }
-        public Municipio Municipio { get; private set; } //FK de Municipio
+        public Municipio Municipio { get; internal set; } //FK de Municipio
         public IEnumerable<Pessoa> Pessoas { get; internal set; } //relação um para muitos (um endereço - muitas pessoas)
         public IEnumerable<Editora> Editoras { get; internal set; } //relação um para muitos (um endereço - muitas editoras)
 

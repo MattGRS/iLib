@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entidades\Localizacao.cs" />
     <Compile Include="Entidades\ObjetosValor\Assunto.cs" />
     <Compile Include="Entidades\ObjetosValor\Autor.cs" />
     <Compile Include="Entidades\ObjetosValor\Classificacao.cs" />
