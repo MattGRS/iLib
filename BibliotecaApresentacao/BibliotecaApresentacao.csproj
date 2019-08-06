@@ -204,7 +204,16 @@
     <Compile Include="ViewModels\ClassificacaoViewModel.cs" />
     <Compile Include="ViewModels\CpfViewModel.cs" />
     <Compile Include="ViewModels\DadosLoginViewModel.cs" />
+    <Compile Include="ViewModels\EditoraViewModel.cs" />
+    <Compile Include="ViewModels\EmprestimoViewModel.cs" />
+    <Compile Include="ViewModels\EnderecoViewModel.cs" />
+    <Compile Include="ViewModels\EstadoViewModel.cs" />
+    <Compile Include="ViewModels\ExemplarLivroViewModel.cs" />
     <Compile Include="ViewModels\LivroViewModel.cs" />
+    <Compile Include="ViewModels\LocalizacaoViewModel.cs" />
+    <Compile Include="ViewModels\MunicipioViewModel.cs" />
+    <Compile Include="ViewModels\PaisViewModel.cs" />
+    <Compile Include="ViewModels\PessoaViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
