@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.EntityFrameworkCore, Version=2.2.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.EntityFrameworkCore.2.2.6\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
@@ -194,6 +197,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="AutoMaper\AutoMapperConfig.cs" />
+    <Compile Include="AutoMaper\DomainToViewModelMappingProfile.cs" />
+    <Compile Include="AutoMaper\ViewModelToDomainMappingProfile.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -254,7 +260,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="AutoMaper\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -273,6 +278,10 @@
     <ProjectReference Include="..\BibliotecaDados\BibliotecaDados.csproj">
       <Project>{52f518b4-679b-4a5d-86d1-86e2192f4776}</Project>
       <Name>BibliotecaDados</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BibliotecaDominio\BibliotecaDominio.csproj">
+      <Project>{FCFB8A82-E882-45E4-AE79-B219549916E4}</Project>
+      <Name>BibliotecaDominio</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
