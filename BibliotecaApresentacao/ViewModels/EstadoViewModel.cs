@@ -12,7 +12,7 @@ namespace BibliotecaApresentacao.ViewModels
         public int EstadoId { get; set; }
 
         [Required(ErrorMessage = "Nome do Estado é obrigatório.")]
-        [MaxLength(50, ErrorMessage = "Máximo {0} caracteres.")]
+        [MaxLength(100, ErrorMessage = "Máximo {0} caracteres.")]
         public string NomeEstado { get; set; }
 
         [Required(ErrorMessage = "Campo Pais é obrigatório.")]

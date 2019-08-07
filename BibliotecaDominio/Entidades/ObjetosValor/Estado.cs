@@ -6,10 +6,14 @@ namespace BibliotecaDominio.Entidades.ObjetosValor
     public class Estado
     {
         public int EstadoId { get; set; }
-        [Required, MaxLength(50)]
+
+        [Required, MaxLength(100)]
         public string NomeEstado { get; internal set; }
-        [Required]
+
+        public int PaisId { get; set; }
+
         public virtual Pais Pais { get; internal set; } //FK de Pais
+
         public virtual IEnumerable<Municipio> Municipios { get; internal set; } //relação muitos para um (um estado - muitos municipios)
     }
 }

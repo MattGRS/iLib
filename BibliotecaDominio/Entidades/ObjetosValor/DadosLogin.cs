@@ -5,11 +5,12 @@ namespace BibliotecaDominio.Entidades.ObjetosValor
 {
     public class DadosLogin
     {
-        [Key, ForeignKey("Pessoa")]
-        public int PessoaId { get; set; }
-        [Required]
+        public int DadosLoginId { get; set; }
+
+        [Required, MaxLength(100)]
         public string Login { get; internal set; }
-        [Required]
+
+        [Required, MaxLength(100)]
         public string Senha { get; internal set; }
     }
 }

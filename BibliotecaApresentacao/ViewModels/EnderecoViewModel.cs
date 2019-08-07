@@ -12,11 +12,11 @@ namespace BibliotecaApresentacao.ViewModels
         public string CEP { get; internal set; } 
 
         [Required(ErrorMessage = "Campo Logradouro é obrgiatório.")]
-        [MaxLength(70, ErrorMessage = "Máximo {0} caracteres.")]
+        [MaxLength(100, ErrorMessage = "Máximo {0} caracteres.")]
         public string Logradouro { get; internal set; }
 
         [Required(ErrorMessage = "Campo Bairro é obrigatório.")]
-        [MaxLength(50, ErrorMessage = "Máximo {0} caracteres.")]
+        [MaxLength(100, ErrorMessage = "Máximo {0} caracteres.")]
         public string Bairro { get; internal set; }
 
         public int NumeroResidencial { get; internal set; }

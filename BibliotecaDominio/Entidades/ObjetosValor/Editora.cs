@@ -7,10 +7,14 @@ namespace BibliotecaDominio.Entidades.ObjetosValor
     public class Editora
     {
         public int EditoraId { get; set; }
-        [Required, MaxLength(50)]
+
+        [Required, MaxLength(100)]
         public string NomeEditora { get; internal set; }
-        [Required]
+
+        public int EnderecoId { get; set; }
+
         public virtual Endereco Endereco { get; internal set; } //FK de endereços
+
         public virtual IEnumerable<Livro> Livros { get; internal set; } //relação um para muitos (uma editora - muitos livros)
     }
 }

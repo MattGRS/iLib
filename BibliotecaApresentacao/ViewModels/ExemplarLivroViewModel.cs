@@ -9,7 +9,7 @@ namespace BibliotecaApresentacao.ViewModels
         public int ExemplarLivroId { get; set; }
 
         [Required(ErrorMessage = "Campo Registro é obrigatório.")]
-        [MaxLength(20, ErrorMessage = "Máximo {0} caracteres.")]
+        [MaxLength(100, ErrorMessage = "Máximo {0} caracteres.")]
         public string Registro { get; set; }
 
         public int NumeroExemplar { get; set; }

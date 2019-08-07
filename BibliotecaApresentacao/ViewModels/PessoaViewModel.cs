@@ -10,7 +10,7 @@ namespace BibliotecaApresentacao.ViewModels
         public int PessoaId { get; set; }
 
         [Required(ErrorMessage = "Nome da Pessoa é obrigatório.")]
-        [MaxLength(50, ErrorMessage = "Máximo {0} caracteres.")]
+        [MaxLength(100, ErrorMessage = "Máximo {0} caracteres.")]
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "Campo CPF é obrigatório.")]

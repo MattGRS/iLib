@@ -10,10 +10,10 @@ namespace BibliotecaApresentacao.ViewModels
     public class DadosLoginViewModel
     {
         [Key]
-        public int PessoaId { get; set; }
-        [Required(ErrorMessage = "Necessário o preenchimento do campo Login.")]
+        public int DadosLoginId { get; set; }
+        [Required(ErrorMessage = "Necessário o preenchimento do campo Login."), MaxLength(100)]
         public string Login { get; set; }
-        [Required(ErrorMessage = "Necessário o preenchimento do campo Senha")]
+        [Required(ErrorMessage = "Necessário o preenchimento do campo Senha"), MaxLength(100)]
         public string Senha { get; set; }
     }
 }

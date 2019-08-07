@@ -10,18 +10,30 @@ namespace BibliotecaDominio.Entidades
     public class Livro
     {
         public int LivroId { get; set; }
+
         [Required,MaxLength(100) ]
         public string Titulo { get; internal set; }
-        [Required]
+
+        public int AutorId { get; set; }
+
+        public int EditoraId { get; set; }
+
+        public int AssuntoId { get; set; }
+
+        public int ClassificacaoId { get; set; }
+
+        public int LocalizacaoId { get; set; }
+
         public virtual Autor Autor { get; internal set; } //FK de autor
-        [Required]
+
         public virtual Editora Editora { get; internal set; } //FK de Editora
-        [Required]
+
         public virtual Assunto Assunto { get; internal set; } //FK de Assunto
-        [Required]
+
         public virtual Classificacao Classificacao { get; internal set; } //FK de Classificacao
-        [Required]
+
         public virtual Localizacao Localizacao { get; set; } //FK de Localizacao
+
         public virtual IEnumerable<ExemplarLivro> Exemplares { get; internal set; } //relação um para muitos (um livro - muitos exemplares)
     }
 }

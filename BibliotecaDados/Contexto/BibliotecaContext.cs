@@ -44,20 +44,7 @@ namespace BibliotecaDados.Contexto
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<CPF>().HasKey("Cpf");
-            //modelBuilder.ApplyConfiguration(new AssuntoConfig());
-            //modelBuilder.ApplyConfiguration(new AssuntoConfig());
-            //modelBuilder.ApplyConfiguration(new ClassificacaoConfig());
-            //modelBuilder.ApplyConfiguration(new CpfConfig());
-            //modelBuilder.ApplyConfiguration(new EditoraConfig());
-            ////modelBuilder.ApplyConfiguration(new EnderecoConfig());
-            //modelBuilder.ApplyConfiguration(new EstadosConfig());
-            ////modelBuilder.ApplyConfiguration(new ExemplarConfig());
-            //modelBuilder.ApplyConfiguration(new LivroConfig());
-            //modelBuilder.ApplyConfiguration(new LocalizacaoConfig());
-            //modelBuilder.ApplyConfiguration(new MunicipioConfig());
-            //modelBuilder.ApplyConfiguration(new PaisConfig());
-            //modelBuilder.ApplyConfiguration(new PessoaConfig());
+
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

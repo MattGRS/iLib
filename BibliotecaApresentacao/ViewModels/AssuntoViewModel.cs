@@ -11,7 +11,7 @@ namespace BibliotecaApresentacao.ViewModels
         [Key]
         public int AssuntoId { get; set; }
         [Required(ErrorMessage = "Nome do Assunto é obrigatório")]
-        [MaxLength(50, ErrorMessage = "Máximo {0} caracteres")]
+        [MaxLength(100, ErrorMessage = "Máximo {0} caracteres")]
         public string AssuntoObra { get; set; }
         public virtual IEnumerable<LivroViewModel> Livros { get; set; }
     }

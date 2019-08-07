@@ -9,7 +9,7 @@ namespace BibliotecaApresentacao.ViewModels
         public int MunicipioId { get; set; }
 
         [Required(ErrorMessage = "Nome do Município é obrigatório.")]
-        [MaxLength(50, ErrorMessage = "Máximo {0} caracteres.")]
+        [MaxLength(100, ErrorMessage = "Máximo {0} caracteres.")]
         public string NomeMunicipio { get; internal set; }
 
         [Required(ErrorMessage = "Campo Estado é obrigatório.")]

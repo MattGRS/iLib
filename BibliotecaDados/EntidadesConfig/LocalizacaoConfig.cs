@@ -1,4 +1,5 @@
 ﻿using BibliotecaDominio.Entidades;
+using BibliotecaDominio.Entidades.ObjetosValor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
