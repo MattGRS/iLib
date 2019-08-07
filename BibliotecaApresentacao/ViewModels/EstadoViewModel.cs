@@ -15,6 +15,8 @@ namespace BibliotecaApresentacao.ViewModels
         [MaxLength(100, ErrorMessage = "Máximo {0} caracteres.")]
         public string NomeEstado { get; set; }
 
+        public int PaisId { get; set; }
+
         [Required(ErrorMessage = "Campo Pais é obrigatório.")]
         public virtual PaisViewModel Pais { get; set; }
 

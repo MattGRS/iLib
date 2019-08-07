@@ -12,6 +12,8 @@ namespace BibliotecaApresentacao.ViewModels
         [MaxLength(100, ErrorMessage = "Máximo {0} caracteres.")]
         public string NomeEditora { get; internal set; }
 
+        public int EnderecoId { get; set; }
+
         [Required(ErrorMessage = "Campo Endereço é obrigatório.")]
         public virtual EnderecoViewModel Endereco { get; internal set; } //FK de endereços
 

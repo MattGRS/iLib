@@ -12,6 +12,8 @@ namespace BibliotecaApresentacao.ViewModels
         [MaxLength(100, ErrorMessage = "Máximo {0} caracteres.")]
         public string NomeMunicipio { get; internal set; }
 
+        public int EstadoId { get; set; }
+
         [Required(ErrorMessage = "Campo Estado é obrigatório.")]
         public virtual EstadoViewModel Estado { get; internal set; } //FK de Estado
 

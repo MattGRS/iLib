@@ -23,6 +23,8 @@ namespace BibliotecaApresentacao.ViewModels
 
         public string Complemento { get; internal set; }
 
+        public int MunicipioId { get; set; }
+
         [Required(ErrorMessage = "Campo Município é obrigatório.")]
         public virtual MunicipioViewModel Municipio { get; internal set; }
 

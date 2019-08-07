@@ -14,6 +14,8 @@ namespace BibliotecaApresentacao.ViewModels
 
         public int NumeroExemplar { get; set; }
 
+        public int LivroId { get; set; }
+
         public virtual LivroViewModel Livro { get; set; }
 
         public virtual IEnumerable<EmprestimoViewModel> Emprestimo { get; set; }

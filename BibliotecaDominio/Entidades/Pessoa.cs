@@ -20,9 +20,6 @@ namespace BibliotecaDominio.Entidades
         public CPF CPF { get; internal set; }
 
         [Required]
-        public string RG { get; internal set; }
-
-        [Required]
         public DateTime DataDeNascimento { get; internal set; }
 
         public int Idade { get; internal set; }

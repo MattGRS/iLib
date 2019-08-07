@@ -15,8 +15,12 @@ namespace BibliotecaApresentacao.ViewModels
 
         public DateTime DataDevolucao { get; internal set; }
 
+        public int ExemplarId { get; set; }
+
         [Required(ErrorMessage = "É necessário um Exemplar para realizar o empréstimo.")]
         public virtual ExemplarLivroViewModel ExemplarLivro { get; set; }
+
+        public int PessoaId { get; set; }
 
         [Required(ErrorMessage = "É necessário uma Pessoa para realizar o empréstimo.")]
         public virtual PessoaViewModel Pessoa { get; set; }
