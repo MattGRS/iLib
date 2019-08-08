@@ -321,12 +321,12 @@ namespace BibliotecaDados.Migrations
                     b.HasOne("BibliotecaDominio.Entidades.ExemplarLivro", "ExemplarLivro")
                         .WithMany("Emprestimo")
                         .HasForeignKey("ExemplarLivroId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("BibliotecaDominio.Entidades.Pessoa", "Pessoa")
                         .WithMany("Emprestimo")
                         .HasForeignKey("PessoaId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("BibliotecaDominio.Entidades.Endereco", b =>

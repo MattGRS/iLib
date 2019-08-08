@@ -125,9 +125,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contexto\BibliotecaContext.cs" />
-    <Compile Include="Migrations\20190808003830_Teste.cs" />
-    <Compile Include="Migrations\20190808003830_Teste.designer.cs">
-      <DependentUpon>20190808003830_Teste.cs</DependentUpon>
+    <Compile Include="EntidadesConfig\EmprestimoConfig.cs" />
+    <Compile Include="EntidadesConfig\ExemplarLivroConfig.cs" />
+    <Compile Include="EntidadesConfig\PessoaConfig.cs" />
+    <Compile Include="Migrations\20190808134720_Teste.cs" />
+    <Compile Include="Migrations\20190808134720_Teste.designer.cs">
+      <DependentUpon>20190808134720_Teste.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\BibliotecaContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BibliotecaDominio.Entidades
 {
@@ -10,7 +11,7 @@ namespace BibliotecaDominio.Entidades
         public DateTime DataEmprestimo { get; internal set; }
 
         public DateTime DataDevolucao { get; internal set; }
-
+        
         public int ExemplarLivroId { get; set; }
 
         public int PessoaId { get; set; }

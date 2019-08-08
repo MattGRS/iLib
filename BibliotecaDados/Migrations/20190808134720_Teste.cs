@@ -292,13 +292,13 @@ namespace BibliotecaDados.Migrations
                         column: x => x.ExemplarLivroId,
                         principalTable: "Exemplares",
                         principalColumn: "ExemplarLivroId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Emprestimos_Pessoas_PessoaId",
                         column: x => x.PessoaId,
                         principalTable: "Pessoas",
                         principalColumn: "PessoaId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(

@@ -1,4 +1,5 @@
-﻿using BibliotecaDominio.Entidades;
+﻿using BibliotecaDados.EntidadesConfig;
+using BibliotecaDominio.Entidades;
 using BibliotecaDominio.Entidades.ObjetosValor;
 using Microsoft.EntityFrameworkCore;
 
@@ -44,7 +45,8 @@ namespace BibliotecaDados.Contexto
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            modelBuilder.ApplyConfiguration(new PessoaConfig());
+            modelBuilder.ApplyConfiguration(new EmprestimoConfig());
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

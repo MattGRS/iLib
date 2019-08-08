@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BibliotecaDados.Migrations
 {
     [DbContext(typeof(BibliotecaContext))]
-    [Migration("20190808003830_Teste")]
+    [Migration("20190808134720_Teste")]
     partial class Teste
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -323,12 +323,12 @@ namespace BibliotecaDados.Migrations
                     b.HasOne("BibliotecaDominio.Entidades.ExemplarLivro", "ExemplarLivro")
                         .WithMany("Emprestimo")
                         .HasForeignKey("ExemplarLivroId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("BibliotecaDominio.Entidades.Pessoa", "Pessoa")
                         .WithMany("Emprestimo")
                         .HasForeignKey("PessoaId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("BibliotecaDominio.Entidades.Endereco", b =>
