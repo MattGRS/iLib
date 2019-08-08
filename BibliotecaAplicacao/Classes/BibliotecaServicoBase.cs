@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace BibliotecaAplicacao.Classes
 {
-    class BibliotecaServicoBase<TEntidade> : IDisposable, IBibliotecaDAO<TEntidade> where TEntidade : class
+    class BibliotecaServicoBase<TEntidade> : IDisposable, IBibliotecaServicoBase<TEntidade> where TEntidade : class
     {
-        private readonly IBibliotecaDAO<TEntidade> _servicoBase;
+        private readonly IBibliotecaServicoBase<TEntidade> _servicoBase;
 
-        public BibliotecaServicoBase(IBibliotecaDAO<TEntidade> servicoBase)
+        public BibliotecaServicoBase(IBibliotecaServicoBase<TEntidade> servicoBase)
         {
             _servicoBase = servicoBase;
         }

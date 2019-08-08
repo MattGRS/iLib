@@ -41,9 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AssuntoServico.cs" />
     <Compile Include="Classes\BibliotecaServicoBase.cs" />
-    <Compile Include="Interfaces\IBibliotecaDAO.cs" />
+    <Compile Include="Interfaces\IBibliotecaServicoBase.cs" />
+    <Compile Include="Interfaces\IAssuntoServico.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BibliotecaDominio\BibliotecaDominio.csproj">
+      <Project>{FCFB8A82-E882-45E4-AE79-B219549916E4}</Project>
+      <Name>BibliotecaDominio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

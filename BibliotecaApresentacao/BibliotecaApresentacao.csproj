@@ -200,6 +200,7 @@
     <Compile Include="AutoMaper\AutoMapperConfig.cs" />
     <Compile Include="AutoMaper\DomainToViewModelMappingProfile.cs" />
     <Compile Include="AutoMaper\ViewModelToDomainMappingProfile.cs" />
+    <Compile Include="Controllers\AssuntoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -257,6 +258,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Assunto\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -275,6 +277,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BibliotecaAplicacao\BibliotecaAplicacao.csproj">
+      <Project>{7A154541-6B10-4CC0-A5BB-5A3801108E6B}</Project>
+      <Name>BibliotecaAplicacao</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BibliotecaDados\BibliotecaDados.csproj">
       <Project>{52f518b4-679b-4a5d-86d1-86e2192f4776}</Project>
       <Name>BibliotecaDados</Name>

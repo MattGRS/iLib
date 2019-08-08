@@ -2,7 +2,7 @@
 
 namespace BibliotecaAplicacao.Interfaces
 {
-    interface IBibliotecaDAO<TEntidade> where TEntidade : class
+    public interface IBibliotecaServicoBase<TEntidade> where TEntidade : class
     {
         void Adicionar(TEntidade entidade);
 

@@ -125,11 +125,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contexto\BibliotecaContext.cs" />
+    <Compile Include="Migrations\20190808003830_Teste.cs" />
+    <Compile Include="Migrations\20190808003830_Teste.designer.cs">
+      <DependentUpon>20190808003830_Teste.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\BibliotecaContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
