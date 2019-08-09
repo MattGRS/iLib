@@ -134,6 +134,8 @@
     </Compile>
     <Compile Include="Migrations\BibliotecaContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorios\AssuntoRepositorio.cs" />
+    <Compile Include="Repositorios\BibliotecaRepositorioBase.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

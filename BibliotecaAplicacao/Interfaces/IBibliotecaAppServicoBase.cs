@@ -1,8 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace BibliotecaAplicacao.Interfaces
 {
-    public interface IBibliotecaServicoBase<TEntidade> where TEntidade : class
+    public interface IBibliotecaAppServicoBase<TEntidade> where TEntidade : class
     {
         void Adicionar(TEntidade entidade);
 

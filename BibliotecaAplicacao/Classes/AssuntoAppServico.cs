@@ -1,5 +1,6 @@
 ﻿using BibliotecaAplicacao.Interfaces;
 using BibliotecaDominio.Entidades.ObjetosValor;
+using BibliotecaDominio.Interfaces.Servicos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace BibliotecaAplicacao.Classes
 {
-    class AssuntoServico : BibliotecaServicoBase<Assunto>, IAssuntoServico
+    class AssuntoAppServico : BibliotecaAppServico<Assunto>, IAssuntoAppServico
     {
         private readonly IAssuntoServico _assuntoServico;
-        public AssuntoServico(IAssuntoServico servicoBase) : base(servicoBase)
-        {
-            _assuntoServico = servicoBase;
-        }
 
-        bool IAssuntoServico.Remover(Assunto assunto)
+        public AssuntoAppServico(IAssuntoServico assuntoServico) : base(assuntoServico)
+        {
+            _assuntoServico = assuntoServico;
+        }
+        public new bool Remover(Assunto assunto)
         {
             return _assuntoServico.Remover(assunto);
         }

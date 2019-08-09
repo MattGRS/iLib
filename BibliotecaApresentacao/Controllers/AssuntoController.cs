@@ -2,22 +2,18 @@
 using BibliotecaAplicacao.Interfaces;
 using BibliotecaApresentacao.ViewModels;
 using BibliotecaDominio.Entidades.ObjetosValor;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace BibliotecaApresentacao.Controllers
 {
     public class AssuntoController : Controller
     {
-        private readonly IAssuntoServico _assuntoServico;
-        public AssuntoController(IAssuntoServico assuntoServico)
+        private readonly IAssuntoAppServico _assuntoAppServico;
+        public AssuntoController(IAssuntoAppServico assuntoAppServico)
         {
-            _assuntoServico = assuntoServico;
+            _assuntoAppServico = assuntoAppServico;
         }
-
         public AssuntoController()
         {
 
@@ -25,7 +21,7 @@ namespace BibliotecaApresentacao.Controllers
         // GET: Assunto
         public ActionResult Index()
         {
-            var assuntoViewModel = Mapper.Map<IEnumerable<Assunto>, IEnumerable<AssuntoViewModel>>(_assuntoServico.ObterTodos());
+            var assuntoViewModel = Mapper.Map<IEnumerable<Assunto>, IEnumerable<AssuntoViewModel>>(_assuntoAppServico.ObterTodos());
             return View(assuntoViewModel);
         }
 
@@ -39,7 +35,7 @@ namespace BibliotecaApresentacao.Controllers
             if (ModelState.IsValid)
             {
                 var assuntoEntidade = Mapper.Map<AssuntoViewModel, Assunto>(assuntoViewModel);
-                _assuntoServico.Adicionar(assuntoEntidade);
+                _assuntoAppServico.Adicionar(assuntoEntidade);
 
                 return RedirectToAction("Index");
             }

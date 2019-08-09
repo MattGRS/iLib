@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BibliotecaDados.Contexto
 {
-    class BibliotecaContext : DbContext
+    public class BibliotecaContext : DbContext
     {
         public DbSet<Assunto> Assuntos { get; set; }
 

@@ -1,0 +1,20 @@
+﻿@model IList<BibliotecaApresentacao.ViewModels.AssuntoViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>Assunto</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var assunto in Model)
+        {
+            <tr>
+                <td>@assunto.AssuntoObra</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -57,7 +57,13 @@
     <Compile Include="Entidades\ObjetosValor\Municipio.cs" />
     <Compile Include="Entidades\ObjetosValor\Pais.cs" />
     <Compile Include="Entidades\Pessoa.cs" />
+    <Compile Include="Interfaces\Repositorio\IAssuntoRepositorio.cs" />
+    <Compile Include="Interfaces\Repositorio\IBibliotecaRepositorioBase.cs" />
+    <Compile Include="Interfaces\Servicos\IAssuntoServico.cs" />
+    <Compile Include="Interfaces\Servicos\IBibliotecaServicoBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicos\AssuntoServico.cs" />
+    <Compile Include="Servicos\BibliotecaServicoBase.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

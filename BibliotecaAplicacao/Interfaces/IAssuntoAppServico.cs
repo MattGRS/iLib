@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BibliotecaAplicacao.Interfaces
 {
-    public interface IAssuntoServico : IBibliotecaServicoBase<Assunto>
+    public interface IAssuntoAppServico : IBibliotecaAppServicoBase<Assunto>
     {
         new bool Remover(Assunto assunto);
     }
