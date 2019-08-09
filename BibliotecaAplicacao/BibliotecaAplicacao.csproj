@@ -41,10 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AutorAppServico.cs" />
     <Compile Include="Classes\BibliotecaAppServico.cs" />
     <Compile Include="Classes\AssuntoAppServico.cs" />
+    <Compile Include="Classes\ClassificacaoAppServico.cs" />
     <Compile Include="Interfaces\IAssuntoAppServico.cs" />
+    <Compile Include="Interfaces\IAutorAppServico.cs" />
     <Compile Include="Interfaces\IBibliotecaAppServicoBase.cs" />
+    <Compile Include="Interfaces\IClassificacaoAppServico.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

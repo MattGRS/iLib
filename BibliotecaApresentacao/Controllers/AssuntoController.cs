@@ -14,10 +14,6 @@ namespace BibliotecaApresentacao.Controllers
         {
             _assuntoAppServico = assuntoAppServico;
         }
-        public AssuntoController()
-        {
-
-        }
         // GET: Assunto
         public ActionResult Index()
         {

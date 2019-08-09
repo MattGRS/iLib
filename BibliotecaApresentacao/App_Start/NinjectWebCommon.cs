@@ -55,14 +55,23 @@ namespace BibliotecaApresentacao.App_Start
 
         private static void RegisterServices(IKernel kernel)
         {
+            //Aplicacao
             kernel.Bind(typeof(IBibliotecaAppServicoBase<>)).To(typeof(BibliotecaAppServico<>));
             kernel.Bind<IAssuntoAppServico>().To<AssuntoAppServico>();
+            kernel.Bind<IAutorAppServico>().To<AutorAppServico>();
+            kernel.Bind<IClassificacaoAppServico>().To<ClassificacaoAppServico>();
 
+            //Servico
             kernel.Bind(typeof(IBibliotecaServicoBase<>)).To(typeof(BibliotecaServicoBase<>));
             kernel.Bind<IAssuntoServico>().To<AssuntoServico>();
+            kernel.Bind<IAutorServico>().To<AutorServico>();
+            kernel.Bind<IClassificacaoServico>().To<ClassificacaoServico>();
 
+            //Repositorio
             kernel.Bind(typeof(IBibliotecaRepositorioBase<>)).To(typeof(BibliotecaRepositorioBase<>));
             kernel.Bind<IAssuntoRepositorio>().To<AssuntoRepositorio>();
+            kernel.Bind<IAutorRepositorio>().To<AutorRepositorio>();
+            kernel.Bind<IClassificacaoRepositorio>().To<ClassificacaoRepositorio>();
         }
     }
 }
