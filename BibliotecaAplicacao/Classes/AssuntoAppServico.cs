@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BibliotecaAplicacao.Classes
 {
-    class AssuntoAppServico : BibliotecaAppServico<Assunto>, IAssuntoAppServico
+    public class AssuntoAppServico : BibliotecaAppServico<Assunto>, IAssuntoAppServico
     {
         private readonly IAssuntoServico _assuntoServico;
 

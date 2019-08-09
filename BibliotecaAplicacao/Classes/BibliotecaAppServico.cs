@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BibliotecaAplicacao.Classes
 {
-    class BibliotecaAppServico<TEntidade> : IDisposable, IBibliotecaAppServicoBase<TEntidade> where TEntidade : class
+    public class BibliotecaAppServico<TEntidade> : IDisposable, IBibliotecaAppServicoBase<TEntidade> where TEntidade : class
     {
         private readonly IBibliotecaServicoBase<TEntidade> _bibliotecaServicoBase;
 
