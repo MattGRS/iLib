@@ -33,6 +33,8 @@ namespace BibliotecaDados.Contexto
 
         public DbSet<Emprestimo> Emprestimos { get; set; }
 
+        public DbSet<DadosLogin> DadosLogin { get; set; }
+
         public BibliotecaContext()
         {
 

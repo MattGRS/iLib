@@ -60,18 +60,21 @@ namespace BibliotecaApresentacao.App_Start
             kernel.Bind<IAssuntoAppServico>().To<AssuntoAppServico>();
             kernel.Bind<IAutorAppServico>().To<AutorAppServico>();
             kernel.Bind<IClassificacaoAppServico>().To<ClassificacaoAppServico>();
+            kernel.Bind<IDadosLoginAppServico>().To<DadosLoginAppServico>();
 
             //Servico
             kernel.Bind(typeof(IBibliotecaServicoBase<>)).To(typeof(BibliotecaServicoBase<>));
             kernel.Bind<IAssuntoServico>().To<AssuntoServico>();
             kernel.Bind<IAutorServico>().To<AutorServico>();
             kernel.Bind<IClassificacaoServico>().To<ClassificacaoServico>();
+            kernel.Bind<IDadosLoginServico>().To<DadosLoginServico>();
 
             //Repositorio
             kernel.Bind(typeof(IBibliotecaRepositorioBase<>)).To(typeof(BibliotecaRepositorioBase<>));
             kernel.Bind<IAssuntoRepositorio>().To<AssuntoRepositorio>();
             kernel.Bind<IAutorRepositorio>().To<AutorRepositorio>();
             kernel.Bind<IClassificacaoRepositorio>().To<ClassificacaoRepositorio>();
+            kernel.Bind<IDadosLoginRepositorio>().To<DadosLoginRepositorio>();
         }
     }
 }
