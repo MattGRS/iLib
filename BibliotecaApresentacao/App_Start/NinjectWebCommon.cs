@@ -62,6 +62,7 @@ namespace BibliotecaApresentacao.App_Start
             kernel.Bind<IClassificacaoAppServico>().To<ClassificacaoAppServico>();
             kernel.Bind<IDadosLoginAppServico>().To<DadosLoginAppServico>();
             kernel.Bind<IEditoraAppServico>().To<EditoraAppServico>();
+            kernel.Bind<IEstadoAppServico>().To<EstadoAppServico>();
 
             //Servico
             kernel.Bind(typeof(IBibliotecaServicoBase<>)).To(typeof(BibliotecaServicoBase<>));
@@ -78,6 +79,7 @@ namespace BibliotecaApresentacao.App_Start
             kernel.Bind<IClassificacaoRepositorio>().To<ClassificacaoRepositorio>();
             kernel.Bind<IDadosLoginRepositorio>().To<DadosLoginRepositorio>();
             kernel.Bind<IEditoraRepositorio>().To<EditoraRepositorio>();
+            kernel.Bind<IEstadoRepositorio>().To<EstadoRepositorio>();
         }
     }
 }
