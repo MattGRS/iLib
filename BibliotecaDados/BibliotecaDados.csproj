@@ -139,6 +139,7 @@
     <Compile Include="Repositorios\BibliotecaRepositorioBase.cs" />
     <Compile Include="Repositorios\DadosLoginRepositorio.cs" />
     <Compile Include="Repositorios\ClassificacaoRepositorio.cs" />
+    <Compile Include="Repositorios\EditoraRepositorio.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
