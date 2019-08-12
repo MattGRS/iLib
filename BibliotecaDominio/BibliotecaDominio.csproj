@@ -64,6 +64,7 @@
     <Compile Include="Interfaces\Repositorio\IDadosLoginRepositorio.cs" />
     <Compile Include="Interfaces\Repositorio\IEditoraRepositorio.cs" />
     <Compile Include="Interfaces\Repositorio\IEstadoRepositorio.cs" />
+    <Compile Include="Interfaces\Repositorio\ILocalizacaoRepositorio.cs" />
     <Compile Include="Interfaces\Servicos\IAssuntoServico.cs" />
     <Compile Include="Interfaces\Servicos\IAutorServico.cs" />
     <Compile Include="Interfaces\Servicos\IBibliotecaServicoBase.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Interfaces\Servicos\IDadosLoginServico.cs" />
     <Compile Include="Interfaces\Servicos\IEditoraServico.cs" />
     <Compile Include="Interfaces\Servicos\IEstadoServico.cs" />
+    <Compile Include="Interfaces\Servicos\ILocalizacaoServico.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicos\AssuntoServico.cs" />
     <Compile Include="Servicos\AutorServico.cs" />
@@ -79,6 +81,7 @@
     <Compile Include="Servicos\DadosLoginServico.cs" />
     <Compile Include="Servicos\EditoraServico.cs" />
     <Compile Include="Servicos\EstadoServico.cs" />
+    <Compile Include="Servicos\LocalizacaoServico.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

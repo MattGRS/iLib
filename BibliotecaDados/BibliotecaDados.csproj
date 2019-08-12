@@ -141,6 +141,7 @@
     <Compile Include="Repositorios\ClassificacaoRepositorio.cs" />
     <Compile Include="Repositorios\EditoraRepositorio.cs" />
     <Compile Include="Repositorios\EstadoRepositorio.cs" />
+    <Compile Include="Repositorios\LocalizacaoRepositorio.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

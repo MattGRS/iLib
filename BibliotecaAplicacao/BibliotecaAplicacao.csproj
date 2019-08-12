@@ -48,6 +48,7 @@
     <Compile Include="Classes\DadosLoginAppServico.cs" />
     <Compile Include="Classes\EditoraAppServico.cs" />
     <Compile Include="Classes\EstadoAppServico.cs" />
+    <Compile Include="Classes\LocalizacaoAppServico.cs" />
     <Compile Include="Interfaces\IAssuntoAppServico.cs" />
     <Compile Include="Interfaces\IAutorAppServico.cs" />
     <Compile Include="Interfaces\IBibliotecaAppServicoBase.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="Interfaces\IDadosLoginAppServico.cs" />
     <Compile Include="Interfaces\IEditoraAppServico.cs" />
     <Compile Include="Interfaces\IEstadoAppServico.cs" />
+    <Compile Include="Interfaces\ILocalizacaoAppServico.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
