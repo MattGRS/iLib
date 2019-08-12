@@ -63,6 +63,8 @@ namespace BibliotecaApresentacao.App_Start
             kernel.Bind<IDadosLoginAppServico>().To<DadosLoginAppServico>();
             kernel.Bind<IEditoraAppServico>().To<EditoraAppServico>();
             kernel.Bind<IEstadoAppServico>().To<EstadoAppServico>();
+            kernel.Bind<ILocalizacaoAppServico>().To<LocalizacaoAppServico>();
+            kernel.Bind<IMunicipioAppServico>().To<MunicipioAppServico>();
 
             //Servico
             kernel.Bind(typeof(IBibliotecaServicoBase<>)).To(typeof(BibliotecaServicoBase<>));
@@ -71,6 +73,8 @@ namespace BibliotecaApresentacao.App_Start
             kernel.Bind<IClassificacaoServico>().To<ClassificacaoServico>();
             kernel.Bind<IDadosLoginServico>().To<DadosLoginServico>();
             kernel.Bind<IEditoraServico>().To<EditoraServico>();
+            kernel.Bind<ILocalizacaoServico>().To<LocalizacaoServico>();
+            kernel.Bind<IMunicipioServico>().To<MunicipioServico>();
 
             //Repositorio
             kernel.Bind(typeof(IBibliotecaRepositorioBase<>)).To(typeof(BibliotecaRepositorioBase<>));
@@ -80,6 +84,8 @@ namespace BibliotecaApresentacao.App_Start
             kernel.Bind<IDadosLoginRepositorio>().To<DadosLoginRepositorio>();
             kernel.Bind<IEditoraRepositorio>().To<EditoraRepositorio>();
             kernel.Bind<IEstadoRepositorio>().To<EstadoRepositorio>();
+            kernel.Bind<ILocalizacaoRepositorio>().To<LocalizacaoRepositorio>();
+            kernel.Bind<IMunicipioRepositorio>().To<MunicipioRepositorio>();
         }
     }
 }
