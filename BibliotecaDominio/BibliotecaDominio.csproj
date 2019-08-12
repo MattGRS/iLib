@@ -66,6 +66,7 @@
     <Compile Include="Interfaces\Repositorio\IEstadoRepositorio.cs" />
     <Compile Include="Interfaces\Repositorio\ILocalizacaoRepositorio.cs" />
     <Compile Include="Interfaces\Repositorio\IMunicipioRepositorio.cs" />
+    <Compile Include="Interfaces\Repositorio\IPaisRepositorio.cs" />
     <Compile Include="Interfaces\Servicos\IAssuntoServico.cs" />
     <Compile Include="Interfaces\Servicos\IAutorServico.cs" />
     <Compile Include="Interfaces\Servicos\IBibliotecaServicoBase.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Interfaces\Servicos\IEstadoServico.cs" />
     <Compile Include="Interfaces\Servicos\ILocalizacaoServico.cs" />
     <Compile Include="Interfaces\Servicos\IMunicipioServico.cs" />
+    <Compile Include="Interfaces\Servicos\IPaisServico.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicos\AssuntoServico.cs" />
     <Compile Include="Servicos\AutorServico.cs" />
@@ -85,6 +87,7 @@
     <Compile Include="Servicos\EstadoServico.cs" />
     <Compile Include="Servicos\LocalizacaoServico.cs" />
     <Compile Include="Servicos\MunicipioServico.cs" />
+    <Compile Include="Servicos\PaisServico.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

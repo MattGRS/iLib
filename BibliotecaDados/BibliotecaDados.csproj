@@ -143,6 +143,7 @@
     <Compile Include="Repositorios\EstadoRepositorio.cs" />
     <Compile Include="Repositorios\LocalizacaoRepositorio.cs" />
     <Compile Include="Repositorios\MunicipioRepositorio.cs" />
+    <Compile Include="Repositorios\PaisRepositorio.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

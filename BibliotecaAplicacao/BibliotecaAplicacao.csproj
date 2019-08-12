@@ -50,6 +50,7 @@
     <Compile Include="Classes\EstadoAppServico.cs" />
     <Compile Include="Classes\LocalizacaoAppServico.cs" />
     <Compile Include="Classes\MunicipioAppServico.cs" />
+    <Compile Include="Classes\PaisAppServico.cs" />
     <Compile Include="Interfaces\IAssuntoAppServico.cs" />
     <Compile Include="Interfaces\IAutorAppServico.cs" />
     <Compile Include="Interfaces\IBibliotecaAppServicoBase.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="Interfaces\IEstadoAppServico.cs" />
     <Compile Include="Interfaces\ILocalizacaoAppServico.cs" />
     <Compile Include="Interfaces\IMunicipioAppServico.cs" />
+    <Compile Include="Interfaces\IPaisAppServico.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
