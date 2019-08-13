@@ -66,6 +66,8 @@
     <Compile Include="Interfaces\Repositorio\IEmprestimoRepositorio.cs" />
     <Compile Include="Interfaces\Repositorio\IEnderecoRepositorio.cs" />
     <Compile Include="Interfaces\Repositorio\IEstadoRepositorio.cs" />
+    <Compile Include="Interfaces\Repositorio\IExemplarLivroRepositorio.cs" />
+    <Compile Include="Interfaces\Repositorio\ILivroRepositorio.cs" />
     <Compile Include="Interfaces\Repositorio\ILocalizacaoRepositorio.cs" />
     <Compile Include="Interfaces\Repositorio\IMunicipioRepositorio.cs" />
     <Compile Include="Interfaces\Repositorio\IPaisRepositorio.cs" />
@@ -78,6 +80,8 @@
     <Compile Include="Interfaces\Servicos\IEmprestimoServico.cs" />
     <Compile Include="Interfaces\Servicos\IEnderecoServico.cs" />
     <Compile Include="Interfaces\Servicos\IEstadoServico.cs" />
+    <Compile Include="Interfaces\Servicos\IExemplarLivroServico.cs" />
+    <Compile Include="Interfaces\Servicos\ILivroServico.cs" />
     <Compile Include="Interfaces\Servicos\ILocalizacaoServico.cs" />
     <Compile Include="Interfaces\Servicos\IMunicipioServico.cs" />
     <Compile Include="Interfaces\Servicos\IPaisServico.cs" />
@@ -91,6 +95,8 @@
     <Compile Include="Servicos\EmprestimoServico.cs" />
     <Compile Include="Servicos\EnderecoServico.cs" />
     <Compile Include="Servicos\EstadoServico.cs" />
+    <Compile Include="Servicos\ExemplarLivroServico.cs" />
+    <Compile Include="Servicos\LivroServico.cs" />
     <Compile Include="Servicos\LocalizacaoServico.cs" />
     <Compile Include="Servicos\MunicipioServico.cs" />
     <Compile Include="Servicos\PaisServico.cs" />

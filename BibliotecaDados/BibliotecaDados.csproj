@@ -143,6 +143,8 @@
     <Compile Include="Repositorios\EmprestimoRepositorio.cs" />
     <Compile Include="Repositorios\EnderecoRepositorio.cs" />
     <Compile Include="Repositorios\EstadoRepositorio.cs" />
+    <Compile Include="Repositorios\ExemplarLivroRepositorio.cs" />
+    <Compile Include="Repositorios\LivroRepositorio.cs" />
     <Compile Include="Repositorios\LocalizacaoRepositorio.cs" />
     <Compile Include="Repositorios\MunicipioRepositorio.cs" />
     <Compile Include="Repositorios\PaisRepositorio.cs" />

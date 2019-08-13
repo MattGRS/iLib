@@ -68,6 +68,8 @@ namespace BibliotecaApresentacao.App_Start
             kernel.Bind<IPaisAppServico>().To<PaisAppServico>();
             kernel.Bind<IEmprestimoAppServico>().To<EmprestimoAppServico>();
             kernel.Bind<IEnderecoAppServico>().To<EnderecoAppServico>();
+            kernel.Bind<IExemplarLivroAppServico>().To<ExemplarLivroAppServico>();
+            kernel.Bind<ILivroAppServico>().To<LivroAppServico>();
 
             //Servico
             kernel.Bind(typeof(IBibliotecaServicoBase<>)).To(typeof(BibliotecaServicoBase<>));
@@ -81,6 +83,8 @@ namespace BibliotecaApresentacao.App_Start
             kernel.Bind<IPaisServico>().To<PaisServico>();
             kernel.Bind<IEmprestimoServico>().To<EmprestimoServico>();
             kernel.Bind<IEnderecoServico>().To<EnderecoServico>();
+            kernel.Bind<IExemplarLivroServico>().To<ExemplarLivroServico>();
+            kernel.Bind<ILivroServico>().To<LivroServico>();
 
             //Repositorio
             kernel.Bind(typeof(IBibliotecaRepositorioBase<>)).To(typeof(BibliotecaRepositorioBase<>));
@@ -95,6 +99,8 @@ namespace BibliotecaApresentacao.App_Start
             kernel.Bind<IPaisRepositorio>().To<PaisRepositorio>();
             kernel.Bind<IEmprestimoRepositorio>().To<EmprestimoRepositorio>();
             kernel.Bind<IEnderecoRepositorio>().To<EnderecoRepositorio>();
+            kernel.Bind<IExemplarLivroRepositorio>().To<ExemplarLivroRepositorio>();
+            kernel.Bind<ILivroRepositorio>().To<LivroRepositorio>();
         }
     }
 }
