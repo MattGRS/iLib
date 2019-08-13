@@ -63,6 +63,7 @@
     <Compile Include="Interfaces\Repositorio\IClassificacaoRepositorio.cs" />
     <Compile Include="Interfaces\Repositorio\IDadosLoginRepositorio.cs" />
     <Compile Include="Interfaces\Repositorio\IEditoraRepositorio.cs" />
+    <Compile Include="Interfaces\Repositorio\IEmprestimoRepositorio.cs" />
     <Compile Include="Interfaces\Repositorio\IEstadoRepositorio.cs" />
     <Compile Include="Interfaces\Repositorio\ILocalizacaoRepositorio.cs" />
     <Compile Include="Interfaces\Repositorio\IMunicipioRepositorio.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Interfaces\Servicos\IClassificacaoServico.cs" />
     <Compile Include="Interfaces\Servicos\IDadosLoginServico.cs" />
     <Compile Include="Interfaces\Servicos\IEditoraServico.cs" />
+    <Compile Include="Interfaces\Servicos\IEmprestimoServico.cs" />
     <Compile Include="Interfaces\Servicos\IEstadoServico.cs" />
     <Compile Include="Interfaces\Servicos\ILocalizacaoServico.cs" />
     <Compile Include="Interfaces\Servicos\IMunicipioServico.cs" />
@@ -84,6 +86,7 @@
     <Compile Include="Servicos\ClassificacaoServico.cs" />
     <Compile Include="Servicos\DadosLoginServico.cs" />
     <Compile Include="Servicos\EditoraServico.cs" />
+    <Compile Include="Servicos\EmprestimoServico.cs" />
     <Compile Include="Servicos\EstadoServico.cs" />
     <Compile Include="Servicos\LocalizacaoServico.cs" />
     <Compile Include="Servicos\MunicipioServico.cs" />

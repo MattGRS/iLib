@@ -66,6 +66,7 @@ namespace BibliotecaApresentacao.App_Start
             kernel.Bind<ILocalizacaoAppServico>().To<LocalizacaoAppServico>();
             kernel.Bind<IMunicipioAppServico>().To<MunicipioAppServico>();
             kernel.Bind<IPaisAppServico>().To<PaisAppServico>();
+            kernel.Bind<IEmprestimoAppServico>().To<EmprestimoAppServico>();
 
             //Servico
             kernel.Bind(typeof(IBibliotecaServicoBase<>)).To(typeof(BibliotecaServicoBase<>));
@@ -77,6 +78,7 @@ namespace BibliotecaApresentacao.App_Start
             kernel.Bind<ILocalizacaoServico>().To<LocalizacaoServico>();
             kernel.Bind<IMunicipioServico>().To<MunicipioServico>();
             kernel.Bind<IPaisServico>().To<PaisServico>();
+            kernel.Bind<IEmprestimoServico>().To<EmprestimoServico>();
 
             //Repositorio
             kernel.Bind(typeof(IBibliotecaRepositorioBase<>)).To(typeof(BibliotecaRepositorioBase<>));
@@ -89,6 +91,7 @@ namespace BibliotecaApresentacao.App_Start
             kernel.Bind<ILocalizacaoRepositorio>().To<LocalizacaoRepositorio>();
             kernel.Bind<IMunicipioRepositorio>().To<MunicipioRepositorio>();
             kernel.Bind<IPaisRepositorio>().To<PaisRepositorio>();
+            kernel.Bind<IEmprestimoRepositorio>().To<EmprestimoRepositorio>();
         }
     }
 }
