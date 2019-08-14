@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+
+    <form action="/Assunto/EditSave/@ViewBag.Assunto.AssuntoId">
+        <label for="assunto">Assunto: </label>
+        <input id="assunto" name="assuntoViewModel.AssuntoObra" value="@ViewBag.Assunto.AssuntoObra"/>
+
+        <input class="btn btn-primary" type="submit" value="Salvar" />
+
+    </form>
+

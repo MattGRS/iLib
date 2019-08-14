@@ -3,18 +3,27 @@
     ViewBag.Title = "Index";
 }
 
-<table>
+<table class="table table-hover">
     <thead>
         <tr>
-            <th>Assunto</th>
+            <th scope="col">Assunto</th>
+            <th scope="col"></th>
         </tr>
+
     </thead>
     <tbody>
         @foreach (var assunto in Model)
         {
             <tr>
                 <td>@assunto.AssuntoObra</td>
+                <td>
+                    <a class="btn btn-warning" href="Edit/@assunto.AssuntoId">Editar</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="Delete/@assunto.AssuntoId">Remover</a>
+                </td>
             </tr>
         }
     </tbody>
 </table>
+<a class="btn btn-primary" href="~/Assunto/Create">Adicionar</a>

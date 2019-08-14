@@ -38,5 +38,32 @@ namespace BibliotecaApresentacao.Controllers
 
             return View(assuntoViewModel);
         }
+
+        public ActionResult Delete(int id)
+        {
+            var categoriaEntidade = _assuntoAppServico.ObterPorId(id);
+            if (_assuntoAppServico.Remover(categoriaEntidade))
+            {
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Index", "Erro", new { msg = $"O Iten {categoriaEntidade.AssuntoObra} não pode ser removido pois existe um livro vinculado" });
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var assuntoEntidade = _assuntoAppServico.ObterPorId(id);
+            var assuntoViewModel = Mapper.Map<Assunto, AssuntoViewModel>(assuntoEntidade);
+            ViewBag.Assunto = assuntoViewModel;
+            return View(assuntoEntidade);
+        }
+
+        public ActionResult EditSave(int id, AssuntoViewModel assuntoViewModel)
+        {
+            assuntoViewModel.AssuntoId = id;
+            var assuntoEntidade = Mapper.Map<AssuntoViewModel, Assunto>(assuntoViewModel);
+            _assuntoAppServico.Atualizar(assuntoEntidade);
+            return RedirectToAction("Index");
+        }
     }
 }
