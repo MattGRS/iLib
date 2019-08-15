@@ -1,0 +1,14 @@
+﻿@model BibliotecaApresentacao.ViewModels.ClassificacaoViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<form action="~/Classificacao/Create" method="post">
+    <div class="col">
+        <label class="col-form-label" for="classificacao">Classificação:</label>
+        <input class="form-control" id="classificacao" name="classificacaoViewModel.ClassificacaoObra" />
+    </div>
+
+    <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
+</form>

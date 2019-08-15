@@ -1,0 +1,30 @@
+﻿@model IList<BibliotecaApresentacao.ViewModels.ClassificacaoViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Classificação</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var classificacao in Model)
+        {
+            <tr>
+                <td>@classificacao.ClassificacaoObra</td>
+                <td>
+                    <a class="btn btn-warning" href="~/Classificacao/Edit/@classificacao.ClassificacaoId">Editar</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="~/Classificacao/Delete/@classificacao.ClassificacaoId">Remover</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a class="btn btn-primary" href="~/Classificacao/Create">Novo</a>
+

@@ -1,0 +1,11 @@
+﻿@model BibliotecaApresentacao.ViewModels.ClassificacaoViewModel
+@{
+    ViewBag.Title = "Edit";
+}
+
+<form action="~/Classificacao/Edit/@ViewBag.Classificacao.ClassificacaoId" method="post">
+    <label class="col-form-label" for="classificacao">Classificação: </label>
+    <input class="form-control" id="classificacao" name="classificacaoViewModel.ClassificacaoObra" value="@ViewBag.Classificacao.ClassificacaoId" />
+
+    <input class="btn btn-success btn-form" type="submit" value="Salvar" />
+</form>
