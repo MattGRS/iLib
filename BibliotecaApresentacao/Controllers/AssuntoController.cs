@@ -55,7 +55,7 @@ namespace BibliotecaApresentacao.Controllers
             var assuntoEntidade = _assuntoAppServico.ObterPorId(id);
             var assuntoViewModel = Mapper.Map<Assunto, AssuntoViewModel>(assuntoEntidade);
             ViewBag.Assunto = assuntoViewModel;
-            return View(assuntoEntidade);
+            return View(assuntoViewModel);
         }
         [HttpPost]
         public ActionResult Edit(int id, AssuntoViewModel assuntoViewModel)

@@ -1,0 +1,12 @@
+﻿@model BibliotecaApresentacao.ViewModels.AutorViewModel
+@{
+    ViewBag.Title = "Edit";
+}
+
+<form action="~/Autor/Edit/@ViewBag.Autor.AutorId" method="post">
+    <label class="col-form-label" for="autor">Autor: </label>
+    <input class="form-control" id="autor" name="autorViewModel.NomeAutor" value="@ViewBag.Autor.NomeAutor" />
+
+    <input class="btn btn-success btn-form" type="submit" value="Salvar" />
+</form>
+

@@ -58,7 +58,7 @@ namespace BibliotecaApresentacao.Controllers
             var autorEntidade = _autorAppServico.ObterPorId(id);
             var autorViewModel = Mapper.Map<Autor, AutorViewModel>(autorEntidade);
             ViewBag.Autor = autorViewModel;
-            return View(autorEntidade);
+            return View(autorViewModel);
         }
         [HttpPost]
         public ActionResult Edit(int id, AutorViewModel autorViewModel)
