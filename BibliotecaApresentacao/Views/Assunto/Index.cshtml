@@ -8,8 +8,8 @@
         <tr>
             <th scope="col">Assunto</th>
             <th scope="col"></th>
+            <th scope="col"></th>
         </tr>
-
     </thead>
     <tbody>
         @foreach (var assunto in Model)
@@ -17,13 +17,13 @@
             <tr>
                 <td>@assunto.AssuntoObra</td>
                 <td>
-                    <a class="btn btn-warning" href="Edit/@assunto.AssuntoId">Editar</a>
+                    <a class="btn btn-warning" href="~/Assunto/Edit/@assunto.AssuntoId">Editar</a>
                 </td>
                 <td>
-                    <a class="btn btn-danger" href="Delete/@assunto.AssuntoId">Remover</a>
+                    <a class="btn btn-danger" href="~/Assunto/Delete/@assunto.AssuntoId">Remover</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
-<a class="btn btn-primary" href="~/Assunto/Create">Adicionar</a>
+<a class="btn btn-primary" href="~/Assunto/Create">Novo</a>

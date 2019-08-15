@@ -3,11 +3,13 @@
     ViewBag.Title = "Create";
 }
 
-<form action="/Assunto/Create" method="post">
-    <label for="assunto">Assunto: </label>
-    <input id="assunto" name="assuntoViewModel.AssuntoObra" />
+<form action="~/Assunto/Create" method="post">
+    <div class="col">
+        <label class="col-form-label" for="assunto">Assunto: </label>
+        <input class="form-control" id="assunto" name="assuntoViewModel.AssuntoObra" />
+    </div>
 
-    <input type="submit" value="Cadastrar" />
+    <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
 
 </form>
 

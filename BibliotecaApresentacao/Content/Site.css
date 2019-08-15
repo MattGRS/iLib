@@ -11,3 +11,7 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.btn-form{
+    margin-top: 10px;
+}

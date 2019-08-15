@@ -14,7 +14,7 @@ namespace BibliotecaApresentacao.Controllers
         {
             _assuntoAppServico = assuntoAppServico;
         }
-        // GET: Assunto
+
         public ActionResult Index()
         {
             var assuntoViewModel = Mapper.Map<IEnumerable<Assunto>, IEnumerable<AssuntoViewModel>>(_assuntoAppServico.ObterTodos());
@@ -38,16 +38,16 @@ namespace BibliotecaApresentacao.Controllers
 
             return View(assuntoViewModel);
         }
-
+        
         public ActionResult Delete(int id)
         {
-            var categoriaEntidade = _assuntoAppServico.ObterPorId(id);
-            if (_assuntoAppServico.Remover(categoriaEntidade))
+            var assuntoEntidade = _assuntoAppServico.ObterPorId(id);
+            if (_assuntoAppServico.Remover(assuntoEntidade))
             {
                 return RedirectToAction("Index");
             }
 
-            return RedirectToAction("Index", "Erro", new { msg = $"O Iten {categoriaEntidade.AssuntoObra} não pode ser removido pois existe um livro vinculado" });
+            return RedirectToAction("Index", "Erro", new { msg = $"O Iten {assuntoEntidade.AssuntoObra} não pode ser removido pois existe um livro vinculado" });
         }
 
         public ActionResult Edit(int id)
@@ -57,8 +57,8 @@ namespace BibliotecaApresentacao.Controllers
             ViewBag.Assunto = assuntoViewModel;
             return View(assuntoEntidade);
         }
-
-        public ActionResult EditSave(int id, AssuntoViewModel assuntoViewModel)
+        [HttpPost]
+        public ActionResult Edit(int id, AssuntoViewModel assuntoViewModel)
         {
             assuntoViewModel.AssuntoId = id;
             var assuntoEntidade = Mapper.Map<AssuntoViewModel, Assunto>(assuntoViewModel);

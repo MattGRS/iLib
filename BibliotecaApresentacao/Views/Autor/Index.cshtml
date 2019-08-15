@@ -1,0 +1,30 @@
+﻿@model IList<BibliotecaApresentacao.ViewModels.AutorViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Autor</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var autor in Model)
+        {
+            <tr>
+                <td>@autor.NomeAutor</td>
+                <td>
+                    <a class="btn btn-warning" href="~/Autor/Edit/@autor.AutorId">Editar</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="~/Autor/Delete/@autor.AutorId">Remover</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a class="btn btn-primary" href="~/Autor/Create">Novo</a>
+

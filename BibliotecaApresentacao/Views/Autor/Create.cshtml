@@ -1,0 +1,13 @@
+﻿@model BibliotecaApresentacao.ViewModels.AutorViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<form action="~/Autor/Create" method="post">
+    <div class="col">
+        <label class="col-form-label" for="autor">Autor:</label>
+        <input class="form-control" id="autor" name="autorViewModel.NomeAutor" />
+    </div>
+
+    <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
+</form>
