@@ -1,0 +1,12 @@
+﻿@model BibliotecaApresentacao.ViewModels.LocalizacaoViewModel
+@{
+    ViewBag.Title = "Edit";
+}
+
+<form action="~/Localizacao/Edit/@ViewBag.Localizacao.LocalizacaoId" method="post">
+    <label class="col-form-label" for="localizacao">Localização: </label>
+    <input class="form-control" id="localizacao" name="localizacaoViewModel.LocalizacaoObra" value="@ViewBag.Localizacao.LocalizacaoObra" />
+
+    <input class="btn btn-success btn-form" type="submit" value="Salvar" />
+</form>
+

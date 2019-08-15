@@ -222,6 +222,8 @@
     <Compile Include="Controllers\AutorController.cs" />
     <Compile Include="Controllers\ClassificacaoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocalizacaoController.cs" />
+    <Compile Include="Controllers\PaisController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2092,6 +2094,12 @@
     <Content Include="Views\Classificacao\Index.cshtml" />
     <Content Include="Views\Classificacao\Create.cshtml" />
     <Content Include="Views\Classificacao\Edit.cshtml" />
+    <Content Include="Views\Localizacao\Index.cshtml" />
+    <Content Include="Views\Localizacao\Create.cshtml" />
+    <Content Include="Views\Localizacao\Edit.cshtml" />
+    <Content Include="Views\Pais\Index.cshtml" />
+    <Content Include="Views\Pais\Create.cshtml" />
+    <Content Include="Views\Pais\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

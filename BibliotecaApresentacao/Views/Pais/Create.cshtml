@@ -1,0 +1,14 @@
+﻿@model BibliotecaApresentacao.ViewModels.PaisViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<form action="~/Pais/Create" method="post">
+    <div class="col">
+        <label class="col-form-label" for="Pais">Pais:</label>
+        <input class="form-control" id="pais" name="paisViewModel.NomePais" />
+    </div>
+
+    <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
+</form>
+

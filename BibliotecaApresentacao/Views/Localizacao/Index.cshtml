@@ -1,0 +1,29 @@
+﻿@model IList<BibliotecaApresentacao.ViewModels.LocalizacaoViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Localização</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var localizacao in Model)
+        {
+            <tr>
+                <td>@localizacao.LocalizacaoObra</td>
+                <td>
+                    <a class="btn btn-warning" href="~/Localizacao/Edit/@localizacao.LocalizacaoId">Editar</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="~/Localizacao/Delete/@localizacao.LocalizacaoId">Remover</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a class="btn btn-primary" href="~/Localizacao/Create">Novo</a>

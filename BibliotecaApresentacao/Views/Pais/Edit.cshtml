@@ -1,0 +1,12 @@
+﻿@model BibliotecaApresentacao.ViewModels.PaisViewModel
+@{
+    ViewBag.Title = "Edit";
+}
+
+<form action="~/Pais/Edit/@ViewBag.Pais.PaisId" method="post">
+    <label class="col-form-label" for="pais">Pais: </label>
+    <input class="form-control" id="pais" name="paisViewModel.NomePais" value="@ViewBag.Pais.NomePais" />
+
+    <input class="btn btn-success btn-form" type="submit" value="Salvar" />
+</form>
+
