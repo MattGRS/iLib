@@ -15,3 +15,15 @@ textarea {
 .btn-form{
     margin-top: 10px;
 }
+
+.btn-primary {
+    background-color: #008B8B;
+    border-color: #48D1CC;
+}
+
+.btn-primary:hover {
+    background-color: #48D1CC;
+    border-color: #48D1CC;
+    }
+
+

@@ -79,6 +79,7 @@ namespace BibliotecaApresentacao.App_Start
             kernel.Bind<IClassificacaoServico>().To<ClassificacaoServico>();
             kernel.Bind<IDadosLoginServico>().To<DadosLoginServico>();
             kernel.Bind<IEditoraServico>().To<EditoraServico>();
+            kernel.Bind<IEstadoServico>().To<EstadoServico>();
             kernel.Bind<ILocalizacaoServico>().To<LocalizacaoServico>();
             kernel.Bind<IMunicipioServico>().To<MunicipioServico>();
             kernel.Bind<IPaisServico>().To<PaisServico>();

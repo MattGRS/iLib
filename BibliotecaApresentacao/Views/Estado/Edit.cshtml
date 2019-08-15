@@ -1,0 +1,12 @@
+﻿@model BibliotecaApresentacao.ViewModels.EstadoViewModel
+@{
+    ViewBag.Title = "Edit";
+}
+
+<form action="~/Estado/Edit/@ViewBag.Estado.EstadoId" method="post">
+    <label class="col-form-label" for="estado">Estado: </label>
+    <input class="form-control" id="estado" name="estadoViewModel.NomeEstado" value="@ViewBag.Estado.NomeEstado" />
+
+    <input class="btn btn-success btn-form" type="submit" value="Salvar" />
+</form>
+

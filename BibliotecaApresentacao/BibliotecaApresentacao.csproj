@@ -221,6 +221,7 @@
     <Compile Include="Controllers\AssuntoController.cs" />
     <Compile Include="Controllers\AutorController.cs" />
     <Compile Include="Controllers\ClassificacaoController.cs" />
+    <Compile Include="Controllers\EstadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocalizacaoController.cs" />
     <Compile Include="Controllers\PaisController.cs" />
@@ -253,6 +254,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\sb-admin-2.css" />
     <Content Include="Content\css\sb-admin-2.min.css" />
+    <Content Include="Content\img\path20.png" />
     <Content Include="Content\img\undraw_posting_photo.svg" />
     <Content Include="Content\js\demo\chart-area-demo.js" />
     <Content Include="Content\js\demo\chart-bar-demo.js" />
@@ -2100,6 +2102,9 @@
     <Content Include="Views\Pais\Index.cshtml" />
     <Content Include="Views\Pais\Create.cshtml" />
     <Content Include="Views\Pais\Edit.cshtml" />
+    <Content Include="Views\Estado\Index.cshtml" />
+    <Content Include="Views\Estado\Create.cshtml" />
+    <Content Include="Views\Estado\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

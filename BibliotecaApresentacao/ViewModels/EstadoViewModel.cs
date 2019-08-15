@@ -15,11 +15,11 @@ namespace BibliotecaApresentacao.ViewModels
         [MaxLength(100, ErrorMessage = "Máximo {0} caracteres.")]
         public string NomeEstado { get; set; }
 
+        [Required(ErrorMessage = "Campo Pais é obrigatório.")]
         public int PaisId { get; set; }
 
-        [Required(ErrorMessage = "Campo Pais é obrigatório.")]
         public virtual PaisViewModel Pais { get; set; }
 
-        public virtual IEnumerable<MunicipioViewModel> Municipios { get; internal set; }
+        public virtual IEnumerable<MunicipioViewModel> Municipios { get; set; }
     }
 }

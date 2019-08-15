@@ -1,0 +1,30 @@
+﻿@model IList<BibliotecaApresentacao.ViewModels.EstadoViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Estado</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var estado in Model)
+        {
+            <tr>
+                <td>@estado.NomeEstado</td>
+                <td>
+                    <a class="btn btn-warning" href="~/Estado/Edit/@estado.EstadoId">Editar</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="~/Estado/Delete/@estado.EstadoId">Remover</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a class="btn btn-primary" href="~/Estado/Create">Novo</a>
+
