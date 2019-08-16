@@ -1,0 +1,32 @@
+﻿@model BibliotecaApresentacao.ViewModels.EnderecoViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<form action="~/Endereco/Create" method="post">
+    <div class="col">
+        <label class="col-form-label" for="cep">CEP</label>
+        <input class="form-control" id="cep" name="enderecoViewModel.CEP"/>
+
+        <label class="col-form-label" for="logradouro">Logradouro</label>
+        <input class="form-control" id="logradouro" name="enderecoViewModel.Logradouro"/>
+
+        <label class="col-form-label" for="bairro">Bairro</label>
+        <input class="form-control" id="bairro" name="enderecoViewModel.Bairro"/>
+
+        <label class="col-form-label" for="numero">Nº</label>
+        <input class="form-control" id="numero" name="enderecoViewModel.NumeroResidencial"/>
+
+        <label class="col-form-label" for="complemento">Complemento</label>
+        <input class="form-control" id="complemento" name="enderecoViewModel.Complemento"/>
+        
+        <label class="col-form-label" for="municipio">Municipio</label>
+        <select id="municipio" name="enderecoViewModel.MunicipioId" class="form-control">
+            @foreach (var municipio in ViewBag.Municipio)
+            {
+                <option value="@municipio.MunicipioId" selected="@municipio.MunicipioId.Equals(ViewBag.Municipio)">@municipio.NomeMunicipio</option>
+            }
+
+        </select>
+    </div>
+</form>

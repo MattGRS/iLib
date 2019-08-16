@@ -1,0 +1,33 @@
+﻿@model IList<BibliotecaApresentacao.ViewModels.EnderecoViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>CEP</th>
+            <th scope="col">Logradouro</th>
+            <th>Nº</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var endereco in Model)
+        {
+            <tr>
+                <td>@endereco.CEP</td>
+                <td>@endereco.Logradouro</td>
+                <td>@endereco.NumeroResidencial</td>
+                <td>
+                    <a class="btn btn-warning" href="~/Endereco/Edit/@endereco.EnderecoId">Editar</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="~/Endereco/Delete/@endereco.EnderecoId">Remover</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a class="btn btn-primary" href="~/Endereco/Create">Novo</a>

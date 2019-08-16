@@ -221,6 +221,7 @@
     <Compile Include="Controllers\AssuntoController.cs" />
     <Compile Include="Controllers\AutorController.cs" />
     <Compile Include="Controllers\ClassificacaoController.cs" />
+    <Compile Include="Controllers\EnderecoController.cs" />
     <Compile Include="Controllers\EstadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocalizacaoController.cs" />
@@ -2110,6 +2111,8 @@
     <Content Include="Views\Municipio\Create.cshtml" />
     <Content Include="Views\Municipio\Delete.cshtml" />
     <Content Include="Views\Municipio\Edit.cshtml" />
+    <Content Include="Views\Endereco\Index.cshtml" />
+    <Content Include="Views\Endereco\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

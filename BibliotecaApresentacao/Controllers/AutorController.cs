@@ -2,10 +2,7 @@
 using BibliotecaAplicacao.Interfaces;
 using BibliotecaApresentacao.ViewModels;
 using BibliotecaDominio.Entidades.ObjetosValor;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace BibliotecaApresentacao.Controllers
