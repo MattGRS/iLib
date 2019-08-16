@@ -59,6 +59,9 @@ namespace BibliotecaApresentacao.Controllers
 
         public ActionResult Edit(int id)
         {
+            var paisViewModel = Mapper.Map<IEnumerable<Pais>, IEnumerable<PaisViewModel>>(_paisAppServico.ObterTodos());
+            ViewBag.Pais = paisViewModel;
+
             var estadoEntidade = _estadoAppServico.ObterPorId(id);
             var estadoViewModel = Mapper.Map<Estado, EstadoViewModel>(estadoEntidade);
             ViewBag.Estado = estadoViewModel;

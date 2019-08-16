@@ -12,7 +12,7 @@
         <select id="pais" name="estadoViewModel.PaisId" class="form-control">
             @foreach (var pais in ViewBag.Pais)
             {
-                <option value="@pais.PaisId" selected="@pais.PaisId.Equals(ViewBag.PaisId)">@pais.NomePais</option>
+                <option value="@pais.PaisId" selected="@pais.PaisId.Equals(ViewBag.Pais)">@pais.NomePais</option>
             }
         </select>
     </div>

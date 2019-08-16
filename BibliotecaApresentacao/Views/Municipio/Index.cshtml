@@ -1,0 +1,30 @@
+﻿@model IList<BibliotecaApresentacao.ViewModels.MunicipioViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Município</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var municipio in Model)
+        {
+            <tr>
+                <td>@municipio.NomeMunicipio</td>
+                <td>
+                    <a class="btn btn-warning" href="~/Municipio/Edit/@municipio.MunicipioId">Editar</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="~/Municipio/Delete/@municipio.MunicipioId">Remover</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a class="btn btn-primary" href="~/Municipio/Create">Novo</a>
+

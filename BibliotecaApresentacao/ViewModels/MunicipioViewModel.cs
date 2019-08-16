@@ -10,13 +10,13 @@ namespace BibliotecaApresentacao.ViewModels
 
         [Required(ErrorMessage = "Nome do Município é obrigatório.")]
         [MaxLength(100, ErrorMessage = "Máximo {0} caracteres.")]
-        public string NomeMunicipio { get; internal set; }
-
-        public int EstadoId { get; set; }
+        public string NomeMunicipio { get; set; }
 
         [Required(ErrorMessage = "Campo Estado é obrigatório.")]
-        public virtual EstadoViewModel Estado { get; internal set; } //FK de Estado
+        public int EstadoId { get; set; }
 
-        public virtual IEnumerable<EnderecoViewModel> Enderecos { get; internal set; }
+        public virtual EstadoViewModel Estado { get;  set; } //FK de Estado
+
+        public virtual IEnumerable<EnderecoViewModel> Enderecos { get;  set; }
     }
 }

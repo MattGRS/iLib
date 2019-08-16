@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+
+<form action="~/Municipio/Edit/@ViewBag.Municipio.MunicipioId" method="post">
+    <div class="col">
+        <label class="col-form-label" for="municipio">Município:</label>
+        <input class="form-control" id="municipio" name="municipioViewModel.NomeMunicipio" value="@ViewBag.Municipio.NomeMunicipio" />
+
+        <label class="col-form-label" for="estado">Estado: </label>
+        <select id="estado" name="municipioViewModel.EstadoId" class="form-control">
+            @foreach (var estado in ViewBag.Estado)
+            {
+                <option value="@estado.EstadoId" selected="@estado.EstadoId.Equals(ViewBag.Estado)">@estado.NomeEstado</option>
+            }
+        </select>
+    </div>
+
+    <input class="btn btn-success btn-form" type="submit" value="Salvar" />
+</form>

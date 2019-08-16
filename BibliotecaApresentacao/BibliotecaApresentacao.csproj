@@ -224,6 +224,7 @@
     <Compile Include="Controllers\EstadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocalizacaoController.cs" />
+    <Compile Include="Controllers\MunicipioController.cs" />
     <Compile Include="Controllers\PaisController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -2105,6 +2106,10 @@
     <Content Include="Views\Estado\Index.cshtml" />
     <Content Include="Views\Estado\Create.cshtml" />
     <Content Include="Views\Estado\Edit.cshtml" />
+    <Content Include="Views\Municipio\Index.cshtml" />
+    <Content Include="Views\Municipio\Create.cshtml" />
+    <Content Include="Views\Municipio\Delete.cshtml" />
+    <Content Include="Views\Municipio\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
