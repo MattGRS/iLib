@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BibliotecaApresentacao.ViewModels
 {
@@ -24,6 +25,7 @@ namespace BibliotecaApresentacao.ViewModels
         public string Complemento { get; set; }
 
         [Required(ErrorMessage = "Campo Município é obrigatório.")]
+        [ForeignKey("Municipio")]
         public int MunicipioId { get; set; }
 
         public virtual MunicipioViewModel Municipio { get; set; }

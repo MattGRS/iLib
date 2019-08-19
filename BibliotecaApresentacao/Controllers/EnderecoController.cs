@@ -59,6 +59,8 @@ namespace BibliotecaApresentacao.Controllers
         {
             var enderecoEntidade = _enderecoAppServico.ObterPorId(id);
             var enderecoViewModel = Mapper.Map<Endereco, EnderecoViewModel>(enderecoEntidade);
+            var municipioViewModel = Mapper.Map<IEnumerable<Municipio>, IEnumerable<MunicipioViewModel>>(_municipioAppServico.ObterTodos());
+            ViewBag.Municipio = municipioViewModel;
             ViewBag.Endereco = enderecoViewModel;
             return View(enderecoViewModel);
         }

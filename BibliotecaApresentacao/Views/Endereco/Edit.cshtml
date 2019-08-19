@@ -1,0 +1,45 @@
+﻿@model BibliotecaApresentacao.ViewModels.EnderecoViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<form action="~/Endereco/Edit/@ViewBag.Endereco.EnderecoId" method="post">
+
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <label class="col-form-label" for="cep">CEP</label>
+                <input class="form-control" value="@ViewBag.Endereco.CEP" placeholder="Apenas Números" type="search" id="cep" name="enderecoViewModel.CEP" maxlength="8" pattern="[0-9]+$" />
+            </div>
+            <!--
+            <div class="col-md-2">
+                <label> </label>
+                <button type="button" class="btn btn-primary" onclick="pesquisacep(cep.value)">Buscar</button>
+            </div>
+        -->
+        </div>
+        <label class="col-form-label" for="logradouro">Logradouro</label>
+        <input class="form-control" value="@ViewBag.Endereco.Logradouro" id="logradouro" name="enderecoViewModel.Logradouro" />
+
+        <label class="col-form-label" for="bairro">Bairro</label>
+        <input class="form-control" value="@ViewBag.Endereco.Bairro" id="bairro" name="enderecoViewModel.Bairro" />
+
+        <label class="col-form-label" for="numero">Nº</label>
+        <input class="form-control" id="numero" value="@ViewBag.Endereco.NumeroResidencial" name="enderecoViewModel.NumeroResidencial" />
+
+        <label class="col-form-label" for="complemento">Complemento</label>
+        <input class="form-control" value="@ViewBag.Endereco.Complemento" id="complemento" name="enderecoViewModel.Complemento" />
+
+        <label class="col-form-label" for="municipio">Municipio</label>
+        <select id="municipio" name="enderecoViewModel.MunicipioId" class="form-control">
+            @foreach (var municipio in ViewBag.Municipio)
+            {
+                <option value="@municipio.MunicipioId" selected="@municipio.MunicipioId.Equals(ViewBag.Endereco.EnderecoId)">@municipio.NomeMunicipio</option>
+            }
+
+        </select>
+
+        <input class="btn btn-primary btn-form" type="submit" value="Salvar" />
+    </div>
+</form>

@@ -2113,6 +2113,7 @@
     <Content Include="Views\Municipio\Edit.cshtml" />
     <Content Include="Views\Endereco\Index.cshtml" />
     <Content Include="Views\Endereco\Create.cshtml" />
+    <Content Include="Views\Endereco\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

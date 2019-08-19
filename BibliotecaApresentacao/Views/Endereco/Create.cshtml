@@ -3,69 +3,69 @@
     ViewBag.Title = "Create";
 }
 
+
 <form action="~/Endereco/Create" method="post">
+
     <div class="col">
         <div class="row">
             <div class="col">
                 <label class="col-form-label" for="cep">CEP</label>
-                <input class="form-control" id="cep" name="enderecoViewModel.CEP" />
+                <input class="form-control" placeholder="Apenas Números" type="search" id="cep" name="enderecoViewModel.CEP" maxlength="8" pattern="[0-9]+$" />
             </div>
+            <!--
             <div class="col-md-2">
                 <label> </label>
-                <button class="btn btn-primary" onclick="pesquisacep(cep.value)">Buscar</button>
+                <button type="button" class="btn btn-primary" onclick="pesquisacep(cep.value)">Buscar</button>
             </div>
+        -->
         </div>
-
-        <label class="col-form-label" for="logradouro">Logradouro</label>
-        <input class="form-control" id="logradouro" name="enderecoViewModel.Logradouro"/>
-
-        <label class="col-form-label" for="bairro">Bairro</label>
-        <input class="form-control" id="bairro" name="enderecoViewModel.Bairro"/>
-
-        <label class="col-form-label" for="numero">Nº</label>
-        <input class="form-control" id="numero" name="enderecoViewModel.NumeroResidencial"/>
-
-        <label class="col-form-label" for="complemento">Complemento</label>
-        <input class="form-control" id="complemento" name="enderecoViewModel.Complemento"/>
-        
-        <label class="col-form-label" for="municipio">Municipio</label>
-        <select id="municipio" name="enderecoViewModel.MunicipioId" class="form-control">
-            @foreach (var municipio in ViewBag.Municipio)
-            {
-                <option value="@municipio.MunicipioId" selected="@municipio.MunicipioId.Equals(ViewBag.Municipio)">@municipio.NomeMunicipio</option>
-            }
-
-        </select>
     </div>
+    <label class="col-form-label" for="logradouro">Logradouro</label>
+    <input class="form-control" id="logradouro" name="enderecoViewModel.Logradouro" />
+
+    <label class="col-form-label" for="bairro">Bairro</label>
+    <input class="form-control" id="bairro" name="enderecoViewModel.Bairro" />
+
+    <label class="col-form-label" for="numero">Nº</label>
+    <input class="form-control" id="numero" name="enderecoViewModel.NumeroResidencial" />
+
+    <label class="col-form-label" for="complemento">Complemento</label>
+    <input class="form-control" id="complemento" name="enderecoViewModel.Complemento" />
+
+    <label class="col-form-label" for="municipio">Municipio</label>
+    <select id="municipio" name="enderecoViewModel.MunicipioId" class="form-control">
+        @foreach (var municipio in ViewBag.Municipio)
+        {
+            <option value="@municipio.MunicipioId" selected="@municipio.MunicipioId.Equals(ViewBag.Municipio)">@municipio.NomeMunicipio</option>
+        }
+
+    </select>
+
+    <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
 </form>
 
 <script>
-    function limpa_formulario_cep()
-    {
+    function limpa_formulario_cep() {
         //Limpa valores do formulário de cep.
         document.getElementById('logradouro').value = ("");
         document.getElementById('bairro').value = ("");
         document.getElementById('municipio').value = ("");
     }
-    function meu_callback(conteudo)
-    {
-        if (!("erro" in conteudo))
-        {
+    function meu_callback(conteudo) {
+        if (!("erro" in conteudo)) {
             //Atualiza os campos com os valores.
             document.getElementById('logradouro').value = (conteudo.logradouro);
             document.getElementById('bairro').value = (conteudo.bairro);
             document.getElementById('cidade').value = (conteudo.localidade);
         } //end if.
-        else
-        {
+        else {
             //CEP não Encontrado.
             limpa_formulario_cep();
             alert("CEP não encontrado.");
             document.getElementById('cep').value = ("");
         }
     }
-    function pesquisacep(valor)
-    {
+    function pesquisacep(valor) {
         //Nova variável "cep" somente com dígitos.
         var cep = valor.replace(/\D/g, '');
         //Verifica se campo cep possui valor informado.
