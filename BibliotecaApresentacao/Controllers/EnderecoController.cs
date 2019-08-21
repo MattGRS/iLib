@@ -4,6 +4,7 @@ using BibliotecaApresentacao.ViewModels;
 using BibliotecaDominio.Entidades;
 using BibliotecaDominio.Entidades.ObjetosValor;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace BibliotecaApresentacao.Controllers
@@ -12,10 +13,12 @@ namespace BibliotecaApresentacao.Controllers
     {
         private readonly IEnderecoAppServico _enderecoAppServico;
         private readonly IMunicipioAppServico _municipioAppServico;
-        public EnderecoController(IEnderecoAppServico enderecoAppServico, IMunicipioAppServico municipioAppServico)
+        private readonly IEstadoAppServico _estadoAppServico;
+        public EnderecoController(IEnderecoAppServico enderecoAppServico, IMunicipioAppServico municipioAppServico, IEstadoAppServico estadoAppServico)
         {
             _enderecoAppServico = enderecoAppServico;
             _municipioAppServico = municipioAppServico;
+            _estadoAppServico = estadoAppServico;
         }
 
         public ActionResult Index()
@@ -26,7 +29,9 @@ namespace BibliotecaApresentacao.Controllers
 
         public ActionResult Create()
         {
+            var estadoViewModel = Mapper.Map<IEnumerable<Estado>, IEnumerable<EstadoViewModel>>(_estadoAppServico.ObterTodos());
             var municipioViewModel = Mapper.Map<IEnumerable<Municipio>, IEnumerable<MunicipioViewModel>>(_municipioAppServico.ObterTodos());
+            ViewBag.Estado = estadoViewModel;
             ViewBag.Municipio = municipioViewModel;
             return View();
         }

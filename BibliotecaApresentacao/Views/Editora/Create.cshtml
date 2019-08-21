@@ -1,0 +1,118 @@
+﻿@model BibliotecaApresentacao.ViewModels.EditoraViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<form action="~/Editora/Create" method="post">
+    <div class="col">
+        <div>
+            <label class="col-form-label" for="editora">Editora:</label>
+            <input class="form-control" id="editora" name="editoraViewModel.NomeEditora" />
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="col-form-label" for="idEstado">Estado</label>
+                <select name="editoraViewModel.EstadoId" id="idEstado" class="form-control">
+                    <option>Selecione um Estado...</option>
+                    @foreach (var estado in ViewBag.Estado)
+                    {
+                        <option value="@estado.EstadoId">@estado.NomeEstado</option>
+                    }
+                </select>
+            </div>
+            <div class="col">
+                <label class="col-form-label" for="municipio">Município</label>
+                <select name="editoraViewModel.MunicipioId" id="municipio" class="form-control">
+                    <option>Selecione um Município...</option>
+                    @foreach (var municipio in ViewBag.Municipio)
+                    {
+                        <option value="@municipio.MunicipioId">@municipio.NomeMunicipio</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div>
+            <label class="col-form-label">Endereço: </label>
+            <select name="editoraViewModel.EnderecoId" id="endereco" class="form-control ">
+                <option>Selecione um Endereço...</option>
+                @foreach (var endereco in ViewBag.Endereco)
+                {
+                    <option value="@endereco.EnderecoId">@endereco.Logradouro, @endereco.NumeroResidencial - @endereco.Bairro</option>
+                }
+            </select>
+        </div>
+        <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
+    </div>
+</form>
+
+@*<script>
+    $('#idEstado').change(function () {
+        var idEstado = $(this).val();
+
+        $.get('/Editora/SelecionarMunicipios', { idEstado: idEstado}).done(function (data) {
+            var drop = $('#municipio');
+            drop.html("");
+            $.each(data, function (i, item) {
+                drop.append('<option val="' + item.MunicipioId + '">' + item.NomeEstado + '</option>');
+            });
+        });
+    });
+</script>
+
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script>
+    $("#idEstado").change(function () {
+        $.ajax({
+            url: "/Editora/SelecionarMunicipios/" + id,
+            success: function (data) {
+                $("#municipio").empty();
+                $("#municipio").append('<option value=""></option>');
+                $.each(data, function (index, element) {
+                    $("#municipio").append('<option value="' + element.MunicipioId + '">' + element.NomeMunicipio + '</option>');
+                });
+            }
+        });
+    });
+</script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#idEstado').change(function () {
+            var id = $(this).find("selected").val();
+            $.getJSON('Editora/SelecionarMunicipios', { estadoId: id }, function (data) {
+                $('#municipio option').remove();
+                $('#municipio').append('<option value=""></option>');
+                for (var i = 0; i < data.length; i++) {
+                    $('#municipio').append('<option value="' +
+                        data[i].MunicipioId + '"> ' +
+                        data[i].NomeMunicipio + '</option>');
+                }
+            });
+        });
+    });
+</script>*@
+
+@*<script>
+        $(document).ready(function () {
+            $.ajax({
+                type: "get",
+                url: "Endereco/SelecionarMunicipios/@ViewBag.Estado.EstadoId",
+                data: { municipio: $("#municipio").val() },
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                success: function (obj) {
+                    if (obj != null) {
+                        var data = obj.data;
+                        var selectbox = $('#municipio');
+                        $.each(data, function (i, d) {
+                            $('<option>').val(d.MunicipioId).text(d.NomeMunicipio).appendTo(selectbox);
+                        });
+                    }
+                }
+            });
+        });
+    </script>*@
+

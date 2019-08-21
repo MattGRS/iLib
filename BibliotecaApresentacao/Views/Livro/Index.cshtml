@@ -1,0 +1,39 @@
+﻿@model IList<BibliotecaApresentacao.ViewModels.LivroViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Título</th>
+            <th scope="col">Autor</th>
+            <th scope="col">Editora</th>
+            <th scope="col">Assunto</th>
+            <th scope="col">Classificação</th>
+            <th scope="col">Localização</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var livro in Model)
+        {
+            <tr>
+                <td scope="col">@livro.Titulo</td>
+                <td scope="col">@livro.Autor.NomeAutor</td>
+                <td scope="col">@livro.Editora.NomeEditora</td>
+                <td scope="col">@livro.Assunto.AssuntoObra</td>
+                <td scope="col">@livro.Classificacao.ClassificacaoObra</td>
+                <td scope="col">@livro.Localizacao.LocalizacaoObra</td>
+                <td>
+                    <a class="btn btn-warning" href="~/Livro/Edit/@livro.LivroId">Editar</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="~/Livro/Delete/@livro.LivroId">Remover</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a class="btn btn-primary" href="~/Livro/Create">Novo</a>

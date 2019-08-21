@@ -1,0 +1,31 @@
+﻿@model IList<BibliotecaApresentacao.ViewModels.EditoraViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Nome Fantasia</th>
+            <th scope="col">Cidade</th>
+            <th scope="col">Estado</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var editora in Model)
+        {
+            <tr>
+                <td>@editora.NomeEditora</td>
+                <td>
+                    <a class="btn btn-warning" href="~/Editora/Edit/@editora.EditoraId">Editar</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="~/Editora/Delete/@editora.EditoraId">Remover</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a class="btn btn-primary" href="~/Editora/Create">Novo</a>

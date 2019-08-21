@@ -1,0 +1,66 @@
+﻿@model BibliotecaApresentacao.ViewModels.LivroViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<form action="~/Livro/Create" method="post">
+    <div class="col">
+            <div class="row">
+                <div class="col">
+                    <label class="col-form-label" for="titulo"><h11>Titulo: </h11></label>
+                    <input class="form-control" id="titulo" name="autorViewModel.Titulo" />
+                </div>
+                <div class="col">
+                    <label class="col-form-label" for="autor"><h11>Autor: </h11></label>
+                    <select id="autor" name="livroViewModel.AutorId" class="form-control">
+                        @foreach (var autor in ViewBag.Autor)
+                        {
+                            <option value="@autor.AutorId">@autor.NomeAutor</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="col-form-label" for="editora">Editora</label>
+                    <select name="livroViewModel.EditoraId" class="form-control">
+                        @foreach (var editora in ViewBag.Editora)
+                        {
+                            <option value="@editora.EditoraId">@editora.NomeEditora</option>
+                        }
+                    </select>
+                </div>
+                <div class="col">
+                    <label class="col-form-label" for="assunto">Assunto</label>
+                    <select name="livroViewModel.AssuntoId" class="form-control">
+                        @foreach (var assunto in ViewBag.Assunto)
+                        {
+                            <option value="@assunto.AssuntoId">@assunto.AssuntoObra</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        <div class="row">
+            <div class="col">
+                <label class="col-form-label" for="classificacao">Classificação</label>
+                <select name="livroViewModel.ClassificacaoId" class="form-control">
+                    @foreach (var classificacao in ViewBag.Classificacao)
+                    {
+                        <option value="@classificacao.ClassificacaoId">@classificacao.ClassificacaoObra</option>
+                    }
+                </select>
+            </div>
+            <div class="col">
+                <label class="col-form-label" for="localizacao">Localização</label>
+                <select name="livroViewModel.LocalizacaoId" class="form-control">
+                    @foreach (var localizacao in ViewBag.Localizacao)
+                    {
+                        <option value="@localizacao.LocalizacaoId">@localizacao.LocalizacaoObra</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
+</form>

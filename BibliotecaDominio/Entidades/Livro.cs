@@ -4,9 +4,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BibliotecaDominio.Entidades
 {
-    /// <summary>
-    /// Define uma 
-    /// </summary>
     public class Livro
     {
         public int LivroId { get; set; }
@@ -35,5 +32,7 @@ namespace BibliotecaDominio.Entidades
         public virtual Localizacao Localizacao { get; set; } //FK de Localizacao
 
         public virtual IEnumerable<ExemplarLivro> Exemplares { get; internal set; } //relação um para muitos (um livro - muitos exemplares)
+
     }
+
 }

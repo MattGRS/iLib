@@ -221,9 +221,11 @@
     <Compile Include="Controllers\AssuntoController.cs" />
     <Compile Include="Controllers\AutorController.cs" />
     <Compile Include="Controllers\ClassificacaoController.cs" />
+    <Compile Include="Controllers\EditoraController.cs" />
     <Compile Include="Controllers\EnderecoController.cs" />
     <Compile Include="Controllers\EstadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LivroController.cs" />
     <Compile Include="Controllers\LocalizacaoController.cs" />
     <Compile Include="Controllers\MunicipioController.cs" />
     <Compile Include="Controllers\PaisController.cs" />
@@ -262,6 +264,7 @@
     <Content Include="Content\js\demo\chart-bar-demo.js" />
     <Content Include="Content\js\demo\chart-pie-demo.js" />
     <Content Include="Content\js\demo\datatables-demo.js" />
+    <Content Include="Content\js\BuscaCep.js" />
     <Content Include="Content\js\sb-admin-2.js" />
     <Content Include="Content\js\sb-admin-2.min.js" />
     <Content Include="Content\vendor\bootstrap\js\bootstrap.bundle.js" />
@@ -2114,6 +2117,10 @@
     <Content Include="Views\Endereco\Index.cshtml" />
     <Content Include="Views\Endereco\Create.cshtml" />
     <Content Include="Views\Endereco\Edit.cshtml" />
+    <Content Include="Views\Editora\Index.cshtml" />
+    <Content Include="Views\Editora\Create.cshtml" />
+    <Content Include="Views\Livro\Index.cshtml" />
+    <Content Include="Views\Livro\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
