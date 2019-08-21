@@ -10,12 +10,12 @@ namespace BibliotecaApresentacao.ViewModels
 
         [Required(ErrorMessage = "Nome da Editora é obrigatório.")]
         [MaxLength(100, ErrorMessage = "Máximo {0} caracteres.")]
-        public string NomeEditora { get; internal set; }
-
-        public int EnderecoId { get; set; }
+        public string NomeEditora { get; set; }
 
         [Required(ErrorMessage = "Campo Endereço é obrigatório.")]
-        public virtual EnderecoViewModel Endereco { get; internal set; } //FK de endereços
+        public int EnderecoId { get; set; }
+
+        public virtual EnderecoViewModel Endereco { get; set; } //FK de endereços
 
         public virtual IEnumerable<LivroViewModel> Livros { get; set; }
     }

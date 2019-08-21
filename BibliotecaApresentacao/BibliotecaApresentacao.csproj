@@ -2121,6 +2121,7 @@
     <Content Include="Views\Editora\Create.cshtml" />
     <Content Include="Views\Livro\Index.cshtml" />
     <Content Include="Views\Livro\Create.cshtml" />
+    <Content Include="Views\Editora\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

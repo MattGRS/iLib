@@ -1,13 +1,10 @@
 ﻿using AutoMapper;
-using BibliotecaAplicacao.Classes;
 using BibliotecaAplicacao.Interfaces;
 using BibliotecaApresentacao.ViewModels;
 using BibliotecaDominio.Entidades;
 using BibliotecaDominio.Entidades.ObjetosValor;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace BibliotecaApresentacao.Controllers
@@ -29,17 +26,19 @@ namespace BibliotecaApresentacao.Controllers
         public ActionResult Index()
         {
             var editoraViewModel = Mapper.Map<IEnumerable<Editora>, IEnumerable<EditoraViewModel>>(_editoraAppServico.ObterTodos());
+            foreach (var editora in editoraViewModel)
+            {
+                editora.Endereco = Mapper.Map<Endereco, EnderecoViewModel>(_enderecoAppServico.ObterPorId(editora.EnderecoId));
+                editora.Endereco.Municipio = Mapper.Map<Municipio, MunicipioViewModel>(_municipioAppServico.ObterPorId(editora.Endereco.MunicipioId));
+                editora.Endereco.Municipio.Estado = Mapper.Map<Estado, EstadoViewModel>(_estadoAppServico.ObterPorId(editora.Endereco.Municipio.EstadoId));
+            }
             return View(editoraViewModel);
         }
 
         public ActionResult Create()
         {
             var estadoViewModel = Mapper.Map<IEnumerable<Estado>, IEnumerable<EstadoViewModel>>(_estadoAppServico.ObterTodos());
-            var municipioViewModel = Mapper.Map<IEnumerable<Municipio>, IEnumerable<MunicipioViewModel>>(_municipioAppServico.ObterTodos());
-            var enderecoViewModel = Mapper.Map<IEnumerable<Endereco>, IEnumerable<EnderecoViewModel>>(_enderecoAppServico.ObterTodos());
             ViewBag.Estado = estadoViewModel;
-            ViewBag.Municipio = municipioViewModel;
-            ViewBag.Endereco = enderecoViewModel;
             return View();
         }
         [HttpPost]
@@ -71,6 +70,14 @@ namespace BibliotecaApresentacao.Controllers
         {
             var editoraEntidade = _editoraAppServico.ObterPorId(id);
             var editoraViewModel = Mapper.Map<Editora, EditoraViewModel>(editoraEntidade);
+
+            editoraViewModel.Endereco = Mapper.Map<Endereco, EnderecoViewModel>(_enderecoAppServico.ObterPorId(editoraViewModel.EnderecoId));
+            editoraViewModel.Endereco.Municipio = Mapper.Map<Municipio, MunicipioViewModel>(_municipioAppServico.ObterPorId(editoraViewModel.Endereco.MunicipioId));
+            editoraViewModel.Endereco.Municipio.Estado = Mapper.Map<Estado, EstadoViewModel>(_estadoAppServico.ObterPorId(editoraViewModel.Endereco.Municipio.EstadoId));
+
+            var estadoViewModel = Mapper.Map<IEnumerable<Estado>, IEnumerable<EstadoViewModel>>(_estadoAppServico.ObterTodos());
+
+            ViewBag.Estado = estadoViewModel;
             ViewBag.Editora = editoraViewModel;
             return View(editoraViewModel);
         }
@@ -87,10 +94,15 @@ namespace BibliotecaApresentacao.Controllers
         public JsonResult SelecionarMunicipios(int id)
         {
             var todosMunicipioViewModel = Mapper.Map<IEnumerable<Municipio>, IEnumerable<MunicipioViewModel>>(_municipioAppServico.ObterTodos());
-
             var municipioViewModel = todosMunicipioViewModel.Where(m => m.EstadoId == id).ToList();
-
             return Json(municipioViewModel, JsonRequestBehavior.AllowGet);
+        }
+        [HttpGet]
+        public JsonResult SelecionarEnderecos(int id)
+        {
+            var todosEnderecosViewModel = Mapper.Map<IEnumerable<Endereco>, IEnumerable<EnderecoViewModel>>(_enderecoAppServico.ObterTodos());
+            var enderecoViewModel = todosEnderecosViewModel.Where(e => e.MunicipioId == id).ToList();
+            return Json(enderecoViewModel, JsonRequestBehavior.AllowGet);
         }
     }
 }

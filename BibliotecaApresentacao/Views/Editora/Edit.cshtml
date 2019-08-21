@@ -1,20 +1,19 @@
-﻿@model BibliotecaApresentacao.ViewModels.EditoraViewModel
-
+﻿@model  BibliotecaApresentacao.ViewModels.EditoraViewModel
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
 }
 
-<form action="~/Editora/Create" method="post">
+<form action="~/Editora/Edit/@ViewBag.Editora.EditoraId" method="post">
     <div class="col">
         <div>
             <label class="col-form-label" for="editora">Editora:</label>
-            <input class="form-control" id="editora" name="editoraViewModel.NomeEditora" />
+            <input class="form-control" id="editora" name="editoraViewModel.NomeEditora" value="@ViewBag.Editora.NomeEditora" />
         </div>
         <div class="row">
             <div class="col">
                 <label class="col-form-label" for="idEstado">Estado</label>
                 <select id="idEstado" class="form-control">
-                    <option>Selecione um Estado...</option>
+                    <option> Selecione um Estado...</option>
                     @foreach (var estado in ViewBag.Estado)
                     {
                         <option value="@estado.EstadoId">@estado.NomeEstado</option>
@@ -25,16 +24,18 @@
                 <label class="col-form-label" for="municipio">Município</label>
                 <select id="municipio" class="form-control">
                     <option>Selecione um Município...</option>
+                    <option selected="@ViewBag.Editora.Endereco.MunicipioId">@ViewBag.Editora.Endereco.Municipio.NomeMunicipio</option>
                 </select>
             </div>
             <div>
                 <label class="col-form-label" for="endereco">Endereço: </label>
                 <select name="editoraViewModel.EnderecoId" id="endereco" class="form-control ">
                     <option>Selecione um Endereço...</option>
+                    <option value="@ViewBag.Editora.EnderecoId" selected="@ViewBag.Editora.EnderecoId">@ViewBag.Editora.Endereco.Logradouro, @ViewBag.Editora.Endereco.NumeroResidencial - @ViewBag.Editora.Endereco.Bairro</option>
                 </select>
             </div>
         </div>
-        <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
+        <input class="btn btn-primary btn-form" type="submit" value="Salvar" />
     </div>
 </form>
 
@@ -42,7 +43,7 @@
 <script>
     $(document).ready(function () {
         $("#idEstado").change(function () {
-             var id = $(this).children("option:selected").val();
+            var id = $(this).children("option:selected").val();
             $.ajax({
                 url: "/Editora/SelecionarMunicipios/" + id,
                 dataType: "JSON",
@@ -59,7 +60,7 @@
 
     $(document).ready(function () {
         $("#municipio").change(function () {
-             var id = $(this).children("option:selected").val();
+            var id = $(this).children("option:selected").val();
             $.ajax({
                 url: "/Editora/SelecionarEnderecos/" + id,
                 dataType: "JSON",
