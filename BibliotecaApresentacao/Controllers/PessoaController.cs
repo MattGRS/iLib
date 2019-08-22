@@ -11,19 +11,28 @@ namespace BibliotecaApresentacao.Controllers
     public class PessoaController : Controller
     {
         private readonly IPessoaAppServico _pessoaAppServico;
-        public PessoaController(IPessoaAppServico pessoaAppServico)
+        private readonly IEstadoAppServico _estadoAppServico;
+        private readonly IEnderecoAppServico _enderecoAppServico;
+        private readonly IMunicipioAppServico _municipioAppServico;
+        public PessoaController(IPessoaAppServico pessoaAppServico, IEstadoAppServico estadoAppServico, IEnderecoAppServico enderecoAppServico, IMunicipioAppServico municipioAppServico)
         {
             _pessoaAppServico = pessoaAppServico;
+            _estadoAppServico = estadoAppServico;
+            _enderecoAppServico = enderecoAppServico;
+            _municipioAppServico = municipioAppServico;
         }
 
         public ActionResult Index()
         {
             var pessoaViewModel = Mapper.Map<IEnumerable<Pessoa>, IEnumerable<PessoaViewModel>>(_pessoaAppServico.ObterTodos());
+
             return View(pessoaViewModel);
         }
 
         public ActionResult Create()
         {
+            var estadoViewModel = Mapper.Map<IEnumerable<Estado>, IEnumerable<EstadoViewModel>>(_estadoAppServico.ObterTodos());
+            ViewBag.Estado = estadoViewModel;
             return View();
         }
         [HttpPost]
@@ -55,7 +64,13 @@ namespace BibliotecaApresentacao.Controllers
         {
             var pessoaEntidade = _pessoaAppServico.ObterPorId(id);
             var pessoaViewModel = Mapper.Map<Pessoa, PessoaViewModel>(pessoaEntidade);
+            var estadoViewModel = Mapper.Map<IEnumerable<Estado>, IEnumerable<EstadoViewModel>>(_estadoAppServico.ObterTodos());
+            pessoaViewModel.Endereco = Mapper.Map<Endereco, EnderecoViewModel>(_enderecoAppServico.ObterPorId(pessoaViewModel.EnderecoId));
+            pessoaViewModel.Endereco.Municipio = Mapper.Map<Municipio, MunicipioViewModel>(_municipioAppServico.ObterPorId(pessoaViewModel.Endereco.MunicipioId));
+            pessoaViewModel.Endereco.Municipio.Estado = Mapper.Map<Estado, EstadoViewModel>(_estadoAppServico.ObterPorId(pessoaViewModel.Endereco.Municipio.EstadoId));
+            ViewBag.Estado = estadoViewModel;
             ViewBag.Pessoa = pessoaViewModel;
+
             return View(pessoaViewModel);
         }
         [HttpPost]
@@ -65,6 +80,16 @@ namespace BibliotecaApresentacao.Controllers
             var pessoaEntidade = Mapper.Map<PessoaViewModel, Pessoa>(pessoaViewModel);
             _pessoaAppServico.Atualizar(pessoaEntidade);
             return RedirectToAction("Index");
+        }
+
+        private void MapeandoListaPessoa(IEnumerable<PessoaViewModel> pessoaViewModel)
+        {
+            foreach (var pessoa in pessoaViewModel)
+            {
+                pessoa.Endereco = Mapper.Map<Endereco, EnderecoViewModel>(_enderecoAppServico.ObterPorId(pessoa.EnderecoId));
+                pessoa.Endereco.Municipio = Mapper.Map<Municipio, MunicipioViewModel>(_municipioAppServico.ObterPorId(pessoa.Endereco.MunicipioId));
+                pessoa.Endereco.Municipio.Estado = Mapper.Map<Estado, EstadoViewModel>(_estadoAppServico.ObterPorId(pessoa.Endereco.Municipio.EstadoId));
+            }
         }
     }
 }

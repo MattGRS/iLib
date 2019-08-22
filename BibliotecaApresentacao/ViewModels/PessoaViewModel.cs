@@ -25,20 +25,20 @@ namespace BibliotecaApresentacao.ViewModels
 
         public int Idade { get; set; }
 
-        public int EnderecoId { get; set; }
-
         [Required(ErrorMessage = "Campo Endereço é obrgiatório.")]
-        public virtual EnderecoViewModel Endereco { get; set; }
+        public int EnderecoId { get; set; }
 
         public string Profissao { get; set; }
 
         public string Telefone { get; set; }
 
-        [Required(ErrorMessage = "Campo E-mail é obrigatório.")]
+        //[Required(ErrorMessage = "Campo E-mail é obrigatório.")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "É necessário ter um Login de acesso.")]
+        //[Required(ErrorMessage = "É necessário ter um Login de acesso.")]
         public int DadosLoginId { get; set; }
+
+        public virtual EnderecoViewModel Endereco { get; set; }
 
         public virtual DadosLoginViewModel Login { get; set; }
 

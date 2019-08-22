@@ -1,38 +1,38 @@
-﻿@model BibliotecaApresentacao.ViewModels.PessoaViewModel
+﻿
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
 }
 
-<form action="~/Pessoa/Create" method="post">
+<form action="~/Pessoa/Edit/@ViewBag.Pessoa.PessoaId" method="post">
     <div class="col">
         <div class="row">
             <div class="col">
                 <label class="col-form-label" for="autor">Nome:</label>
-                <input class="form-control" id="autor" name="pessoaViewModel.Nome" />
+                <input class="form-control" id="autor" name="pessoaViewModel.Nome" value="@ViewBag.Pessoa.Nome" />
             </div>
             <div class="col">
                 <label class="col-form-label" for="cpf">CPF: </label>
-                <input class="form-control" id="cpf" name="pessoaViewModel.Cpf" />
+                <input class="form-control" id="cpf" name="pessoaViewModel.Cpf" value="@ViewBag.Pessoa.Cpf"/>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <label class="col-form-label" for="dataNascimento">Data de Nascimento:</label>
-                <input type="date" id="dataNascimento" class="form-control" name="pessoaViewModel.DataNascimento" />
+                <input type="date" id="dataNascimento" class="form-control" name="pessoaViewModel.DataNascimento" value="@ViewBag.Pessoa.DataNascimento"/>
             </div>
             <div class="col">
                 <label class="col-form-label" for="idade">Idade:</label>
-                <input id="idade" class="form-control" name="pessoaViewModel.Idade" />
+                <input id="idade" class="form-control" name="pessoaViewModel.Idade" value="@ViewBag.Pessoa.Idade"/>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <label class="col-form-label" for="profissao">Profissão: </label>
-                <input class="form-control" id="profissao" name="pessoaViewModel.Profissao" />
+                <input class="form-control" id="profissao" name="pessoaViewModel.Profissao" value="@ViewBag.Pessoa.Profissao"/>
             </div>
             <div class="col">
                 <label class="col-form-label" for="telefone">Telefone: </label>
-                <input class="form-control" id="telefone" name="pessoaViewModel.Telefone" />
+                <input class="form-control" id="telefone" name="pessoaViewModel.Telefone" value="@ViewBag.Pessoa.Telefone"/>
             </div>
         </div>
         <div class="row">
@@ -42,7 +42,7 @@
                     <option>Selecione um Estado...</option>
                     @foreach (var estado in ViewBag.Estado)
                     {
-                        <option value="@estado.EstadoId">@estado.NomeEstado</option>
+                        <option value="@estado.EstadoId" selected="@estado.EstadoId.Equals(ViewBag.Pessoa.Endereco.Municipio.EstadoId)">@estado.NomeEstado</option>
                     }
                 </select>
             </div>
@@ -50,6 +50,7 @@
                 <label class="col-form-label" for="municipio">Município: </label>
                 <select class="form-control" id="municipio">
                     <option>Selecione um Município...</option>
+                    <option value="@ViewBag.Pessoa.Endereco.MunicipioId">@ViewBag.Pessoa.Endereco.Municipio.MunicipioNome</option>
                 </select>
             </div>
         </div>
@@ -58,13 +59,14 @@
                 <label class="col-form-label" for="endereco">Endereço: </label>
                 <select class="form-control col-md-9" id="endereco" name="pessoaViewModel.EnderecoId">
                     <option>Escolha um Endereço...</option>
+                    <option value="@ViewBag.Pessoa.EnderecoId">@ViewBag.Pessoa.Endereco.Logradouro, @ViewBag.Pessoa.Endereco.NumeroResidencial - @ViewBag.Pessoa.Endereco.Bairro</option>
                 </select>
             </div>
         </div>
     </div>
     <div class="col">
         <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
-        <a class="btn btn-warning btn-form" formnovalidate="formnovalidate" href="~/Pessoa/Index" >Voltar</a>
+        <a class="btn btn-warning btn-form" formnovalidate="formnovalidate" href="~/Pessoa/Index">Voltar</a>
     </div>
 </form>
 

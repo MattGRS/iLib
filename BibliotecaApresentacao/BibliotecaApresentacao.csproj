@@ -221,6 +221,7 @@
     <Compile Include="Controllers\AssuntoController.cs" />
     <Compile Include="Controllers\AutorController.cs" />
     <Compile Include="Controllers\ClassificacaoController.cs" />
+    <Compile Include="Controllers\DadosLoginController.cs" />
     <Compile Include="Controllers\EditoraController.cs" />
     <Compile Include="Controllers\EnderecoController.cs" />
     <Compile Include="Controllers\EstadoController.cs" />
@@ -2130,9 +2131,11 @@
     <Content Include="Views\ExemplarLivro\Edit.cshtml" />
     <Content Include="Views\Pessoa\Index.cshtml" />
     <Content Include="Views\Pessoa\Create.cshtml" />
+    <Content Include="Views\Pessoa\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\DadosLogin\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
