@@ -230,6 +230,7 @@
     <Compile Include="Controllers\LocalizacaoController.cs" />
     <Compile Include="Controllers\MunicipioController.cs" />
     <Compile Include="Controllers\PaisController.cs" />
+    <Compile Include="Controllers\PessoaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2127,10 +2128,11 @@
     <Content Include="Views\ExemplarLivro\Create.cshtml" />
     <Content Include="Views\ExemplarLivro\Index.cshtml" />
     <Content Include="Views\ExemplarLivro\Edit.cshtml" />
+    <Content Include="Views\Pessoa\Index.cshtml" />
+    <Content Include="Views\Pessoa\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Exemplar\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -1,0 +1,39 @@
+﻿@model IList<BibliotecaApresentacao.ViewModels.PessoaViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+<div>
+    <a class="btn btn-primary btn-form" href="~/Pessoa/Create">Novo</a>
+
+</div>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">CPF</th>
+            <th scope="col">Data de Nascimento</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pessoa in Model)
+        {
+            <tr>
+                <td>@pessoa.Nome</td>
+                <td>@pessoa.Cpf</td>
+                <td>@pessoa.DataDeNascimento</td>
+                <td>
+                    <a class="btn btn-secondary btn-sm" href="~/Pessoa/Datails/@pessoa.PessoaId">[+] mais</a>
+                </td>
+                <td>
+                    <a class="btn btn-warning" href="~/Pessoa/Edit/@pessoa.PessoaId">Editar</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="~/Pessoa/Delete/@pessoa.PessoaId">Remover</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

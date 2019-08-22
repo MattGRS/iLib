@@ -13,9 +13,9 @@ namespace BibliotecaApresentacao.ViewModels
         [MaxLength(100, ErrorMessage = "Máximo {0} caracteres.")]
         public string Nome { get; set; }
 
+        [Required(ErrorMessage = "Campo CPF é obrigatório.")]
         public string Cpf { get; set; }
 
-        [Required(ErrorMessage = "Campo CPF é obrigatório.")]
         public CpfViewModel CPF { get; set; }
 
         [DataType(DataType.DateTime, ErrorMessage = "Data inválida.")]
@@ -37,9 +37,9 @@ namespace BibliotecaApresentacao.ViewModels
         [Required(ErrorMessage = "Campo E-mail é obrigatório.")]
         public string Email { get; set; }
 
+        [Required(ErrorMessage = "É necessário ter um Login de acesso.")]
         public int DadosLoginId { get; set; }
 
-        [Required(ErrorMessage = "É necessário ter um Login de acesso.")]
         public virtual DadosLoginViewModel Login { get; set; }
 
         public virtual IEnumerable<EmprestimoViewModel> Emprestimo { get; set; }

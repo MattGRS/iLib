@@ -42,49 +42,25 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Características Gerais
+                Menu Principal
             </div>
 
             <li class="nav-item">
-                <a class="nav-link" href="~/Livro/Index">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-book"></i>
-                    <span>Livro</span>
+                    <span>Livros</span>
                 </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="~/Assunto/Index">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Assuntos</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="~/Autor/Index">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Autores</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="~/Classificacao/Index">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Classificação</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="~/Localizacao/Index">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Localização</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="~/Editora/Index">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Editora</span>
-                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Características Gerais:</h6>
+                        <a class="collapse-item" href="~/Livro/Index">Acervo</a>
+                        <a class="collapse-item" href="~/Assunto/Index">Assuntos</a>
+                        <a class="collapse-item" href="~/Autor/Index">Autores</a>
+                        <a class="collapse-item" href="~/Classificacao/Index">Classificações</a>
+                        <a class="collapse-item" href="~/Localizacao/Index">Localizações</a>
+                        <a class="collapse-item" href="~/Editora/Index">Editoras</a>
+                    </div>
+                </div>
             </li>
 
             <li class="nav-item">
@@ -443,21 +419,21 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="~/Content/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="~/Content/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="~/Content/vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="~/Content/js/demo/chart-area-demo.js"></script>
+    <script src="~/Content/js/demo/chart-pie-demo.js"></script>
 
 </body>
 

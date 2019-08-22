@@ -1,0 +1,27 @@
+﻿@model BibliotecaApresentacao.ViewModels.PessoaViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<form action="~/Pessoa/Create" method="post">
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <label class="col-form-label" for="autor">Nome:</label>
+                <input class="form-control" id="autor" name="pessoaViewModel.Nome" />
+            </div>
+            <div class="col">
+                <label class="col-form-label" for="cpf">CPF: </label>
+                <input class="form-control" id="cpf" name="pessoaViewModel.Cpf"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="col-form-label" for="dataNascimento">Data de Nascimento:</label>
+
+            </div>
+
+        </div>
+    </div>
+    <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
+</form>
