@@ -32,30 +32,15 @@ namespace BibliotecaApresentacao.Controllers
         public ActionResult Index()
         {
             var livroViewModel = Mapper.Map<IEnumerable<Livro>, IEnumerable<LivroViewModel>>(_livroAppServico.ObterTodos());
-            foreach (var livro in livroViewModel)
-            {
-                livro.Autor = Mapper.Map<Autor, AutorViewModel>(_autorAppServico.ObterPorId(livro.AutorId));
-                livro.Editora = Mapper.Map<Editora, EditoraViewModel>(_editoraAppServico.ObterPorId(livro.EditoraId));
-                livro.Assunto = Mapper.Map<Assunto, AssuntoViewModel>(_assuntoAppServico.ObterPorId(livro.AssuntoId));
-                livro.Localizacao = Mapper.Map<Localizacao, LocalizacaoViewModel>(_localizacaoAppServico.ObterPorId(livro.LocalizacaoId));
-                livro.Classificacao = Mapper.Map<Classificacao, ClassificacaoViewModel>(_classificacaoAppServico.ObterPorId(livro.ClassificacaoId));
-            }
+
+            MapeandoPropriedadesLivro(livroViewModel);
 
             return View(livroViewModel);
         }
 
         public ActionResult Create()
         {
-            var autorViewModel = Mapper.Map<IEnumerable<Autor>, IEnumerable<AutorViewModel>>(_autorAppServico.ObterTodos());
-            var editoraViewModel = Mapper.Map<IEnumerable<Editora>, IEnumerable<EditoraViewModel>>(_editoraAppServico.ObterTodos());
-            var assuntoViewModel = Mapper.Map<IEnumerable<Assunto>, IEnumerable<AssuntoViewModel>>(_assuntoAppServico.ObterTodos());
-            var localizacaoViewModel = Mapper.Map<IEnumerable<Localizacao>, IEnumerable<LocalizacaoViewModel>>(_localizacaoAppServico.ObterTodos());
-            var classificacaoViewModel = Mapper.Map<IEnumerable<Classificacao>, IEnumerable<ClassificacaoViewModel>>(_classificacaoAppServico.ObterTodos());
-            ViewBag.Autor = autorViewModel;
-            ViewBag.Editora = editoraViewModel;
-            ViewBag.Assunto = assuntoViewModel;
-            ViewBag.Localizacao = localizacaoViewModel;
-            ViewBag.Classificacao = classificacaoViewModel;
+            CriaViewBagSelectLivro();
 
             return View();
         }
@@ -88,6 +73,9 @@ namespace BibliotecaApresentacao.Controllers
         {
             var livroEntidade = _livroAppServico.ObterPorId(id);
             var livroViewModel = Mapper.Map<Livro, LivroViewModel>(livroEntidade);
+
+            CriaViewBagSelectLivro();
+
             ViewBag.Livro = livroViewModel;
             return View(livroViewModel);
         }
@@ -98,6 +86,32 @@ namespace BibliotecaApresentacao.Controllers
             var livroEntidade = Mapper.Map<LivroViewModel, Livro>(livroViewModel);
             _livroAppServico.Atualizar(livroEntidade);
             return RedirectToAction("Index");
+        }
+
+        public void MapeandoPropriedadesLivro(IEnumerable<LivroViewModel> livroViewModel)
+        {
+            foreach (var livro in livroViewModel)
+            {
+                livro.Autor = Mapper.Map<Autor, AutorViewModel>(_autorAppServico.ObterPorId(livro.AutorId));
+                livro.Editora = Mapper.Map<Editora, EditoraViewModel>(_editoraAppServico.ObterPorId(livro.EditoraId));
+                livro.Assunto = Mapper.Map<Assunto, AssuntoViewModel>(_assuntoAppServico.ObterPorId(livro.AssuntoId));
+                livro.Localizacao = Mapper.Map<Localizacao, LocalizacaoViewModel>(_localizacaoAppServico.ObterPorId(livro.LocalizacaoId));
+                livro.Classificacao = Mapper.Map<Classificacao, ClassificacaoViewModel>(_classificacaoAppServico.ObterPorId(livro.ClassificacaoId));
+            }
+        }
+
+        public void CriaViewBagSelectLivro()
+        {
+            var autorViewModel = Mapper.Map<IEnumerable<Autor>, IEnumerable<AutorViewModel>>(_autorAppServico.ObterTodos());
+            var editoraViewModel = Mapper.Map<IEnumerable<Editora>, IEnumerable<EditoraViewModel>>(_editoraAppServico.ObterTodos());
+            var assuntoViewModel = Mapper.Map<IEnumerable<Assunto>, IEnumerable<AssuntoViewModel>>(_assuntoAppServico.ObterTodos());
+            var localizacaoViewModel = Mapper.Map<IEnumerable<Localizacao>, IEnumerable<LocalizacaoViewModel>>(_localizacaoAppServico.ObterTodos());
+            var classificacaoViewModel = Mapper.Map<IEnumerable<Classificacao>, IEnumerable<ClassificacaoViewModel>>(_classificacaoAppServico.ObterTodos());
+            ViewBag.Autor = autorViewModel;
+            ViewBag.Editora = editoraViewModel;
+            ViewBag.Assunto = assuntoViewModel;
+            ViewBag.Localizacao = localizacaoViewModel;
+            ViewBag.Classificacao = classificacaoViewModel;
         }
     }
 }

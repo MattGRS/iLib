@@ -16,7 +16,7 @@
                     <option> Selecione um Estado...</option>
                     @foreach (var estado in ViewBag.Estado)
                     {
-                        <option value="@estado.EstadoId">@estado.NomeEstado</option>
+                        <option value="@estado.EstadoId" selected="@estado.EstadoId.Equals(ViewBag.Editora.Endereco.Municipio.EstadoId)">@estado.NomeEstado</option>
                     }
                 </select>
             </div>

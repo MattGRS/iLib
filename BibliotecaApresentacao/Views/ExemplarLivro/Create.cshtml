@@ -1,0 +1,21 @@
+﻿@model BibliotecaApresentacao.ViewModels.ExemplarLivroViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<form action="~/ExemplarLivro/Create/@ViewBag.LivroId" method="post">
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <label class="col-form-label" for="registro">Registro: </label>
+                <input class="form-control" id="registro" name="exemplarLivroViewModel.Registro" />
+            </div>
+            <div class="col">
+                <label class="col-form-label" for="numeroExemplar">Nº: </label>
+                <input class="form-control" id="numeroExemplar" name="exemplarLivroViewModel.NumeroExemplar" />
+            </div>
+        </div>
+    </div>
+
+    <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
+</form>

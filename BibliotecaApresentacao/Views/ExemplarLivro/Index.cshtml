@@ -1,0 +1,32 @@
+﻿@model IEnumerable<BibliotecaApresentacao.ViewModels.ExemplarLivroViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Registro</th>
+            <th scope="col">Exemplar</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var exemplarLivro in Model)
+        {
+            <tr>
+                <td>@exemplarLivro.Registro</td>
+                <td>@exemplarLivro.NumeroExemplar</td>
+                <td>
+                    <a class="btn btn-warning" href="~/ExemplarLivro/Edit/@exemplarLivro.ExemplarLivroId">Editar</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="~/ExemplarLivro/Delete/@exemplarLivro.ExemplarLivroId">Remover</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a class="btn btn-warning" href="~/Livro/Index">Voltar</a>
+<a class="btn btn-primary" href="~/ExemplarLivro/Create/@ViewBag.LivroId">Novo</a>

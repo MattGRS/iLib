@@ -224,6 +224,7 @@
     <Compile Include="Controllers\EditoraController.cs" />
     <Compile Include="Controllers\EnderecoController.cs" />
     <Compile Include="Controllers\EstadoController.cs" />
+    <Compile Include="Controllers\ExemplarLivroController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LivroController.cs" />
     <Compile Include="Controllers\LocalizacaoController.cs" />
@@ -2122,9 +2123,14 @@
     <Content Include="Views\Livro\Index.cshtml" />
     <Content Include="Views\Livro\Create.cshtml" />
     <Content Include="Views\Editora\Edit.cshtml" />
+    <Content Include="Views\Livro\Edit.cshtml" />
+    <Content Include="Views\ExemplarLivro\Create.cshtml" />
+    <Content Include="Views\ExemplarLivro\Index.cshtml" />
+    <Content Include="Views\ExemplarLivro\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Exemplar\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

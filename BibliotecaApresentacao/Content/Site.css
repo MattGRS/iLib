@@ -26,4 +26,9 @@ textarea {
     border-color: #48D1CC;
     }
 
+.some{
+    opacity: 0;
+    fill-opacity: 0;
+}
+
 
