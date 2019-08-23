@@ -5,20 +5,6 @@ namespace BibliotecaDominio.Entidades.ObjetosValor
 {
     public class CPF
     {
-        [Required, Key]
-        public string Cpf { get; internal set; }
-
-        public CPF(string cpf)
-        {
-            if (IsCPF(cpf))
-            {
-                Cpf = cpf;
-            }
-            else
-            {
-                throw new ArgumentException("CPF Inválido");
-            }
-        }
         public bool IsCPF(string cpf)
         {
             int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };

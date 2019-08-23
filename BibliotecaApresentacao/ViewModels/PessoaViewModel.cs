@@ -16,11 +16,11 @@ namespace BibliotecaApresentacao.ViewModels
         [Required(ErrorMessage = "Campo CPF é obrigatório.")]
         public string Cpf { get; set; }
 
-        public CpfViewModel CPF { get; set; }
+        public virtual CpfViewModel CPF { get; set; }
 
-        [DataType(DataType.DateTime, ErrorMessage = "Data inválida.")]
-        [DisplayFormat(DataFormatString = "{0: dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-        [Required(ErrorMessage = "Campo Data de Nascimento é obrigatório.")]
+        //[DataType(DataType.DateTime, ErrorMessage = "Data inválida.")]
+        //[DisplayFormat(DataFormatString = "{0: dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        //[Required(ErrorMessage = "Campo Data de Nascimento é obrigatório.")]
         public DateTime DataDeNascimento { get; set; }
 
         public int Idade { get; set; }

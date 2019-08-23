@@ -3,7 +3,7 @@
     ViewBag.Title = "Create";
 }
 
-<form action="~/Pessoa/Create" method="post">
+<form action="~/Pessoa/Create/@ViewBag.UsuarioId" method="post">
     <div class="col">
         <div class="row">
             <div class="col">
@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col">
                 <label class="col-form-label" for="dataNascimento">Data de Nascimento:</label>
-                <input type="date" id="dataNascimento" class="form-control" name="pessoaViewModel.DataNascimento" />
+                <input type="date" id="dataNascimento" class="form-control" name="pessoaViewModel.DataDeNascimento" />
             </div>
             <div class="col">
                 <label class="col-form-label" for="idade">Idade:</label>

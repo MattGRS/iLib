@@ -14,7 +14,7 @@ namespace BibliotecaDominio.Entidades
         public string Nome { get; internal set; }
 
         [Required]
-        public string Cpf { get; set; }
+        public string Cpf { get; internal set; }
 
         [NotMapped]
         public CPF CPF { get; internal set; }
@@ -32,7 +32,7 @@ namespace BibliotecaDominio.Entidades
 
         public string Telefone { get; internal set; }
 
-        [Required]
+        //[Required]
         public string Email { get; internal set; }
 
         public virtual DadosLogin Login { get; set; }
@@ -40,5 +40,6 @@ namespace BibliotecaDominio.Entidades
         public virtual Endereco Endereco { get; internal set; } //FK de Endereco
 
         public virtual IEnumerable<Emprestimo> Emprestimo { get; set; }
+
     }
 }

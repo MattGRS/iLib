@@ -17,7 +17,7 @@ namespace BibliotecaApresentacao.Controllers
         {
             _dadosLoginAppServico = dadosLoginAppServico;
         }
-        // GET: DadosLogin
+
         public ActionResult Index()
         {
             return View();
@@ -27,6 +27,7 @@ namespace BibliotecaApresentacao.Controllers
         {
             return View();
         }
+        [HttpPost]
         public ActionResult Create(DadosLoginViewModel dadosLoginViewModel)
         {
             if (ModelState.IsValid)
@@ -34,9 +35,18 @@ namespace BibliotecaApresentacao.Controllers
                 var dadosLoginEntidade = Mapper.Map<DadosLoginViewModel, DadosLogin>(dadosLoginViewModel);
                 _dadosLoginAppServico.Adicionar(dadosLoginEntidade);
 
-                return RedirectToAction($"Create{dadosLoginViewModel.DadosLoginId}", "Pessoa");
+                var usuarioId = BuscarUsuario(dadosLoginEntidade);
+
+                return RedirectToAction($"Create/{usuarioId}", "Pessoa");
             }
             return View(dadosLoginViewModel);
+        }
+
+        private int BuscarUsuario(DadosLogin dadosLoginEntidade)
+        {
+            var usuarios = Mapper.Map<IEnumerable<DadosLogin>, IEnumerable<DadosLoginViewModel>>(_dadosLoginAppServico.ObterTodos());
+            var usuarioProcurado = usuarios.First(x => x.Login == dadosLoginEntidade.Login);
+            return usuarioProcurado.DadosLoginId;
         }
     }
 }

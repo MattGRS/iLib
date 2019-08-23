@@ -1,0 +1,22 @@
+﻿@model BibliotecaApresentacao.ViewModels.DadosLoginViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+    <form action="~/DadosLogin/Create/@ViewBag.UsuarioId" method="post">
+        <div class="col">
+            <h1 class="align-content-center">Cadastro de Usuário</h1>
+            <div class="row">
+                <div class="col">
+                    <label class="col-form-label" for="usuario">Usuário:</label>
+                    <input class="form-control" id="usuario" name="dadosLoginViewModel.Login" />
+                </div>
+                <div class="col">
+                    <label class="col-form-label" for="senha">Senha:</label>
+                    <input type="password" class="form-control" id="senha" name="dadosLoginViewModel.Senha" />
+                </div>
+            </div>
+        </div>
+        <a href="~/DadosLogin/UserMenu" class="btn btn-danger btn-form">Cancelar</a>
+        <input type="submit" class="btn btn-primary btn-form" value="Próximo" />
+    </form>

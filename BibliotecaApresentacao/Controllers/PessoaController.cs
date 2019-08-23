@@ -29,17 +29,19 @@ namespace BibliotecaApresentacao.Controllers
             return View(pessoaViewModel);
         }
 
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
             var estadoViewModel = Mapper.Map<IEnumerable<Estado>, IEnumerable<EstadoViewModel>>(_estadoAppServico.ObterTodos());
             ViewBag.Estado = estadoViewModel;
+            ViewBag.UsuarioId = id;
             return View();
         }
         [HttpPost]
-        public ActionResult Create(PessoaViewModel pessoaViewModel)
+        public ActionResult Create(int id, PessoaViewModel pessoaViewModel)
         {
             if (ModelState.IsValid)
             {
+                pessoaViewModel.DadosLoginId = id;
                 var pessoaEntidade = Mapper.Map<PessoaViewModel, Pessoa>(pessoaViewModel);
                 _pessoaAppServico.Adicionar(pessoaEntidade);
 
