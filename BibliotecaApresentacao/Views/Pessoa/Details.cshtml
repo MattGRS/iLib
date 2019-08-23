@@ -1,0 +1,67 @@
+﻿@model BibliotecaApresentacao.ViewModels.PessoaViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div class="row">
+    <div class="col">
+        <h1>Detalhes</h1>
+    </div>
+    <div class="col">
+        <a class="btn btn-primary btn-form" href="~/Pessoa/Index">Voltar</a>
+        <a class="btn btn-warning btn-form" href="~/Pessoa/Edit/@ViewBag.Pessoa.PessoaId">Editar</a>
+        <a class="btn btn-danger btn-form" href="~/Pessoa/Delete/@ViewBag.Pessoa.PessoaId">Excluir</a>
+    </div>
+</div>
+
+<form>
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <label class="col-form-label" for="autor">Nome:</label>
+                <input class="form-control" type="text" placeholder="@ViewBag.Pessoa.Nome" readonly />
+            </div>
+            <div class="col">
+                <label class="col-form-label">CPF: </label>
+                <input class="form-control" type="text" placeholder="@ViewBag.Pessoa.Cpf" readonly />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="col-form-label">Data de Nascimento:</label>
+                <input type="text" class="form-control" placeholder="@ViewBag.Pessoa.DataDeNascimento.ToShortDateString()" readonly />
+            </div>
+            <div class="col">
+                <label class="col-form-label">Idade:</label>
+                <input type="text" class="form-control" placeholder="@ViewBag.Pessoa.Idade" readonly />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="col-form-label">Profissão: </label>
+                <input class="form-control" type="text" placeholder="@ViewBag.Pessoa.Profissao" readonly />
+            </div>
+            <div class="col">
+                <label class="col-form-label">Telefone: </label>
+                <input class="form-control" type="text" placeholder="@ViewBag.Pessoa.Telefone" readonly/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="col-form-label" for="estado">Estado: </label>
+                <input class="form-control" type="text" placeholder="@ViewBag.Estado" readonly>
+            </div>
+               <div class="col">
+                    <label class="col-form-label" for="municipio">Município: </label>
+                    <input class="form-control" type="text" placeholder="@ViewBag.Municipio" readonly />
+                </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="col-form-label" for="endereco">Endereço: </label>
+                <input class="form-control col-md-9" type="text" placeholder="@ViewBag.Endereco" readonly/>
+            </div>
+        </div>
+    </div>
+</form>

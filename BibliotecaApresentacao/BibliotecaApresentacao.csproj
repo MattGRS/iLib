@@ -2133,6 +2133,7 @@
     <Content Include="Views\Pessoa\Create.cshtml" />
     <Content Include="Views\Pessoa\Edit.cshtml" />
     <Content Include="Views\DadosLogin\Create.cshtml" />
+    <Content Include="Views\Pessoa\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
