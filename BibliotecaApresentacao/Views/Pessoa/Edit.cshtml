@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col">
                 <label class="col-form-label" for="dataNascimento">Data de Nascimento:</label>
-                <input type="date" id="dataNascimento" class="form-control" name="pessoaViewModel.DataNascimento" value="@ViewBag.Pessoa.DataNascimento"/>
+                <input type="date" id="dataNascimento" class="form-control" name="pessoaViewModel.DataDeNascimento" value="@ViewBag.Pessoa.DataDeNascimento"/>
             </div>
             <div class="col">
                 <label class="col-form-label" for="idade">Idade:</label>
@@ -50,7 +50,7 @@
                 <label class="col-form-label" for="municipio">Município: </label>
                 <select class="form-control" id="municipio">
                     <option>Selecione um Município...</option>
-                    <option value="@ViewBag.Pessoa.Endereco.MunicipioId">@ViewBag.Pessoa.Endereco.Municipio.MunicipioNome</option>
+                    <option value="@ViewBag.Pessoa.Endereco.MunicipioId">@ViewBag.Pessoa.Endereco.Municipio.NomeMunicipio</option>
                 </select>
             </div>
         </div>

@@ -2,9 +2,8 @@
 @{
     ViewBag.Title = "Index";
 }
-<div>
-    <a class="btn btn-primary btn-form" href="~/Pessoa/Create">Novo</a>
-
+<div class="col">
+    <h1>Lista de Usuários</h1>
 </div>
 <table class="table table-hover">
     <thead>
@@ -23,7 +22,7 @@
             <tr>
                 <td>@pessoa.Nome</td>
                 <td>@pessoa.Cpf</td>
-                <td>@pessoa.DataDeNascimento</td>
+                <td >@pessoa.DataDeNascimento.ToShortDateString()</td>
                 <td>
                     <a class="btn btn-secondary btn-sm" href="~/Pessoa/Datails/@pessoa.PessoaId">[+] mais</a>
                 </td>

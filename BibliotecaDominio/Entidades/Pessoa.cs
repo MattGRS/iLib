@@ -17,7 +17,7 @@ namespace BibliotecaDominio.Entidades
         public string Cpf { get; internal set; }
 
         [NotMapped]
-        public CPF CPF { get; internal set; }
+        public CPF _CPF { get; internal set; }
 
         [Required]
         public DateTime DataDeNascimento { get; internal set; }
