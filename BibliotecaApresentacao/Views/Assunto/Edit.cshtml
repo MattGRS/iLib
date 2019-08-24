@@ -1,16 +1,33 @@
-﻿
+﻿@model BibliotecaApresentacao.ViewModels.AssuntoViewModel
 @{
     ViewBag.Title = "Edit";
 }
 
-<form action="~/Assunto/Edit/@ViewBag.Assunto.AssuntoId" method="post">
+@using (Html.BeginForm())
+{
+    <h3>Edição de Assunto</h3>
+
     <div class="col">
-        <label class="col-form-label" for="assunto">Assunto: </label>
-        <input class="form-control" id="assunto" name="assuntoViewModel.AssuntoObra" value="@ViewBag.Assunto.AssuntoObra" />
+        @Html.LabelFor(model => model.AssuntoObra, "*Assunto:", new { @class = "col-form-label" })
+        @Html.EditorFor(model => model.AssuntoObra, new { htmlAttributes = new { @class = "form-control", @placeholder = "Digite o assunto...", @value = ViewBag.Assunto.AssuntoObra } });
+        @Html.ValidationMessageFor(model => model.AssuntoObra, "", new { @class = "text-danger" })
     </div>
     <div class="col">
         <a class="btn btn-danger btn-form" href="~/Assunto/Index">Cancelar</a>
         <input class="btn btn-success btn-form" type="submit" value="Salvar" />
     </div>
-</form>
+
+}
+
+<!-------------------------------------------Form HTML------------------------------------------------>
+@*<form action="~/Assunto/Edit/@ViewBag.Assunto.AssuntoId" method="post">
+        <div class="col">
+            <label class="col-form-label" for="assunto">Assunto: </label>
+            <input class="form-control" id="assunto" name="assuntoViewModel.AssuntoObra" value="@ViewBag.Assunto.AssuntoObra" />
+        </div>
+        <div class="col">
+            <a class="btn btn-danger btn-form" href="~/Assunto/Index">Cancelar</a>
+            <input class="btn btn-success btn-form" type="submit" value="Salvar" />
+        </div>
+    </form>*@
 

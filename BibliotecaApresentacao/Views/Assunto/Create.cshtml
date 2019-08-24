@@ -8,8 +8,8 @@
     <h3>Cadastro de Assunto</h3>
 
     <div class="col">
-        @Html.LabelFor(model => model.AssuntoObra, "*Assunto:", new {@class = "col-form-label" })
-        @Html.EditorFor(model => model.AssuntoObra, new { htmlAttributes = new {@class = "form-control", @placeholder = "Digite o assunto...", @id = ""}})
+        @Html.LabelFor(model => model.AssuntoObra, "*Assunto :", new {@class = "col-form-label" })
+        @Html.EditorFor(model => model.AssuntoObra, new { htmlAttributes = new {@class = "form-control", @placeholder = "Digite o assunto..."}})
         @Html.ValidationMessageFor(model => model.AssuntoObra, "", new { @class = "text-danger"})
     </div>
     <div class="col">

@@ -4,11 +4,27 @@
     ViewBag.Title = "Create";
 }
 
-<form action="~/Classificacao/Create" method="post">
-    <div class="col">
-        <label class="col-form-label" for="classificacao">Classificação:</label>
-        <input class="form-control" id="classificacao" name="classificacaoViewModel.ClassificacaoObra" />
-    </div>
+@using (Html.BeginForm())
+{
+    <h3>Cadastro de Classificação</h3>
 
-    <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
-</form>
+    <div class="col">
+        @Html.LabelFor(model => model.ClassificacaoObra, "*Classificação:", new { @class = "col-form-label"})
+        @Html.EditorFor(model => model.ClassificacaoObra, new { htmlAttributes = new {@class = "form-control", @placeholder = "Digite a classificação..."}})
+        @Html.ValidationMessageFor(model => model.ClassificacaoObra, "", new { @class = "text-danger"})
+    </div>
+    <div class="col">
+        <a class="btn btn-warning btn-form" href="~/CLassificacao/Index">Voltar</a>
+        <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
+    </div>
+}
+
+<!-------------------------------------------Form HTML---------------------------------------------->
+@*<form action="~/Classificacao/Create" method="post">
+        <div class="col">
+            <label class="col-form-label" for="classificacao">Classificação:</label>
+            <input class="form-control" id="classificacao" name="classificacaoViewModel.ClassificacaoObra" />
+        </div>
+
+        <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
+    </form>*@

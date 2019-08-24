@@ -3,11 +3,27 @@
     ViewBag.Title = "Create";
 }
 
-<form action="~/Localizacao/Create" method="post">
+@using (Html.BeginForm())
+{
+    <h3>Cadastro de Localização</h3>
+    <div class="col">
+        @Html.LabelFor(model => model.LocalizacaoObra, "*Localização:", new {@class = "col-form-label"})
+        @Html.EditorFor(model => model.LocalizacaoObra, new { htmlAttributes = new {@class = "form-control", @placeholder = "Digite a localização..."}})
+        @Html.ValidationMessageFor(model => model.LocalizacaoObra, "", new { @class = "text-danger"})
+    </div>
+    <div class="col">
+        <a class="btn btn-warning btn-form" href="~/Localizacao/Index">Voltar</a>
+        <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
+    </div>
+}
+
+<!----------------------------------------------Form HTML--------------------------------------------->
+
+@*<form action="~/Localizacao/Create" method="post">
     <div class="col">
         <label class="col-form-label" for="localizacao">Localização:</label>
         <input class="form-control" id="localizacao" name="localizacaoViewModel.LocalizacaoObra" />
     </div>
 
     <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
-</form>
+</form>*@

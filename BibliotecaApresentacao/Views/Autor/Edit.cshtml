@@ -3,10 +3,24 @@
     ViewBag.Title = "Edit";
 }
 
-<form action="~/Autor/Edit/@ViewBag.Autor.AutorId" method="post">
-    <label class="col-form-label" for="autor">Autor: </label>
-    <input class="form-control" id="autor" name="autorViewModel.NomeAutor" value="@ViewBag.Autor.NomeAutor" />
+@using (Html.BeginForm())
+{
+    <h3>Edição de Autor:</h3>
+    <div class="col">
+        @Html.LabelFor(model => model.NomeAutor, "*Nome do Autor", new { @class = "col-form-label" })
+        @Html.EditorFor(model => model.NomeAutor, new { htmlAttributes = new {@class = "form-control", @placeholder = "Sobrenome, Nome", @value = ViewBag.Autor.NomeAutor }})
+    </div>
+    <div class="col">
+        <a class="btn btn-danger btn-form" href="~/Autor/Index">Cancelar</a>
+        <input class="btn btn-success btn-form" type="submit" value="Salvar" />
+    </div>
+}
 
-    <input class="btn btn-success btn-form" type="submit" value="Salvar" />
-</form>
+<!---------------------------------------------Form HTML---------------------------------------------->
+@*<form action="~/Autor/Edit/@ViewBag.Autor.AutorId" method="post">
+        <label class="col-form-label" for="autor">Autor: </label>
+        <input class="form-control" id="autor" name="autorViewModel.NomeAutor" value="@ViewBag.Autor.NomeAutor" />
+
+        <input class="btn btn-success btn-form" type="submit" value="Salvar" />
+    </form>*@
 

@@ -3,13 +3,19 @@
     ViewBag.Title = "Index";
 }
 
+<div class="col">
+    <div class="row">
+        <div class="col-10">
+            <h3>Localizações</h3>
+        </div>
+        <div class="col">
+            <a class="btn btn-primary btn-form" href="~/Localizacao/Create">Novo</a>
+        </div>
+    </div>
+</div>
 <table class="table table-hover">
     <thead>
-        <tr>
-            <th scope="col">Localização</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-        </tr>
+    
     </thead>
     <tbody>
         @foreach (var localizacao in Model)
@@ -26,4 +32,3 @@
         }
     </tbody>
 </table>
-<a class="btn btn-primary" href="~/Localizacao/Create">Novo</a>

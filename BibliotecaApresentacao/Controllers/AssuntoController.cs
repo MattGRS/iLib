@@ -38,7 +38,7 @@ namespace BibliotecaApresentacao.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View();
+            return View(assuntoViewModel);
         }
         
         public ActionResult Delete(int id)
@@ -62,10 +62,14 @@ namespace BibliotecaApresentacao.Controllers
         [HttpPost]
         public ActionResult Edit(int id, AssuntoViewModel assuntoViewModel)
         {
-            assuntoViewModel.AssuntoId = id;
-            var assuntoEntidade = Mapper.Map<AssuntoViewModel, Assunto>(assuntoViewModel);
-            _assuntoAppServico.Atualizar(assuntoEntidade);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                assuntoViewModel.AssuntoId = id;
+                var assuntoEntidade = Mapper.Map<AssuntoViewModel, Assunto>(assuntoViewModel);
+                _assuntoAppServico.Atualizar(assuntoEntidade);
+                return RedirectToAction("Index");
+            }
+            return View();
         }
     }
 }

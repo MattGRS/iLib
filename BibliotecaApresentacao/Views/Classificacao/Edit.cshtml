@@ -3,9 +3,25 @@
     ViewBag.Title = "Edit";
 }
 
-<form action="~/Classificacao/Edit/@ViewBag.Classificacao.ClassificacaoId" method="post">
+@using (Html.BeginForm())
+{
+    <h3>Edição de Classificação</h3>
+    <div class="col">
+        @Html.LabelFor(model => model.ClassificacaoObra, "*Classificação", new { @class = "col-form-label"})
+        @Html.EditorFor(model => model.ClassificacaoObra, new { htmlAttributes = new {@class = "form-control", @placeholder = "Digite a classificação...", @value = ViewBag.Classificacao.ClassificacaoObra}})
+        @Html.ValidationMessageFor(model => model.ClassificacaoObra, "", new { @class = "text-danger"})
+    </div>
+    <div class="col">
+        <a class="btn btn-danger btn-form" href="~/Classificacao/Index">Cancelar</a>
+        <input class="btn btn-success btn-form" type="submit" value="Salvar"/>
+    </div>
+}
+
+<!-------------------------------------------Form HTML------------------------------------------------>
+
+@*<form action="~/Classificacao/Edit/@ViewBag.Classificacao.ClassificacaoId" method="post">
     <label class="col-form-label" for="classificacao">Classificação: </label>
-    <input class="form-control" id="classificacao" name="classificacaoViewModel.ClassificacaoObra" value="@ViewBag.Classificacao.ClassificacaoId" />
+    <input class="form-control" id="classificacao" name="classificacaoViewModel.ClassificacaoObra" value="@ViewBag.Classificacao.ClassificacaoObra" />
 
     <input class="btn btn-success btn-form" type="submit" value="Salvar" />
-</form>
+</form>*@
