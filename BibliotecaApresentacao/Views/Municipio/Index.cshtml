@@ -3,13 +3,19 @@
     ViewBag.Title = "Index";
 }
 
+<div class="col">
+    <div class="row">
+        <div class="col-10">
+            <h1>Municípios</h1>
+        </div>
+        <div class="col">
+            <a class="btn btn-primary" href="~/Municipio/Create">Novo</a>
+        </div>
+    </div>
+</div>
 <table class="table table-hover">
     <thead>
-        <tr>
-            <th scope="col">Município</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-        </tr>
+
     </thead>
     <tbody>
         @foreach (var municipio in Model)
@@ -26,5 +32,4 @@
         }
     </tbody>
 </table>
-<a class="btn btn-primary" href="~/Municipio/Create">Novo</a>
 

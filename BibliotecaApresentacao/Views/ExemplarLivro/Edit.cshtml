@@ -8,14 +8,14 @@
         <div class="row">
             <div class="col">
                 <label class="col-form-label" for="registro">Registro: </label>
-                <input class="form-control" id="registro" name="exemplarLivroViewModel.Registro" value="@ViewBag.ExemplarLivro.Registro"/>
+                <input class="form-control" id="registro" name="exemplarLivroViewModel.Registro" value="@ViewBag.ExemplarLivro.Registro" />
             </div>
             <div class="col">
                 <label class="col-form-label" for="numeroExemplar">Nº: </label>
-                <input class="form-control" id="numeroExemplar" name="exemplarLivroViewModel.NumeroExemplar" value="@ViewBag.ExemplarLivro.NumeroExemplar"/>
+                <input class="form-control" id="numeroExemplar" name="exemplarLivroViewModel.NumeroExemplar" value="@ViewBag.ExemplarLivro.NumeroExemplar" />
             </div>
+            <input class="some" value="@ViewBag.ExemplarLivro.LivroId" name="exemplarLivroViewModel.LivroId" />
         </div>
-        <input class="some" value="@ViewBag.ExemplarLivro.LivroId" name="exemplarLivroViewModel.LivroId"/>
     </div>
     <div class="col">
         <a class="btn btn-danger btn-form" href="~/ExemplarLivro/Index/@ViewBag.ExemplarLivro.LivroId">Cancelar</a>

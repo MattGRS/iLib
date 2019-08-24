@@ -4,10 +4,13 @@
 }
 
 <form action="~/Assunto/Edit/@ViewBag.Assunto.AssuntoId" method="post">
-    <label class="col-form-label" for="assunto">Assunto: </label>
-    <input class="form-control" id="assunto" name="assuntoViewModel.AssuntoObra" value="@ViewBag.Assunto.AssuntoObra"/>
-
-    <input class="btn btn-success btn-form" type="submit" value="Salvar" />
-
+    <div class="col">
+        <label class="col-form-label" for="assunto">Assunto: </label>
+        <input class="form-control" id="assunto" name="assuntoViewModel.AssuntoObra" value="@ViewBag.Assunto.AssuntoObra" />
+    </div>
+    <div class="col">
+        <a class="btn btn-danger btn-form" href="~/Assunto/Index">Cancelar</a>
+        <input class="btn btn-success btn-form" type="submit" value="Salvar" />
+    </div>
 </form>
 

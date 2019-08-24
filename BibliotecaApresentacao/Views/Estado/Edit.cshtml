@@ -4,16 +4,20 @@
 }
 
 <form action="~/Estado/Edit/@ViewBag.Estado.EstadoId" method="post">
-    <label class="col-form-label" for="estado">Estado: </label>
-    <input class="form-control" id="estado" name="estadoViewModel.NomeEstado" value="@ViewBag.Estado.NomeEstado" />
+    <div class="col">
+        <label class="col-form-label" for="estado">Estado: </label>
+        <input class="form-control" id="estado" name="estadoViewModel.NomeEstado" value="@ViewBag.Estado.NomeEstado" />
 
-    <label class="col-form-label" for="pais">Pais: </label>
-    <select id="pais" name="estadoViewModel.PaisId" class="form-control">
-        @foreach (var pais in ViewBag.Pais)
-        {
-            <option value="@pais.PaisId" selected="@pais.PaisId.Equals(ViewBag.Pais)">@pais.NomePais</option>
-        }
-    </select>
-
-    <input class="btn btn-success btn-form" type="submit" value="Salvar" />
+        <label class="col-form-label" for="pais">Pais: </label>
+        <select id="pais" name="estadoViewModel.PaisId" class="form-control">
+            @foreach (var pais in ViewBag.Pais)
+            {
+                <option value="@pais.PaisId" selected="@pais.PaisId.Equals(ViewBag.Pais)">@pais.NomePais</option>
+            }
+        </select>
+    </div>
+    <div class="col">
+        <a class="btn btn-danger btn-form" href="~/Estado/Index">Cancelar</a>
+        <input class="btn btn-success btn-form" type="submit" value="Salvar" />
+    </div>
 </form>

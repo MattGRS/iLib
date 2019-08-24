@@ -5,10 +5,12 @@
 
 <form action="~/Pais/Create" method="post">
     <div class="col">
-        <label class="col-form-label" for="Pais">Pais:</label>
+        <label class="col-form-label" for="Pais">País:</label>
         <input class="form-control" id="pais" name="paisViewModel.NomePais" />
     </div>
-
-    <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
+    <div class="col">
+        <a class="btn btn-warning btn-form" href="~/Pais/Index">Voltar</a>
+        <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
+    </div>
 </form>
 

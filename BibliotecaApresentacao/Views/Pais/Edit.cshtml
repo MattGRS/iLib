@@ -4,9 +4,13 @@
 }
 
 <form action="~/Pais/Edit/@ViewBag.Pais.PaisId" method="post">
-    <label class="col-form-label" for="pais">Pais: </label>
-    <input class="form-control" id="pais" name="paisViewModel.NomePais" value="@ViewBag.Pais.NomePais" />
-
-    <input class="btn btn-success btn-form" type="submit" value="Salvar" />
+    <div class="col">
+        <label class="col-form-label" for="pais">Pais: </label>
+        <input class="form-control" id="pais" name="paisViewModel.NomePais" value="@ViewBag.Pais.NomePais" />
+    </div>
+    <div class="col">
+        <a class="btn btn-danger btn-form" href="~/Pais/Index">Cancelar</a>
+        <input class="btn btn-success btn-form" type="submit" value="Salvar" />
+    </div>
 </form>
 

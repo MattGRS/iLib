@@ -10,10 +10,7 @@
             <div class="col">
                 <label class="col-form-label" for="cep">CEP</label>
                 <input class="form-control" placeholder="Apenas Números" type="search" id="cep" name="enderecoViewModel.CEP" maxlength="8" pattern="[0-9]+$" />
-            </div>
-            <div class="col-md-2">
-                <label> </label>
-                <button formnovalidate="formnovalidate" type="button" class="btn btn-primary" onclick="pesquisacep(cep.value)">Buscar</button>
+                <button formnovalidate="formnovalidate" type="button" class="btn btn-primary btn-form" onclick="pesquisacep(cep.value)">Buscar</button>
             </div>
         </div>
 
@@ -38,8 +35,10 @@
 
         </select>
     </div>
-
-    <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
+    <div class="col">
+        <a class="btn btn-warning btn-form" href="~/Endereco/Index">Voltar</a>
+        <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
+    </div>
 </form>
 
 <script src="~/Content/js/BuscaCep.js"></script>
