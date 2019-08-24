@@ -45,6 +45,7 @@ textarea {
 .btn-login:hover {
     background-color: #2145a8;
     border-color: #2145a8;
+    color: white;
 }
 
 body {

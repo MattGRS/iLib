@@ -3,11 +3,26 @@
     ViewBag.Title = "Create";
 }
 
-<form action="~/Autor/Create" method="post">
-    <div class="col">
-        <label class="col-form-label" for="autor">Autor:</label>
-        <input class="form-control" id="autor" name="autorViewModel.NomeAutor" />
-    </div>
+@using (Html.BeginForm())
+{
+    <h3>Cadastro de Autor</h3>
 
-    <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
-</form>
+    <div class="col">
+        @Html.LabelFor(model => model.NomeAutor, "*Nome do Autor:", new { @class = "col-form-label" })
+        @Html.EditorFor(model => model.NomeAutor, new { htmlAttributes = new {@class = "form-control", @placeholder = "Sobrenome, Nome"}})
+        @Html.ValidationMessageFor(model => model.NomeAutor, "" , new {@class = "text-danger" })
+    </div>
+    <div class="col">
+        <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
+    </div>
+}
+
+<!-----------------------------------------From HTML---------------------------------------------------->
+@*<form action="~/Autor/Create" method="post">
+        <div class="col">
+            <label class="col-form-label" for="autor">Autor:</label>
+            <input class="form-control" id="autor" name="autorViewModel.NomeAutor" />
+        </div>
+
+        <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
+    </form>*@

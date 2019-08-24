@@ -7,26 +7,26 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="~/Content/img/path20.png" type="image/x-icon" />
+    <title>iLib - Login</title>
 
-        <title>Coming Soon - Start Bootstrap Theme</title>
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/LoginPackage/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- Bootstrap core CSS -->
-        <link href="~/Content/LoginPackage/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link href="~/Content/LoginPackage/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
-        <!-- Custom fonts for this template -->
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-        <link href="~/Content/LoginPackage/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-
-        <!-- Custom styles for this template -->
-        <link href="~/Content/LoginPackage/css/coming-soon.min.css" rel="stylesheet">
-        <link href="~/Content/Site.css" rel="stylesheet"/>
-    </head>
+    <!-- Custom styles for this template -->
+    <link href="~/Content/LoginPackage/css/coming-soon.min.css" rel="stylesheet">
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
     <body>
         <div class="overlay"></div>
 
@@ -36,7 +36,14 @@
                 <div class="row h-100">
                     <div class="col-12 my-auto">
                         <div class="masthead-content text-white py-5 py-md-0">
-                            <h1 class="mb-3">Biblioteca</h1>
+                            <div class="form-row" style="padding: 10px;">
+                                <div class="col-sm-auto">
+                                    <img src="~/Content/img/path20.png" />
+                                </div>
+                                <div class="col-auto">
+                                    <h2>iLib</h2>
+                                </div>
+                            </div>
                             <form action="~/DadosLogin/Authentication" method="post">
                                 <div class="col">
                                     <input type="text" class="form-control" placeholder="Login" aria-label="Login" aria-describedby="basic-addon" name="login"/>
@@ -46,7 +53,7 @@
                                     <input type="password" class="form-control" placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon" name="senha"/>
                                 </div>
                                 <div class="col">
-                                    <input class="btn btn-login btn-form" type="submit" value="Submit!"/>
+                                    <input class="btn btn-form btn-login" type="submit" value="Submit!"/>
                                 </div>
                             </form>
                         </div>
