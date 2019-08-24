@@ -17,6 +17,8 @@
         </div>
         <input class="some" value="@ViewBag.ExemplarLivro.LivroId" name="exemplarLivroViewModel.LivroId"/>
     </div>
-
-    <input class="btn btn-primary btn-form" type="submit" value="Salvar" />
+    <div class="col">
+        <a class="btn btn-danger btn-form" href="~/ExemplarLivro/Index/@ViewBag.ExemplarLivro.LivroId">Cancelar</a>
+        <input class="btn btn-success btn-form" type="submit" value="Salvar" />
+    </div>
 </form>

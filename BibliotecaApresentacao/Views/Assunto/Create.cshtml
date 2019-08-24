@@ -4,12 +4,13 @@
 }
 
 <form action="~/Assunto/Create" method="post">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="col">
         <label class="col-form-label" for="assunto">Assunto: </label>
-        <input class="form-control" id="assunto" name="assuntoViewModel.AssuntoObra" />
+        <input class="form-control" id="assunto" name="assuntoViewModel.AssuntoObra" autofocus required />
     </div>
-
-    <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
-
+    <div class="col">
+        <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
+    </div>
 </form>
 

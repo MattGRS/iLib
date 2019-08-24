@@ -3,6 +3,17 @@
     ViewBag.Title = "Index";
 }
 
+<div class="col">
+    <div class="row">
+        <div class="col-10">
+            <h1>Exemplares</h1>
+        </div>
+        <div class="col">
+            <a class="btn btn-warning" href="~/Livro/Index">Voltar</a>
+            <a class="btn btn-primary" href="~/ExemplarLivro/Create/@ViewBag.LivroId">Novo</a>
+        </div>
+    </div>
+</div>
 <table class="table table-hover">
     <thead>
         <tr>
@@ -28,5 +39,3 @@
         }
     </tbody>
 </table>
-<a class="btn btn-warning" href="~/Livro/Index">Voltar</a>
-<a class="btn btn-primary" href="~/ExemplarLivro/Create/@ViewBag.LivroId">Novo</a>

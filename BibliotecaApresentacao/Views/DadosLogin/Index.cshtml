@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Coming Soon - Start Bootstrap Theme</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="~/Content/LoginPackage/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom fonts for this template -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+        <link href="~/Content/LoginPackage/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Custom styles for this template -->
+        <link href="~/Content/LoginPackage/css/coming-soon.min.css" rel="stylesheet">
+        <link href="~/Content/Site.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="overlay"></div>
+
+        <div class="masthead">
+            <div class="masthead-bg"></div>
+            <div class="container h-100">
+                <div class="row h-100">
+                    <div class="col-12 my-auto">
+                        <div class="masthead-content text-white py-5 py-md-0">
+                            <h1 class="mb-3">Biblioteca</h1>
+                            <form action="~/DadosLogin/Authentication" method="post">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Login" aria-label="Login" aria-describedby="basic-addon" name="login"/>
+                                </div>
+                                </br>
+                                <div class="col">
+                                    <input type="password" class="form-control" placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon" name="senha"/>
+                                </div>
+                                <div class="col">
+                                    <input class="btn btn-login btn-form" type="submit" value="Submit!"/>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @*<div class="social-icons">
+            <ul class="list-unstyled text-center mb-0">
+                <li class="list-unstyled-item">
+                    <a href="#">
+                    <i class="fab fa-twitter"></i>
+                    </a>
+                 </li>
+                <li class="list-unstyled-item">
+                    <a href="#">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </li>
+                <li class="list-unstyled-item">
+                    <a href="#">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>*@
+
+    <!-- Bootstrap core JavaScript -->
+        <script src="~/Content/LoginPackage/vendor/jquery/jquery.min.js"></script>
+        <script src="~/Content/LoginPackage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+        <script src="~/Content/LoginPackage/js/coming-soon.min.js"></script>
+
+    </body>
+
+</html>

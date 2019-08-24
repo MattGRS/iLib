@@ -17,5 +17,10 @@ namespace BibliotecaAplicacao.Classes
         {
             return _dadosLoginServico.Remover(dadosLogin);
         }
+
+        public DadosLogin SearchUser(string login, string senha)
+        {
+            return _dadosLoginServico.SearchUser(login, senha);
+        }
     }
 }

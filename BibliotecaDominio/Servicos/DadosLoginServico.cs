@@ -17,5 +17,10 @@ namespace BibliotecaDominio.Servicos
         {
             return _dadosLoginRepositorio.Remover(dadosLogin);
         }
+
+        public DadosLogin SearchUser(string login, string senha)
+        {
+            return _dadosLoginRepositorio.SearchUser(login, senha);
+        }
     }
 }

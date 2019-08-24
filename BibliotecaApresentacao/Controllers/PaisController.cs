@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BibliotecaAplicacao.Interfaces;
+using BibliotecaApresentacao.Filter;
 using BibliotecaApresentacao.ViewModels;
 using BibliotecaDominio.Entidades.ObjetosValor;
 using System;
@@ -10,6 +11,7 @@ using System.Web.Mvc;
 
 namespace BibliotecaApresentacao.Controllers
 {
+    [AuthorizationFilter]
     public class PaisController : Controller
     {
         private readonly IPaisAppServico _paisAppServico;

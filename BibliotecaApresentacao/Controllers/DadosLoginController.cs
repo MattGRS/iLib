@@ -1,28 +1,57 @@
 ﻿using AutoMapper;
 using BibliotecaAplicacao.Interfaces;
+using BibliotecaApresentacao.Filter;
 using BibliotecaApresentacao.ViewModels;
+using BibliotecaDominio.Entidades;
 using BibliotecaDominio.Entidades.ObjetosValor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace BibliotecaApresentacao.Controllers
 {
     public class DadosLoginController : Controller
     {
         private readonly IDadosLoginAppServico _dadosLoginAppServico;
-        public DadosLoginController(IDadosLoginAppServico dadosLoginAppServico)
+        private readonly IPessoaAppServico _pessoaAppServico;
+        public DadosLoginController(IDadosLoginAppServico dadosLoginAppServico, IPessoaAppServico pessoaAppServico)
         {
             _dadosLoginAppServico = dadosLoginAppServico;
+            _pessoaAppServico = pessoaAppServico;
         }
 
         public ActionResult Index()
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult Authentication(string login, string senha)
+        {
+            var usuario = _dadosLoginAppServico.SearchUser(login, senha);
+            if (usuario != null)
+            {
+                Session["usuarioAutenticado"] = usuario;
+                var pessoa = BuscarPessoaPorUsuario(usuario);
 
+                Session["Nome"] = pessoa.Nome;
+
+                return RedirectToAction("Index", "Home");
+            }
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            HttpContext.Session.Abandon();
+
+            return RedirectToAction("Index");
+        }
+
+        [AuthorizationFilter]
         public ActionResult Create()
         {
             return View();
@@ -35,18 +64,25 @@ namespace BibliotecaApresentacao.Controllers
                 var dadosLoginEntidade = Mapper.Map<DadosLoginViewModel, DadosLogin>(dadosLoginViewModel);
                 _dadosLoginAppServico.Adicionar(dadosLoginEntidade);
 
-                var usuarioId = BuscarUsuario(dadosLoginEntidade);
+                var usuarioId = BuscarIdUsuario(dadosLoginEntidade);
 
                 return RedirectToAction($"Create/{usuarioId}", "Pessoa");
             }
             return View(dadosLoginViewModel);
         }
 
-        private int BuscarUsuario(DadosLogin dadosLoginEntidade)
+        private int BuscarIdUsuario(DadosLogin dadosLoginEntidade)
         {
             var usuarios = Mapper.Map<IEnumerable<DadosLogin>, IEnumerable<DadosLoginViewModel>>(_dadosLoginAppServico.ObterTodos());
             var usuarioProcurado = usuarios.First(x => x.Login == dadosLoginEntidade.Login);
             return usuarioProcurado.DadosLoginId;
+        }
+
+        private Pessoa BuscarPessoaPorUsuario(DadosLogin dadosLogin)
+        {
+            var pessoa = _pessoaAppServico.ObterTodos();
+            var pessoaProcurado = pessoa.First(x => x.DadosLoginId == dadosLogin.DadosLoginId);
+            return pessoaProcurado;
         }
     }
 }

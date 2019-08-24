@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BibliotecaAplicacao.Interfaces;
+using BibliotecaApresentacao.Filter;
 using BibliotecaApresentacao.ViewModels;
 using BibliotecaDominio.Entidades.ObjetosValor;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Web.Mvc;
 
 namespace BibliotecaApresentacao.Controllers
 {
+    [AuthorizationFilter]
     public class AutorController : Controller
     {
         private readonly IAutorAppServico _autorAppServico;

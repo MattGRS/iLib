@@ -17,19 +17,37 @@ textarea {
     margin-left: 0px;
 }
 
-.btn-primary {
-    background-color: #008B8B;
-    border-color: #48D1CC;
+.bg-gradient-primary {
+    background-color: #db1f44;
+    background-image: linear-gradient(180deg, #db1f44 10%, #e34b69 100%);
 }
 
-.btn-primary:hover {
-    background-color: #48D1CC;
-    border-color: #48D1CC;
-    }
-
-.some{
+.some {
     opacity: 0;
     fill-opacity: 0;
 }
 
+.masthead .masthead-bg {
+    background-color: rgba(219, 31, 68, .6);
+}
+
+.overlay {
+    background: #d1d1d1;
+    background: url(/Content/LoginPackage/img/susan-yin-2JIvboGLeho-unsplash.jpg);
+}
+
+.btn-login {
+    background-color: #216ba8;
+    border-color: #216ba8;
+    color: white;
+}
+
+.btn-login:hover {
+    background-color: #2145a8;
+    border-color: #2145a8;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
 

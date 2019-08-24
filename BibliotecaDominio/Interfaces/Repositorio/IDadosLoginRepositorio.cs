@@ -10,5 +10,7 @@ namespace BibliotecaDominio.Interfaces.Repositorio
     public interface IDadosLoginRepositorio : IBibliotecaRepositorioBase<DadosLogin>
     {
         new bool Remover(DadosLogin dadosLogin);
+
+        DadosLogin SearchUser(string login, string senha);
     }
 }

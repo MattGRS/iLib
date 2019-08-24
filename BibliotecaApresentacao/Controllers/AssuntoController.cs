@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BibliotecaAplicacao.Interfaces;
+using BibliotecaApresentacao.Filter;
 using BibliotecaApresentacao.ViewModels;
 using BibliotecaDominio.Entidades.ObjetosValor;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Web.Mvc;
 
 namespace BibliotecaApresentacao.Controllers
 {
+    [AuthorizationFilter]
     public class AssuntoController : Controller
     {
         private readonly IAssuntoAppServico _assuntoAppServico;
@@ -36,7 +38,7 @@ namespace BibliotecaApresentacao.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(assuntoViewModel);
+            return View();
         }
         
         public ActionResult Delete(int id)

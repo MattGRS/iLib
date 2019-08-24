@@ -10,5 +10,7 @@ namespace BibliotecaAplicacao.Interfaces
     public interface IDadosLoginAppServico : IBibliotecaAppServicoBase<DadosLogin>
     {
         new bool Remover(DadosLogin dadosLogin);
+
+        DadosLogin SearchUser(string login, string senha);
     }
 }
