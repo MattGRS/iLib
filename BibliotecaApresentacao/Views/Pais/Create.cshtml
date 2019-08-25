@@ -3,14 +3,30 @@
     ViewBag.Title = "Create";
 }
 
-<form action="~/Pais/Create" method="post">
+@using (Html.BeginForm())
+{
+    <h3>Cadastro de País</h3>
+
     <div class="col">
-        <label class="col-form-label" for="Pais">País:</label>
-        <input class="form-control" id="pais" name="paisViewModel.NomePais" />
+        @Html.LabelFor(model => model.NomePais, "*País:", new { @class = "col-form-label" })
+        @Html.EditorFor(model => model.NomePais, new { htmlAttributes = new {@class = "form-control", @placeholder = "Digite o país..." } })
+        @Html.ValidationMessageFor(model => model.NomePais, "", new { @class = "text-danger"})
     </div>
     <div class="col">
         <a class="btn btn-warning btn-form" href="~/Pais/Index">Voltar</a>
         <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
     </div>
-</form>
+}
+
+<!----------------------------------------Form HTML--------------------------------------------------->
+@*<form action="~/Pais/Create" method="post">
+        <div class="col">
+            <label class="col-form-label" for="Pais">País:</label>
+            <input class="form-control" id="pais" name="paisViewModel.NomePais" />
+        </div>
+        <div class="col">
+            <a class="btn btn-warning btn-form" href="~/Pais/Index">Voltar</a>
+            <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
+        </div>
+    </form>*@
 

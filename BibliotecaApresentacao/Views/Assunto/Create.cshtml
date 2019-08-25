@@ -3,7 +3,7 @@
     ViewBag.Title = "Create";
 }
 
-@using (Html.BeginForm())
+@using (Html.BeginForm(FormMethod.Post))
 {
     <h3>Cadastro de Assunto</h3>
 
@@ -12,7 +12,7 @@
         @Html.EditorFor(model => model.AssuntoObra, new { htmlAttributes = new {@class = "form-control", @placeholder = "Digite o assunto..."}})
         @Html.ValidationMessageFor(model => model.AssuntoObra, "", new { @class = "text-danger"})
     </div>
-    <div class="col">
+    <div class="col">   
         <a class="btn btn-warning btn-form" href="~/Assunto/Index">Voltar</a>
         <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
     </div>

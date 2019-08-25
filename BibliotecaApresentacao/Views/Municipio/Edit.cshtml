@@ -1,23 +1,53 @@
-﻿
+﻿@model BibliotecaApresentacao.ViewModels.MunicipioViewModel
 @{
     ViewBag.Title = "Edit";
 }
 
-<form action="~/Municipio/Edit/@ViewBag.Municipio.MunicipioId" method="post">
-    <div class="col">
-        <label class="col-form-label" for="municipio">Município:</label>
-        <input class="form-control" id="municipio" name="municipioViewModel.NomeMunicipio" value="@ViewBag.Municipio.NomeMunicipio" />
+@using (Html.BeginForm($"Edit/{ViewBag.Municipio.MunicipioId}", "Municipio", FormMethod.Post))
+{
+    <h3>Edição de Município</h3>
 
-        <label class="col-form-label" for="estado">Estado: </label>
-        <select id="estado" name="municipioViewModel.EstadoId" class="form-control">
-            @foreach (var estado in ViewBag.Estado)
-            {
-                <option value="@estado.EstadoId" selected="@estado.EstadoId.Equals(ViewBag.Municipio.EstadoId)">@estado.NomeEstado</option>
-            }
-        </select>
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                @Html.LabelFor(model => model.NomeMunicipio, "*Município: ", new { @class = "col-form-label" })
+                @Html.EditorFor(model => model.NomeMunicipio, new { htmlAttributes = new { @class = "form-control", @value = ViewBag.Municipio.NomeMunicipio, @required = "", @autofocus = "" } })
+                @Html.ValidationMessageFor(model => model.NomeMunicipio, "", new { @class = "text-danger" })
+            </div>
+            <div class="col">
+                @Html.LabelFor(model => model.EstadoId, "*Estado", new { @class = "col-form-label" })
+                <select id="estado" name="EstadoId" class="form-control">
+                    <option disabled value="">Selecione um estado...</option>
+                    @foreach (var estado in ViewBag.Estado)
+                    {
+                        <option value="@estado.EstadoId" selected="@estado.EstadoId.Equals(ViewBag.Municipio.EstadoId)">@estado.NomeEstado</option>
+                    }
+                </select>
+            </div>
+        </div>
     </div>
     <div class="col">
         <a class="btn btn-danger btn-form" href="~/Municipio/Index">Cancelar</a>
         <input class="btn btn-success btn-form" type="submit" value="Salvar" />
     </div>
-</form>
+}
+
+<!---------------------------------------------Form HTML---------------------------------------------->
+@*<form action="~/Municipio/Edit/@ViewBag.Municipio.MunicipioId" method="post">
+        <div class="col">
+            <label class="col-form-label" for="municipio">Município:</label>
+            <input class="form-control" id="municipio" name="municipioViewModel.NomeMunicipio" value="@ViewBag.Municipio.NomeMunicipio" />
+
+            <label class="col-form-label" for="estado">Estado: </label>
+            <select id="estado" name="municipioViewModel.EstadoId" class="form-control">
+                @foreach (var estado in ViewBag.Estado)
+                {
+                    <option value="@estado.EstadoId" selected="@estado.EstadoId.Equals(ViewBag.Municipio.EstadoId)">@estado.NomeEstado</option>
+                }
+            </select>
+        </div>
+        <div class="col">
+            <a class="btn btn-danger btn-form" href="~/Municipio/Index">Cancelar</a>
+            <input class="btn btn-success btn-form" type="submit" value="Salvar" />
+        </div>
+    </form>*@

@@ -2202,7 +2202,6 @@
     <Content Include="Views\Estado\Edit.cshtml" />
     <Content Include="Views\Municipio\Index.cshtml" />
     <Content Include="Views\Municipio\Create.cshtml" />
-    <Content Include="Views\Municipio\Delete.cshtml" />
     <Content Include="Views\Municipio\Edit.cshtml" />
     <Content Include="Views\Endereco\Index.cshtml" />
     <Content Include="Views\Endereco\Create.cshtml" />
