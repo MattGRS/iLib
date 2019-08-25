@@ -35,7 +35,7 @@ namespace BibliotecaApresentacao.Controllers
         {
             var livroViewModel = Mapper.Map<IEnumerable<Livro>, IEnumerable<LivroViewModel>>(_livroAppServico.ObterTodos());
 
-            MapeandoPropriedadesLivro(livroViewModel);
+            MapearPropriedadesListaLivro(livroViewModel);
 
             return View(livroViewModel);
         }
@@ -90,7 +90,27 @@ namespace BibliotecaApresentacao.Controllers
             return RedirectToAction("Index");
         }
 
-        public void MapeandoPropriedadesLivro(IEnumerable<LivroViewModel> livroViewModel)
+        public ActionResult Details(int id)
+        {
+            var livroViewModel = Mapper.Map<Livro, LivroViewModel>(_livroAppServico.ObterPorId(id));
+
+            MapearPropriedadesLivro(livroViewModel);
+
+            ViewBag.Livro = livroViewModel;
+
+            return View();
+        }
+
+        private void MapearPropriedadesLivro(LivroViewModel livroViewModel)
+        {
+            livroViewModel.Autor = Mapper.Map<Autor, AutorViewModel>(_autorAppServico.ObterPorId(livroViewModel.AutorId));
+            livroViewModel.Editora = Mapper.Map<Editora, EditoraViewModel>(_editoraAppServico.ObterPorId(livroViewModel.EditoraId));
+            livroViewModel.Assunto = Mapper.Map<Assunto, AssuntoViewModel>(_assuntoAppServico.ObterPorId(livroViewModel.AssuntoId));
+            livroViewModel.Localizacao = Mapper.Map<Localizacao, LocalizacaoViewModel>(_localizacaoAppServico.ObterPorId(livroViewModel.LocalizacaoId));
+            livroViewModel.Classificacao = Mapper.Map<Classificacao, ClassificacaoViewModel>(_classificacaoAppServico.ObterPorId(livroViewModel.ClassificacaoId));
+        }
+
+        public void MapearPropriedadesListaLivro(IEnumerable<LivroViewModel> livroViewModel)
         {
             foreach (var livro in livroViewModel)
             {

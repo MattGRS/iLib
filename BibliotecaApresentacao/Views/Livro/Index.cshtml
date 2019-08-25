@@ -9,7 +9,7 @@
             <h1>Acervo</h1>
         </div>
         <div class="col">
-            <a class="btn btn-primary btn-form" href="~/Livro/Create">Novo</a>
+            <a class="btn btn-primary btn-form float-right" href="~/Livro/Create">Novo</a>
         </div>
     </div>
 </div>
@@ -22,8 +22,6 @@
             <th scope="col">Assunto</th>
             <th scope="col">Classificação</th>
             <th scope="col">Localização</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
             <th scope="col"></th>
         </tr>
     </thead>
@@ -38,6 +36,9 @@
                 <td scope="col">@livro.Classificacao.ClassificacaoObra</td>
                 <td scope="col">@livro.Localizacao.LocalizacaoObra</td>
                 <td>
+                    <a class="btn btn-secondary btn-sm float-right" href="~/Livro/Details/@livro.LivroId">[+] mais</a>
+                </td>
+                @*<td>
                     <a class="btn btn-warning" href="~/Livro/Edit/@livro.LivroId">Editar</a>
                 </td>
                 <td>
@@ -45,7 +46,7 @@
                 </td>
                 <td>
                     <a class="btn btn-primary" href="~/ExemplarLivro/Index/@livro.LivroId">Listar</a>
-                </td>
+                </td>*@
             </tr>
         }
     </tbody>

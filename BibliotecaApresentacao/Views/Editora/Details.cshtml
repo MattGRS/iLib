@@ -1,0 +1,39 @@
+﻿@model BibliotecaApresentacao.ViewModels.EditoraViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col">
+            <h3>Detalhes de Editora</h3>
+        </div>
+        <div class="col">
+            <a class="btn btn-primary btn-form" href="~/Editora/Index">Voltar</a>
+            <a class="btn btn-warning btn-form" href="~/Editora/Edit/@ViewBag.Editora.EditoraId">Editar</a>
+            <a class="btn btn-danger btn-form" href="~/Editora/Delete/@ViewBag.Editora.EditoraId">Excluir</a>
+        </div>
+    </div>
+
+    <div class="col">
+        <div>
+            <label class="col-form-label">Nome Fantasia: </label>
+            <input readonly value="@ViewBag.Editora.NomeEditora" class="form-control col-md-5" />
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label class="col-form-label">Estado: </label>
+                <input readonly class="form-control" value="@ViewBag.Editora.Endereco.Municipio.Estado.NomeEstado" />
+            </div>
+            <div class="col">
+                <label class="col-form-label">Município: </label>
+                <input readonly class="form-control" value="@ViewBag.Editora.Endereco.Municipio.NomeMunicipio" />
+            </div>
+        </div>
+        <div>
+            <label class="col-form-label">Endereço: </label>
+            <input readonly class="form-control col-md-7" value="@ViewBag.Editora.Endereco.Logradouro, @ViewBag.Editora.Endereco.NumeroResidencial" - @ViewBag.Editora.Endereco.Bairro />
+        </div>
+    </div>
+}

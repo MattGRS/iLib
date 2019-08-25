@@ -4,17 +4,21 @@
     ViewBag.Title = "Create";
 }
 
-<form action="~/Editora/Create" method="post">
+@using (Html.BeginForm("Create", "Editora", FormMethod.Post))
+{
+    <h3>Cadastro de Editora</h3>
+
     <div class="col">
         <div>
-            <label class="col-form-label" for="editora">Editora:</label>
-            <input class="form-control" id="editora" name="editoraViewModel.NomeEditora" />
+            @Html.LabelFor(model => model.NomeEditora, "*Nome Fantasia: ", new { @class = "col-form-label"})
+            @Html.EditorFor(model => model.NomeEditora, new { htmlAttributes = new {@class = "form-control col-md-5", @required = "", @autofocus = ""}})
+            @Html.ValidationMessageFor(model => model.NomeEditora, "", new {@class = "text-danger" });
         </div>
         <div class="row">
-            <div class="col">
-                <label class="col-form-label" for="idEstado">Estado</label>
-                <select id="idEstado" class="form-control">
-                    <option>Selecione um Estado...</option>
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.Endereco.Municipio.EstadoId, "*Estado", new { @class = "col-form-label"})
+                <select id="estado" class="form-control" required="">
+                    <option disabled selected value="">Selecione um estado...</option>
                     @foreach (var estado in ViewBag.Estado)
                     {
                         <option value="@estado.EstadoId">@estado.NomeEstado</option>
@@ -22,33 +26,36 @@
                 </select>
             </div>
             <div class="col">
-                <label class="col-form-label" for="municipio">Município</label>
-                <select id="municipio" class="form-control">
-                    <option>Selecione um Município...</option>
-                </select>
-            </div>
-            <div>
-                <label class="col-form-label" for="endereco">Endereço: </label>
-                <select name="editoraViewModel.EnderecoId" id="endereco" class="form-control ">
-                    <option>Selecione um Endereço...</option>
+                @Html.LabelFor(model => model.Endereco.MunicipioId, "*Município: ", new { @class = "col-form-label"})
+                <select id="municipio" class="form-control" required="">
+                    <option>Selecione um município...</option>
                 </select>
             </div>
         </div>
-        <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
+        <div>
+            @Html.LabelFor(model => model.EnderecoId, "*Endereço: ", new { @class = "col-form-label"})
+            <select name="EnderecoId" id="endereco" class="form-control col-md-7">
+                <option>Selecione um endereço...</option>
+            </select>
+        </div>
+        <div>
+            <a class="btn btn-warning btn-form" href="~/Editora/Index">Voltar</a>
+            <input class="btn btn-primary btn-form" type="submit" value="Salvar"/>
+        </div>
     </div>
-</form>
+}
 
 <script src="~/Scripts/jquery-3.3.1.js"></script>
 <script>
     $(document).ready(function () {
-        $("#idEstado").change(function () {
-             var id = $(this).children("option:selected").val();
+        $("#estado").change(function () {
+            var id = $(this).children("option:selected").val();
             $.ajax({
                 url: "/Editora/SelecionarMunicipios/" + id,
                 dataType: "JSON",
                 success: function (data) {
                     $("#municipio").empty();
-                    $("#municipio").append('<option value="">Selecione um Município...</option>');
+                    $("#municipio").append('<option value="" disabled selected>Selecione um município...</option>');
                     $.each(data, function (index, element) {
                         $("#municipio").append('<option value="' + element.MunicipioId + '">' + element.NomeMunicipio + '</option>');
                     });
@@ -59,13 +66,13 @@
 
     $(document).ready(function () {
         $("#municipio").change(function () {
-             var id = $(this).children("option:selected").val();
+            var id = $(this).children("option:selected").val();
             $.ajax({
                 url: "/Editora/SelecionarEnderecos/" + id,
                 dataType: "JSON",
                 success: function (data) {
                     $("#endereco").empty();
-                    $("#endereco").append('<option value="">Seleciona um Endereço...</option>');
+                    $("#endereco").append('<option value="" disabled selected>Seleciona um endereço...</option>');
                     $.each(data, function (index, element) {
                         $("#endereco").append('<option value="' + element.EnderecoId + '">' + element.Logradouro + ", " + element.NumeroResidencial + " - " + element.Bairro + '</option>');
                     });
@@ -74,3 +81,39 @@
         });
     });
 </script>
+
+<!------------------------------------------Form HTML--------------------------------------->
+
+@*<form action="~/Editora/Create" method="post">
+        <div class="col">
+            <div>
+                <label class="col-form-label" for="editora">Editora:</label>
+                <input class="form-control" id="editora" name="editoraViewModel.NomeEditora" />
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="col-form-label" for="idEstado">Estado</label>
+                    <select id="idEstado" class="form-control">
+                        <option>Selecione um Estado...</option>
+                        @foreach (var estado in ViewBag.Estado)
+                        {
+                            <option value="@estado.EstadoId">@estado.NomeEstado</option>
+                        }
+                    </select>
+                </div>
+                <div class="col">
+                    <label class="col-form-label" for="municipio">Município</label>
+                    <select id="municipio" class="form-control">
+                        <option>Selecione um Município...</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="col-form-label" for="endereco">Endereço: </label>
+                    <select name="editoraViewModel.EnderecoId" id="endereco" class="form-control ">
+                        <option>Selecione um Endereço...</option>
+                    </select>
+                </div>
+            </div>
+            <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
+        </div>
+    </form>*@

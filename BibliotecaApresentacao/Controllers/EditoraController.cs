@@ -106,5 +106,15 @@ namespace BibliotecaApresentacao.Controllers
             var enderecoViewModel = todosEnderecosViewModel.Where(e => e.MunicipioId == id).ToList();
             return Json(enderecoViewModel, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult Details(int id)
+        {
+            var editoraViewModel = Mapper.Map<Editora, EditoraViewModel>(_editoraAppServico.ObterPorId(id));
+            editoraViewModel.Endereco = Mapper.Map<Endereco, EnderecoViewModel>(_enderecoAppServico.ObterPorId(editoraViewModel.EnderecoId));
+            editoraViewModel.Endereco.Municipio = Mapper.Map<Municipio, MunicipioViewModel>(_municipioAppServico.ObterPorId(editoraViewModel.Endereco.MunicipioId));
+            editoraViewModel.Endereco.Municipio.Estado = Mapper.Map<Estado, EstadoViewModel>(_estadoAppServico.ObterPorId(editoraViewModel.Endereco.Municipio.EstadoId));
+            ViewBag.Editora = editoraViewModel;
+            return View();
+        }
     }
 }

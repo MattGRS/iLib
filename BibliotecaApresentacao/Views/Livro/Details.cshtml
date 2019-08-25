@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <h3>Detalhes de Livro</h3>
+            </div>
+            <div class="col">
+                <a class="btn btn-primary btn-form" href="~/Livro/Index">Voltar</a>
+                <a class="btn btn-warning btn-form" href="~/Livro/Edit/@ViewBag.Livro.LivroId">Editar</a>
+                <a class="btn btn-danger btn-form" href="~/Livro/Delete/@ViewBag.Livro.LivroId">Excluir</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <label class="col-form-label">Título: </label>
+                <input readonly class="form-control" value="@ViewBag.Livro.Titulo"/>
+            </div>
+            <div class="col">
+                <label class="col-form-label">Autor: </label>
+                <input readonly class="form-control" value="@ViewBag.Livro.Autor.NomeAutor"/>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <label class="col-form-label">Editora: </label>
+                <input readonly class="form-control" value="@ViewBag.Livro.Editora.NomeEditora"/>
+            </div>
+            <div class="col">
+                <label class="col-form-label">Assunto: </label>
+                <input readonly class="form-control" value="@ViewBag.Livro.Assunto.AssuntoObra"/>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <label class="col-form-label">Classificação: </label>
+                <input readonly class="form-control" value="@ViewBag.Livro.Classificacao.ClassificacaoObra"/>
+            </div>
+            <div class="col">
+                <label class="col-form-label">Localização: </label>
+                <input readonly class="form-control" value="@ViewBag.Livro.Localizacao.LocalizacaoObra"/>
+            </div>
+        </div>
+    </div>
+}

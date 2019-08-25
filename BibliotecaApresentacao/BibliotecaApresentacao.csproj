@@ -2222,6 +2222,8 @@
     <Content Include="Views\Pessoa\Details.cshtml" />
     <Content Include="Views\DadosLogin\Index.cshtml" />
     <Content Include="Views\Endereco\Details.cshtml" />
+    <Content Include="Views\Editora\Details.cshtml" />
+    <Content Include="Views\Livro\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -9,7 +9,7 @@
             <h1>Classificações</h1>
         </div>
         <div class="col">
-            <a class="btn btn-primary" href="~/Classificacao/Create">Novo</a>
+            <a class="btn btn-primary float-right" href="~/Classificacao/Create">Novo</a>
         </div>
     </div>
 </div>
@@ -22,11 +22,11 @@
         {
             <tr>
                 <td>@classificacao.ClassificacaoObra</td>
-                <td>
-                    <a class="btn btn-warning" href="~/Classificacao/Edit/@classificacao.ClassificacaoId">Editar</a>
+                <td class="col-md-1">
+                    <a class="btn btn-warning float-right" href="~/Classificacao/Edit/@classificacao.ClassificacaoId">Editar</a>
                 </td>
-                <td>
-                    <a class="btn btn-danger" href="~/Classificacao/Delete/@classificacao.ClassificacaoId">Remover</a>
+                <td class="col-md-1">
+                    <a class="btn btn-danger float-right" href="~/Classificacao/Delete/@classificacao.ClassificacaoId">Remover</a>
                 </td>
             </tr>
         }

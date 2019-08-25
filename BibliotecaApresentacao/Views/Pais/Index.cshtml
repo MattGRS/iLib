@@ -9,7 +9,7 @@
             <h1>País</h1>
         </div>
         <div class="col">
-            <a class="btn btn-primary" href="~/Pais/Create">Novo</a>
+            <a class="btn btn-primary btn-form float-right" href="~/Pais/Create">Novo</a>
         </div>
     </div>
 </div>
@@ -22,11 +22,11 @@
         {
             <tr>
                 <td>@pais.NomePais</td>
-                <td>
-                    <a class="btn btn-warning" href="~/Pais/Edit/@pais.PaisId">Editar</a>
+                <td class="col-md-1">
+                    <a class="btn btn-warning float-right" href="~/Pais/Edit/@pais.PaisId">Editar</a>
                 </td>
-                <td>
-                    <a class="btn btn-danger" href="~/Pais/Delete/@pais.PaisId">Remover</a>
+                <td class="col-md-1">
+                    <a class="btn btn-danger float-right" href="~/Pais/Delete/@pais.PaisId">Remover</a>
                 </td>
             </tr>
         }

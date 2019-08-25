@@ -5,14 +5,22 @@
 
 @using (Html.BeginForm())
 {
-    <h3>Detalhes de Endereço</h3>
-
+    <div class="row">
+        <div class="col">
+            <h3>Detalhes de Endereço</h3>
+        </div>
+        <div class="col">
+            <a class="btn btn-primary btn-form" href="~/Endereco/Index">Voltar</a>
+            <a class="btn btn-warning btn-form" href="~/Endereco/Edit/@ViewBag.Endereco.EnderecoId">Editar</a>
+            <a class="btn btn-danger btn-form" href="~/Endereco/Delete/@ViewBag.Endereco.EnderecoId">Excluir</a>
+        </div>
+    </div>
     <div class="col">
         <div class="col">
             <div class="row">
                 <div class="col">
                     <label class="col-form-label">CEP: </label>
-                    <input readonly class="form-control" value="@ViewBag.Endereco.CEP" type="text"/>
+                    <input readonly class="form-control" value="@ViewBag.Endereco.CEP" type="text" />
                 </div>
             </div>
             <div>
@@ -43,10 +51,6 @@
                     <input readonly class="form-control" value="@ViewBag.Endereco.Municipio.NomeMunicipio" type="text"/>
                 </div>
             </div>
-        </div>
-        <div class="col">
-            <a class="btn btn-danger btn-form" href="~/Endereco/Delete/@ViewBag.Endereco.EnderecoId">Excluir</a>
-            <a class="btn btn-warning btn-form" href="~/Endereco/Edit/@ViewBag.Endereco.EnderecoId">Editar</a>
         </div>
     </div>
 }

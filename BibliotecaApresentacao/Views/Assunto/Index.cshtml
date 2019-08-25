@@ -9,7 +9,7 @@
             <h1>Assuntos</h1>
         </div>
         <div class="col">
-            <a class="btn btn-primary" href="~/Assunto/Create">Novo</a>
+            <a class="btn btn-primary float-right" href="~/Assunto/Create">Novo</a>
         </div>
     </div>
 </div>
@@ -24,11 +24,11 @@
         {
             <tr>
                 <td>@assunto.AssuntoObra</td>
-                <td>
-                    <a class="btn btn-warning" href="~/Assunto/Edit/@assunto.AssuntoId">Editar</a>
+                <td class="col-md-1">
+                    <a class="btn btn-warning float-right" href="~/Assunto/Edit/@assunto.AssuntoId">Editar</a>
                 </td>
-                <td>
-                    <a class="btn btn-danger" href="~/Assunto/Delete/@assunto.AssuntoId">Remover</a>
+                <td class="col-md-1">
+                    <a class="btn btn-danger float-right" href="~/Assunto/Delete/@assunto.AssuntoId">Remover</a>
                 </td>
             </tr>
         }

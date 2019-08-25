@@ -78,7 +78,7 @@ namespace BibliotecaApresentacao.Controllers
             enderecoViewModel.EnderecoId = id;
             var enderecoEntidade = Mapper.Map<EnderecoViewModel, Endereco>(enderecoViewModel);
             _enderecoAppServico.Atualizar(enderecoEntidade);
-            return RedirectToAction("Index");
+            return RedirectToAction($"Details/{enderecoViewModel.EnderecoId}");
         }
 
         public ActionResult Details(int id)

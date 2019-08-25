@@ -3,13 +3,22 @@
     ViewBag.Title = "Index";
 }
 
+<div class="col">
+    <div class="row">
+        <div class="col">
+            <h1>Lista de Editoras</h1>
+        </div>
+        <div class="col">
+            <a class="btn btn-primary btn-form float-right" href="~/Editora/Create">Novo</a>
+        </div>
+    </div>
+</div>
 <table class="table table-hover">
     <thead>
         <tr>
             <th scope="col">Nome Fantasia</th>
             <th scope="col">Cidade</th>
             <th scope="col">Estado</th>
-            <th scope="col"></th>
             <th scope="col"></th>
         </tr>
     </thead>
@@ -21,13 +30,9 @@
                 <td>@editora.Endereco.Municipio.NomeMunicipio</td>
                 <td>@editora.Endereco.Municipio.Estado.NomeEstado</td>
                 <td>
-                    <a class="btn btn-warning" href="~/Editora/Edit/@editora.EditoraId">Editar</a>
-                </td>
-                <td>
-                    <a class="btn btn-danger" href="~/Editora/Delete/@editora.EditoraId">Remover</a>
+                    <a class="btn btn-secondary btn-sm btn-form float-right" href="~/Editora/Details/@editora.EditoraId">[+] mais</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
-<a class="btn btn-primary" href="~/Editora/Create">Novo</a>
