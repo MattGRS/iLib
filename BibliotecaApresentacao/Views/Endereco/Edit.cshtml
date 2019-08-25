@@ -4,46 +4,131 @@
     ViewBag.Title = "Edit";
 }
 
-<form action="~/Endereco/Edit/@ViewBag.Endereco.EnderecoId" method="post">
+@using (Html.BeginForm($"Edit/{ViewBag.Endereco.EnderecoId}", "Endereco", FormMethod.Post))
+{
+    <h3>Edição de Endereço</h3>
 
     <div class="col">
         <div class="col">
             <div class="row">
-                <div class="col">
-                    <label class="col-form-label" for="cep">CEP</label>
-                    <input class="form-control" value="@ViewBag.Endereco.CEP" placeholder="Apenas Números" type="search" id="cep" name="enderecoViewModel.CEP" maxlength="8" pattern="[0-9]+$" />
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.CEP, "*CEP:", new { @class = "col-form-label" })
+                    @Html.EditorFor(model => model.CEP, new { htmlAttributes = new { @class = "form-control", @value = ViewBag.Endereco.CEP, @placeholder = "Apenas Números", @type = "search", @id = "cep", @maxlength = "8", @pattern = "[0-9]+$", @required = "" } })
+                    @Html.ValidationMessageFor(model => model.CEP, "", new { @class = "text-danger" })
                 </div>
-                <div class="col-md-2">
-                    <label> </label>
-                    <button formnovalidate="formnovalidate" type="button" class="btn btn-primary" onclick="pesquisacep(cep.value)">Buscar</button>
+                <div class="col-sm-1" style="padding-top: 25px;">
+                    <button formnovalidate="formnovalidate" type="button" class="btn btn-primary btn-form float-left" ;" onclick="pesquisacep(cep.value)">Buscar</button>
                 </div>
             </div>
-            <label class="col-form-label" for="logradouro">Logradouro</label>
-            <input class="form-control" value="@ViewBag.Endereco.Logradouro" id="logradouro" name="enderecoViewModel.Logradouro" />
-
-            <label class="col-form-label" for="bairro">Bairro</label>
-            <input class="form-control" value="@ViewBag.Endereco.Bairro" id="bairro" name="enderecoViewModel.Bairro" />
-
-            <label class="col-form-label" for="numero">Nº</label>
-            <input class="form-control" id="numero" value="@ViewBag.Endereco.NumeroResidencial" name="enderecoViewModel.NumeroResidencial" />
-
-            <label class="col-form-label" for="complemento">Complemento</label>
-            <input class="form-control" value="@ViewBag.Endereco.Complemento" id="complemento" name="enderecoViewModel.Complemento" />
-
-            <label class="col-form-label" for="cidade">Municipio</label>
-            <select id="cidade" name="enderecoViewModel.MunicipioId" class="form-control">
-                @foreach (var municipio in ViewBag.Municipio)
-                {
-                    <option value="@municipio.MunicipioId" selected="@municipio.MunicipioId.Equals(ViewBag.Endereco.EnderecoId)">@municipio.NomeMunicipio</option>
-                }
-
-            </select>
+            <div>
+                @Html.LabelFor(model => model.Logradouro, "*Logradouro: ", new { @class = "col-form-label" })
+                @Html.EditorFor(model => model.Logradouro, new { htmlAttributes = new { @class = "form-control col-md-9", @value = ViewBag.Endereco.Logradouro, @id = "logradouro", @required ="" } })
+                @Html.ValidationMessageFor(model => model.Logradouro, "", new { @class = "text-danger" })
+            </div>
+            <div class="row">
+                <div class="col">
+                    @Html.LabelFor(model => model.NumeroResidencial, "*Nº: ", new { @class = "col-form-label" })
+                    @Html.EditorFor(model => model.NumeroResidencial, new { htmlAttributes = new { @class = "form-control", @value = ViewBag.Endereco.NumeroResidencial, @required ="" } })
+                    @Html.ValidationMessageFor(model => model.NumeroResidencial, "", new { @class = "text-danger" })
+                </div>
+                <div class="col">
+                    @Html.LabelFor(model => model.Bairro, "*Bairro: ", new { @class = "col-form-label" })
+                    @Html.EditorFor(model => model.Bairro, new { htmlAttributes = new { @class = "form-control", @value = ViewBag.Endereco.Bairro, @id = "bairro", @required ="" } })
+                    @Html.ValidationMessageFor(model => model.Bairro, "", new { @class = "text-danger" })
+                </div>
+                <div class="col">
+                    @Html.LabelFor(model => model.Complemento, "Complemento", new { @class = "col-form-label" })
+                    @Html.EditorFor(model => model.Complemento, new { htmlAttributes = new { @class = "form-control", @value = ViewBag.Endereco.Complemento } })
+                    @Html.ValidationMessageFor(model => model.Complemento, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="col-form-label" for="estado">Estado: </label>
+                    <select class="form-control" required="" id="estado">
+                        <option disabled value="">Selecione um estado...</option>
+                        @foreach (var estado in ViewBag.Estado)
+                        {
+                            <option value="@estado.EstadoId" selected="@estado.EstadoId.Equals(ViewBag.Endereco.Municipio.EstadoId)">@estado.NomeEstado</option>
+                        }
+                    </select>
+                </div>
+                <div class="col">
+                    <label class="col-form-label" for="municipio">Municipio</label>
+                    <select id="municipio" required ="" name="MunicipioId" class="form-control">
+                        <option value="@ViewBag.Endereco.MunicipioId" selected="@ViewBag.Endereco.MunicipioId">@ViewBag.Endereco.Municipio.NomeMunicipio</option>
+                    </select>
+                </div>
+            </div>
         </div>
         <div class="col">
             <a class="btn btn-danger btn-form" href="~/Endereco/Index">Cancelar</a>
             <input class="btn btn-primary btn-form" type="submit" value="Salvar" />
         </div>
     </div>
-</form>
+}
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#estado").change(function () {
+             var id = $(this).children("option:selected").val();
+            $.ajax({
+                url: "/Editora/SelecionarMunicipios/" + id,
+                dataType: "JSON",
+                success: function (data) {
+                    $("#municipio").empty();
+                    $("#municipio").append('<option value="" disabled selected>Selecione um Município...</option>');
+                    $.each(data, function (index, element) {
+                        $("#municipio").append('<option value="' + element.MunicipioId + '">' + element.NomeMunicipio + '</option>');
+                    });
+                }
+            });
+        });
+    });
+</script>
+
+<!---------------------------------------------Form HTML---------------------------------------------->
+@*<form action="~/Endereco/Edit/@ViewBag.Endereco.EnderecoId" method="post">
+
+        <div class="col">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <label class="col-form-label" for="cep">CEP</label>
+                        <input class="form-control" value="@ViewBag.Endereco.CEP" placeholder="Apenas Números" type="search" id="cep" name="enderecoViewModel.CEP" maxlength="8" pattern="[0-9]+$" />
+                    </div>
+                    <div class="col-md-2">
+                        <label> </label>
+                        <button formnovalidate="formnovalidate" type="button" class="btn btn-primary" onclick="pesquisacep(cep.value)">Buscar</button>
+                    </div>
+                </div>
+                <label class="col-form-label" for="logradouro">Logradouro</label>
+                <input class="form-control" value="@ViewBag.Endereco.Logradouro" id="logradouro" name="enderecoViewModel.Logradouro" />
+
+                <label class="col-form-label" for="bairro">Bairro</label>
+                <input class="form-control" value="@ViewBag.Endereco.Bairro" id="bairro" name="enderecoViewModel.Bairro" />
+
+                <label class="col-form-label" for="numero">Nº</label>
+                <input class="form-control" id="numero" value="@ViewBag.Endereco.NumeroResidencial" name="enderecoViewModel.NumeroResidencial" />
+
+                <label class="col-form-label" for="complemento">Complemento</label>
+                <input class="form-control" value="@ViewBag.Endereco.Complemento" id="complemento" name="enderecoViewModel.Complemento" />
+
+                <label class="col-form-label" for="cidade">Municipio</label>
+                <select id="cidade" name="enderecoViewModel.MunicipioId" class="form-control">
+                    @foreach (var municipio in ViewBag.Municipio)
+                    {
+                        <option value="@municipio.MunicipioId" selected="@municipio.MunicipioId.Equals(ViewBag.Endereco.EnderecoId)">@municipio.NomeMunicipio</option>
+                    }
+
+                </select>
+            </div>
+            <div class="col">
+                <a class="btn btn-danger btn-form" href="~/Endereco/Index">Cancelar</a>
+                <input class="btn btn-primary btn-form" type="submit" value="Salvar" />
+            </div>
+        </div>
+    </form>*@
 
 <script src="~/Content/js/BuscaCep.js"></script>

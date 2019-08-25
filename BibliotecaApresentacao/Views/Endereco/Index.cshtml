@@ -5,10 +5,10 @@
 <div class="col">
     <div class="row">
         <div class="col-10">
-            <h1>Endereços</h1>
+            <h1>Lista de Endereços</h1>
         </div>
         <div class="col">
-            <a class="btn btn-primary" href="~/Endereco/Create">Novo</a>
+            <a class="btn btn-primary btn-form float-right" href="~/Endereco/Create">Novo</a>
         </div>
     </div>
 </div>
@@ -18,7 +18,6 @@
             <th>CEP</th>
             <th scope="col">Logradouro</th>
             <th>Nº</th>
-            <th scope="col"></th>
             <th scope="col"></th>
         </tr>
     </thead>
@@ -30,10 +29,7 @@
                 <td>@endereco.Logradouro</td>
                 <td>@endereco.NumeroResidencial</td>
                 <td>
-                    <a class="btn btn-warning" href="~/Endereco/Edit/@endereco.EnderecoId">Editar</a>
-                </td>
-                <td>
-                    <a class="btn btn-danger" href="~/Endereco/Delete/@endereco.EnderecoId">Remover</a>
+                    <a class="btn btn-secondary btn-sm btn-form float-right" href="~/Endereco/Details/@endereco.EnderecoId">[+] mais</a>
                 </td>
             </tr>
         }

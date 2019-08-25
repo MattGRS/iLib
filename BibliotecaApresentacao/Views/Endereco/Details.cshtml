@@ -1,0 +1,52 @@
+﻿@model BibliotecaApresentacao.ViewModels.EnderecoViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+@using (Html.BeginForm())
+{
+    <h3>Detalhes de Endereço</h3>
+
+    <div class="col">
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <label class="col-form-label">CEP: </label>
+                    <input readonly class="form-control" value="@ViewBag.Endereco.CEP" type="text"/>
+                </div>
+            </div>
+            <div>
+                <label class="col-form-label">Logradouro:</label>
+                <input readonly class="form-control col-md-9" value="@ViewBag.Endereco.Logradouro" type="text"/>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="col-form-label">Nº: </label>
+                    <input readonly class="form-control" value="@ViewBag.Endereco.NumeroResidencial" type="text"/>
+                </div>
+                <div class="col">
+                    <label class="col-form-label">Bairro: </label>
+                    <input readonly class="form-control" value="@ViewBag.Endereco.Bairro" type="text"/>
+                </div>
+                <div class="col">
+                    <label class="col-form-label">Complemento: </label>
+                    <input readonly class="form-control" value="@ViewBag.Endereco.Complemento" type="text"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="col-form-label">Estado: </label>
+                    <input readonly class="form-control" value="@ViewBag.Endereco.Municipio.Estado.NomeEstado" type="text"/>
+                </div>
+                <div class="col">
+                    <label class="col-form-label">Município: </label>
+                    <input readonly class="form-control" value="@ViewBag.Endereco.Municipio.NomeMunicipio" type="text"/>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <a class="btn btn-danger btn-form" href="~/Endereco/Delete/@ViewBag.Endereco.EnderecoId">Excluir</a>
+            <a class="btn btn-warning btn-form" href="~/Endereco/Edit/@ViewBag.Endereco.EnderecoId">Editar</a>
+        </div>
+    </div>
+}
