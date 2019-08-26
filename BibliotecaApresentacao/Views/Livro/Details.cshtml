@@ -21,11 +21,11 @@
         <div class="row">
             <div class="col">
                 <label class="col-form-label">Título: </label>
-                <input readonly class="form-control" value="@ViewBag.Livro.Titulo"/>
+                <input readonly class="form-control" value="@ViewBag.Livro.Titulo" />
             </div>
             <div class="col">
                 <label class="col-form-label">Autor: </label>
-                <input readonly class="form-control" value="@ViewBag.Livro.Autor.NomeAutor"/>
+                <input readonly class="form-control" value="@ViewBag.Livro.Autor.NomeAutor" />
             </div>
         </div>
     </div>
@@ -33,11 +33,11 @@
         <div class="row">
             <div class="col">
                 <label class="col-form-label">Editora: </label>
-                <input readonly class="form-control" value="@ViewBag.Livro.Editora.NomeEditora"/>
+                <input readonly class="form-control" value="@ViewBag.Livro.Editora.NomeEditora" />
             </div>
             <div class="col">
                 <label class="col-form-label">Assunto: </label>
-                <input readonly class="form-control" value="@ViewBag.Livro.Assunto.AssuntoObra"/>
+                <input readonly class="form-control" value="@ViewBag.Livro.Assunto.AssuntoObra" />
             </div>
         </div>
     </div>
@@ -45,12 +45,16 @@
         <div class="row">
             <div class="col">
                 <label class="col-form-label">Classificação: </label>
-                <input readonly class="form-control" value="@ViewBag.Livro.Classificacao.ClassificacaoObra"/>
+                <input readonly class="form-control" value="@ViewBag.Livro.Classificacao.ClassificacaoObra" />
             </div>
             <div class="col">
                 <label class="col-form-label">Localização: </label>
-                <input readonly class="form-control" value="@ViewBag.Livro.Localizacao.LocalizacaoObra"/>
+                <input readonly class="form-control" value="@ViewBag.Livro.Localizacao.LocalizacaoObra" />
             </div>
         </div>
+    </div>
+    <div class="col">
+        <a class="btn btn-info btn-sm btn-form" href="~/ExemplarLivro/Index/@ViewBag.Livro.LivroId">Exemplares</a>
+        <a class="btn btn-success btn-sm btn-form" href="~/ExemplarLivro/Create/@ViewBag.Livro.LivroId">[+] exemplar</a>
     </div>
 }

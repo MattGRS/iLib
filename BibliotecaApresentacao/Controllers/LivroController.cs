@@ -87,7 +87,7 @@ namespace BibliotecaApresentacao.Controllers
             livroViewModel.LivroId = id;
             var livroEntidade = Mapper.Map<LivroViewModel, Livro>(livroViewModel);
             _livroAppServico.Atualizar(livroEntidade);
-            return RedirectToAction("Index");
+            return RedirectToAction($"Details/{id}");
         }
 
         public ActionResult Details(int id)

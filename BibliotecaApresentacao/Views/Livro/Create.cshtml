@@ -3,18 +3,21 @@
     ViewBag.Title = "Create";
 }
 
-<form action="~/Livro/Create" method="post">
+@using (Html.BeginForm("Create", "Livro", FormMethod.Post))
+{
+    <h3>Cadastro de Livro</h3>
+
     <div class="col">
         <div class="row">
             <div class="col">
-                <label class="col-form-label" for="titulo"><h11>Titulo: </h11></label>
-                <input class="form-control" id="titulo" name="livroViewModel.Titulo" required />
+                @Html.LabelFor(model => model.Titulo, "*Autor", new { @class = "col-form-label"})
+                @Html.EditorFor(model => model.Titulo, new { htmlAttributes = new {@class = "form-control", @required="", @placeholder = "Máximo 100 caractéres", @autofocus = ""}})
+                @Html.ValidationMessageFor(model => model.Titulo, "", new { @class = "text-danger"})
             </div>
-            @Html.ValidationMessageFor(model => model.Titulo, "", new { @class = "text-danger" })
             <div class="col">
-                <label class="col-form-label" for="autor"><h11>Autor: </h11></label>
-                <select id="autor" name="livroViewModel.AutorId" class="form-control" required>
-                    <option>Selecione um Autor...</option>
+                @Html.LabelFor(model => model.AutorId, "*Autor", new { @class = "col-form-label"})
+                <select id="autor" name="AutorId" class="form-control" required="">
+                    <option disabled selected value="">Selecione um autor...</option>
                     @foreach (var autor in ViewBag.Autor)
                     {
                         <option value="@autor.AutorId">@autor.NomeAutor</option>
@@ -22,31 +25,33 @@
                 </select>
             </div>
         </div>
-            <div class="row">
-                <div class="col">
-                    <label class="col-form-label" for="editora">Editora</label>
-                    <select name="livroViewModel.EditoraId" class="form-control" required>
-                        <option>Selecione uma Editora...</option>
-                        @foreach (var editora in ViewBag.Editora)
-                        {
-                            <option value="@editora.EditoraId">@editora.NomeEditora</option>
-                        }
-                    </select>
-                </div>
-                <div class="col">
-                    <label class="col-form-label" for="assunto">Assunto</label>
-                    <select name="livroViewModel.AssuntoId" class="form-control" required>
-                        @foreach (var assunto in ViewBag.Assunto)
-                        {
-                            <option value="@assunto.AssuntoId">@assunto.AssuntoObra</option>
-                        }
-                    </select>
-                </div>
-            </div>
         <div class="row">
             <div class="col">
-                <label class="col-form-label" for="classificacao">Classificação</label>
-                <select name="livroViewModel.ClassificacaoId" class="form-control" required>
+                @Html.LabelFor(model => model.EditoraId, "*Editora:", new { @class = "col-form-label"})
+                <select name="EditoraId" class="form-control" required="">
+                    <option disabled selected value="">Selecione uma editora...</option>
+                    @foreach (var editora in ViewBag.Editora)
+                    {
+                        <option value="@editora.EditoraId">@editora.NomeEditora</option>
+                    }
+                </select>
+            </div>
+            <div class="col">
+                @Html.LabelFor(model => model.AssuntoId, "*Assunto: ", new { @class = "col-form-control"})
+                <select name="AssuntoId" class="form-control" required="">
+                    <option  disabled selected value="">Selecione um assunto... </option>
+                    @foreach (var assunto in ViewBag.Assunto)
+                    {
+                        <option value="@assunto.AssuntoId">@assunto.AssuntoObra</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                @Html.LabelFor(model => model.ClassificacaoId, "*Classificação: ", new { @class = "col-form-control"})
+                <select name="ClassificacaoId" class="form-control" required="">
+                    <option  disabled selected value="">Selecione uma classificação...</option>
                     @foreach (var classificacao in ViewBag.Classificacao)
                     {
                         <option value="@classificacao.ClassificacaoId">@classificacao.ClassificacaoObra</option>
@@ -54,8 +59,9 @@
                 </select>
             </div>
             <div class="col">
-                <label class="col-form-label" for="localizacao">Localização</label>
-                <select name="livroViewModel.LocalizacaoId" class="form-control" required>
+                @Html.LabelFor(model => model.LocalizacaoId, "*Localização: ", new { @class = "col-form-label"})
+                <select name="LocalizacaoId" class="form-control" required="">
+                    <option  disabled selected value="">Selecione uma localização...</option>
                     @foreach (var localizacao in ViewBag.Localizacao)
                     {
                         <option value="@localizacao.LocalizacaoId">@localizacao.LocalizacaoObra</option>
@@ -68,4 +74,72 @@
         <a class="btn btn-warning btn-form" href="~/Livro/Index">Voltar</a>
         <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
     </div>
-</form>
+}
+
+<!-------------------------------------------------Form HTML---------------------------------------------------->
+@*<form action="~/Livro/Create" method="post">
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <label class="col-form-label" for="titulo"><h11>Titulo: </h11></label>
+                    <input class="form-control" id="titulo" name="livroViewModel.Titulo" required />
+                </div>
+                @Html.ValidationMessageFor(model => model.Titulo, "", new { @class = "text-danger" })
+                <div class="col">
+                    <label class="col-form-label" for="autor"><h11>Autor: </h11></label>
+                    <select id="autor" name="livroViewModel.AutorId" class="form-control" required>
+                        <option>Selecione um Autor...</option>
+                        @foreach (var autor in ViewBag.Autor)
+                        {
+                            <option value="@autor.AutorId">@autor.NomeAutor</option>
+                        }
+                    </select>
+                </div>
+            </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="col-form-label" for="editora">Editora</label>
+                        <select name="livroViewModel.EditoraId" class="form-control" required>
+                            <option>Selecione uma Editora...</option>
+                            @foreach (var editora in ViewBag.Editora)
+                            {
+                                <option value="@editora.EditoraId">@editora.NomeEditora</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label class="col-form-label" for="assunto">Assunto</label>
+                        <select name="livroViewModel.AssuntoId" class="form-control" required>
+                            @foreach (var assunto in ViewBag.Assunto)
+                            {
+                                <option value="@assunto.AssuntoId">@assunto.AssuntoObra</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            <div class="row">
+                <div class="col">
+                    <label class="col-form-label" for="classificacao">Classificação</label>
+                    <select name="livroViewModel.ClassificacaoId" class="form-control" required>
+                        @foreach (var classificacao in ViewBag.Classificacao)
+                        {
+                            <option value="@classificacao.ClassificacaoId">@classificacao.ClassificacaoObra</option>
+                        }
+                    </select>
+                </div>
+                <div class="col">
+                    <label class="col-form-label" for="localizacao">Localização</label>
+                    <select name="livroViewModel.LocalizacaoId" class="form-control" required>
+                        @foreach (var localizacao in ViewBag.Localizacao)
+                        {
+                            <option value="@localizacao.LocalizacaoId">@localizacao.LocalizacaoObra</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <a class="btn btn-warning btn-form" href="~/Livro/Index">Voltar</a>
+            <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
+        </div>
+    </form>*@
