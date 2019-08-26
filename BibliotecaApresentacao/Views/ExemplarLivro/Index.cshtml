@@ -4,13 +4,16 @@
 }
 
 <div class="col">
+    <div>
+        <h1>Lista de Exemplares</h1>
+    </div>
     <div class="row">
         <div class="col-10">
-            <h1>Exemplares</h1>
+            <h4>@ViewBag.LivroTitulo</h4>
         </div>
-        <div class="col">
-            <a class="btn btn-warning" href="~/Livro/Index">Voltar</a>
-            <a class="btn btn-primary" href="~/ExemplarLivro/Create/@ViewBag.LivroId">Novo</a>
+        <div class="col-2">
+            <a class="btn btn-warning btn-form" href="~/Livro/Details/@ViewBag.LivroId">Voltar</a>
+            <a class="btn btn-primary btn-form" href="~/ExemplarLivro/Create/@ViewBag.LivroId">Novo</a>
         </div>
     </div>
 </div>
@@ -21,6 +24,7 @@
             <th scope="col">Exemplar</th>
             <th scope="col"></th>
             <th scope="col"></th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
@@ -29,11 +33,14 @@
             <tr>
                 <td>@exemplarLivro.Registro</td>
                 <td>@exemplarLivro.NumeroExemplar</td>
-                <td>
-                    <a class="btn btn-warning" href="~/ExemplarLivro/Edit/@exemplarLivro.ExemplarLivroId">Editar</a>
+                <td class="col-md-1">
+                    <a class="btn btn-info float-right" href="#">Emprestar</a>
                 </td>
-                <td>
-                    <a class="btn btn-danger" href="~/ExemplarLivro/Delete/@exemplarLivro.ExemplarLivroId">Remover</a>
+                <td class="col-md-1">
+                    <a class="btn btn-warning float-right" href="~/ExemplarLivro/Edit/@exemplarLivro.ExemplarLivroId">Editar</a>
+                </td>
+                <td class="col-md-1">
+                    <a class="btn btn-danger float-right" href="~/ExemplarLivro/Delete/@exemplarLivro.ExemplarLivroId">Remover</a>
                 </td>
             </tr>
         }

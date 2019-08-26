@@ -14,9 +14,11 @@ namespace BibliotecaApresentacao.Controllers
     public class ExemplarLivroController : Controller
     {
         private readonly IExemplarLivroAppServico _exemplarLivroAppServico;
-        public ExemplarLivroController(IExemplarLivroAppServico exemplarLivroAppServico)
+        private readonly ILivroAppServico _livroAppServico;
+        public ExemplarLivroController(IExemplarLivroAppServico exemplarLivroAppServico, ILivroAppServico livroAppServico)
         {
             _exemplarLivroAppServico = exemplarLivroAppServico;
+            _livroAppServico = livroAppServico;
         }
 
         public ActionResult Index(int id)
@@ -24,12 +26,20 @@ namespace BibliotecaApresentacao.Controllers
             var todosexemplarLivroViewModel = Mapper.Map<IEnumerable<ExemplarLivro>, IEnumerable<ExemplarLivroViewModel>>(_exemplarLivroAppServico.ObterTodos());
             var exemplarLivroViewModel = todosexemplarLivroViewModel.Where(e => e.LivroId == id).ToList().OrderBy(e => e.NumeroExemplar);
 
+            var livroViewModel = Mapper.Map<Livro, LivroViewModel>(_livroAppServico.ObterPorId(id));
+
+            ViewBag.LivroTitulo = livroViewModel.Titulo;
+
             ViewBag.LivroId = id;
             return View(exemplarLivroViewModel);
         }
 
         public ActionResult Create(int id)
         {
+            var livroViewModel = Mapper.Map<Livro, LivroViewModel>(_livroAppServico.ObterPorId(id));
+
+            ViewBag.LivroTitulo = livroViewModel.Titulo;
+
             ViewBag.LivroId = id;
             return View();
         }
@@ -44,6 +54,10 @@ namespace BibliotecaApresentacao.Controllers
 
                 return RedirectToAction($"Index/{id}");
             }
+
+            var livroViewModel = Mapper.Map<Livro, LivroViewModel>(_livroAppServico.ObterPorId(id));
+            ViewBag.LivroTitulo = livroViewModel.Titulo;
+            ViewBag.LivroId = id;
 
             return View(exemplarLivroViewModel);
         }
@@ -64,12 +78,15 @@ namespace BibliotecaApresentacao.Controllers
             var exemplarLivroEntidade = _exemplarLivroAppServico.ObterPorId(id);
             var exemplarLivroViewModel = Mapper.Map<ExemplarLivro, ExemplarLivroViewModel>(exemplarLivroEntidade);
             ViewBag.ExemplarLivro = exemplarLivroViewModel;
+            var livroViewModel = Mapper.Map<Livro, LivroViewModel>(_livroAppServico.ObterPorId(exemplarLivroViewModel.LivroId));
+            ViewBag.LivroTitulo = livroViewModel.Titulo;
             return View(exemplarLivroViewModel);
         }
         [HttpPost]
         public ActionResult Edit(int id, ExemplarLivroViewModel exemplarLivroViewModel)
         {
             exemplarLivroViewModel.ExemplarLivroId = id;
+            exemplarLivroViewModel.LivroId = _exemplarLivroAppServico.ObterPorId(id).LivroId;
             var exemplarLivroEntidade = Mapper.Map<ExemplarLivroViewModel, ExemplarLivro>(exemplarLivroViewModel);
             _exemplarLivroAppServico.Atualizar(exemplarLivroEntidade);
             return RedirectToAction($"Index/{exemplarLivroViewModel.LivroId}");

@@ -3,16 +3,22 @@
     ViewBag.Title = "Create";
 }
 
-<form action="~/ExemplarLivro/Create/@ViewBag.LivroId" method="post">
+@using (Html.BeginForm($"Create/{ViewBag.LivroId}", "ExemplarLivro", FormMethod.Post))
+{
+    <h3>Cadastro de Exemplar</h3>
+    <h6>@ViewBag.LivroTitulo</h6>
+
     <div class="col">
         <div class="row">
             <div class="col">
-                <label class="col-form-label" for="registro">Registro: </label>
-                <input class="form-control" id="registro" name="exemplarLivroViewModel.Registro" />
+                @Html.LabelFor(model => model.Registro, "*Registro ", new { @class = "col-form-label"})
+                @Html.EditorFor(model => model.Registro, new { htmlAttributes = new {@class = "form-control", @placeholder = "Máx. 100 caracteres"}})
+                @Html.ValidationMessageFor(model => model, "", new { @class = "text-danger"})
             </div>
             <div class="col">
-                <label class="col-form-label" for="numeroExemplar">Nº: </label>
-                <input class="form-control" id="numeroExemplar" name="exemplarLivroViewModel.NumeroExemplar" />
+                @Html.LabelFor(model => model.NumeroExemplar, "*Nº exemplar: ", new { @class = "col-form-label" })
+                @Html.EditorFor(model => model.NumeroExemplar, new { htmlAttributes = new {@class = "form-control", @placeholder = "Apenas números..."}})
+                @Html.ValidationMessageFor(model => model.NumeroExemplar,"", new { @class = "text-danger"})
             </div>
         </div>
     </div>
@@ -20,4 +26,24 @@
         <a class="btn btn-warning btn-form" href="~/ExemplarLivro/Index/@ViewBag.LivroId">Voltar</a>
         <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
     </div>
-</form>
+}
+
+<!------------------------------------------------Form HTML----------------------------------------------------->
+@*<form action="~/ExemplarLivro/Create/@ViewBag.LivroId" method="post">
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <label class="col-form-label" for="registro">Registro: </label>
+                    <input class="form-control" id="registro" name="exemplarLivroViewModel.Registro" />
+                </div>
+                <div class="col">
+                    <label class="col-form-label" for="numeroExemplar">Nº: </label>
+                    <input class="form-control" id="numeroExemplar" name="exemplarLivroViewModel.NumeroExemplar" />
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <a class="btn btn-warning btn-form" href="~/ExemplarLivro/Index/@ViewBag.LivroId">Voltar</a>
+            <input class="btn btn-primary btn-form" type="submit" value="Cadastrar" />
+        </div>
+    </form>*@
