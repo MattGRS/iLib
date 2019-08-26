@@ -3,7 +3,7 @@
     ViewBag.Title = "Edit";
 }
 
-@using (Html.BeginForm($"Edit/{ViewBag.ExemplarLivro.ExemplarLivroId}", "ExemplarLivro", FormMethod.Post))
+@using (Html.BeginForm($"Edit/{ViewBag.ExemplarLivroId}", "ExemplarLivro", FormMethod.Post))
 {
     <h3>Edição de Exemplar</h3>
     <h6>@ViewBag.LivroTitulo</h6>

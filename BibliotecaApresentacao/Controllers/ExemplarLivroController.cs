@@ -77,10 +77,11 @@ namespace BibliotecaApresentacao.Controllers
         {
             var exemplarLivroEntidade = _exemplarLivroAppServico.ObterPorId(id);
             var exemplarLivroViewModel = Mapper.Map<ExemplarLivro, ExemplarLivroViewModel>(exemplarLivroEntidade);
-            ViewBag.ExemplarLivro = exemplarLivroViewModel;
             var livroViewModel = Mapper.Map<Livro, LivroViewModel>(_livroAppServico.ObterPorId(exemplarLivroViewModel.LivroId));
+            ViewBag.ExemplarLivroId = id;
+            ViewBag.ExemplarLivro = exemplarLivroViewModel;
             ViewBag.LivroTitulo = livroViewModel.Titulo;
-            return View(exemplarLivroViewModel);
+            return View(livroViewModel);
         }
         [HttpPost]
         public ActionResult Edit(int id, ExemplarLivroViewModel exemplarLivroViewModel)
