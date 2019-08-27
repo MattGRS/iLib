@@ -17,11 +17,21 @@ namespace BibliotecaDominio.Entidades
         [Required]
         public int LivroId { get; set; }
 
-        public StatusExemplarLivro Status { get; set; }
+        public StatusExemplarLivro Status { get; internal set; }
 
         public virtual Livro Livro { get; internal set; } //FK de Livro
 
         public virtual IEnumerable<Emprestimo> Emprestimo { get; set; }
+
+        public void MarcaExemplarLivroComoDisponivel()
+        {
+            Status = StatusExemplarLivro.Disponivel;
+        }
+
+        public void MarcaExemplarLivroComoEmprestado()
+        {
+            Status = StatusExemplarLivro.Indisponivel;
+        }
 
     }
 }

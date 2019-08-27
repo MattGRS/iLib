@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BibliotecaDados.Migrations
 {
-    public partial class BancoNovo : Migration
+    public partial class Inicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -282,7 +282,7 @@ namespace BibliotecaDados.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     DataEmprestimo = table.Column<DateTime>(nullable: false),
                     DataDevolucaoPrevista = table.Column<DateTime>(nullable: false),
-                    DataDecolucaoRealizada = table.Column<DateTime>(nullable: false),
+                    DataDevolucaoRealizada = table.Column<DateTime>(nullable: false),
                     ExemplarLivroId = table.Column<int>(nullable: false),
                     PessoaId = table.Column<int>(nullable: false)
                 },

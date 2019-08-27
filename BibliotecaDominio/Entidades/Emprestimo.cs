@@ -12,7 +12,7 @@ namespace BibliotecaDominio.Entidades
 
         public DateTime DataDevolucaoPrevista { get; internal set; }
 
-        public DateTime DataDecolucaoRealizada { get; internal set; }
+        public DateTime DataDevolucaoRealizada { get; internal set; }
 
         public int ExemplarLivroId { get; set; }
 
@@ -24,7 +24,40 @@ namespace BibliotecaDominio.Entidades
 
         public void Devolver()
         {
-            DataDecolucaoRealizada = DateTime.Now;
+            DataDevolucaoRealizada = DateTime.Now;
+        }
+
+        public void Emprestar()
+        {
+            DataEmprestimo = DateTime.Now;
+            DataDevolucaoPrevista = DateTime.Now.AddDays(7);
+
+            DataDevolucaoPrevistaIsOnWeekend();
+        }
+
+        private void DataDevolucaoPrevistaIsOnWeekend()
+        {
+            DataDevolucaoPrevistaIsOnSunday();
+            DataDevolucaoPrevistaIsOnSaturday();
+        }
+
+        private void DataDevolucaoPrevistaIsOnSaturday()
+        {
+            var dayOfWeek = DataDevolucaoPrevista.DayOfWeek;
+            if (dayOfWeek == DayOfWeek.Saturday)
+            {
+                DataDevolucaoPrevista.AddDays(1);
+            }
+        }
+
+        private void DataDevolucaoPrevistaIsOnSunday()
+        {
+            var dayOfWeek = DataDevolucaoPrevista.DayOfWeek;
+
+            if (dayOfWeek == DayOfWeek.Sunday)
+            {
+                DataDevolucaoPrevista.AddDays(2);
+            }
         }
     }
 }

@@ -13,11 +13,6 @@ namespace BibliotecaDominio.Servicos
             _emprestimoRepositorio = emprestimoRepositorio;
         }
 
-        public void Devolver(int id)
-        {
-            _emprestimoRepositorio.Devolver(id);
-        }
-
         public new bool Remover(Emprestimo emprestimo)
         {
             return _emprestimoRepositorio.Remover(emprestimo);

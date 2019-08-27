@@ -11,6 +11,5 @@ namespace BibliotecaAplicacao.Interfaces
     {
         new bool Remover(Emprestimo emprestimo);
 
-        void Devolver(int id);
     }
 }

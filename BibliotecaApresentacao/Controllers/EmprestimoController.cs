@@ -97,18 +97,17 @@ namespace BibliotecaApresentacao.Controllers
 
         public ActionResult Confirm(EmprestimoViewModel emprestimoViewModel)
         {
-            _emprestimoNegocio.DefineDataDevolucaoPrevista(emprestimoViewModel);
-
             if (ModelState.IsValid)
             {
                 var emprestimoEntidade = Mapper.Map<EmprestimoViewModel, Emprestimo>(emprestimoViewModel);
 
-                //emprestimoEntidade.ExemplarLivro = null;
-                //emprestimoEntidade.Pessoa = null;
+                emprestimoEntidade.ExemplarLivro.MarcaExemplarLivroComoEmprestado();
+                _exemplarLivroAppServico.Atualizar(emprestimoEntidade.ExemplarLivro);
 
+                emprestimoEntidade.Emprestar();
+                emprestimoEntidade.ExemplarLivro = null;
                 _emprestimoAppServico.Adicionar(emprestimoEntidade);
 
-                _exemplarNegocio.MarcaExemplarLivroComoEmprestado(emprestimoViewModel.ExemplarLivro, _exemplarLivroAppServico);
             }
 
             return RedirectToAction("Index");

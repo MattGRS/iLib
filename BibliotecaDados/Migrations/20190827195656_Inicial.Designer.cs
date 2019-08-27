@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BibliotecaDados.Migrations
 {
     [DbContext(typeof(BibliotecaContext))]
-    [Migration("20190827164403_BancoNovo")]
-    partial class BancoNovo
+    [Migration("20190827195656_Inicial")]
+    partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,9 +27,9 @@ namespace BibliotecaDados.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("DataDecolucaoRealizada");
-
                     b.Property<DateTime>("DataDevolucaoPrevista");
+
+                    b.Property<DateTime>("DataDevolucaoRealizada");
 
                     b.Property<DateTime>("DataEmprestimo");
 

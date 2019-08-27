@@ -7,12 +7,6 @@ namespace BibliotecaDados.Repositorios
 {
     public class EmprestimoRepositorio : BibliotecaRepositorioBase<Emprestimo>, IEmprestimoRepositorio
     {
-        public void Devolver(int id)
-        {
-            var emprestimo = ObterPorId(id);
-            emprestimo.Devolver();
-            Atualizar(emprestimo);
-        }
 
         public new bool Remover(Emprestimo emprestimo)
         {

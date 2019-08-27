@@ -12,7 +12,7 @@ namespace BibliotecaApresentacao.ViewModels
 
         public DateTime DataDevolucaoPrevista { get; internal set; }
 
-        public DateTime DataDecolucaoRealizada { get; internal set; }
+        public DateTime DataDevolucaoRealizada { get; internal set; }
 
         [Required(ErrorMessage = "É necessário um Exemplar para realizar o empréstimo.")]
         public int ExemplarLivroId { get; set; }

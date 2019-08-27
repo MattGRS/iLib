@@ -6,6 +6,5 @@ namespace BibliotecaDominio.Interfaces.Servicos
     {
         new bool Remover(Emprestimo emprestimo);
 
-        void Devolver(int id);
     }
 }

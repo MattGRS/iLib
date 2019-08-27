@@ -40,7 +40,7 @@ namespace BibliotecaApresentacao.Negocio
 
         public void DefineDataDevolucaoRealizada(EmprestimoViewModel emprestimoViewModel)
         {
-            emprestimoViewModel.DataDecolucaoRealizada = DateTime.Now;
+            emprestimoViewModel.DataDevolucaoRealizada = DateTime.Now;
         }
     }
 }

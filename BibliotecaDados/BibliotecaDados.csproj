@@ -128,9 +128,9 @@
     <Compile Include="EntidadesConfig\EmprestimoConfig.cs" />
     <Compile Include="EntidadesConfig\ExemplarLivroConfig.cs" />
     <Compile Include="EntidadesConfig\PessoaConfig.cs" />
-    <Compile Include="Migrations\20190827164403_BancoNovo.cs" />
-    <Compile Include="Migrations\20190827164403_BancoNovo.designer.cs">
-      <DependentUpon>20190827164403_BancoNovo.cs</DependentUpon>
+    <Compile Include="Migrations\20190827195656_Inicial.cs" />
+    <Compile Include="Migrations\20190827195656_Inicial.designer.cs">
+      <DependentUpon>20190827195656_Inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\BibliotecaContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
