@@ -81,16 +81,19 @@ namespace BibliotecaApresentacao.Controllers
             ViewBag.ExemplarLivroId = id;
             ViewBag.ExemplarLivro = exemplarLivroViewModel;
             ViewBag.LivroTitulo = livroViewModel.Titulo;
-            return View(livroViewModel);
+            return View(exemplarLivroViewModel);
         }
         [HttpPost]
-        public ActionResult Edit(int id, ExemplarLivroViewModel exemplarLivroViewModel)
+        public ActionResult Edit(ExemplarLivroViewModel exemplarLivroViewModel)
         {
-            exemplarLivroViewModel.ExemplarLivroId = id;
-            exemplarLivroViewModel.LivroId = _exemplarLivroAppServico.ObterPorId(id).LivroId;
-            var exemplarLivroEntidade = Mapper.Map<ExemplarLivroViewModel, ExemplarLivro>(exemplarLivroViewModel);
-            _exemplarLivroAppServico.Atualizar(exemplarLivroEntidade);
-            return RedirectToAction($"Index/{exemplarLivroViewModel.LivroId}");
+            if (ModelState.IsValid)
+            {
+                var exemplarLivroEntidade = Mapper.Map<ExemplarLivroViewModel, ExemplarLivro>(exemplarLivroViewModel);
+                _exemplarLivroAppServico.Atualizar(exemplarLivroEntidade);
+                return RedirectToAction($"Index/{exemplarLivroViewModel.LivroId}");
+            }
+
+            return View(exemplarLivroViewModel);
         }
     }
 }

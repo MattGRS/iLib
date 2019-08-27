@@ -1,0 +1,74 @@
+﻿@model BibliotecaApresentacao.ViewModels.EmprestimoViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@using (Html.BeginForm("CreateStep2", "Emprestimo", FormMethod.Post))
+{
+    <h3>Cadastro de Empréstimo</h3>
+    <input hidden name="ExemplarId" value="@ViewBag.ExemplarLivro.ExemplarLivroId"/>
+    <div class="col">
+        <h5>Livro</h5>
+        <div class="row">
+            <div class="col">
+                <label class="col-form-label">Título: </label>
+                <input readonly class="form-control" value="@ViewBag.ExemplarLivro.Livro.Titulo" />
+            </div>
+            <div class="col">
+                <label class="col-form-label">Autor: </label>
+                <input readonly class="form-control" value="@ViewBag.ExemplarLivro.Livro.Autor.NomeAutor" />
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <label class="col-form-label">Editora: </label>
+                <input readonly class="form-control" value="@ViewBag.ExemplarLivro.Livro.Editora.NomeEditora" />
+            </div>
+            <div class="col">
+                <label class="col-form-label">Assunto: </label>
+                <input readonly class="form-control" value="@ViewBag.ExemplarLivro.Livro.Assunto.AssuntoObra" />
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <label class="col-form-label">Classificação: </label>
+                <input readonly class="form-control" value="@ViewBag.ExemplarLivro.Livro.Classificacao.ClassificacaoObra" />
+            </div>
+            <div class="col">
+                <label class="col-form-label">Localização: </label>
+                <input readonly class="form-control" value="@ViewBag.ExemplarLivro.Livro.Localizacao.LocalizacaoObra" />
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="col">
+        <h5>Exemplar</h5>
+        <div class="row">
+            <div class="col">
+                <label class="col-form-label">Registro: </label>
+                <input readonly class="form-control" value="@ViewBag.ExemplarLivro.Registro"/>
+            </div>
+            <div class="col">
+                <label class="col-form-label">Exemplar: </label>
+                <input readonly class="form-control" value="@ViewBag.ExemplarLivro.NumeroExemplar"/>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                @Html.LabelFor(model => model.Pessoa.Cpf, "Digite o CPF do Usuário", new { @class = "col-form-label"})
+                @Html.EditorFor(model => model.Pessoa.Cpf, new { htmlAttributes = new {@class = "form-control"}})
+            </div>
+            <div class="col">
+                <input type="submit" class="btn btn-primary float-xl-left" style="margin-top: 36px;" value="Proximo" />
+            </div>
+        </div>
+    </div>
+}

@@ -8,6 +8,10 @@
     <h3>Edição de Exemplar</h3>
     <h6>@ViewBag.LivroTitulo</h6>
 
+    <!-----------------Repassando Id-------------->
+    @Html.HiddenFor(model => model.ExemplarLivroId)
+    @Html.HiddenFor(model => model.LivroId)
+
     <div class="col">
         <div class="row">
             <div class="col">

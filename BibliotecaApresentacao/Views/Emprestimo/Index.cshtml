@@ -1,0 +1,31 @@
+﻿@model IEnumerable<BibliotecaApresentacao.ViewModels.EmprestimoViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div>
+    <h1>Listagem de Empréstimos</h1>
+</div>
+<table>
+    <thead>
+        <tr>Empréstimo</tr>
+        <tr>Devolução</tr>
+        <tr>Livro</tr>
+        <tr>Usuário</tr>
+        <tr></tr>
+    </thead>
+    <tbody>
+        @foreach (var emprestimo in Model)
+        {
+            <tr>
+                <td>@emprestimo.DataEmprestimo.ToShortDateString()</td>
+                <td>@emprestimo.DataDevolucao.ToShortDateString()</td>
+                <td>@emprestimo.ExemplarLivro.Livro.Titulo</td>
+                <td>@emprestimo.Pessoa.Nome</td>
+                <td class="col-md-1">
+                    <a class="btn btn-secondary btn-sm float-right" href="~/Emprestimo/Details/@emprestimo.EmprestimoId">[+] mais</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

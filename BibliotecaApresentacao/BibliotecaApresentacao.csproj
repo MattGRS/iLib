@@ -223,6 +223,7 @@
     <Compile Include="Controllers\ClassificacaoController.cs" />
     <Compile Include="Controllers\DadosLoginController.cs" />
     <Compile Include="Controllers\EditoraController.cs" />
+    <Compile Include="Controllers\EmprestimoController.cs" />
     <Compile Include="Controllers\EnderecoController.cs" />
     <Compile Include="Controllers\EstadoController.cs" />
     <Compile Include="Controllers\ExemplarLivroController.cs" />
@@ -2224,6 +2225,9 @@
     <Content Include="Views\Endereco\Details.cshtml" />
     <Content Include="Views\Editora\Details.cshtml" />
     <Content Include="Views\Livro\Details.cshtml" />
+    <Content Include="Views\Emprestimo\Index.cshtml" />
+    <Content Include="Views\Emprestimo\CreateStep1.cshtml" />
+    <Content Include="Views\Emprestimo\CreateStep2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

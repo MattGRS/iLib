@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace BibliotecaApresentacao.ViewModels
 {
@@ -11,18 +8,18 @@ namespace BibliotecaApresentacao.ViewModels
         [Key]
         public int EmprestimoId { get; set; }
 
-        public DateTime DataEmprestimo { get; internal set; }
+        public DateTime DataEmprestimo { get; set; }
 
-        public DateTime DataDevolucao { get; internal set; }
-
-        public int ExemplarId { get; set; }
+        public DateTime DataDevolucao { get; set; }
 
         [Required(ErrorMessage = "É necessário um Exemplar para realizar o empréstimo.")]
+        public int ExemplarLivroId { get; set; }
+
         public virtual ExemplarLivroViewModel ExemplarLivro { get; set; }
 
+        [Required(ErrorMessage = "É necessário uma Pessoa para realizar o empréstimo.")]
         public int PessoaId { get; set; }
 
-        [Required(ErrorMessage = "É necessário uma Pessoa para realizar o empréstimo.")]
         public virtual PessoaViewModel Pessoa { get; set; }
     }
 }

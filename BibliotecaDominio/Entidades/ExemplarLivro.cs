@@ -1,4 +1,5 @@
 ﻿
+using BibliotecaDominio.Entidades.ObjetosValor;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -16,8 +17,15 @@ namespace BibliotecaDominio.Entidades
         [Required]
         public int LivroId { get; set; }
 
+        public StatusExemplarLivro Status { get; set; }
+
         public virtual Livro Livro { get; internal set; } //FK de Livro
 
         public virtual IEnumerable<Emprestimo> Emprestimo { get; set; }
+
+        public ExemplarLivro()
+        {
+            Status = StatusExemplarLivro.Disponivel;
+        }
     }
 }

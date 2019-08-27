@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<BibliotecaApresentacao.ViewModels.ExemplarLivroViewModel>
+@using BibliotecaDominio.Entidades.ObjetosValor
+
 @{
     ViewBag.Title = "Index";
 }
@@ -25,6 +27,7 @@
             <th scope="col"></th>
             <th scope="col"></th>
             <th scope="col"></th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
@@ -33,9 +36,38 @@
             <tr>
                 <td>@exemplarLivro.Registro</td>
                 <td>@exemplarLivro.NumeroExemplar</td>
-                <td class="col-md-1">
-                    <a class="btn btn-info float-right" href="#">Emprestar</a>
-                </td>
+                <!----------------------------------Exibição de Status------------------------------------>
+                @if (exemplarLivro.Status == StatusExemplarLivro.Disponivel)
+                {
+                    <td class="col-md-1"><div class="btn btn-outline-success disabled float-right">@exemplarLivro.Status.ToString()</div></td>
+                }
+                @if (exemplarLivro.Status == StatusExemplarLivro.Reservado)
+                {
+                    <td class="col-md-1"><div class="btn btn-outline-warning disabled float-right">@exemplarLivro.Status.ToString()</div></td>
+                }
+                @if (exemplarLivro.Status == StatusExemplarLivro.Indisponivel)
+                {
+                    <td class="col-md-1"><div class="btn btn-outline-danger disabled float-right">@exemplarLivro.Status.ToString()</div></td>
+                }
+                <!---------------------------------Botão de Ação por Status-------------------------------->
+                @if (exemplarLivro.Status == StatusExemplarLivro.Disponivel)
+                {
+                    <td class="col-md-1">
+                        <a class="btn btn-info float-right" href="~/Emprestimo/CreateStep1/@exemplarLivro.ExemplarLivroId">Emprestar</a>
+                    </td>
+                }
+                @if (exemplarLivro.Status == StatusExemplarLivro.Reservado)
+                {
+                    <td class="col-md-2">
+                        <a class="btn btn-info float-right" href="#">Retirar Reserva</a>
+                    </td>
+                }
+                @if (exemplarLivro.Status == StatusExemplarLivro.Indisponivel)
+                {
+                    <td class="col-md-1">
+                        <a class="btn btn-info float-right" href="#">Devolver</a>
+                    </td>
+                }
                 <td class="col-md-1">
                     <a class="btn btn-warning float-right" href="~/ExemplarLivro/Edit/@exemplarLivro.ExemplarLivroId">Editar</a>
                 </td>

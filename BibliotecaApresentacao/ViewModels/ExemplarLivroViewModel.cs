@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using BibliotecaDominio.Entidades.ObjetosValor;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace BibliotecaApresentacao.ViewModels
@@ -16,6 +17,9 @@ namespace BibliotecaApresentacao.ViewModels
 
         [Required]
         public int LivroId { get; set; }
+
+        public StatusExemplarLivro Status { get; set; }
+
 
         public virtual LivroViewModel Livro { get; set; }
 
