@@ -60,12 +60,12 @@ namespace BibliotecaApresentacao.Controllers
         public ActionResult CreateStep1(int id)
         {
             var exemplarViewModel = Mapper.Map<ExemplarLivro, ExemplarLivroViewModel>(_exemplarLivroAppServico.ObterPorId(id));
-            exemplarViewModel.Livro = Mapper.Map<Livro, LivroViewModel>(_livroAppServico.ObterPorId(exemplarViewModel.LivroId));
-            exemplarViewModel.Livro.Autor = Mapper.Map<Autor, AutorViewModel>(_autorAppServico.ObterPorId(exemplarViewModel.Livro.AutorId));
-            exemplarViewModel.Livro.Assunto = Mapper.Map<Assunto, AssuntoViewModel>(_assuntoAppServico.ObterPorId(exemplarViewModel.Livro.AssuntoId));
-            exemplarViewModel.Livro.Editora = Mapper.Map<Editora, EditoraViewModel>(_editoraAppServico.ObterPorId(exemplarViewModel.Livro.EditoraId));
-            exemplarViewModel.Livro.Classificacao = Mapper.Map<Classificacao, ClassificacaoViewModel>(_classificacaoAppServico.ObterPorId(exemplarViewModel.Livro.ClassificacaoId));
-            exemplarViewModel.Livro.Localizacao = Mapper.Map<Localizacao, LocalizacaoViewModel>(_localizacaoAppServico.ObterPorId(exemplarViewModel.Livro.LocalizacaoId));
+            ViewBag.Livro = exemplarViewModel.Livro = Mapper.Map<Livro, LivroViewModel>(_livroAppServico.ObterPorId(exemplarViewModel.LivroId));
+            ViewBag.Autor = exemplarViewModel.Livro.Autor = Mapper.Map<Autor, AutorViewModel>(_autorAppServico.ObterPorId(exemplarViewModel.Livro.AutorId));
+            ViewBag.Assunto = exemplarViewModel.Livro.Assunto = Mapper.Map<Assunto, AssuntoViewModel>(_assuntoAppServico.ObterPorId(exemplarViewModel.Livro.AssuntoId));
+            ViewBag.Editora = exemplarViewModel.Livro.Editora = Mapper.Map<Editora, EditoraViewModel>(_editoraAppServico.ObterPorId(exemplarViewModel.Livro.EditoraId));
+            ViewBag.Classificacao = exemplarViewModel.Livro.Classificacao = Mapper.Map<Classificacao, ClassificacaoViewModel>(_classificacaoAppServico.ObterPorId(exemplarViewModel.Livro.ClassificacaoId));
+            ViewBag.Localizacao = exemplarViewModel.Livro.Localizacao = Mapper.Map<Localizacao, LocalizacaoViewModel>(_localizacaoAppServico.ObterPorId(exemplarViewModel.Livro.LocalizacaoId));
 
             ViewBag.ExemplarLivro = exemplarViewModel;
 
@@ -77,15 +77,15 @@ namespace BibliotecaApresentacao.Controllers
             var listaUsuarioViewModel = Mapper.Map<IEnumerable<Pessoa>, IEnumerable<PessoaViewModel>>(_pessoaAppServico.ObterTodos());
             var usuarioViewModel = listaUsuarioViewModel.Where(p => p.Cpf == emprestimoViewModel.Pessoa.Cpf).First();
 
-            var exemplarViewModel = Mapper.Map<ExemplarLivro, ExemplarLivroViewModel>(_exemplarLivroAppServico.ObterPorId(emprestimoViewModel.ExemplarLivroId));
-            exemplarViewModel.Livro = Mapper.Map<Livro, LivroViewModel>(_livroAppServico.ObterPorId(exemplarViewModel.LivroId));
-            exemplarViewModel.Livro.Autor = Mapper.Map<Autor, AutorViewModel>(_autorAppServico.ObterPorId(exemplarViewModel.Livro.AutorId));
-            exemplarViewModel.Livro.Assunto = Mapper.Map<Assunto, AssuntoViewModel>(_assuntoAppServico.ObterPorId(exemplarViewModel.Livro.AssuntoId));
-            exemplarViewModel.Livro.Editora = Mapper.Map<Editora, EditoraViewModel>(_editoraAppServico.ObterPorId(exemplarViewModel.Livro.EditoraId));
-            exemplarViewModel.Livro.Classificacao = Mapper.Map<Classificacao, ClassificacaoViewModel>(_classificacaoAppServico.ObterPorId(exemplarViewModel.Livro.ClassificacaoId));
-            exemplarViewModel.Livro.Localizacao = Mapper.Map<Localizacao, LocalizacaoViewModel>(_localizacaoAppServico.ObterPorId(exemplarViewModel.Livro.LocalizacaoId));
+            ViewBag.Titulo = emprestimoViewModel.ExemplarLivro.Livro.Titulo;
+            ViewBag.Autor = emprestimoViewModel.ExemplarLivro.Livro.Autor.NomeAutor;
+            ViewBag.Editora = emprestimoViewModel.ExemplarLivro.Livro.Editora.NomeEditora;
+            ViewBag.Assunto = emprestimoViewModel.ExemplarLivro.Livro.Assunto.AssuntoObra;
+            ViewBag.Classificacao = emprestimoViewModel.ExemplarLivro.Livro.Classificacao.ClassificacaoObra;
+            ViewBag.Localizacao = emprestimoViewModel.ExemplarLivro.Livro.Localizacao.LocalizacaoObra;
 
-            ViewBag.ExemplarLivro = exemplarViewModel;
+            ViewBag.ExemplarLivro = emprestimoViewModel.ExemplarLivro;
+
             ViewBag.Usuario = usuarioViewModel;
             return View();
         }
@@ -98,10 +98,25 @@ namespace BibliotecaApresentacao.Controllers
             if (ModelState.IsValid)
             {
                 var emprestimoEntidade = Mapper.Map<EmprestimoViewModel, Emprestimo>(emprestimoViewModel);
+
+                emprestimoEntidade.ExemplarLivro = null;
+                emprestimoEntidade.Pessoa = null;
+
                 _emprestimoAppServico.Adicionar(emprestimoEntidade);
+
+                MarcaLivroComoEmprestado(emprestimoViewModel);
             }
 
             return RedirectToAction("Index");
+        }
+
+        private void MarcaLivroComoEmprestado(EmprestimoViewModel emprestimoViewModel)
+        {
+            var exemplarLivroViewModel = emprestimoViewModel.ExemplarLivro;
+            exemplarLivroViewModel.Status = StatusExemplarLivro.Indisponivel;
+            var exemplarEntidade = Mapper.Map<ExemplarLivroViewModel, ExemplarLivro>(exemplarLivroViewModel);
+            _exemplarLivroAppServico.Atualizar(exemplarEntidade);
+
         }
     }
 }

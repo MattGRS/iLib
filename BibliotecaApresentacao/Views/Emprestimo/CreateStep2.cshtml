@@ -8,16 +8,18 @@
     <h3>Cadastro de Empréstimo</h3>
     <input hidden name="ExemplarLivroId" value="@ViewBag.ExemplarLivro.ExemplarLivroId" />
     <input hidden name="PessoaId" value="@ViewBag.Usuario.PessoaId"/>
+    <input hidden name="ExemplarLivro.LivroId" value="@ViewBag.ExemplarLivro.LivroId"/>
+    <input hidden name="ExemplarLivro.ExemplarLivroId" value="@ViewBag.ExemplarLivro.ExemplarLivroId"/>
     <div class="col">
         <h5>Livro</h5>
         <div class="row">
             <div class="col">
                 <label class="col-form-label">Título: </label>
-                <input readonly class="form-control" value="@ViewBag.ExemplarLivro.Livro.Titulo" />
+                <input readonly class="form-control" value="@ViewBag.Titulo" />
             </div>
             <div class="col">
                 <label class="col-form-label">Autor: </label>
-                <input readonly class="form-control" value="@ViewBag.ExemplarLivro.Livro.Autor.NomeAutor" />
+                <input readonly class="form-control" value="@ViewBag.Autor" />
             </div>
         </div>
     </div>
@@ -25,11 +27,11 @@
         <div class="row">
             <div class="col">
                 <label class="col-form-label">Editora: </label>
-                <input readonly class="form-control" value="@ViewBag.ExemplarLivro.Livro.Editora.NomeEditora" />
+                <input readonly class="form-control" value="@ViewBag.Editora" />
             </div>
             <div class="col">
                 <label class="col-form-label">Assunto: </label>
-                <input readonly class="form-control" value="@ViewBag.ExemplarLivro.Livro.Assunto.AssuntoObra" />
+                <input readonly class="form-control" value="@ViewBag.Assunto" />
             </div>
         </div>
     </div>
@@ -37,11 +39,11 @@
         <div class="row">
             <div class="col">
                 <label class="col-form-label">Classificação: </label>
-                <input readonly class="form-control" value="@ViewBag.ExemplarLivro.Livro.Classificacao.ClassificacaoObra" />
+                <input readonly class="form-control" value="@ViewBag.Classificacao" />
             </div>
             <div class="col">
                 <label class="col-form-label">Localização: </label>
-                <input readonly class="form-control" value="@ViewBag.ExemplarLivro.Livro.Localizacao.LocalizacaoObra" />
+                <input readonly class="form-control" value="@ViewBag.Localizacao" />
             </div>
         </div>
     </div>
@@ -52,10 +54,12 @@
             <div class="col">
                 <label class="col-form-label">Registro: </label>
                 <input readonly class="form-control" value="@ViewBag.ExemplarLivro.Registro" />
+                <input hidden name="ExemplarLivro.Registro" value="@ViewBag.ExemplarLivro.Registro"/>
             </div>
             <div class="col">
                 <label class="col-form-label">Exemplar: </label>
                 <input readonly class="form-control" value="@ViewBag.ExemplarLivro.NumeroExemplar" />
+                <input hidden name="ExemplarLivro.NumeroExemplar" value="@ViewBag.ExemplarLivro.NumeroExemplar"/>
             </div>
         </div>
     </div>
@@ -75,6 +79,6 @@
     </div>
     <br/>
     <div class="col">
-        <input type="submit" class="btn btn-primary btn-form" value="Confirmaar"/>
+        <input type="submit" class="btn btn-primary btn-form" value="Confirmar"/>
     </div>
 }

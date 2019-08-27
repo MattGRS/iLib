@@ -7,17 +7,21 @@
 @using (Html.BeginForm("CreateStep2", "Emprestimo", FormMethod.Post))
 {
     <h3>Cadastro de Empréstimo</h3>
-    <input hidden name="ExemplarId" value="@ViewBag.ExemplarLivro.ExemplarLivroId"/>
+    <input hidden name="ExemplarLivroId" value="@ViewBag.ExemplarLivro.ExemplarLivroId"/>
+    <input hidden name="ExemplarLivro.LivroId" value="@ViewBag.ExemplarLivro.LivroId"/>
+    <input hidden name="ExemplarLivro.ExemplarLivroId" value="@ViewBag.ExemplarLivro.ExemplarLivroId"/>
     <div class="col">
         <h5>Livro</h5>
         <div class="row">
             <div class="col">
                 <label class="col-form-label">Título: </label>
-                <input readonly class="form-control" value="@ViewBag.ExemplarLivro.Livro.Titulo" />
+                <input readonly class="form-control" value="@ViewBag.Livro.Titulo" />
+                <input hidden name="ExemplarLivro.Livro.Titulo" value="@ViewBag.Livro.Titulo"/>
             </div>
             <div class="col">
                 <label class="col-form-label">Autor: </label>
-                <input readonly class="form-control" value="@ViewBag.ExemplarLivro.Livro.Autor.NomeAutor" />
+                <input readonly class="form-control" value="@ViewBag.Autor.NomeAutor" />
+                <input hidden name="ExemplarLivro.Livro.Autor.NomeAutor" value="@ViewBag.Autor.NomeAutor"/>
             </div>
         </div>
     </div>
@@ -25,11 +29,13 @@
         <div class="row">
             <div class="col">
                 <label class="col-form-label">Editora: </label>
-                <input readonly class="form-control" value="@ViewBag.ExemplarLivro.Livro.Editora.NomeEditora" />
+                <input readonly class="form-control" value="@ViewBag.Editora.NomeEditora" />
+                <input hidden name="ExemplarLivro.Livro.Editora.NomeEditora" value="@ViewBag.Editora.NomeEditora"/>
             </div>
             <div class="col">
                 <label class="col-form-label">Assunto: </label>
-                <input readonly class="form-control" value="@ViewBag.ExemplarLivro.Livro.Assunto.AssuntoObra" />
+                <input readonly class="form-control" value="@ViewBag.Assunto.AssuntoObra" />
+                <input hidden name="ExemplarLivro.Livro.Assunto.AssuntoObra" value="@ViewBag.Assunto.AssuntoObra"/>
             </div>
         </div>
     </div>
@@ -37,11 +43,13 @@
         <div class="row">
             <div class="col">
                 <label class="col-form-label">Classificação: </label>
-                <input readonly class="form-control" value="@ViewBag.ExemplarLivro.Livro.Classificacao.ClassificacaoObra" />
+                <input readonly class="form-control" value="@ViewBag.Classificacao.ClassificacaoObra" />
+                <input hidden name="ExemplarLivro.Livro.Classificacao.ClassificacaoObra" value="@ViewBag.Classificacao.ClassificacaoObra"/>
             </div>
             <div class="col">
                 <label class="col-form-label">Localização: </label>
-                <input readonly class="form-control" value="@ViewBag.ExemplarLivro.Livro.Localizacao.LocalizacaoObra" />
+                <input readonly class="form-control" value="@ViewBag.Localizacao.LocalizacaoObra" />
+                <input hidden name="ExemplarLivro.Livro.Localizacao.LocalizacaoObra" value="@ViewBag.Localizacao.LocalizacaoObra"/>
             </div>
         </div>
     </div>
@@ -51,11 +59,13 @@
         <div class="row">
             <div class="col">
                 <label class="col-form-label">Registro: </label>
-                <input readonly class="form-control" value="@ViewBag.ExemplarLivro.Registro"/>
+                <input readonly class="form-control" value="@ViewBag.ExemplarLivro.Registro" />
+                <input hidden name="ExemplarLivro.NumeroExemplar" value="@ViewBag.ExemplarLivro.NumeroExemplar" />
             </div>
             <div class="col">
                 <label class="col-form-label">Exemplar: </label>
-                <input readonly class="form-control" value="@ViewBag.ExemplarLivro.NumeroExemplar"/>
+                <input readonly class="form-control" value="@ViewBag.ExemplarLivro.NumeroExemplar" />
+                <input hidden name="ExemplarLivro.Registro" value="@ViewBag.ExemplarLivro.Registro" />
             </div>
         </div>
     </div>
