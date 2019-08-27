@@ -21,7 +21,7 @@
                     <option value="" disabled selected>Selecione um país...</option>
                     @foreach (var pais in ViewBag.Pais)
                     {
-                        <option value="@pais.PaisId" selected="@pais.PaisId.Equals(ViewBag.Pais)">@pais.NomePais</option>
+                        <option value="@pais.PaisId">@pais.NomePais</option>
                     }
                 </select>
             </div>

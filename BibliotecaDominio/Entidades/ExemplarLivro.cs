@@ -23,9 +23,5 @@ namespace BibliotecaDominio.Entidades
 
         public virtual IEnumerable<Emprestimo> Emprestimo { get; set; }
 
-        public ExemplarLivro()
-        {
-            Status = StatusExemplarLivro.Disponivel;
-        }
     }
 }

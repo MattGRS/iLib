@@ -10,5 +10,7 @@ namespace BibliotecaAplicacao.Interfaces
     public interface IEmprestimoAppServico : IBibliotecaAppServicoBase<Emprestimo>
     {
         new bool Remover(Emprestimo emprestimo);
+
+        void Devolver(int id);
     }
 }

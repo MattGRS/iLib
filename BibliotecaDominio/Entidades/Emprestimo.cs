@@ -10,8 +10,10 @@ namespace BibliotecaDominio.Entidades
 
         public DateTime DataEmprestimo { get; internal set; }
 
-        public DateTime DataDevolucao { get; internal set; }
-        
+        public DateTime DataDevolucaoPrevista { get; internal set; }
+
+        public DateTime DataDecolucaoRealizada { get; internal set; }
+
         public int ExemplarLivroId { get; set; }
 
         public int PessoaId { get; set; }
@@ -20,5 +22,9 @@ namespace BibliotecaDominio.Entidades
 
         public virtual Pessoa Pessoa { get; set; }
 
+        public void Devolver()
+        {
+            DataDecolucaoRealizada = DateTime.Now;
+        }
     }
 }

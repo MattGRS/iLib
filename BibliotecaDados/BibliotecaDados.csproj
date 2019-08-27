@@ -128,13 +128,9 @@
     <Compile Include="EntidadesConfig\EmprestimoConfig.cs" />
     <Compile Include="EntidadesConfig\ExemplarLivroConfig.cs" />
     <Compile Include="EntidadesConfig\PessoaConfig.cs" />
-    <Compile Include="Migrations\20190808134720_Teste.cs" />
-    <Compile Include="Migrations\20190808134720_Teste.designer.cs">
-      <DependentUpon>20190808134720_Teste.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20190826192459_Enum.cs" />
-    <Compile Include="Migrations\20190826192459_Enum.designer.cs">
-      <DependentUpon>20190826192459_Enum.cs</DependentUpon>
+    <Compile Include="Migrations\20190827164403_BancoNovo.cs" />
+    <Compile Include="Migrations\20190827164403_BancoNovo.designer.cs">
+      <DependentUpon>20190827164403_BancoNovo.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\BibliotecaContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

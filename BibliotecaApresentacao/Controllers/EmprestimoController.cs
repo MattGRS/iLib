@@ -1,12 +1,11 @@
 ﻿using AutoMapper;
 using BibliotecaAplicacao.Interfaces;
+using BibliotecaApresentacao.Negocio;
 using BibliotecaApresentacao.ViewModels;
 using BibliotecaDominio.Entidades;
 using BibliotecaDominio.Entidades.ObjetosValor;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace BibliotecaApresentacao.Controllers
@@ -22,6 +21,8 @@ namespace BibliotecaApresentacao.Controllers
         private readonly IEditoraAppServico _editoraAppServico;
         private readonly IClassificacaoAppServico _classificacaoAppServico;
         private readonly ILocalizacaoAppServico _localizacaoAppServico;
+        private readonly EmprestimoNegocio _emprestimoNegocio;
+        private readonly ExemplarNegocio _exemplarNegocio;
 
         public EmprestimoController(IEmprestimoAppServico emprestimoAppServico,
             IPessoaAppServico pessoaAppServico, 
@@ -31,7 +32,9 @@ namespace BibliotecaApresentacao.Controllers
             IAssuntoAppServico assuntoAppServico,
             IEditoraAppServico editoraAppServico,
             IClassificacaoAppServico classificacaoAppServico,
-            ILocalizacaoAppServico localizacaoAppServico)
+            ILocalizacaoAppServico localizacaoAppServico,
+            EmprestimoNegocio emprestimoNegocio,
+            ExemplarNegocio exemplarNegocio)
         {
             _emprestimoAppServico = emprestimoAppServico;
             _pessoaAppServico = pessoaAppServico;
@@ -42,6 +45,8 @@ namespace BibliotecaApresentacao.Controllers
             _editoraAppServico = editoraAppServico;
             _classificacaoAppServico = classificacaoAppServico;
             _localizacaoAppServico = localizacaoAppServico;
+            _emprestimoNegocio = emprestimoNegocio;
+            _exemplarNegocio = exemplarNegocio;
         }
         public ActionResult Index()
         {
@@ -92,31 +97,42 @@ namespace BibliotecaApresentacao.Controllers
 
         public ActionResult Confirm(EmprestimoViewModel emprestimoViewModel)
         {
-            emprestimoViewModel.DataEmprestimo = DateTime.Now;
-            emprestimoViewModel.DataDevolucao = DateTime.Now.AddDays(7);
+            _emprestimoNegocio.DefineDataDevolucaoPrevista(emprestimoViewModel);
 
             if (ModelState.IsValid)
             {
                 var emprestimoEntidade = Mapper.Map<EmprestimoViewModel, Emprestimo>(emprestimoViewModel);
 
-                emprestimoEntidade.ExemplarLivro = null;
-                emprestimoEntidade.Pessoa = null;
+                //emprestimoEntidade.ExemplarLivro = null;
+                //emprestimoEntidade.Pessoa = null;
 
                 _emprestimoAppServico.Adicionar(emprestimoEntidade);
 
-                MarcaLivroComoEmprestado(emprestimoViewModel);
+                _exemplarNegocio.MarcaExemplarLivroComoEmprestado(emprestimoViewModel.ExemplarLivro, _exemplarLivroAppServico);
             }
 
             return RedirectToAction("Index");
         }
 
-        private void MarcaLivroComoEmprestado(EmprestimoViewModel emprestimoViewModel)
+        public ActionResult Return(int id)
         {
-            var exemplarLivroViewModel = emprestimoViewModel.ExemplarLivro;
-            exemplarLivroViewModel.Status = StatusExemplarLivro.Indisponivel;
-            var exemplarEntidade = Mapper.Map<ExemplarLivroViewModel, ExemplarLivro>(exemplarLivroViewModel);
-            _exemplarLivroAppServico.Atualizar(exemplarEntidade);
+            var emprestimo = _emprestimoAppServico.ObterTodos()
+                .Where(p => p.ExemplarLivroId == id)
+                .OrderBy(p => p.DataEmprestimo)
+                .Last();
 
+            emprestimo.Devolver();
+
+            _emprestimoAppServico.Atualizar(emprestimo);
+
+            //_emprestimoNegocio.DefineDataDevolucaoRealizada(emprestimoViewModel);
+            //var emprestimoEntidade = Mapper.Map<EmprestimoViewModel, Emprestimo>(emprestimoViewModel);
+            //_emprestimoAppServico.Atualizar(emprestimoEntidade);
+
+            var exemplarLivroViewModel = Mapper.Map<ExemplarLivro, ExemplarLivroViewModel>(_exemplarLivroAppServico.ObterPorId(id));
+            _exemplarNegocio.MarcaExemplarLivroComoDisponivel(exemplarLivroViewModel, _exemplarLivroAppServico);
+
+            return RedirectToAction("Index");
         }
     }
 }

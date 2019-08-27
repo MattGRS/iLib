@@ -13,6 +13,11 @@ namespace BibliotecaAplicacao.Classes
             _emprestimoServico = emprestimoServico;
         }
 
+        public void Devolver(int id)
+        {
+            _emprestimoServico.Devolver(id);
+        }
+
         public new bool Remover(Emprestimo emprestimo)
         {
             return _emprestimoServico.Remover(emprestimo);

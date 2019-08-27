@@ -16,11 +16,13 @@ namespace BibliotecaDados.EntidadesConfig
             builder
                 .HasOne(e => e.ExemplarLivro)
                 .WithMany(e => e.Emprestimo)
+                .HasForeignKey(e => e.ExemplarLivroId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder
                 .HasOne(e => e.Pessoa)
                 .WithMany(p => p.Emprestimo)
+                .HasForeignKey(e => e.PessoaId)
                 .OnDelete(DeleteBehavior.Restrict);
 
         }

@@ -25,7 +25,9 @@ namespace BibliotecaDados.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("DataDevolucao");
+                    b.Property<DateTime>("DataDecolucaoRealizada");
+
+                    b.Property<DateTime>("DataDevolucaoPrevista");
 
                     b.Property<DateTime>("DataEmprestimo");
 

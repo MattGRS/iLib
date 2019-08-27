@@ -49,6 +49,7 @@ namespace BibliotecaApresentacao.Controllers
             if (ModelState.IsValid)
             {
                 exemplarLivroViewModel.LivroId = id;
+                exemplarLivroViewModel.Status = StatusExemplarLivro.Disponivel;
                 var exemplarLivroEntidade = Mapper.Map<ExemplarLivroViewModel, ExemplarLivro>(exemplarLivroViewModel);
                 _exemplarLivroAppServico.Adicionar(exemplarLivroEntidade);
 

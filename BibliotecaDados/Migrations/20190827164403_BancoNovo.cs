@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BibliotecaDados.Migrations
 {
-    public partial class Teste : Migration
+    public partial class BancoNovo : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -185,7 +185,7 @@ namespace BibliotecaDados.Migrations
                     DadosLoginId = table.Column<int>(nullable: false),
                     Profissao = table.Column<string>(nullable: true),
                     Telefone = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: false)
+                    Email = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -260,7 +260,8 @@ namespace BibliotecaDados.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Registro = table.Column<string>(maxLength: 100, nullable: false),
                     NumeroExemplar = table.Column<int>(nullable: false),
-                    LivroId = table.Column<int>(nullable: false)
+                    LivroId = table.Column<int>(nullable: false),
+                    Status = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -280,7 +281,8 @@ namespace BibliotecaDados.Migrations
                     EmprestimoId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     DataEmprestimo = table.Column<DateTime>(nullable: false),
-                    DataDevolucao = table.Column<DateTime>(nullable: false),
+                    DataDevolucaoPrevista = table.Column<DateTime>(nullable: false),
+                    DataDecolucaoRealizada = table.Column<DateTime>(nullable: false),
                     ExemplarLivroId = table.Column<int>(nullable: false),
                     PessoaId = table.Column<int>(nullable: false)
                 },
