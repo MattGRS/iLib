@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BibliotecaAplicacao.Interfaces;
+using BibliotecaApresentacao.Filter;
 using BibliotecaApresentacao.Negocio;
 using BibliotecaApresentacao.ViewModels;
 using BibliotecaDominio.Entidades;
@@ -10,6 +11,7 @@ using System.Web.Mvc;
 
 namespace BibliotecaApresentacao.Controllers
 {
+    [AuthorizationFilter]
     public class EmprestimoController : Controller
     {
         private readonly IEmprestimoAppServico _emprestimoAppServico;

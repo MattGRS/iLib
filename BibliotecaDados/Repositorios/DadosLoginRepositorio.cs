@@ -9,7 +9,7 @@ namespace BibliotecaDados.Repositorios
         public DadosLogin SearchUser(string login, string senha)
         {
             var usuario = Db.Set<DadosLogin>().ToList();
-            var usuarioEncontrado = usuario.First(p => p.Login == login && p.Senha == senha);
+            var usuarioEncontrado = usuario.FirstOrDefault(p => p.Login == login && p.Senha == senha);
             return (usuarioEncontrado);
         }
         public new bool Remover(DadosLogin dadosLogin)

@@ -40,6 +40,7 @@ namespace BibliotecaApresentacao.Controllers
 
                 return RedirectToAction("Index", "Home");
             }
+            ModelState.AddModelError("Login", "login inválido.");
             return RedirectToAction("Index");
         }
 
