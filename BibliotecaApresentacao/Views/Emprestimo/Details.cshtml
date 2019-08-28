@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <h3>Detalhes de Emprestimo</h3>
+            </div>
+            <div class="col-md-1">
+                <a class="btn btn-primary btn-form float-right" href="~/Emprestimo/Index">Voltar</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="row">
+            <div class="col-md-4">
+                <label class="col-form-label">Data/Hora do Emprestimo:</label>
+                <input readonly class="form-control" value="@ViewBag.DataEmprestimo.ToShortDateString() - @ViewBag.DataEmprestimo.ToShortTimeString()" />
+            </div>
+            <div class="col-md-4">
+                <label class="col-form-label">Devolução Prevista: </label>
+                <input readonly class="form-control" value="@ViewBag.DataDevolucaoPrevista.ToShortDateString()" />
+            </div>
+            <div class="col-md-4">
+                <label class="col-form-label">Devolução Realizada: </label>
+                @if (ViewBag.DataDevolucaoRealizada.ToString() == "01/01/0001 00:00:00")
+                {
+                    <input readonly class="form-control text-danger" value="Ainda não devolvido!" />
+                }
+                else
+                {
+                    <input readonly class="form-control" value="@ViewBag.DataDevolucaoRealizada.ToShortDateString() - @ViewBag.DataDevolucaoRealizada.ToShortTimeString()" />
+                }
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="col">
+        <div class="row">
+            <div class="col-md-1">
+                <br />
+                <h5>Livro:</h5>
+            </div>
+            <div class="col-md-2">
+                <a class="btn btn-secondary btn-sm btn-form float-left" href="~/Livro/Details/@ViewBag.LivroId"><h11>[+] mais</h11></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="col-form-label">Titulo</label>
+                <input readonly class="form-control col-md-7" value="@ViewBag.Titulo" />
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="row">
+            <div class="col-md-4">
+                <label class="col-form-label">Autor:</label>
+                <input readonly class="form-control" value="@ViewBag.Autor" />
+            </div>
+            <div class="col-md-4">
+                <label class="col-form-label">Editora:</label>
+                <input readonly class="form-control" value="@ViewBag.Editora" />
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="col">
+        <h5>Exemplar: </h5>
+        <div class="row">
+            <div class="col-md-4">
+                <label class="col-form-label">Registo: </label>
+                <input readonly class="form-control" value="@ViewBag.Registro" />
+            </div>
+            <div class="col-md-4">
+                <label class="col-form-label">Exemplar: </label>
+                <input readonly class="form-control" value="@ViewBag.NumeroExemplar ex." />
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="col">
+        <div class="row">
+            <div class="col-md-1">
+                <br />
+                <h5>Usuário</h5>
+            </div>
+            <div class="col-md-2">
+                <a class="btn btn-secondary btn-sm btn-form float-left" href="~/Pessoa/Details/@ViewBag.PessoaId"><h11>[+] mais</h11></a>
+            </div>
+        </div>
+        <div>
+            <label>Nome: </label>
+            <input readonly class="form-control col-md-7" value="@ViewBag.Nome" />
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label class="col-form-label">Telefone: </label>
+                <input readonly class="form-control" value="@ViewBag.Telefone" />
+            </div>
+            <div class="col-md-4">
+                <label class="col-form-label">E-mail: </label>
+                <input readonly class="form-control" value="@ViewBag.Email" />
+            </div>
+        </div>
+    </div>
+} 

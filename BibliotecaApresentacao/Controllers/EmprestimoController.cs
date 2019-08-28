@@ -21,10 +21,10 @@ namespace BibliotecaApresentacao.Controllers
         private readonly IEditoraAppServico _editoraAppServico;
         private readonly IClassificacaoAppServico _classificacaoAppServico;
         private readonly ILocalizacaoAppServico _localizacaoAppServico;
-        private readonly EmprestimoNegocio _emprestimoNegocio;
-        private readonly ExemplarNegocio _exemplarNegocio;
+        
 
-        public EmprestimoController(IEmprestimoAppServico emprestimoAppServico,
+        public EmprestimoController
+            (IEmprestimoAppServico emprestimoAppServico,
             IPessoaAppServico pessoaAppServico, 
             IExemplarLivroAppServico exemplarLivroAppServico, 
             ILivroAppServico livroAppServico,
@@ -32,9 +32,7 @@ namespace BibliotecaApresentacao.Controllers
             IAssuntoAppServico assuntoAppServico,
             IEditoraAppServico editoraAppServico,
             IClassificacaoAppServico classificacaoAppServico,
-            ILocalizacaoAppServico localizacaoAppServico,
-            EmprestimoNegocio emprestimoNegocio,
-            ExemplarNegocio exemplarNegocio)
+            ILocalizacaoAppServico localizacaoAppServico)
         {
             _emprestimoAppServico = emprestimoAppServico;
             _pessoaAppServico = pessoaAppServico;
@@ -45,8 +43,7 @@ namespace BibliotecaApresentacao.Controllers
             _editoraAppServico = editoraAppServico;
             _classificacaoAppServico = classificacaoAppServico;
             _localizacaoAppServico = localizacaoAppServico;
-            _emprestimoNegocio = emprestimoNegocio;
-            _exemplarNegocio = exemplarNegocio;
+
         }
         public ActionResult Index()
         {
@@ -65,33 +62,18 @@ namespace BibliotecaApresentacao.Controllers
         public ActionResult CreateStep1(int id)
         {
             var exemplarViewModel = Mapper.Map<ExemplarLivro, ExemplarLivroViewModel>(_exemplarLivroAppServico.ObterPorId(id));
-            ViewBag.Livro = exemplarViewModel.Livro = Mapper.Map<Livro, LivroViewModel>(_livroAppServico.ObterPorId(exemplarViewModel.LivroId));
-            ViewBag.Autor = exemplarViewModel.Livro.Autor = Mapper.Map<Autor, AutorViewModel>(_autorAppServico.ObterPorId(exemplarViewModel.Livro.AutorId));
-            ViewBag.Assunto = exemplarViewModel.Livro.Assunto = Mapper.Map<Assunto, AssuntoViewModel>(_assuntoAppServico.ObterPorId(exemplarViewModel.Livro.AssuntoId));
-            ViewBag.Editora = exemplarViewModel.Livro.Editora = Mapper.Map<Editora, EditoraViewModel>(_editoraAppServico.ObterPorId(exemplarViewModel.Livro.EditoraId));
-            ViewBag.Classificacao = exemplarViewModel.Livro.Classificacao = Mapper.Map<Classificacao, ClassificacaoViewModel>(_classificacaoAppServico.ObterPorId(exemplarViewModel.Livro.ClassificacaoId));
-            ViewBag.Localizacao = exemplarViewModel.Livro.Localizacao = Mapper.Map<Localizacao, LocalizacaoViewModel>(_localizacaoAppServico.ObterPorId(exemplarViewModel.Livro.LocalizacaoId));
-
-            ViewBag.ExemplarLivro = exemplarViewModel;
+            GerarViewBagStep1(exemplarViewModel);
 
             return View();
         }
+
+
         [HttpPost]
         public ActionResult CreateStep2(EmprestimoViewModel emprestimoViewModel)
         {
             var listaUsuarioViewModel = Mapper.Map<IEnumerable<Pessoa>, IEnumerable<PessoaViewModel>>(_pessoaAppServico.ObterTodos());
             var usuarioViewModel = listaUsuarioViewModel.Where(p => p.Cpf == emprestimoViewModel.Pessoa.Cpf).First();
-
-            ViewBag.Titulo = emprestimoViewModel.ExemplarLivro.Livro.Titulo;
-            ViewBag.Autor = emprestimoViewModel.ExemplarLivro.Livro.Autor.NomeAutor;
-            ViewBag.Editora = emprestimoViewModel.ExemplarLivro.Livro.Editora.NomeEditora;
-            ViewBag.Assunto = emprestimoViewModel.ExemplarLivro.Livro.Assunto.AssuntoObra;
-            ViewBag.Classificacao = emprestimoViewModel.ExemplarLivro.Livro.Classificacao.ClassificacaoObra;
-            ViewBag.Localizacao = emprestimoViewModel.ExemplarLivro.Livro.Localizacao.LocalizacaoObra;
-
-            ViewBag.ExemplarLivro = emprestimoViewModel.ExemplarLivro;
-
-            ViewBag.Usuario = usuarioViewModel;
+            GerarViewBagStep2(emprestimoViewModel, usuarioViewModel);
             return View();
         }
 
@@ -100,10 +82,12 @@ namespace BibliotecaApresentacao.Controllers
             if (ModelState.IsValid)
             {
                 var emprestimoEntidade = Mapper.Map<EmprestimoViewModel, Emprestimo>(emprestimoViewModel);
-
+                
+                /**************************Atualiza Exemplar***********************/
                 emprestimoEntidade.ExemplarLivro.MarcaExemplarLivroComoEmprestado();
                 _exemplarLivroAppServico.Atualizar(emprestimoEntidade.ExemplarLivro);
-
+                
+                /**********Adiciona Emprestimo************/
                 emprestimoEntidade.Emprestar();
                 emprestimoEntidade.ExemplarLivro = null;
                 _emprestimoAppServico.Adicionar(emprestimoEntidade);
@@ -115,23 +99,72 @@ namespace BibliotecaApresentacao.Controllers
 
         public ActionResult Return(int id)
         {
+            /***************Atualiza Emprestimo***************/
             var emprestimo = _emprestimoAppServico.ObterTodos()
                 .Where(p => p.ExemplarLivroId == id)
                 .OrderBy(p => p.DataEmprestimo)
                 .Last();
-
             emprestimo.Devolver();
-
             _emprestimoAppServico.Atualizar(emprestimo);
-
-            //_emprestimoNegocio.DefineDataDevolucaoRealizada(emprestimoViewModel);
-            //var emprestimoEntidade = Mapper.Map<EmprestimoViewModel, Emprestimo>(emprestimoViewModel);
-            //_emprestimoAppServico.Atualizar(emprestimoEntidade);
-
-            var exemplarLivroViewModel = Mapper.Map<ExemplarLivro, ExemplarLivroViewModel>(_exemplarLivroAppServico.ObterPorId(id));
-            _exemplarNegocio.MarcaExemplarLivroComoDisponivel(exemplarLivroViewModel, _exemplarLivroAppServico);
+            /***************Atualiza Exemplar**************/
+            var exemplar = _exemplarLivroAppServico.ObterPorId(id);
+            exemplar.MarcaExemplarLivroComoDisponivel();
+            _exemplarLivroAppServico.Atualizar(exemplar);
 
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Details(int id)
+        {
+            var emprestimo = _emprestimoAppServico.ObterPorId(id);
+            var exemplar = _exemplarLivroAppServico.ObterPorId(emprestimo.ExemplarLivroId);
+            var livro = _livroAppServico.ObterPorId(exemplar.LivroId);
+            var autor = _autorAppServico.ObterPorId(livro.AutorId);
+            var editora = _editoraAppServico.ObterPorId(livro.EditoraId);
+            var pessoa = _pessoaAppServico.ObterPorId(emprestimo.PessoaId);
+            
+            //Emprestimo
+            ViewBag.DataEmprestimo = emprestimo.DataEmprestimo;
+            ViewBag.DataDevolucaoPrevista = emprestimo.DataDevolucaoPrevista;
+            ViewBag.DataDevolucaoRealizada = emprestimo.DataDevolucaoRealizada;
+            //exemplar
+            ViewBag.Registro = exemplar.Registro;
+            ViewBag.NumeroExemplar = exemplar.NumeroExemplar;
+            //Livro
+            ViewBag.Titulo = livro.Titulo;
+            ViewBag.Editora = editora.NomeEditora;
+            ViewBag.Autor = autor.NomeAutor;
+            ViewBag.LivroId = livro.LivroId;
+            //Usuário
+            ViewBag.Nome = pessoa.Nome;
+            ViewBag.Telefone = pessoa.Telefone;
+            ViewBag.Email = pessoa.Email;
+            ViewBag.PessoaId = pessoa.PessoaId;
+
+            return View();
+        }
+
+        private void GerarViewBagStep1(ExemplarLivroViewModel exemplarViewModel)
+        {
+            ViewBag.Livro = exemplarViewModel.Livro = Mapper.Map<Livro, LivroViewModel>(_livroAppServico.ObterPorId(exemplarViewModel.LivroId));
+            ViewBag.Autor = exemplarViewModel.Livro.Autor = Mapper.Map<Autor, AutorViewModel>(_autorAppServico.ObterPorId(exemplarViewModel.Livro.AutorId));
+            ViewBag.Assunto = exemplarViewModel.Livro.Assunto = Mapper.Map<Assunto, AssuntoViewModel>(_assuntoAppServico.ObterPorId(exemplarViewModel.Livro.AssuntoId));
+            ViewBag.Editora = exemplarViewModel.Livro.Editora = Mapper.Map<Editora, EditoraViewModel>(_editoraAppServico.ObterPorId(exemplarViewModel.Livro.EditoraId));
+            ViewBag.Classificacao = exemplarViewModel.Livro.Classificacao = Mapper.Map<Classificacao, ClassificacaoViewModel>(_classificacaoAppServico.ObterPorId(exemplarViewModel.Livro.ClassificacaoId));
+            ViewBag.Localizacao = exemplarViewModel.Livro.Localizacao = Mapper.Map<Localizacao, LocalizacaoViewModel>(_localizacaoAppServico.ObterPorId(exemplarViewModel.Livro.LocalizacaoId));
+            ViewBag.ExemplarLivro = exemplarViewModel;
+        }
+
+        private void GerarViewBagStep2(EmprestimoViewModel emprestimoViewModel, PessoaViewModel usuarioViewModel)
+        {
+            ViewBag.Titulo = emprestimoViewModel.ExemplarLivro.Livro.Titulo;
+            ViewBag.Autor = emprestimoViewModel.ExemplarLivro.Livro.Autor.NomeAutor;
+            ViewBag.Editora = emprestimoViewModel.ExemplarLivro.Livro.Editora.NomeEditora;
+            ViewBag.Assunto = emprestimoViewModel.ExemplarLivro.Livro.Assunto.AssuntoObra;
+            ViewBag.Classificacao = emprestimoViewModel.ExemplarLivro.Livro.Classificacao.ClassificacaoObra;
+            ViewBag.Localizacao = emprestimoViewModel.ExemplarLivro.Livro.Localizacao.LocalizacaoObra;
+            ViewBag.ExemplarLivro = emprestimoViewModel.ExemplarLivro;
+            ViewBag.Usuario = usuarioViewModel;
         }
     }
 }

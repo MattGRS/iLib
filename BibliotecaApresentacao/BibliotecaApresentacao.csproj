@@ -2230,6 +2230,7 @@
     <Content Include="Views\Emprestimo\Index.cshtml" />
     <Content Include="Views\Emprestimo\CreateStep1.cshtml" />
     <Content Include="Views\Emprestimo\CreateStep2.cshtml" />
+    <Content Include="Views\Emprestimo\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

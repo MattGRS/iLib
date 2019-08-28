@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iLib</title>
-    <link rel="shortcut icon" href="~/Content/img/path20.png" type="image/x-icon"/>
+    <link rel="shortcut icon" href="~/Content/img/path20.png" type="image/x-icon" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/css/sb-admin-2.css" rel="stylesheet" />
     <link href="~/Content/vendor/fontawesome-free/css/all.css" rel="stylesheet" />
@@ -52,12 +52,26 @@
                 </a>
                 <div id="collapseLivro" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Acervo</h6>
                         <a class="collapse-item" href="~/Livro/Index">Acervo</a>
                         <a class="collapse-item" href="~/Livro/Create">Adicionar Material</a>
                     </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="~/Emprestimo/Index">
+                    <i class="fas fa-fw fa-home"></i>
+                    <span>Emprestimos</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCatalogacao" aria-expanded="true" aria-controls="collapseCatalogacao">
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Catalogação</span>
+                </a>
+                <div id="collapseCatalogacao" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Características Gerais:</h6>
                         <a class="collapse-item" href="~/Assunto/Index">Assuntos</a>
                         <a class="collapse-item" href="~/Autor/Index">Autores</a>
                         <a class="collapse-item" href="~/Classificacao/Index">Classificações</a>
