@@ -1,4 +1,4 @@
-﻿
+﻿@model BibliotecaApresentacao.ViewModels.EmprestimoViewModel
 @{
     ViewBag.Title = "Details";
 }
@@ -19,21 +19,21 @@
         <div class="row">
             <div class="col-md-4">
                 <label class="col-form-label">Data/Hora do Emprestimo:</label>
-                <input readonly class="form-control" value="@ViewBag.DataEmprestimo.ToShortDateString() - @ViewBag.DataEmprestimo.ToShortTimeString()" />
+                <input readonly class="form-control" value="@Model.DataEmprestimo.ToShortDateString() - @Model.DataEmprestimo.ToShortTimeString()" />
             </div>
             <div class="col-md-4">
                 <label class="col-form-label">Devolução Prevista: </label>
-                <input readonly class="form-control" value="@ViewBag.DataDevolucaoPrevista.ToShortDateString()" />
+                <input readonly class="form-control" value="@Model.DataDevolucaoPrevista.ToShortDateString()" />
             </div>
             <div class="col-md-4">
                 <label class="col-form-label">Devolução Realizada: </label>
-                @if (ViewBag.DataDevolucaoRealizada.ToString() == "01/01/0001 00:00:00")
+                @if (Model.DataDevolucaoRealizada.ToString() == "01/01/0001 00:00:00")
                 {
                     <input readonly class="form-control text-danger" value="Ainda não devolvido!" />
                 }
                 else
                 {
-                    <input readonly class="form-control" value="@ViewBag.DataDevolucaoRealizada.ToShortDateString() - @ViewBag.DataDevolucaoRealizada.ToShortTimeString()" />
+                    <input readonly class="form-control" value="@Model.DataDevolucaoRealizada.ToShortDateString() - @Model.DataDevolucaoRealizada.ToShortTimeString()" />
                 }
             </div>
         </div>
@@ -46,13 +46,13 @@
                 <h5>Livro:</h5>
             </div>
             <div class="col-md-2">
-                <a class="btn btn-secondary btn-sm btn-form float-left" href="~/Livro/Details/@ViewBag.LivroId"><h11>[+] mais</h11></a>
+                <a class="btn btn-secondary btn-sm btn-form float-left" href="~/Livro/Details/@Model.ExemplarLivro.LivroId"><h11>[+] mais</h11></a>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <label class="col-form-label">Titulo</label>
-                <input readonly class="form-control col-md-7" value="@ViewBag.Titulo" />
+                <input readonly class="form-control col-md-7" value="@Model.ExemplarLivro.Livro.Titulo" />
             </div>
         </div>
     </div>
@@ -60,11 +60,11 @@
         <div class="row">
             <div class="col-md-4">
                 <label class="col-form-label">Autor:</label>
-                <input readonly class="form-control" value="@ViewBag.Autor" />
+                <input readonly class="form-control" value="@Model.ExemplarLivro.Livro.Autor.NomeAutor" />
             </div>
             <div class="col-md-4">
                 <label class="col-form-label">Editora:</label>
-                <input readonly class="form-control" value="@ViewBag.Editora" />
+                <input readonly class="form-control" value="@Model.ExemplarLivro.Livro.Editora.NomeEditora" />
             </div>
         </div>
     </div>
@@ -74,11 +74,11 @@
         <div class="row">
             <div class="col-md-4">
                 <label class="col-form-label">Registo: </label>
-                <input readonly class="form-control" value="@ViewBag.Registro" />
+                <input readonly class="form-control" value="@Model.ExemplarLivro.Registro" />
             </div>
             <div class="col-md-4">
                 <label class="col-form-label">Exemplar: </label>
-                <input readonly class="form-control" value="@ViewBag.NumeroExemplar ex." />
+                <input readonly class="form-control" value="@Model.ExemplarLivro.NumeroExemplar ex." />
             </div>
         </div>
     </div>
@@ -90,21 +90,21 @@
                 <h5>Usuário</h5>
             </div>
             <div class="col-md-2">
-                <a class="btn btn-secondary btn-sm btn-form float-left" href="~/Pessoa/Details/@ViewBag.PessoaId"><h11>[+] mais</h11></a>
+                <a class="btn btn-secondary btn-sm btn-form float-left" href="~/Pessoa/Details/@Model.PessoaId"><h11>[+] mais</h11></a>
             </div>
         </div>
         <div>
             <label>Nome: </label>
-            <input readonly class="form-control col-md-7" value="@ViewBag.Nome" />
+            <input readonly class="form-control col-md-7" value="@Model.Pessoa.Nome" />
         </div>
         <div class="row">
             <div class="col-md-4">
                 <label class="col-form-label">Telefone: </label>
-                <input readonly class="form-control" value="@ViewBag.Telefone" />
+                <input readonly class="form-control" value="@Model.Pessoa.Telefone" />
             </div>
             <div class="col-md-4">
                 <label class="col-form-label">E-mail: </label>
-                <input readonly class="form-control" value="@ViewBag.Email" />
+                <input readonly class="form-control" value="@Model.Pessoa.Email" />
             </div>
         </div>
     </div>
