@@ -49,6 +49,7 @@ namespace BibliotecaDados.Contexto
         {
             modelBuilder.ApplyConfiguration(new PessoaConfig());
             modelBuilder.ApplyConfiguration(new EmprestimoConfig());
+            modelBuilder.Seed();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -11,5 +11,11 @@ namespace BibliotecaDominio.Entidades.ObjetosValor
         public string LocalizacaoObra { get; set; }
 
         public virtual IEnumerable<Livro> Livros { get; set; }
+
+        public Localizacao(int localizacaoId, string localizacaoObra)
+        {
+            LocalizacaoId = localizacaoId;
+            LocalizacaoObra = localizacaoObra;
+        }
     }
 }

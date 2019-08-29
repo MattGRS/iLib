@@ -129,6 +129,24 @@ namespace BibliotecaApresentacao.Controllers
             return View(emprestimoViewModel);
         }
 
+        public ActionResult Renew(int id)
+        {
+            var emprestimoEntidade = _emprestimoAppServico.ObterPorId(id);
+            emprestimoEntidade.Devolver();
+            _emprestimoAppServico.Atualizar(emprestimoEntidade);
+
+            var novoEmprestimoEntidade = new Emprestimo
+            {
+                ExemplarLivroId = emprestimoEntidade.ExemplarLivroId,
+                PessoaId = emprestimoEntidade.PessoaId
+            };
+
+            novoEmprestimoEntidade.Emprestar();
+            _emprestimoAppServico.Adicionar(novoEmprestimoEntidade);
+
+            return RedirectToAction("Index");
+        }
+
         private void MapearUmExemplar(EmprestimoViewModel emprestimoViewModel)
         {
             emprestimoViewModel.ExemplarLivro = Mapper.Map<ExemplarLivro, ExemplarLivroViewModel>(_exemplarLivroAppServico.ObterPorId(emprestimoViewModel.ExemplarLivroId));

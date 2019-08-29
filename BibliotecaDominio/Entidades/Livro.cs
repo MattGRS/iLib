@@ -33,6 +33,17 @@ namespace BibliotecaDominio.Entidades
 
         public virtual IEnumerable<ExemplarLivro> Exemplares { get; internal set; } //relação um para muitos (um livro - muitos exemplares)
 
+        public Livro(int livroId, string titulo, int autorId, int editoraId, int assuntoId, int classificacaoId, int localizacaoId)
+        {
+            LivroId = livroId;
+            Titulo = titulo;
+            AutorId = autorId;
+            EditoraId = editoraId;
+            AssuntoId = assuntoId;
+            ClassificacaoId = classificacaoId;
+            LocalizacaoId = localizacaoId;
+        }
+
     }
 
 }

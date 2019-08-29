@@ -16,5 +16,12 @@ namespace BibliotecaDominio.Entidades.ObjetosValor
         public virtual Estado Estado { get; internal set; } //FK de Estado
 
         public virtual IEnumerable<Endereco> Enderecos { get; internal set; } //relação um para muitos (um municipio - muitos enderecos)
+
+        public Municipio(int municipioId, string nomeMunicipio, int estadoId)
+        {
+            MunicipioId = municipioId;
+            NomeMunicipio = nomeMunicipio;
+            EstadoId = estadoId;
+        }
     }
 }

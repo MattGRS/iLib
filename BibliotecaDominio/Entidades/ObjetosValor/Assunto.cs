@@ -12,5 +12,12 @@ namespace BibliotecaDominio.Entidades.ObjetosValor
         public string AssuntoObra { get; internal set; }
 
         public virtual IEnumerable<Livro> Livros { get; internal set; } //Relação um para muitos (um assunto - muitos livros)
+
+        public Assunto(int assuntoId, string assuntoObra)
+        {
+            AssuntoId = assuntoId;
+            AssuntoObra = assuntoObra;
+        }
+
     }
 }

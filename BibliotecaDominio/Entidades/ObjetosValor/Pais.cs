@@ -11,5 +11,11 @@ namespace BibliotecaDominio.Entidades.ObjetosValor
         public string NomePais { get; internal set; }
 
         public virtual IEnumerable<Estado> Estados { get; internal set; } //relação um para muitos (um pais - muitos estados)
+
+        public Pais(int paisId, string nomePais)
+        {
+            PaisId = paisId;
+            NomePais = nomePais;
+        }
     }
 }

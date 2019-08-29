@@ -12,5 +12,12 @@ namespace BibliotecaDominio.Entidades.ObjetosValor
 
         [Required, MaxLength(100)]
         public string Senha { get; internal set; }
+
+        public DadosLogin(int dadosLoginId, string login, string senha)
+        {
+            DadosLoginId = dadosLoginId;
+            Login = login;
+            Senha = senha;
+        }
     }
 }

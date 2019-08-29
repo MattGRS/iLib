@@ -125,6 +125,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contexto\BibliotecaContext.cs" />
+    <Compile Include="Contexto\ModelBuilderExtensions.cs" />
     <Compile Include="EntidadesConfig\EmprestimoConfig.cs" />
     <Compile Include="EntidadesConfig\ExemplarLivroConfig.cs" />
     <Compile Include="EntidadesConfig\PessoaConfig.cs" />

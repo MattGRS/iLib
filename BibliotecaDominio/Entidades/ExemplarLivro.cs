@@ -23,6 +23,14 @@ namespace BibliotecaDominio.Entidades
 
         public virtual IEnumerable<Emprestimo> Emprestimo { get; set; }
 
+        public ExemplarLivro(int exemplarLivroId, string registro, int numeroExemplar, int livroId)
+        {
+            ExemplarLivroId = exemplarLivroId;
+            Registro = registro;
+            NumeroExemplar = numeroExemplar;
+            LivroId = livroId;
+        }
+
         public void MarcaExemplarLivroComoDisponivel()
         {
             Status = StatusExemplarLivro.Disponivel;
