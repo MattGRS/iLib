@@ -41,9 +41,14 @@ namespace BibliotecaDominio.Entidades
 
         public virtual IEnumerable<Emprestimo> Emprestimo { get; set; }
 
+        public Pessoa()
+        {
+
+        }
         public Pessoa(int pessoaId, string nome, string cpf, int enderecoId, int dadosLoginId)
         {
             PessoaId = pessoaId;
+            Nome = nome;
             Cpf = cpf;
             EnderecoId = enderecoId;
             DadosLoginId = dadosLoginId;

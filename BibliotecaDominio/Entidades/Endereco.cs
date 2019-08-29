@@ -29,6 +29,11 @@ namespace BibliotecaDominio.Entidades
 
         public virtual IEnumerable<Editora> Editoras { get; internal set; } //relação um para muitos (um endereço - muitas editoras)
 
+        public Endereco()
+        {
+
+        }
+
         public Endereco(int enderecoId, string cep, string logradouro, string bairro, int municipioId)
         {
             EnderecoId = enderecoId;

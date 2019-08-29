@@ -86,7 +86,6 @@ namespace BibliotecaApresentacao.Controllers
             pessoaViewModel.Endereco.Municipio = Mapper.Map<Municipio, MunicipioViewModel>(_municipioAppServico.ObterPorId(pessoaViewModel.Endereco.MunicipioId));
             pessoaViewModel.Endereco.Municipio.Estado = Mapper.Map<Estado, EstadoViewModel>(_estadoAppServico.ObterPorId(pessoaViewModel.Endereco.Municipio.EstadoId));
             ViewBag.Estado = estadoViewModel;
-            ViewBag.Pessoa = pessoaViewModel;
 
             return View(pessoaViewModel);
         }

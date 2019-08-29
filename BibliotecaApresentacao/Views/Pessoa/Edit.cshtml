@@ -1,38 +1,39 @@
-﻿
+﻿@model BibliotecaApresentacao.ViewModels.PessoaViewModel
+
 @{
     ViewBag.Title = "Edit";
 }
 
-<form action="~/Pessoa/Edit/@ViewBag.Pessoa.PessoaId" method="post">
+<form action="~/Pessoa/Edit/@Model.PessoaId" method="post">
     <div class="col">
         <div class="row">
             <div class="col">
                 <label class="col-form-label" for="autor">Nome:</label>
-                <input class="form-control" id="autor" name="pessoaViewModel.Nome" value="@ViewBag.Pessoa.Nome" />
+                <input class="form-control" id="autor" name="pessoaViewModel.Nome" value="@Model.Nome" />
             </div>
             <div class="col">
                 <label class="col-form-label" for="cpf">CPF: </label>
-                <input class="form-control" id="cpf" name="pessoaViewModel.Cpf" value="@ViewBag.Pessoa.Cpf"/>
+                <input class="form-control" id="cpf" name="pessoaViewModel.Cpf" value="@Model.Cpf"/>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <label class="col-form-label" for="dataNascimento">Data de Nascimento:</label>
-                <input type="date" id="dataNascimento" class="form-control" name="pessoaViewModel.DataDeNascimento" value="@ViewBag.Pessoa.DataDeNascimento"/>
+                <input type="date" id="dataNascimento" class="form-control" name="pessoaViewModel.DataDeNascimento" value="@Model.DataDeNascimento"/>
             </div>
             <div class="col">
                 <label class="col-form-label" for="idade">Idade:</label>
-                <input id="idade" class="form-control" name="pessoaViewModel.Idade" value="@ViewBag.Pessoa.Idade"/>
+                <input id="idade" class="form-control" name="pessoaViewModel.Idade" value="@Model.Idade"/>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <label class="col-form-label" for="profissao">Profissão: </label>
-                <input class="form-control" id="profissao" name="pessoaViewModel.Profissao" value="@ViewBag.Pessoa.Profissao"/>
+                <input class="form-control" id="profissao" name="pessoaViewModel.Profissao" value="@Model.Profissao"/>
             </div>
             <div class="col">
                 <label class="col-form-label" for="telefone">Telefone: </label>
-                <input class="form-control" id="telefone" name="pessoaViewModel.Telefone" value="@ViewBag.Pessoa.Telefone"/>
+                <input class="form-control" id="telefone" name="pessoaViewModel.Telefone" value="@Model.Telefone"/>
             </div>
         </div>
         <div class="row">
@@ -42,7 +43,7 @@
                     <option>Selecione um Estado...</option>
                     @foreach (var estado in ViewBag.Estado)
                     {
-                        <option value="@estado.EstadoId" selected="@estado.EstadoId.Equals(ViewBag.Pessoa.Endereco.Municipio.EstadoId)">@estado.NomeEstado</option>
+                        <option value="@estado.EstadoId" selected="@estado.EstadoId.Equals(Model.Endereco.Municipio.EstadoId)">@estado.NomeEstado</option>
                     }
                 </select>
             </div>
@@ -50,7 +51,7 @@
                 <label class="col-form-label" for="municipio">Município: </label>
                 <select class="form-control" id="municipio">
                     <option>Selecione um Município...</option>
-                    <option value="@ViewBag.Pessoa.Endereco.MunicipioId">@ViewBag.Pessoa.Endereco.Municipio.NomeMunicipio</option>
+                    <option value="@Model.Endereco.MunicipioId">@Model.Endereco.Municipio.NomeMunicipio</option>
                 </select>
             </div>
         </div>
@@ -59,13 +60,13 @@
                 <label class="col-form-label" for="endereco">Endereço: </label>
                 <select class="form-control col-md-9" id="endereco" name="pessoaViewModel.EnderecoId">
                     <option>Escolha um Endereço...</option>
-                    <option value="@ViewBag.Pessoa.EnderecoId">@ViewBag.Pessoa.Endereco.Logradouro, @ViewBag.Pessoa.Endereco.NumeroResidencial - @ViewBag.Pessoa.Endereco.Bairro</option>
+                    <option value="@Model.EnderecoId">@Model.Endereco.Logradouro, @Model.Endereco.NumeroResidencial - @Model.Endereco.Bairro</option>
                 </select>
             </div>
         </div>
     </div>
     <div class="col">
-        <a class="btn btn-warning btn-form" formnovalidate="formnovalidate" href="~/Pessoa/Details/@ViewBag.Pessoa.PessoaId">Voltar</a>
+        <a class="btn btn-warning btn-form" formnovalidate="formnovalidate" href="~/Pessoa/Details/@Model.PessoaId">Voltar</a>
         <input class="btn btn-success btn-form" type="submit" value="Salvar" />
     </div>
 </form>

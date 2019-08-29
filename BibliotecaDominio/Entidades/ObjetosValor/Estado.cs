@@ -16,6 +16,11 @@ namespace BibliotecaDominio.Entidades.ObjetosValor
 
         public virtual IEnumerable<Municipio> Municipios { get; internal set; } //relação muitos para um (um estado - muitos municipios)
 
+        public Estado()
+        {
+
+        }
+
         public Estado(int estadoId, string estadoNome, int paisId)
         {
             EstadoId = estadoId;
