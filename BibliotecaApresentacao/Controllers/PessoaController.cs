@@ -34,7 +34,7 @@ namespace BibliotecaApresentacao.Controllers
         public ActionResult Details(int id)
         {
             var pessoaViewModel = Mapper.Map<Pessoa, PessoaViewModel>(_pessoaAppServico.ObterPorId(id));
-            MapeiaEndereco(pessoaViewModel);
+            MapeiaEnderecoDePessoa(pessoaViewModel);
             ViewBag.Pessoa = pessoaViewModel;
             ViewBag.Endereco = $"{pessoaViewModel.Endereco.Logradouro}, " +
                 $"{pessoaViewModel.Endereco.NumeroResidencial}" +
@@ -82,9 +82,7 @@ namespace BibliotecaApresentacao.Controllers
             var pessoaEntidade = _pessoaAppServico.ObterPorId(id);
             var pessoaViewModel = Mapper.Map<Pessoa, PessoaViewModel>(pessoaEntidade);
             var estadoViewModel = Mapper.Map<IEnumerable<Estado>, IEnumerable<EstadoViewModel>>(_estadoAppServico.ObterTodos());
-            pessoaViewModel.Endereco = Mapper.Map<Endereco, EnderecoViewModel>(_enderecoAppServico.ObterPorId(pessoaViewModel.EnderecoId));
-            pessoaViewModel.Endereco.Municipio = Mapper.Map<Municipio, MunicipioViewModel>(_municipioAppServico.ObterPorId(pessoaViewModel.Endereco.MunicipioId));
-            pessoaViewModel.Endereco.Municipio.Estado = Mapper.Map<Estado, EstadoViewModel>(_estadoAppServico.ObterPorId(pessoaViewModel.Endereco.Municipio.EstadoId));
+            MapeiaEnderecoDePessoa(pessoaViewModel);
             ViewBag.Estado = estadoViewModel;
 
             return View(pessoaViewModel);
@@ -98,7 +96,7 @@ namespace BibliotecaApresentacao.Controllers
             return RedirectToAction("Index");
         }
 
-        private void MapeiaEndereco(PessoaViewModel pessoaViewModel)
+        private void MapeiaEnderecoDePessoa(PessoaViewModel pessoaViewModel)
         {
             pessoaViewModel.Endereco = Mapper.Map<Endereco, EnderecoViewModel>(_enderecoAppServico.ObterPorId(pessoaViewModel.EnderecoId));
             pessoaViewModel.Endereco.Municipio = Mapper.Map<Municipio, MunicipioViewModel>(_municipioAppServico.ObterPorId(pessoaViewModel.Endereco.MunicipioId));
