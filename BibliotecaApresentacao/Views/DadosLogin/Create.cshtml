@@ -12,7 +12,7 @@
             <div class="col">
                 @Html.LabelFor(model => model.Login, "*Login:", new { @class = "col-form-label" })
                 @Html.EditorFor(model => model.Login, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Login, "ttt", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
             </div>
             <div class="col">
                 @Html.LabelFor(model => model.Senha, "*Senha:", new { @class = "col-form-label" })
@@ -22,8 +22,8 @@
         </div>
     </div>
     <div class="col">
-        <a href="~/Pessoa/Index" class="btn btn-danger btn-form">Cancelar</a>
-        <input type="submit" class="btn btn-primary btn-form" value="Próximo" />
+        <a href="~/Pessoa/Index" class="btn btn-danger btn-sm btn-form">Cancelar</a>
+        <input type="submit" class="btn btn-primary btn-sm btn-form" value="Próximo" />
     </div>
 
 }

@@ -79,11 +79,9 @@ namespace BibliotecaApresentacao.Controllers
 
         public ActionResult Edit(int id)
         {
-            var pessoaEntidade = _pessoaAppServico.ObterPorId(id);
-            var pessoaViewModel = Mapper.Map<Pessoa, PessoaViewModel>(pessoaEntidade);
-            var estadoViewModel = Mapper.Map<IEnumerable<Estado>, IEnumerable<EstadoViewModel>>(_estadoAppServico.ObterTodos());
+            var pessoaViewModel = Mapper.Map<Pessoa, PessoaViewModel>(_pessoaAppServico.ObterPorId(id));
             MapeiaEnderecoDePessoa(pessoaViewModel);
-            ViewBag.Estado = estadoViewModel;
+            ViewBag.Estado = _estadoAppServico.ObterTodos();
 
             return View(pessoaViewModel);
         }

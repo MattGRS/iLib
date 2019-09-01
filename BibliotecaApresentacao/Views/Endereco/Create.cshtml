@@ -16,7 +16,7 @@
                     @Html.ValidationMessageFor(model => model.CEP, "", new { @class = "text-danger" })
                 </div>
                 <div class="col-sm-1" style="padding-top: 25px;">
-                    <button formnovalidate="formnovalidate" type="button" class="btn btn-primary btn-form float-left";" onclick="pesquisacep(cep.value)">Buscar</button>
+                    <button formnovalidate="formnovalidate" type="button" class="btn btn-primary btn-sm btn-form float-left";" onclick="pesquisacep(cep.value)">Buscar</button>
                 </div>
             </div>
             <div>
@@ -61,8 +61,8 @@
             </div>
         </div>
         <div class="col">
-            <a class="btn btn-danger btn-form" href="~/Endereco/Index">Cancelar</a>
-            <input class="btn btn-primary btn-form" type="submit" value="Salvar" />
+            <a class="btn btn-danger btn-sm btn-form" href="~/Endereco/Index">Cancelar</a>
+            <input class="btn btn-primary btn-sm btn-form" type="submit" value="Salvar" />
         </div>
     </div>
 }

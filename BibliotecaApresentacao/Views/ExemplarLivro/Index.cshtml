@@ -14,8 +14,8 @@
             <h4>@ViewBag.LivroTitulo</h4>
         </div>
         <div class="col-2">
-            <a class="btn btn-warning btn-form" href="~/Livro/Details/@ViewBag.LivroId">Voltar</a>
-            <a class="btn btn-primary btn-form" href="~/ExemplarLivro/Create/@ViewBag.LivroId">Novo</a>
+            <a class="btn btn-warning btn-sm btn-form" href="~/Livro/Details/@ViewBag.LivroId">Voltar</a>
+            <a class="btn btn-primary btn-sm btn-form" href="~/ExemplarLivro/Create/@ViewBag.LivroId">Novo</a>
         </div>
     </div>
 </div>
@@ -53,26 +53,26 @@
                 @if (exemplarLivro.Status == StatusExemplarLivro.Disponivel)
                 {
                     <td class="col-md-1">
-                        <a class="btn btn-info float-right" href="~/Emprestimo/CreateStep1/@exemplarLivro.ExemplarLivroId">Emprestar</a>
+                        <a class="btn btn-info btn-sm float-right" href="~/Emprestimo/CreateStep1/@exemplarLivro.ExemplarLivroId">Emprestar</a>
                     </td>
                 }
                 @if (exemplarLivro.Status == StatusExemplarLivro.Reservado)
                 {
                     <td class="col-md-2">
-                        <a class="btn btn-info float-right" href="#">Retirar Reserva</a>
+                        <a class="btn btn-info btn-sm float-right" href="#">Retirar Reserva</a>
                     </td>
                 }
                 @if (exemplarLivro.Status == StatusExemplarLivro.Indisponivel)
                 {
                     <td class="col-md-1">
-                        <a class="btn btn-info float-right" href="~/Emprestimo/Return/@exemplarLivro.ExemplarLivroId">Devolver</a>
+                        <a class="btn btn-info btn-sm float-right" href="~/Emprestimo/Return/@exemplarLivro.ExemplarLivroId">Devolver</a>
                     </td>
                 }
                 <td class="col-md-1">
-                    <a class="btn btn-warning float-right" href="~/ExemplarLivro/Edit/@exemplarLivro.ExemplarLivroId">Editar</a>
+                    <a class="btn btn-warning btn-sm float-right" href="~/ExemplarLivro/Edit/@exemplarLivro.ExemplarLivroId">Editar</a>
                 </td>
                 <td class="col-md-1">
-                    <a class="btn btn-danger float-right" href="~/ExemplarLivro/Delete/@exemplarLivro.ExemplarLivroId">Remover</a>
+                    <a class="btn btn-danger btn-sm float-right" href="~/ExemplarLivro/Delete/@exemplarLivro.ExemplarLivroId">Remover</a>
                 </td>
             </tr>
         }

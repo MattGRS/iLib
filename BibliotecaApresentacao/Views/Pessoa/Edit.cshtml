@@ -4,36 +4,44 @@
     ViewBag.Title = "Edit";
 }
 
-<form action="~/Pessoa/Edit/@Model.PessoaId" method="post">
+@using (Html.BeginForm($"Edit/{Model.PessoaId}", "Pessoa", FormMethod.Post))
+{
+    <input hidden name="DadosLoginId" value="@Model.DadosLoginId"/>
     <div class="col">
         <div class="row">
             <div class="col">
-                <label class="col-form-label" for="autor">Nome:</label>
-                <input class="form-control" id="autor" name="pessoaViewModel.Nome" value="@Model.Nome" />
+                @Html.LabelFor(x => x.Nome, "Nome Completo: ", new { @class = "col-form-label" })
+                @Html.EditorFor(x => x.Nome, new { htmlAttributes = new { @class = "form-control", @value = Model.Nome } })
+                @Html.ValidationMessageFor(x => x.Nome, "", new { @class = "text-danger" })
             </div>
             <div class="col">
-                <label class="col-form-label" for="cpf">CPF: </label>
-                <input class="form-control" id="cpf" name="pessoaViewModel.Cpf" value="@Model.Cpf"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <label class="col-form-label" for="dataNascimento">Data de Nascimento:</label>
-                <input type="date" id="dataNascimento" class="form-control" name="pessoaViewModel.DataDeNascimento" value="@Model.DataDeNascimento"/>
-            </div>
-            <div class="col">
-                <label class="col-form-label" for="idade">Idade:</label>
-                <input id="idade" class="form-control" name="pessoaViewModel.Idade" value="@Model.Idade"/>
+                @Html.LabelFor(x => x.Cpf, "CPF: ", new { @class = "col-form-label" })
+                @Html.EditorFor(x => x.Cpf, new { htmlAttributes = new { @class = "form-control", @value = Model.Cpf } })
+                @Html.ValidationMessageFor(x => x.Cpf, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label class="col-form-label" for="profissao">Profissão: </label>
-                <input class="form-control" id="profissao" name="pessoaViewModel.Profissao" value="@Model.Profissao"/>
+                @Html.LabelFor(x => x.DataDeNascimento, "Data de Nascimento: ", new { @class = "col-form-label" })
+                @Html.EditorFor(x => x.DataDeNascimento, new { htmlAttributes = new { @class = "form-control", @value = Model.DataDeNascimento, @type = "date" } })
+                @Html.ValidationMessageFor(x => x.DataDeNascimento, "", new { @class = "text-danger" })
             </div>
             <div class="col">
-                <label class="col-form-label" for="telefone">Telefone: </label>
-                <input class="form-control" id="telefone" name="pessoaViewModel.Telefone" value="@Model.Telefone"/>
+                @Html.LabelFor(x => x.Idade, "Idade: ", new { @class = "col-form-label" })
+                @Html.EditorFor(x => x.Idade, new { htmlAttributes = new { @class = "form-control", @value = Model.Idade } })
+                @Html.ValidationMessageFor(x => x.Idade, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                @Html.LabelFor(x => x.Profissao, "Profissão: ", new { @class = "col-form-label" })
+                @Html.EditorFor(x => x.Profissao, new { htmlAttributes = new { @class = "form-control", @value = Model.Profissao } })
+                @Html.ValidationMessageFor(x => x.Profissao, "", new { @class = "text-danger" })
+            </div>
+            <div class="col">
+                @Html.LabelFor(x => x.Telefone, "Telefone: ", new { @class = "col-form-label" })
+                @Html.EditorFor(x => x.Telefone, new { htmlAttributes = new { @class = "form-control", @value = Model.Telefone } })
+                @Html.ValidationMessageFor(x => x.Telefone, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="row">
@@ -50,32 +58,98 @@
             <div class="col">
                 <label class="col-form-label" for="municipio">Município: </label>
                 <select class="form-control" id="municipio">
-                    <option>Selecione um Município...</option>
-                    <option value="@Model.Endereco.MunicipioId">@Model.Endereco.Municipio.NomeMunicipio</option>
+                    <option>@Model.Endereco.Municipio.NomeMunicipio</option>
                 </select>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <label class="col-form-label" for="endereco">Endereço: </label>
-                <select class="form-control col-md-9" id="endereco" name="pessoaViewModel.EnderecoId">
-                    <option>Escolha um Endereço...</option>
-                    <option value="@Model.EnderecoId">@Model.Endereco.Logradouro, @Model.Endereco.NumeroResidencial - @Model.Endereco.Bairro</option>
+                <select class="form-control col-md-9" id="endereco" name="EnderecoId">
+                    <option>@Model.Endereco.Logradouro, @Model.Endereco.NumeroResidencial - @Model.Endereco.Bairro</option>
                 </select>
             </div>
         </div>
     </div>
     <div class="col">
-        <a class="btn btn-warning btn-form" formnovalidate="formnovalidate" href="~/Pessoa/Details/@Model.PessoaId">Voltar</a>
-        <input class="btn btn-success btn-form" type="submit" value="Salvar" />
+        <input class="btn btn-success btn-sm btn-form" type="submit" value="Salvar" />
+        <a class="btn btn-warning btn-sm btn-form" formnovalidate="formnovalidate" href="~/Pessoa/Index">Voltar</a>
     </div>
-</form>
+}
+
+<!--------------------------------------------------------Form HTML------------------------------------------------------------------------------------->
+@*<form action="~/Pessoa/Edit/@Model.PessoaId" method="post">
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <label class="col-form-label" for="autor">Nome:</label>
+                    <input class="form-control" id="autor" name="pessoaViewModel.Nome" value="@Model.Nome" />
+                </div>
+                <div class="col">
+                    <label class="col-form-label" for="cpf">CPF: </label>
+                    <input class="form-control" id="cpf" name="pessoaViewModel.Cpf" value="@Model.Cpf"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="col-form-label" for="dataNascimento">Data de Nascimento:</label>
+                    <input type="date" id="dataNascimento" class="form-control" name="pessoaViewModel.DataDeNascimento" value="@Model.DataDeNascimento"/>
+                </div>
+                <div class="col">
+                    <label class="col-form-label" for="idade">Idade:</label>
+                    <input id="idade" class="form-control" name="pessoaViewModel.Idade" value="@Model.Idade"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="col-form-label" for="profissao">Profissão: </label>
+                    <input class="form-control" id="profissao" name="pessoaViewModel.Profissao" value="@Model.Profissao"/>
+                </div>
+                <div class="col">
+                    <label class="col-form-label" for="telefone">Telefone: </label>
+                    <input class="form-control" id="telefone" name="pessoaViewModel.Telefone" value="@Model.Telefone"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="col-form-label" for="estado">Estado: </label>
+                    <select class="form-control" id="estado">
+                        <option>Selecione um Estado...</option>
+                        @foreach (var estado in ViewBag.Estado)
+                        {
+                            <option value="@estado.EstadoId" selected="@estado.EstadoId.Equals(Model.Endereco.Municipio.EstadoId)">@estado.NomeEstado</option>
+                        }
+                    </select>
+                </div>
+                <div class="col">
+                    <label class="col-form-label" for="municipio">Município: </label>
+                    <select class="form-control" id="municipio">
+                        <option>Selecione um Município...</option>
+                        <option value="@Model.Endereco.MunicipioId">@Model.Endereco.Municipio.NomeMunicipio</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="col-form-label" for="endereco">Endereço: </label>
+                    <select class="form-control col-md-9" id="endereco" name="pessoaViewModel.EnderecoId">
+                        <option>Escolha um Endereço...</option>
+                        <option value="@Model.EnderecoId">@Model.Endereco.Logradouro, @Model.Endereco.NumeroResidencial - @Model.Endereco.Bairro</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <a class="btn btn-warning btn-sm btn-form" formnovalidate="formnovalidate" href="~/Pessoa/Details/@Model.PessoaId">Voltar</a>
+            <input class="btn btn-success btn-sm btn-form" type="submit" value="Salvar" />
+        </div>
+    </form>*@
 
 <script src="~/Scripts/jquery-3.3.1.js"></script>
 <script>
-        $(document).ready(function () {
+    $(document).ready(function () {
         $("#estado").change(function () {
-             var id = $(this).children("option:selected").val();
+            var id = $(this).children("option:selected").val();
             $.ajax({
                 url: "/Editora/SelecionarMunicipios/" + id,
                 dataType: "JSON",
@@ -92,7 +166,7 @@
 
     $(document).ready(function () {
         $("#municipio").change(function () {
-             var id = $(this).children("option:selected").val();
+            var id = $(this).children("option:selected").val();
             $.ajax({
                 url: "/Editora/SelecionarEnderecos/" + id,
                 dataType: "JSON",
