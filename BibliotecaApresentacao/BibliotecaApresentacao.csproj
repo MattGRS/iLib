@@ -275,6 +275,7 @@
     <Content Include="Content\js\demo\datatables-demo.js" />
     <Content Include="Content\js\BuscaCep.js" />
     <Content Include="Content\js\gulpfile.js" />
+    <Content Include="Content\js\pesquisa.js" />
     <Content Include="Content\js\sb-admin-2.js" />
     <Content Include="Content\js\sb-admin-2.min.js" />
     <Content Include="Content\LoginPackage\css\coming-soon.css" />

@@ -12,7 +12,7 @@ textarea {
     max-width: 280px;
 }
 
-.btn-form{
+.btn-form {
     margin: 10px;
     margin-left: 0px;
 }
@@ -23,8 +23,7 @@ textarea {
 }
 
 .some {
-    opacity: 0;
-    fill-opacity: 0;
+    display: none;
 }
 
 .masthead .masthead-bg {
@@ -42,13 +41,12 @@ textarea {
     color: white;
 }
 
-.btn-login:hover {
-    background-color: #2145a8;
-    border-color: #2145a8;
-    color: white;
-}
+    .btn-login:hover {
+        background-color: #2145a8;
+        border-color: #2145a8;
+        color: white;
+    }
 
 body {
     font-family: 'Source Sans Pro', sans-serif;
 }
-

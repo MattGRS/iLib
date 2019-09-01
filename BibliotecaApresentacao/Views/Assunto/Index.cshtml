@@ -22,8 +22,8 @@
     <tbody>
         @foreach (var assunto in Model)
         {
-            <tr>
-                <td>@assunto.AssuntoObra</td>
+            <tr class="busca">
+                <td class="info-nome">@assunto.AssuntoObra</td>
                 <td class="col-md-1">
                     <a class="btn btn-warning btn-sm float-right" href="~/Assunto/Edit/@assunto.AssuntoId">Editar</a>
                 </td>

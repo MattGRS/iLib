@@ -34,10 +34,10 @@ namespace BibliotecaApresentacao.Controllers
             if (usuario != null)
             {
                 Session["usuarioAutenticado"] = usuario;
+                Session["usuarioId"] = usuario.DadosLoginId;
                 var pessoa = BuscarPessoaPorUsuario(usuario);
-
+                Session["pessoaId"] = pessoa.PessoaId;
                 Session["Nome"] = pessoa.Nome;
-
                 return RedirectToAction("Index", "Home");
             }
             ModelState.AddModelError("Login", "login inválido.");
@@ -82,7 +82,7 @@ namespace BibliotecaApresentacao.Controllers
         private Pessoa BuscarPessoaPorUsuario(DadosLogin dadosLogin)
         {
             var pessoa = _pessoaAppServico.ObterTodos();
-            var pessoaProcurado = pessoa.First(x => x.DadosLoginId == dadosLogin.DadosLoginId);
+            var pessoaProcurado = pessoa.FirstOrDefault(x => x.DadosLoginId == dadosLogin.DadosLoginId);
             return pessoaProcurado;
         }
     }
