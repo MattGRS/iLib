@@ -46,11 +46,10 @@ namespace BibliotecaApresentacao.Controllers
 
         public ActionResult Create(int id)
         {
-            var estadoViewModel = Mapper.Map<IEnumerable<Estado>, IEnumerable<EstadoViewModel>>(_estadoAppServico.ObterTodos());
-            ViewBag.Estado = estadoViewModel;
-            ViewBag.UsuarioId = id;
+            GeraViewBagCreate(id);
             return View();
         }
+
         [HttpPost]
         public ActionResult Create(int id, PessoaViewModel pessoaViewModel)
         {
@@ -62,6 +61,8 @@ namespace BibliotecaApresentacao.Controllers
 
                 return RedirectToAction("Index");
             }
+
+            GeraViewBagCreate(id);
 
             return View(pessoaViewModel);
         }
@@ -99,6 +100,13 @@ namespace BibliotecaApresentacao.Controllers
             pessoaViewModel.Endereco = Mapper.Map<Endereco, EnderecoViewModel>(_enderecoAppServico.ObterPorId(pessoaViewModel.EnderecoId));
             pessoaViewModel.Endereco.Municipio = Mapper.Map<Municipio, MunicipioViewModel>(_municipioAppServico.ObterPorId(pessoaViewModel.Endereco.MunicipioId));
             pessoaViewModel.Endereco.Municipio.Estado = Mapper.Map<Estado, EstadoViewModel>(_estadoAppServico.ObterPorId(pessoaViewModel.Endereco.Municipio.EstadoId));   
+        }
+
+        private void GeraViewBagCreate(int id)
+        {
+            var estadoViewModel = Mapper.Map<IEnumerable<Estado>, IEnumerable<EstadoViewModel>>(_estadoAppServico.ObterTodos());
+            ViewBag.Estado = estadoViewModel;
+            ViewBag.UsuarioId = id;
         }
     }
 }

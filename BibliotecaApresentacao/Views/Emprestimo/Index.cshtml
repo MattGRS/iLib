@@ -19,10 +19,10 @@
     <tbody>
         @foreach (var emprestimo in Model)
         {
-            <tr>
+            <tr class="busca">
                 <td scope="col" class="col-md-1">@emprestimo.DataEmprestimo.ToShortDateString()</td>
                 <td scope="col" class="col-md-1">@emprestimo.DataDevolucaoPrevista.ToShortDateString()</td>
-                <td scope="col" class="col-md-3">@emprestimo.ExemplarLivro.Livro.Titulo</td>
+                <td scope="col" class="col-md-3 info-nome">@emprestimo.ExemplarLivro.Livro.Titulo</td>
                 <td scope="col" class="col-md-3">@emprestimo.Pessoa.Nome</td>
                 <td class="col-md-1">
                     <a class="btn btn-secondary btn-sm float-right" href="~/Emprestimo/Details/@emprestimo.EmprestimoId">[+] mais</a>

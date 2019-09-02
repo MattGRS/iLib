@@ -20,8 +20,8 @@
     <tbody>
         @foreach (var localizacao in Model)
         {
-            <tr>
-                <td>@localizacao.LocalizacaoObra</td>
+            <tr class="busca">
+                <td class="info-nome">@localizacao.LocalizacaoObra</td>
                 <td class="col-md-1">
                     <a class="btn btn-warning btn-sm float-right" href="~/Localizacao/Edit/@localizacao.LocalizacaoId">Editar</a>
                 </td>

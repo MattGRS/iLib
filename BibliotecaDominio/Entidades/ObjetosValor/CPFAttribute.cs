@@ -3,8 +3,23 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BibliotecaDominio.Entidades.ObjetosValor
 {
-    public class CPF
+    public class CPFAttribute : ValidationAttribute
     {
+        public CPFAttribute()
+        {
+
+        }
+
+        public override bool IsValid(object value)
+        {
+            if (value == null || string.IsNullOrEmpty(value.ToString()))
+            {
+                return false;
+            }
+            bool valid = IsCPF(value.ToString());
+            return valid;
+        }
+
         public bool IsCPF(string cpf)
         {
             int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
@@ -17,12 +32,12 @@ namespace BibliotecaDominio.Entidades.ObjetosValor
             cpf = cpf.Trim();
             cpf = cpf.Replace(".", "").Replace("-", "");
 
-            if (cpf.Length != 11)
+            if (cpf.Length == 0)
             {
                 return false;
             }
-            //Desenvolver uma lógica para retornar falso se os valores da string forem iguais
-            if (cpf == "00000000000")
+
+            if (cpf.Length != 11)
             {
                 return false;
             }
@@ -70,7 +85,11 @@ namespace BibliotecaDominio.Entidades.ObjetosValor
 
             digito += resto.ToString();
 
-            return cpf.EndsWith(digito);
+            if (!cpf.EndsWith(digito))
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

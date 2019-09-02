@@ -25,8 +25,8 @@
     <tbody>
         @foreach (var editora in Model)
         {
-            <tr>
-                <td>@editora.NomeEditora</td>
+            <tr class="busca">
+                <td class="info-nome">@editora.NomeEditora</td>
                 <td>@editora.Endereco.Municipio.NomeMunicipio</td>
                 <td>@editora.Endereco.Municipio.Estado.NomeEstado</td>
                 <td>

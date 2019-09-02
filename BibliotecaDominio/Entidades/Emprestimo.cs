@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BibliotecaDominio.Entidades.ObjetosValor;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -17,6 +18,7 @@ namespace BibliotecaDominio.Entidades
         public int ExemplarLivroId { get; set; }
 
         public int PessoaId { get; set; }
+        public StatusEmprestimo Status { get; internal set; }
 
         public virtual ExemplarLivro ExemplarLivro { get; set; }
 
@@ -25,12 +27,14 @@ namespace BibliotecaDominio.Entidades
         public void Devolver()
         {
             DataDevolucaoRealizada = DateTime.Now;
+            Status = StatusEmprestimo.Finalizado;
         }
 
         public void Emprestar()
         {
             DataEmprestimo = DateTime.Now;
             DataDevolucaoPrevista = DateTime.Now.AddDays(7);
+            Status = StatusEmprestimo.Aberto;
 
             DataDevolucaoPrevistaIsOnWeekend();
         }

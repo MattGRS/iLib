@@ -22,8 +22,8 @@
     <tbody>
         @foreach (var pessoa in Model)
         {
-            <tr>
-                <td>@pessoa.Nome</td>
+            <tr class="busca">
+                <td class="info-nome">@pessoa.Nome</td>
                 <td>@pessoa.Cpf</td>
                 <td >@pessoa.DataDeNascimento.ToShortDateString()</td>
                 <td>

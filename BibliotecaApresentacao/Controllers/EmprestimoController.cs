@@ -48,7 +48,7 @@ namespace BibliotecaApresentacao.Controllers
         }
         public ActionResult Index()
         {
-            var emprestimoViewModel = Mapper.Map<IEnumerable<Emprestimo>, IEnumerable<EmprestimoViewModel>>(_emprestimoAppServico.ObterTodos());
+            var emprestimoViewModel = Mapper.Map<IEnumerable<Emprestimo>, IEnumerable<EmprestimoViewModel>>(_emprestimoAppServico.ObterTodos().OrderByDescending(m => m.DataEmprestimo));
 
             foreach (var emprestimo in emprestimoViewModel)
             {
@@ -75,10 +75,15 @@ namespace BibliotecaApresentacao.Controllers
             var listaUsuarioViewModel = Mapper.Map<IEnumerable<Pessoa>, IEnumerable<PessoaViewModel>>(_pessoaAppServico.ObterTodos());
             emprestimoViewModel.Pessoa = listaUsuarioViewModel
                 .Where(p => p.Cpf == emprestimoViewModel.Pessoa.Cpf)
-                .First();
-            MapearUmExemplar(emprestimoViewModel);
+                .FirstOrDefault();
+            if (emprestimoViewModel.Pessoa != null)
+            {
+                MapearUmExemplar(emprestimoViewModel);
 
-            return View(emprestimoViewModel);
+                return View(emprestimoViewModel);
+            }
+
+            return RedirectToAction($"CreateStep1/{emprestimoViewModel.ExemplarLivroId}");
         }
 
         public ActionResult Confirm(EmprestimoViewModel emprestimoViewModel)

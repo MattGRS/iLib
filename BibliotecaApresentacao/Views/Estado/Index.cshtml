@@ -20,8 +20,8 @@
     <tbody>
         @foreach (var estado in Model)
         {
-            <tr>
-                <td>@estado.NomeEstado</td>
+            <tr class="busca">
+                <td class="info-nome">@estado.NomeEstado</td>
                 <td class="col-md-1">
                     <a class="btn btn-warning btn-sm float-right" href="~/Estado/Edit/@estado.EstadoId">Editar</a>
                 </td>

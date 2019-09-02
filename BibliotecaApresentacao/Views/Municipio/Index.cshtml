@@ -20,8 +20,8 @@
     <tbody>
         @foreach (var municipio in Model)
         {
-            <tr>
-                <td>@municipio.NomeMunicipio</td>
+            <tr class="busca">
+                <td class="info-nome">@municipio.NomeMunicipio</td>
                 <td class="col-md-1">
                     <a class="btn btn-warning btn-sm float-right" href="~/Municipio/Edit/@municipio.MunicipioId">Editar</a>
                 </td>

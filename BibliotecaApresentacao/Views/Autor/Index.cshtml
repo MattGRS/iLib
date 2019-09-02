@@ -3,6 +3,15 @@
     ViewBag.Title = "Index";
 }
 
+@if (TempData["msg"] != null)
+{
+    <span id="mensagem" class="alert-danger alert-heading">
+        <div class="alert alert-danger" role="alert">
+            @TempData["msg"]
+        </div>
+    </span>
+}
+
 <div class="col">
     <div class="row">
         <div class="col-10">
@@ -15,15 +24,13 @@
 </div>
 <table class="table table-hover">
     <thead>
-        <tr>
-
-        </tr>
+        <tr></tr>
     </thead>
     <tbody>
         @foreach (var autor in Model)
         {
-            <tr>
-                <td>@autor.NomeAutor</td>
+            <tr class="busca">
+                <td class="info-nome">@autor.NomeAutor</td>
                 <td class="col-md-1">
                     <a class="btn btn-warning btn-sm float-right" href="~/Autor/Edit/@autor.AutorId">Editar</a>
                 </td>

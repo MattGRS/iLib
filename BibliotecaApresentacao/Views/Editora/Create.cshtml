@@ -12,7 +12,7 @@
         <div>
             @Html.LabelFor(model => model.NomeEditora, "*Nome Fantasia: ", new { @class = "col-form-label"})
             @Html.EditorFor(model => model.NomeEditora, new { htmlAttributes = new {@class = "form-control col-md-5", @required = "", @autofocus = ""}})
-            @Html.ValidationMessageFor(model => model.NomeEditora, "", new {@class = "text-danger" });
+            @Html.ValidationMessageFor(model => model.NomeEditora, "", new {@class = "text-danger" })
         </div>
         <div class="row">
             <div class="col-md-4">

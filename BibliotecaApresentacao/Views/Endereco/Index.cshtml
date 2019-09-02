@@ -24,9 +24,9 @@
     <tbody>
         @foreach (var endereco in Model)
         {
-            <tr>
+            <tr class="busca">
                 <td>@endereco.CEP</td>
-                <td>@endereco.Logradouro</td>
+                <td class="info-nome">@endereco.Logradouro</td>
                 <td>@endereco.NumeroResidencial</td>
                 <td>
                     <a class="btn btn-secondary btn-sm btn-form float-right" href="~/Endereco/Details/@endereco.EnderecoId">[+] mais</a>

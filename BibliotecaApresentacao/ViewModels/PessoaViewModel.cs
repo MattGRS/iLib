@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BibliotecaDominio.Entidades.ObjetosValor;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -14,9 +15,8 @@ namespace BibliotecaApresentacao.ViewModels
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "Campo CPF é obrigatório.")]
+        [CPF(ErrorMessage = "CPF inválido")]
         public string Cpf { get; set; }
-
-        public virtual CpfViewModel _CPF { get; set; }
 
         [DataType(DataType.DateTime, ErrorMessage = "Data inválida.")]
         [DisplayFormat(DataFormatString = "{0: dd/MM/yyyy}", ApplyFormatInEditMode = true)]

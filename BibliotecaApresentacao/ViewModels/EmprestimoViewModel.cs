@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BibliotecaDominio.Entidades.ObjetosValor;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace BibliotecaApresentacao.ViewModels
@@ -23,5 +24,7 @@ namespace BibliotecaApresentacao.ViewModels
         public int PessoaId { get; set; }
 
         public virtual PessoaViewModel Pessoa { get; set; }
+
+        public StatusEmprestimo Status { get; set; }
     }
 }

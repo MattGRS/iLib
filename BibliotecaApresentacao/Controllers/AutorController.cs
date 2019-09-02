@@ -49,7 +49,9 @@ namespace BibliotecaApresentacao.Controllers
                 return RedirectToAction("Index");
             }
 
-            return RedirectToAction("Index", "Erro", new { msg = $"O Iten {autorEntidade.NomeAutor} não pode ser removido pois existe um livro vinculado" });
+            TempData["msg"] = $"O Iten {autorEntidade.NomeAutor} não pode ser removido pois existe um livro vinculado";
+
+            return RedirectToAction("Index");
         }
 
         public ActionResult Edit(int id)

@@ -19,7 +19,7 @@ namespace BibliotecaDominio.Entidades
 
         public StatusExemplarLivro Status { get; internal set; }
 
-        public virtual Livro Livro { get; internal set; } //FK de Livro
+        public virtual Livro Livro { get; set; } //FK de Livro
 
         public virtual IEnumerable<Emprestimo> Emprestimo { get; set; }
 

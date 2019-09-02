@@ -28,8 +28,8 @@
     <tbody>
         @foreach (var livro in Model)
         {
-            <tr>
-                <td scope="col">@livro.Titulo</td>
+            <tr class="busca">
+                <td scope="col" class="info-nome">@livro.Titulo</td>
                 <td scope="col">@livro.Autor.NomeAutor</td>
                 <td scope="col">@livro.Editora.NomeEditora</td>
                 <td scope="col">@livro.Assunto.AssuntoObra</td>

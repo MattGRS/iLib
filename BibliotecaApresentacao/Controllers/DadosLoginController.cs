@@ -23,7 +23,7 @@ namespace BibliotecaApresentacao.Controllers
             _pessoaAppServico = pessoaAppServico;
         }
 
-        public ActionResult Index()
+        public ActionResult Authentication()
         {
             return View();
         }
@@ -40,8 +40,8 @@ namespace BibliotecaApresentacao.Controllers
                 Session["Nome"] = pessoa.Nome;
                 return RedirectToAction("Index", "Home");
             }
-            ModelState.AddModelError("Login", "login inválido.");
-            return RedirectToAction("Index");
+            ModelState.AddModelError("login.invalido", "Login ou Senha inválido");
+            return View();
         }
 
         public ActionResult LogOut()
@@ -49,7 +49,7 @@ namespace BibliotecaApresentacao.Controllers
             FormsAuthentication.SignOut();
             HttpContext.Session.Abandon();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Authentication");
         }
 
         [AuthorizationFilter]

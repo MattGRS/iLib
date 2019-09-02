@@ -1,4 +1,4 @@
-﻿
+﻿@model BibliotecaApresentacao.ViewModels.DadosLoginViewModel
 @{
     ViewBag.Title = "Index";
     Layout = null;
@@ -46,15 +46,16 @@
                             </div>
                             <form action="~/DadosLogin/Authentication" method="post">
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Login" aria-label="Login" aria-describedby="basic-addon" name="login"/>
+                                    <input type="text" class="form-control" placeholder="Login" aria-label="Login" aria-describedby="basic-addon" name="login" required=""/>
                                 </div>
                                 </br>
                                 <div class="col">
-                                    <input type="password" class="form-control" placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon" name="senha"/>
+                                    <input type="password" class="form-control" placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon" name="senha" required=""/>
                                 </div>
                                 <div class="col">
-                                    <input class="btn btn-form btn-login" type="submit" value="Submit!"/>
+                                    <input class="btn btn-form btn-login" type="submit" value="Entrar!"/>
                                 </div>
+                                <div class="alert-danger text-center col-6" style="border-radius:10px; margin:0 0 30px 0;"> @Html.ValidationMessage("login.invalido", new { @class = "text-danger" })</div>
                             </form>
                         </div>
                     </div>

@@ -8,21 +8,21 @@
     <div class="col">
         <div class="row">
             <div class="col">
-                @Html.LabelFor(x => x.Nome, "Nome Completo: ", new { @class = "col-form-label"})
-                @Html.EditorFor(x => x.Nome, new { htmlAttributes = new {@class = "form-control"}})
-                @Html.ValidationMessageFor(x => x.Nome, "", new { @class = "text-danger"})
+                @Html.LabelFor(x => x.Nome, "Nome Completo: ", new { @class = "col-form-label" })
+                @Html.EditorFor(x => x.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.Nome, "", new { @class = "text-danger" })
             </div>
             <div class="col">
-                @Html.LabelFor(x => x.Cpf, "CPF: ", new { @class = "col-form-label"})
-                @Html.EditorFor(x => x.Cpf, new { htmlAttributes = new {@class = "form-control"}})
+                @Html.LabelFor(x => x.Cpf, "CPF: ", new { @class = "col-form-label" })
+                @Html.EditorFor(x => x.Cpf, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(x => x.Cpf, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="row">
             <div class="col">
-                @Html.LabelFor(x => x.DataDeNascimento, "Data de Nascimento: ", new {@class = "col-form-label" })
-                @Html.EditorFor(x => x.DataDeNascimento, new { htmlAttributes = new {@class = "form-control", @type = "date"}})
-                @Html.ValidationMessageFor(x => x.DataDeNascimento, "", new {@class = "text-danger" })
+                @Html.LabelFor(x => x.DataDeNascimento, "Data de Nascimento: ", new { @class = "col-form-label" })
+                @Html.EditorFor(x => x.DataDeNascimento, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                @Html.ValidationMessageFor(x => x.DataDeNascimento, "", new { @class = "text-danger" })
             </div>
             <div class="col">
                 @Html.LabelFor(x => x.Idade, "Idade: ", new { @class = "col-form-label" })
@@ -43,10 +43,10 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
-                <label class="col-form-label" for="estado">Estado: </label>
-                <select class="form-control" id="estado">
-                    <option>Selecione um Estado...</option>
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.Endereco.Municipio.EstadoId, "*Estado", new { @class = "col-form-label" })
+                <select id="estado" class="form-control" required="">
+                    <option disabled selected value="">Selecione um estado...</option>
                     @foreach (var estado in ViewBag.Estado)
                     {
                         <option value="@estado.EstadoId">@estado.NomeEstado</option>
@@ -54,19 +54,17 @@
                 </select>
             </div>
             <div class="col">
-                <label class="col-form-label" for="municipio">Município: </label>
-                <select class="form-control" id="municipio">
-                    <option>Selecione um Município...</option>
+                @Html.LabelFor(model => model.Endereco.MunicipioId, "*Município: ", new { @class = "col-form-label" })
+                <select id="municipio" class="form-control" required="">
+                    <option>Selecione um município...</option>
                 </select>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
-                <label class="col-form-label" for="endereco">Endereço: </label>
-                <select class="form-control col-md-9" id="endereco" name="EnderecoId">
-                    <option>Escolha um Endereço...</option>
-                </select>
-            </div>
+        <div>
+            @Html.LabelFor(model => model.EnderecoId, "*Endereço: ", new { @class = "col-form-label" })
+            <select name="EnderecoId" id="endereco" class="form-control col-md-7">
+                <option>Selecione um endereço...</option>
+            </select>
         </div>
     </div>
     <div class="col">
@@ -74,6 +72,43 @@
         <a class="btn btn-warning btn-sm btn-form" formnovalidate="formnovalidate" href="~/Pessoa/Index">Voltar</a>
     </div>
 }
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#estado").change(function () {
+            var id = $(this).children("option:selected").val();
+            $.ajax({
+                url: "/Editora/SelecionarMunicipios/" + id,
+                dataType: "JSON",
+                success: function (data) {
+                    $("#municipio").empty();
+                    $("#municipio").append('<option value="">Selecione um Município...</option>');
+                    $.each(data, function (index, element) {
+                        $("#municipio").append('<option value="' + element.MunicipioId + '">' + element.NomeMunicipio + '</option>');
+                    });
+                }
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $("#municipio").change(function () {
+            var id = $(this).children("option:selected").val();
+            $.ajax({
+                url: "/Editora/SelecionarEnderecos/" + id,
+                dataType: "JSON",
+                success: function (data) {
+                    $("#endereco").empty();
+                    $("#endereco").append('<option value="">Seleciona um Endereço...</option>');
+                    $.each(data, function (index, element) {
+                        $("#endereco").append('<option value="' + element.EnderecoId + '">' + element.Logradouro + ", " + element.NumeroResidencial + " - " + element.Bairro + '</option>');
+                    });
+                }
+            });
+        });
+    });
+</script>
 
 <!------------------------------------------------------Form HTML--------------------------------------------------------------------------------------->
 @*<form action="~/Pessoa/Create/@ViewBag.UsuarioId" method="post">
@@ -140,40 +175,3 @@
             <a class="btn btn-warning btn-sm btn-form" formnovalidate="formnovalidate" href="~/Pessoa/Index" >Voltar</a>
         </div>
     </form>*@
-
-<script src="~/Scripts/jquery-3.3.1.js"></script>
-<script>
-    $(document).ready(function () {
-        $("#estado").change(function () {
-            var id = $(this).children("option:selected").val();
-            $.ajax({
-                url: "/Editora/SelecionarMunicipios/" + id,
-                dataType: "JSON",
-                success: function (data) {
-                    $("#municipio").empty();
-                    $("#municipio").append('<option value="">Selecione um Município...</option>');
-                    $.each(data, function (index, element) {
-                        $("#municipio").append('<option value="' + element.MunicipioId + '">' + element.NomeMunicipio + '</option>');
-                    });
-                }
-            });
-        });
-    });
-
-    $(document).ready(function () {
-        $("#municipio").change(function () {
-            var id = $(this).children("option:selected").val();
-            $.ajax({
-                url: "/Editora/SelecionarEnderecos/" + id,
-                dataType: "JSON",
-                success: function (data) {
-                    $("#endereco").empty();
-                    $("#endereco").append('<option value="">Seleciona um Endereço...</option>');
-                    $.each(data, function (index, element) {
-                        $("#endereco").append('<option value="' + element.EnderecoId + '">' + element.Logradouro + ", " + element.NumeroResidencial + " - " + element.Bairro + '</option>');
-                    });
-                }
-            });
-        });
-    });
-</script>

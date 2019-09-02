@@ -12,7 +12,6 @@ namespace BibliotecaApresentacao.AutoMaper
             CreateMap<AssuntoViewModel, Assunto>();
             CreateMap<AutorViewModel, Autor>();
             CreateMap<ClassificacaoViewModel, Classificacao>();
-            CreateMap<CpfViewModel, CPF>();
             CreateMap<DadosLoginViewModel, DadosLogin>();
             CreateMap<EditoraViewModel, Editora>();
             CreateMap<EmprestimoViewModel, Emprestimo>();

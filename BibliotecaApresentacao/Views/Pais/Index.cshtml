@@ -20,8 +20,8 @@
     <tbody>
         @foreach (var pais in Model)
         {
-            <tr>
-                <td>@pais.NomePais</td>
+            <tr class="busca">
+                <td class="info-nome">@pais.NomePais</td>
                 <td class="col-md-1">
                     <a class="btn btn-warning btn-sm float-right" href="~/Pais/Edit/@pais.PaisId">Editar</a>
                 </td>

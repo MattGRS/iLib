@@ -16,7 +16,7 @@ namespace BibliotecaApresentacao.Filter
             {
                 filterContext.Result = new RedirectToRouteResult(
                     new RouteValueDictionary(
-                        new {action = "Index", controller ="DadosLogin"  })
+                        new {action = "Authentication", controller ="DadosLogin"  })
                     );
             }
         }

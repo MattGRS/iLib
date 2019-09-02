@@ -241,7 +241,6 @@
     <Compile Include="ViewModels\AssuntoViewModel.cs" />
     <Compile Include="ViewModels\AutorViewModel.cs" />
     <Compile Include="ViewModels\ClassificacaoViewModel.cs" />
-    <Compile Include="ViewModels\CpfViewModel.cs" />
     <Compile Include="ViewModels\DadosLoginViewModel.cs" />
     <Compile Include="ViewModels\EditoraViewModel.cs" />
     <Compile Include="ViewModels\EmprestimoViewModel.cs" />
@@ -2222,7 +2221,7 @@
     <Content Include="Views\Pessoa\Edit.cshtml" />
     <Content Include="Views\DadosLogin\Create.cshtml" />
     <Content Include="Views\Pessoa\Details.cshtml" />
-    <Content Include="Views\DadosLogin\Index.cshtml" />
+    <Content Include="Views\DadosLogin\Authentication.cshtml" />
     <Content Include="Views\Endereco\Details.cshtml" />
     <Content Include="Views\Editora\Details.cshtml" />
     <Content Include="Views\Livro\Details.cshtml" />
