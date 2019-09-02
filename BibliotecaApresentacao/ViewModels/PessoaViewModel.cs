@@ -17,12 +17,12 @@ namespace BibliotecaApresentacao.ViewModels
         [Required(ErrorMessage = "Campo CPF é obrigatório.")]
         [CPF(ErrorMessage = "CPF inválido")]
         public string Cpf { get; set; }
-
+        
         [DataType(DataType.DateTime, ErrorMessage = "Data inválida.")]
         [DisplayFormat(DataFormatString = "{0: dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-        [Required(ErrorMessage = "Campo Data de Nascimento é obrigatório.")]
+        [Required(ErrorMessage = "Campo Data de Nascimento é obrigatório."),]
         public DateTime DataDeNascimento { get; set; }
-
+        
         public int Idade { get; set; }
 
         [Required(ErrorMessage = "Campo Endereço é obrgiatório.")]

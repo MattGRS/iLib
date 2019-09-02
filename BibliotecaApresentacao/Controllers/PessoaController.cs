@@ -41,7 +41,7 @@ namespace BibliotecaApresentacao.Controllers
                 $" - {pessoaViewModel.Endereco.Bairro}";
             ViewBag.Municipio = pessoaViewModel.Endereco.Municipio.NomeMunicipio;
             ViewBag.Estado = pessoaViewModel.Endereco.Municipio.Estado.NomeEstado;
-            return View();
+            return View(pessoaViewModel);
         }
 
         public ActionResult Create(int id)

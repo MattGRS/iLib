@@ -6,7 +6,7 @@
 
 @using (Html.BeginForm($"Edit/{Model.PessoaId}", "Pessoa", FormMethod.Post))
 {
-    <input hidden name="DadosLoginId" value="@Model.DadosLoginId"/>
+    <input hidden name="DadosLoginId" value="@Model.DadosLoginId" />
     <div class="col">
         <div class="row">
             <div class="col">
@@ -23,7 +23,7 @@
         <div class="row">
             <div class="col">
                 @Html.LabelFor(x => x.DataDeNascimento, "Data de Nascimento: ", new { @class = "col-form-label" })
-                @Html.EditorFor(x => x.DataDeNascimento, new { htmlAttributes = new { @class = "form-control", @value = Model.DataDeNascimento, @type = "date" } })
+                @Html.EditorFor(x => x.DataDeNascimento, new { htmlAttributes = new { @class = "form-control", @value = Model.DataDeNascimento, @type = "date", @max = DateTime.Now } })
                 @Html.ValidationMessageFor(x => x.DataDeNascimento, "", new { @class = "text-danger" })
             </div>
             <div class="col">
@@ -44,36 +44,39 @@
                 @Html.ValidationMessageFor(x => x.Telefone, "", new { @class = "text-danger" })
             </div>
         </div>
+        <div>
+            @Html.LabelFor(x => x.Email, "E-mail: ", new { @class = "col-form-label" })
+            @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @class = "form-control", @type = "email", @value = Model.Email } })
+            @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+        </div>
         <div class="row">
             <div class="col">
-                <label class="col-form-label" for="estado">Estado: </label>
-                <select class="form-control" id="estado">
-                    <option>Selecione um Estado...</option>
+                @Html.LabelFor(model => model.Endereco.Municipio.EstadoId, "*Estado", new { @class = "col-form-label" })
+                <select id="estado" class="form-control" required="">
+                    <option disabled selected value="">Selecione um estado...</option>
                     @foreach (var estado in ViewBag.Estado)
                     {
-                        <option value="@estado.EstadoId" selected="@estado.EstadoId.Equals(Model.Endereco.Municipio.EstadoId)">@estado.NomeEstado</option>
+                        <option value="@estado.EstadoId">@estado.NomeEstado</option>
                     }
                 </select>
             </div>
             <div class="col">
-                <label class="col-form-label" for="municipio">Município: </label>
-                <select class="form-control" id="municipio">
-                    <option>@Model.Endereco.Municipio.NomeMunicipio</option>
+                @Html.LabelFor(model => model.Endereco.MunicipioId, "*Município: ", new { @class = "col-form-label" })
+                <select id="municipio" class="form-control" required="">
+                    <option>Selecione um município...</option>
                 </select>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
-                <label class="col-form-label" for="endereco">Endereço: </label>
-                <select class="form-control col-md-9" id="endereco" name="EnderecoId">
-                    <option>@Model.Endereco.Logradouro, @Model.Endereco.NumeroResidencial - @Model.Endereco.Bairro</option>
-                </select>
-            </div>
+        <div>
+            @Html.LabelFor(model => model.EnderecoId, "*Endereço: ", new { @class = "col-form-label" })
+            <select name="EnderecoId" id="endereco" class="form-control col-md-7">
+                <option>Selecione um endereço...</option>
+            </select>
         </div>
-    </div>
-    <div class="col">
-        <input class="btn btn-success btn-sm btn-form" type="submit" value="Salvar" />
-        <a class="btn btn-warning btn-sm btn-form" formnovalidate="formnovalidate" href="~/Pessoa/Index">Voltar</a>
+        <div class="col">
+            <input class="btn btn-success btn-sm btn-form" type="submit" value="Salvar" />
+            <a class="btn btn-warning btn-sm btn-form" formnovalidate="formnovalidate" href="~/Pessoa/Index">Voltar</a>
+        </div>
     </div>
 }
 

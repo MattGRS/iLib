@@ -48,7 +48,7 @@ namespace BibliotecaApresentacao.Controllers
         }
         public ActionResult Index()
         {
-            var emprestimoViewModel = Mapper.Map<IEnumerable<Emprestimo>, IEnumerable<EmprestimoViewModel>>(_emprestimoAppServico.ObterTodos().OrderByDescending(m => m.DataEmprestimo));
+            var emprestimoViewModel = Mapper.Map<IEnumerable<Emprestimo>, IEnumerable<EmprestimoViewModel>>(_emprestimoAppServico.ObterTodos().OrderBy(x => x.Status).ThenByDescending(m => m.DataEmprestimo));
 
             foreach (var emprestimo in emprestimoViewModel)
             {
@@ -82,6 +82,8 @@ namespace BibliotecaApresentacao.Controllers
 
                 return View(emprestimoViewModel);
             }
+
+            TempData["msg"] = "CPF não encontrado!";
 
             return RedirectToAction($"CreateStep1/{emprestimoViewModel.ExemplarLivroId}");
         }

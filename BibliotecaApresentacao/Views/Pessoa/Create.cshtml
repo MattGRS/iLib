@@ -21,8 +21,8 @@
         <div class="row">
             <div class="col">
                 @Html.LabelFor(x => x.DataDeNascimento, "Data de Nascimento: ", new { @class = "col-form-label" })
-                @Html.EditorFor(x => x.DataDeNascimento, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
-                @Html.ValidationMessageFor(x => x.DataDeNascimento, "", new { @class = "text-danger" })
+                @Html.EditorFor(x => x.DataDeNascimento, new { htmlAttributes = new { @class = "form-control", @type = "date", @max = DateTime.Now.ToString("dd/MM/yyyy")  } })
+                @Html.ValidationMessageFor(x => x.DataDeNascimento, "", new { @class = "text-danger"})
             </div>
             <div class="col">
                 @Html.LabelFor(x => x.Idade, "Idade: ", new { @class = "col-form-label" })
@@ -42,8 +42,13 @@
                 @Html.ValidationMessageFor(x => x.Telefone, "", new { @class = "text-danger" })
             </div>
         </div>
+        <div>
+            @Html.LabelFor(x => x.Email, "E-mail: ", new { @class = "col-form-label"})
+            @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @class = "form-control", @type = "email"} })
+            @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger"})
+        </div>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col">
                 @Html.LabelFor(model => model.Endereco.Municipio.EstadoId, "*Estado", new { @class = "col-form-label" })
                 <select id="estado" class="form-control" required="">
                     <option disabled selected value="">Selecione um estado...</option>

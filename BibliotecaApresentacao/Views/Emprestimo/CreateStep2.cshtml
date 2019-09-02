@@ -17,7 +17,7 @@
             </div>
             <div class="col">
                 <label class="col-form-label">Autor: </label>
-                <input readonly class="form-control" value="@Model.ExemplarLivro.Livro.Autor" />
+                <input readonly class="form-control" value="@Model.ExemplarLivro.Livro.Autor.NomeAutor" />
             </div>
         </div>
     </div>
@@ -25,11 +25,11 @@
         <div class="row">
             <div class="col">
                 <label class="col-form-label">Editora: </label>
-                <input readonly class="form-control" value="@Model.ExemplarLivro.Livro.Editora" />
+                <input readonly class="form-control" value="@Model.ExemplarLivro.Livro.Editora.NomeEditora" />
             </div>
             <div class="col">
                 <label class="col-form-label">Assunto: </label>
-                <input readonly class="form-control" value="@Model.ExemplarLivro.Livro.Assunto" />
+                <input readonly class="form-control" value="@Model.ExemplarLivro.Livro.Assunto.AssuntoObra" />
             </div>
         </div>
     </div>
@@ -37,11 +37,12 @@
         <div class="row">
             <div class="col">
                 <label class="col-form-label">Classificação: </label>
-                <input readonly class="form-control" value="@Model.ExemplarLivro.Livro.Classificacao" />
+                <input readonly class="form-control" value="@Model.ExemplarLivro.Livro.Classificacao.ClassificacaoObra
+                       " />
             </div>
             <div class="col">
                 <label class="col-form-label">Localização: </label>
-                <input readonly class="form-control" value="@Model.ExemplarLivro.Livro.Localizacao" />
+                <input readonly class="form-control" value="@Model.ExemplarLivro.Livro.Localizacao.LocalizacaoObra" />
             </div>
         </div>
     </div>
