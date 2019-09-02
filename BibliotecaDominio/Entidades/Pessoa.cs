@@ -51,5 +51,17 @@ namespace BibliotecaDominio.Entidades
             EnderecoId = enderecoId;
             DadosLoginId = dadosLoginId;
         }
+
+        public bool ValidaData(Pessoa pessoa)
+        {
+            var dataAtual = DateTime.Now;
+            int resultado = DateTime.Compare(pessoa.DataDeNascimento, dataAtual);
+
+            if (resultado < 0 || resultado == 0)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

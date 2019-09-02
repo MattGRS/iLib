@@ -16,14 +16,14 @@
             </div>
             <div class="col">
                 @Html.LabelFor(x => x.Cpf, "CPF: ", new { @class = "col-form-label" })
-                @Html.EditorFor(x => x.Cpf, new { htmlAttributes = new { @class = "form-control", @value = Model.Cpf } })
+                @Html.EditorFor(x => x.Cpf, new { htmlAttributes = new { @class = "form-control", @value = Model.Cpf, id = "cpf" } })
                 @Html.ValidationMessageFor(x => x.Cpf, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="row">
             <div class="col">
                 @Html.LabelFor(x => x.DataDeNascimento, "Data de Nascimento: ", new { @class = "col-form-label" })
-                @Html.EditorFor(x => x.DataDeNascimento, new { htmlAttributes = new { @class = "form-control", @value = Model.DataDeNascimento, @type = "date", @max = DateTime.Now } })
+                @Html.EditorFor(x => x.DataDeNascimento, new { htmlAttributes = new { @class = "form-control", @value = Model.DataDeNascimento, id ="data", @max = DateTime.Now } })
                 @Html.ValidationMessageFor(x => x.DataDeNascimento, "", new { @class = "text-danger" })
             </div>
             <div class="col">
@@ -40,7 +40,7 @@
             </div>
             <div class="col">
                 @Html.LabelFor(x => x.Telefone, "Telefone: ", new { @class = "col-form-label" })
-                @Html.EditorFor(x => x.Telefone, new { htmlAttributes = new { @class = "form-control", @value = Model.Telefone } })
+                @Html.EditorFor(x => x.Telefone, new { htmlAttributes = new { @class = "form-control", id = "telefone", @value = Model.Telefone } })
                 @Html.ValidationMessageFor(x => x.Telefone, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -53,10 +53,10 @@
             <div class="col">
                 @Html.LabelFor(model => model.Endereco.Municipio.EstadoId, "*Estado", new { @class = "col-form-label" })
                 <select id="estado" class="form-control" required="">
-                    <option disabled selected value="">Selecione um estado...</option>
+                    <option disabled value="">Selecione um estado...</option>
                     @foreach (var estado in ViewBag.Estado)
                     {
-                        <option value="@estado.EstadoId">@estado.NomeEstado</option>
+                        <option value="@estado.EstadoId" selected="@estado.EstadoId.Equals(Model.Endereco.Municipio.EstadoId)">@estado.NomeEstado</option>
                     }
                 </select>
             </div>
@@ -64,6 +64,7 @@
                 @Html.LabelFor(model => model.Endereco.MunicipioId, "*Município: ", new { @class = "col-form-label" })
                 <select id="municipio" class="form-control" required="">
                     <option>Selecione um município...</option>
+                    <option selected value="@Model.Endereco.MunicipioId">@Model.Endereco.Municipio.NomeMunicipio</option>
                 </select>
             </div>
         </div>
@@ -71,9 +72,10 @@
             @Html.LabelFor(model => model.EnderecoId, "*Endereço: ", new { @class = "col-form-label" })
             <select name="EnderecoId" id="endereco" class="form-control col-md-7">
                 <option>Selecione um endereço...</option>
+                <option selected value="@Model.Endereco.EnderecoId">@Model.Endereco.Logradouro, @Model.Endereco.NumeroResidencial - @Model.Endereco.Bairro</option>
             </select>
         </div>
-        <div class="col">
+        <div>
             <input class="btn btn-success btn-sm btn-form" type="submit" value="Salvar" />
             <a class="btn btn-warning btn-sm btn-form" formnovalidate="formnovalidate" href="~/Pessoa/Index">Voltar</a>
         </div>
@@ -147,40 +149,3 @@
             <input class="btn btn-success btn-sm btn-form" type="submit" value="Salvar" />
         </div>
     </form>*@
-
-<script src="~/Scripts/jquery-3.3.1.js"></script>
-<script>
-    $(document).ready(function () {
-        $("#estado").change(function () {
-            var id = $(this).children("option:selected").val();
-            $.ajax({
-                url: "/Editora/SelecionarMunicipios/" + id,
-                dataType: "JSON",
-                success: function (data) {
-                    $("#municipio").empty();
-                    $("#municipio").append('<option value="">Selecione um Município...</option>');
-                    $.each(data, function (index, element) {
-                        $("#municipio").append('<option value="' + element.MunicipioId + '">' + element.NomeMunicipio + '</option>');
-                    });
-                }
-            });
-        });
-    });
-
-    $(document).ready(function () {
-        $("#municipio").change(function () {
-            var id = $(this).children("option:selected").val();
-            $.ajax({
-                url: "/Editora/SelecionarEnderecos/" + id,
-                dataType: "JSON",
-                success: function (data) {
-                    $("#endereco").empty();
-                    $("#endereco").append('<option value="">Seleciona um Endereço...</option>');
-                    $.each(data, function (index, element) {
-                        $("#endereco").append('<option value="' + element.EnderecoId + '">' + element.Logradouro + ", " + element.NumeroResidencial + " - " + element.Bairro + '</option>');
-                    });
-                }
-            });
-        });
-    });
-</script>

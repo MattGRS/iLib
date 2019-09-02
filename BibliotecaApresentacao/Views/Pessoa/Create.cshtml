@@ -3,6 +3,15 @@
     ViewBag.Title = "Create";
 }
 
+@if (TempData["msg"] != null)
+{
+    <span id="mensagem" class="alert-danger alert-heading">
+        <div class="alert alert-danger" role="alert">
+            @TempData["msg"]
+        </div>
+    </span>
+}
+
 @using (Html.BeginForm($"Create/{ViewBag.UsuarioId}", "Pessoa", FormMethod.Post))
 {
     <div class="col">
@@ -14,19 +23,19 @@
             </div>
             <div class="col">
                 @Html.LabelFor(x => x.Cpf, "CPF: ", new { @class = "col-form-label" })
-                @Html.EditorFor(x => x.Cpf, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(x => x.Cpf, new { htmlAttributes = new { @class = "form-control", id = "cpf" } })
                 @Html.ValidationMessageFor(x => x.Cpf, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="row">
             <div class="col">
                 @Html.LabelFor(x => x.DataDeNascimento, "Data de Nascimento: ", new { @class = "col-form-label" })
-                @Html.EditorFor(x => x.DataDeNascimento, new { htmlAttributes = new { @class = "form-control", @type = "date", @max = DateTime.Now.ToString("dd/MM/yyyy")  } })
-                @Html.ValidationMessageFor(x => x.DataDeNascimento, "", new { @class = "text-danger"})
+                @Html.EditorFor(x => x.DataDeNascimento, new { htmlAttributes = new { @class = "form-control", id = "data" } })
+                @Html.ValidationMessageFor(x => x.DataDeNascimento, "", new { @class = "text-danger" })
             </div>
             <div class="col">
                 @Html.LabelFor(x => x.Idade, "Idade: ", new { @class = "col-form-label" })
-                @Html.EditorFor(x => x.Idade, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(x => x.Idade, new { htmlAttributes = new { @class = "form-control", @type = "number", @min = "1" } })
                 @Html.ValidationMessageFor(x => x.Idade, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -38,14 +47,14 @@
             </div>
             <div class="col">
                 @Html.LabelFor(x => x.Telefone, "Telefone: ", new { @class = "col-form-label" })
-                @Html.EditorFor(x => x.Telefone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(x => x.Telefone, new { htmlAttributes = new { @class = "form-control", id = "telefone" } })
                 @Html.ValidationMessageFor(x => x.Telefone, "", new { @class = "text-danger" })
             </div>
         </div>
         <div>
-            @Html.LabelFor(x => x.Email, "E-mail: ", new { @class = "col-form-label"})
-            @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @class = "form-control", @type = "email"} })
-            @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger"})
+            @Html.LabelFor(x => x.Email, "E-mail: ", new { @class = "col-form-label" })
+            @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @class = "form-control", @type = "email" } })
+            @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
         </div>
         <div class="row">
             <div class="col">
@@ -78,42 +87,6 @@
     </div>
 }
 
-<script src="~/Scripts/jquery-3.3.1.js"></script>
-<script>
-    $(document).ready(function () {
-        $("#estado").change(function () {
-            var id = $(this).children("option:selected").val();
-            $.ajax({
-                url: "/Editora/SelecionarMunicipios/" + id,
-                dataType: "JSON",
-                success: function (data) {
-                    $("#municipio").empty();
-                    $("#municipio").append('<option value="">Selecione um Município...</option>');
-                    $.each(data, function (index, element) {
-                        $("#municipio").append('<option value="' + element.MunicipioId + '">' + element.NomeMunicipio + '</option>');
-                    });
-                }
-            });
-        });
-    });
-
-    $(document).ready(function () {
-        $("#municipio").change(function () {
-            var id = $(this).children("option:selected").val();
-            $.ajax({
-                url: "/Editora/SelecionarEnderecos/" + id,
-                dataType: "JSON",
-                success: function (data) {
-                    $("#endereco").empty();
-                    $("#endereco").append('<option value="">Seleciona um Endereço...</option>');
-                    $.each(data, function (index, element) {
-                        $("#endereco").append('<option value="' + element.EnderecoId + '">' + element.Logradouro + ", " + element.NumeroResidencial + " - " + element.Bairro + '</option>');
-                    });
-                }
-            });
-        });
-    });
-</script>
 
 <!------------------------------------------------------Form HTML--------------------------------------------------------------------------------------->
 @*<form action="~/Pessoa/Create/@ViewBag.UsuarioId" method="post">

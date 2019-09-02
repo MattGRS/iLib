@@ -57,9 +57,14 @@ namespace BibliotecaApresentacao.Controllers
             {
                 pessoaViewModel.DadosLoginId = id;
                 var pessoaEntidade = Mapper.Map<PessoaViewModel, Pessoa>(pessoaViewModel);
-                _pessoaAppServico.Adicionar(pessoaEntidade);
+                if (pessoaEntidade.ValidaData(pessoaEntidade))
+                {
+                    _pessoaAppServico.Adicionar(pessoaEntidade);
+                    return RedirectToAction("Index");
 
-                return RedirectToAction("Index");
+                }
+
+                TempData["msg"] = "Data de Nascimento inválida!";
             }
 
             GeraViewBagCreate(id);
