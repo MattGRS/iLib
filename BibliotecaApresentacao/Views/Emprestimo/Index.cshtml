@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<BibliotecaApresentacao.ViewModels.EmprestimoViewModel>
+@using BibliotecaDominio.Entidades.ObjetosValor
 
 @{
     ViewBag.Title = "Index";
@@ -13,6 +14,7 @@
             <th>Devolução</th>
             <th>Livro</th>
             <th>Usuário</th>
+            <th>Status</th>
             <th></th>
         </tr>
     </thead>
@@ -24,6 +26,24 @@
                 <td scope="col" class="col-md-1">@emprestimo.DataDevolucaoPrevista.ToShortDateString()</td>
                 <td scope="col" class="col-md-3 info-nome">@emprestimo.ExemplarLivro.Livro.Titulo</td>
                 <td scope="col" class="col-md-3">@emprestimo.Pessoa.Nome</td>
+                @if (emprestimo.Status == StatusEmprestimo.Aberto && DateTime.Now < emprestimo.DataDevolucaoPrevista)
+                {
+                    <td class="col-md-1">
+                        <button disabled class="btn btn-outline-success btn-form btn-sm">@emprestimo.Status</button>
+                    </td>
+                }
+                @if (emprestimo.Status == StatusEmprestimo.Finalizado)
+                {
+                    <td class="col-md-1">
+                        <button disabled class="btn btn-outline-dark btn-form btn-sm">@emprestimo.Status</button>
+                    </td>
+                }
+                @if (DateTime.Now > emprestimo.DataDevolucaoPrevista && emprestimo.Status == StatusEmprestimo.Aberto)
+                {
+                    <td class="col-md-1">
+                        <button disabled class="btn btn-outline-danger btn-form btn-sm"><b>Atrasado!!</b></button>
+                    </td>
+                }
                 <td class="col-md-1">
                     <a class="btn btn-secondary btn-sm float-right" href="~/Emprestimo/Details/@emprestimo.EmprestimoId">[+] mais</a>
                 </td>

@@ -75,7 +75,9 @@ namespace BibliotecaApresentacao.Controllers
                 return RedirectToAction("Index");
             }
 
-            return RedirectToAction("Index", "Erro", new { msg = $"O Iten {pessoaEntidade.Nome} não pode ser removido pois existe um usuário vinculado" });
+            TempData["msg"] = $"O Item {pessoaEntidade.Nome} não pode ser removido pois existe um empréstimo vinculado!";
+
+            return RedirectToAction("Index");
         }
 
         public ActionResult Edit(int id)

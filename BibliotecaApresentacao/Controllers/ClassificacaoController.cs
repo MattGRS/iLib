@@ -52,7 +52,7 @@ namespace BibliotecaApresentacao.Controllers
                 return RedirectToAction("Index");
             }
 
-            TempData["msg"] = $"O Iten {classificacaoEntidade.ClassificacaoObra} não pode ser removido pois existe um livro vinculado";
+            TempData["msg"] = $"O Item {classificacaoEntidade.ClassificacaoObra} não pode ser removido pois existe um livro vinculado!";
 
             return RedirectToAction("Index");
         }

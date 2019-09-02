@@ -5,6 +5,15 @@
     ViewBag.Title = "Index";
 }
 
+@if (TempData["msg"] != null)
+{
+    <span id="mensagem" class="alert-danger alert-heading">
+        <div class="alert alert-danger" role="alert">
+            @TempData["msg"]
+        </div>
+    </span>
+}
+
 <div class="col">
     <div>
         <h1>Lista de Exemplares</h1>

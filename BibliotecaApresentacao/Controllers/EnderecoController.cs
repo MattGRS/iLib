@@ -59,7 +59,9 @@ namespace BibliotecaApresentacao.Controllers
                 return RedirectToAction("Index");
             }
 
-            return RedirectToAction("Index", "Erro", new { msg = $"O Iten {enderecoEntidade.CEP} não pode ser removido pois existe uma pessoa ou editora vinculado" });
+            TempData["msg"] = $"O Item {enderecoEntidade.CEP} não pode ser removido pois existe uma pessoa ou editora vinculado!";
+
+            return RedirectToAction("Index");
         }
 
         public ActionResult Edit(int id)

@@ -52,7 +52,9 @@ namespace BibliotecaApresentacao.Controllers
                 return RedirectToAction("Index");
             }
 
-            return RedirectToAction("Index", "Erro", new { msg = $"O Iten {paisEntidade.NomePais} não pode ser removido pois existe um estado vinculado" });
+            TempData["msg"] = $"O Item {paisEntidade.NomePais} não pode ser removido pois existe um estado vinculado!";
+
+            return RedirectToAction("Index");
         }
 
         public ActionResult Edit(int id)

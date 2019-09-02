@@ -3,6 +3,15 @@
     ViewBag.Title = "Index";
 }
 
+@if (TempData["msg"] != null)
+{
+    <span id="mensagem" class="alert-danger alert-heading">
+        <div class="alert alert-danger" role="alert">
+            @TempData["msg"]
+        </div>
+    </span>
+}
+
 <div class="col">
     <div class="row">
         <div class="col-10">
@@ -39,14 +48,14 @@
                     <a class="btn btn-secondary btn-sm float-right" href="~/Livro/Details/@livro.LivroId">[+] mais</a>
                 </td>
                 @*<td>
-                    <a class="btn btn-warning" href="~/Livro/Edit/@livro.LivroId">Editar</a>
-                </td>
-                <td>
-                    <a class="btn btn-danger" href="~/Livro/Delete/@livro.LivroId">Remover</a>
-                </td>
-                <td>
-                    <a class="btn btn-primary" href="~/ExemplarLivro/Index/@livro.LivroId">Listar</a>
-                </td>*@
+                        <a class="btn btn-warning" href="~/Livro/Edit/@livro.LivroId">Editar</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger" href="~/Livro/Delete/@livro.LivroId">Remover</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" href="~/ExemplarLivro/Index/@livro.LivroId">Listar</a>
+                    </td>*@
             </tr>
         }
     </tbody>

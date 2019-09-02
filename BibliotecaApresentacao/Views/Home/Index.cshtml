@@ -1,40 +1,67 @@
-﻿@{
+﻿@using BibliotecaDominio.Entidades.ObjetosValor
+
+@{
     ViewBag.Title = "Home Page";
 }
 
 <div>
-    <h3>Bem-vindo @Session["Nome"].ToString()!</h3>
+    <h3>Bem-vindo, @Session["Nome"].ToString()!</h3>
 </div>
-<div class="card col">
-    <div class="card-header">
-        <h5>Empréstimos em aberto</h5>
-    </div>
-    <div class="card-body">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Data Prevista</th>
-                    <th>Título</th>
-                    <th>Registro</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var emprestimo in ViewBag.Emprestimos)
-                {
-                    <tr>
-                        <td>@emprestimo.DataDevolucaoPrevista.ToShortDateString()</td>
-                        <td>@emprestimo.ExemplarLivro.Livro.Titulo</td>
-                        <td>@emprestimo.ExemplarLivro.Registro</td>
-                        <td>
-                            <a class="btn btn-secondary btn-sm btn-form" href="~/Emprestimo/Details/@emprestimo.EmprestimoId">[+] mais</a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-    <div class="card-footer">
-        <a class="btn btn-primary btn-sm btn-form" href="~/Emprestimo/Index">Lista Geral</a>
+<div class="col">
+    <div class="row">
+        <div class="col">
+            <div class="card col">
+                <div class="card-header">
+                    <h5>Empréstimos em aberto</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Data Prevista</th>
+                                <th>Título</th>
+                                <th>Registro</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var emprestimo in ViewBag.Emprestimos)
+                            {
+                                <tr>
+                                    <td>@emprestimo.DataDevolucaoPrevista.ToShortDateString()</td>
+                                    <td>@emprestimo.ExemplarLivro.Livro.Titulo</td>
+                                    <td>@emprestimo.ExemplarLivro.Registro</td>
+                                    @if (emprestimo.Status == StatusEmprestimo.Aberto && DateTime.Now < emprestimo.DataDevolucaoPrevista)
+                                    {
+                                        <td class="col-md-1">
+                                            <button disabled class="btn btn-outline-success btn-form btn-sm">@emprestimo.Status</button>
+                                        </td>
+                                    }
+                                    @if (emprestimo.Status == StatusEmprestimo.Finalizado)
+                                    {
+                                        <td class="col-md-1">
+                                            <button disabled class="btn btn-outline-dark btn-form btn-sm">@emprestimo.Status</button>
+                                        </td>
+                                    }
+                                    @if (DateTime.Now > emprestimo.DataDevolucaoPrevista && emprestimo.Status == StatusEmprestimo.Aberto)
+                                    {
+                                        <td class="col-md-1">
+                                            <button disabled class="btn btn-outline-danger btn-form btn-sm"><b>Atrasado!!</b></button>
+                                        </td>
+                                    }
+                                    <td>
+                                        <a class="btn btn-secondary btn-sm btn-form float-right" href="~/Emprestimo/Details/@emprestimo.EmprestimoId">[+] mais</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-primary btn-sm btn-form" href="~/Emprestimo/Index">Lista Geral</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

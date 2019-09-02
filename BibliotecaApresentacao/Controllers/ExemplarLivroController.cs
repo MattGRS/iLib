@@ -71,7 +71,9 @@ namespace BibliotecaApresentacao.Controllers
                 return RedirectToAction($"Index/{exemplarLivroEntidade.LivroId}");
             }
 
-            return RedirectToAction("Index", "Erro", new { msg = $"O Iten {exemplarLivroEntidade.Registro} não pode ser removido pois existe um empréstimo em aberto vinculado" });
+            TempData["msg"] = $"O Item {exemplarLivroEntidade.Registro} não pode ser removido pois existe um empréstimo em aberto vinculado!";
+
+            return RedirectToAction("Index");
         }
 
         public ActionResult Edit(int id)
