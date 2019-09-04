@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-md-3">
                     @Html.LabelFor(model => model.CEP, "*CEP:", new { @class = "col-form-label" })
-                    @Html.EditorFor(model => model.CEP, new { htmlAttributes = new { @class = "form-control", @value = ViewBag.Endereco.CEP, @placeholder = "Apenas Números", @type = "search", id = "cep", @maxlength = "8", @pattern = "[0-9]+$", @required = "" } })
+                    @Html.EditorFor(model => model.CEP, new { htmlAttributes = new { @class = "form-control", @value = ViewBag.Endereco.CEP, id = "cep", @placeholder = "Apenas Números", @required = "" } })
                     @Html.ValidationMessageFor(model => model.CEP, "", new { @class = "text-danger" })
                 </div>
                 <div class="col-sm-1" style="padding-top: 25px;">

@@ -74,7 +74,7 @@
         <div class="row">
             <div class="col">
                 @Html.LabelFor(model => model.Pessoa.Cpf, "Digite o CPF do Usuário", new { @class = "col-form-label" })
-                @Html.EditorFor(model => model.Pessoa.Cpf, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Pessoa.Cpf, new { htmlAttributes = new { @class = "form-control", @id = "cpf" } })
             </div>
             <div class="col">
                 <input type="submit" class="btn btn-primary btn-sm float-xl-left" style="margin-top: 36px;" value="Proximo" />
