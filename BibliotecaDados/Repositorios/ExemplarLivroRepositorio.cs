@@ -12,6 +12,10 @@ namespace BibliotecaDados.Repositorios
     {
         public new bool Remover(ExemplarLivro exemplarLivro)
         {
+            if (Db.Emprestimos.ToList().Exists(x => x.ExemplarLivroId == exemplarLivro.ExemplarLivroId))
+            {
+                return false;
+            }
             Db.Exemplares.Remove(exemplarLivro);
             Db.SaveChanges();
             return true;

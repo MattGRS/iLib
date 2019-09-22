@@ -1,4 +1,5 @@
 ﻿@model BibliotecaApresentacao.ViewModels.EmprestimoViewModel
+@using BibliotecaDominio.Entidades.ObjetosValor
 @{
     ViewBag.Title = "Details";
 }
@@ -13,11 +14,14 @@
             <div class="col-md-1">
                 <a class="btn btn-primary btn-sm btn-form float-right" href="~/Emprestimo/Index">Voltar</a>
             </div>
-            @if (Model.DataDevolucaoRealizada.ToString() == "01/01/0001 00:00:00")
+            @if (Model.Status == StatusEmprestimo.Aberto)
             {
-                <div class="col-md-1">
-                    <a class="btn btn-success btn-sm btn-form float-right" href="~/Emprestimo/Renew/@Model.EmprestimoId">Renovar</a>
-                </div>
+                if (Model.Status == StatusEmprestimo.Aberto && Model.DataDevolucaoPrevista > DateTime.Now)
+                {
+                    <div class="col-md-1">
+                        <a class="btn btn-success btn-sm btn-form float-right" href="~/Emprestimo/Renew/@Model.EmprestimoId">Renovar</a>
+                    </div>
+                }
                 <div class="col-md-1">
                     <a class="btn btn-info btn-sm btn-form float-right" href="~/Emprestimo/Return/@Model.ExemplarLivroId">Devolver</a>
                 </div>
