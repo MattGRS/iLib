@@ -43,21 +43,22 @@ namespace BibliotecaDominio.Entidades
         {
 
         }
-        public Pessoa(int pessoaId, string nome, string cpf, int enderecoId, int dadosLoginId)
+        public Pessoa(int pessoaId, string nome, string cpf, DateTime dataNascimento, int enderecoId, int dadosLoginId)
         {
             PessoaId = pessoaId;
             Nome = nome;
             Cpf = cpf;
+            DataDeNascimento = dataNascimento;
             EnderecoId = enderecoId;
             DadosLoginId = dadosLoginId;
         }
 
-        public bool ValidaData(Pessoa pessoa)
+        public static bool ValidaData(Pessoa pessoa)
         {
-            var dataAtual = DateTime.Now;
+            var dataAtual = DateTime.Now.Date;
             int resultado = DateTime.Compare(pessoa.DataDeNascimento, dataAtual);
 
-            if (resultado < 0 || resultado == 0)
+            if (resultado < 0)
             {
                 return true;
             }
